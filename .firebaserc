@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-trainer-842fa": {
+      "hosting": {
+        "MyTrainer": [
+          "my-trainer-842fa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-trainer-842fa"
+  }
+}
