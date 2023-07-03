@@ -14,6 +14,7 @@ import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.compo
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { HomeComponent } from './modules/home/home.component';
 
 
 
@@ -25,7 +26,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     CrearrutinasComponent,
     EjerciciosComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

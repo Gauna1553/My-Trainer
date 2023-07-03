@@ -1,7 +1,9 @@
+/*Los links se separan*/
 menu ul li a{
     display: block;
     padding: 10px 15px;
 }
+/*Los links quedan uno al lado del otro*/
 menu ul{
     display: flex;
     list-style: none;
