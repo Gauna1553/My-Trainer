@@ -1,0 +1,8 @@
+menu ul li a{
+    display: block;
+    padding: 10px 15px;
+}
+menu ul{
+    display: flex;
+    list-style: none;
+}
