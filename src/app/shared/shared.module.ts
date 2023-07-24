@@ -5,7 +5,7 @@ import { PerfilComponent } from '../modules/perfil/perfil.component';
 import { RutinasComponent } from '../modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from '../modules/crearrutinas/crearrutinas.component';
 import { EjerciciosComponent } from '../modules/ejercicios/ejercicios.component';
-
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +13,11 @@ import { EjerciciosComponent } from '../modules/ejercicios/ejercicios.component'
     PerfilComponent,
     RutinasComponent,
     CrearrutinasComponent,
-    EjerciciosComponent
+    EjerciciosComponent,
+    NavbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class SharedModule { }

@@ -8,14 +8,12 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HomeComponent } from './modules/home/home.component';
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent
   ],
   imports: [
