@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeComponent } from './modules/home/home.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
@@ -17,7 +16,6 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent,
     HomeComponent
   ],
   imports: [
