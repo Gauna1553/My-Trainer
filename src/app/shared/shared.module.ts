@@ -6,10 +6,14 @@ import { RutinasComponent } from '../modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from '../modules/crearrutinas/crearrutinas.component';
 import { EjerciciosComponent } from '../modules/ejercicios/ejercicios.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from '../modules/home/home.component';
+import { MenubarModule } from 'primeng/menubar';
+
 
 @NgModule({
   declarations: [
     FooterComponent,
+    HomeComponent,
     PerfilComponent,
     RutinasComponent,
     CrearrutinasComponent,
@@ -18,6 +22,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     CommonModule,
+    MenubarModule
   ]
 })
 export class SharedModule { }
