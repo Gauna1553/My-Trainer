@@ -104,12 +104,12 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Rutinas',
               icon: 'pi pi-fw pi-calendar',
-              routerLink:"/rutinas"
-              /*items: [
+              routerLink:"/rutinas",
+              items: [
                   {
-                      label: 'Edit',
+                      label: 'Pecho',
                       icon: 'pi pi-fw pi-pencil',
-                      items: [
+                      /*items: [
                           {
                               label: 'Save',
                               icon: 'pi pi-fw pi-calendar-plus'
@@ -118,19 +118,19 @@ export class NavbarComponent implements OnInit{
                               label: 'Delete',
                               icon: 'pi pi-fw pi-calendar-minus'
                           }
-                      ]
+                      ]*/
                   },
                   {
-                      label: 'Archieve',
+                      label: 'Espalda',
                       icon: 'pi pi-fw pi-calendar-times',
-                      items: [
+                      /*items: [
                           {
                               label: 'Remove',
                               icon: 'pi pi-fw pi-calendar-minus'
                           }
-                      ]
+                      ]*/
                   }
-              ]*/
+              ]
           },
            {
                label: 'Perfil',
