@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Inicio',
               icon: 'pi pi-fw pi-file',
+              routerLink:"/",
               /*items: [
                   {
                       label: 'New',
@@ -45,6 +46,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Ejercicios',
               icon: 'pi pi-fw pi-pencil',
+              routerLink:"/ejercicios"
               /*items: [
                   {
                       label: 'Left',
@@ -67,6 +69,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Crear Rutina',
               icon: 'pi pi-fw pi-user',
+              routerLink:"/crearrutinas"
               /*items: [
                   {
                       label: 'New',
@@ -101,6 +104,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Rutinas',
               icon: 'pi pi-fw pi-calendar',
+              routerLink:"/rutinas"
               /*items: [
                   {
                       label: 'Edit',
@@ -130,7 +134,8 @@ export class NavbarComponent implements OnInit{
           },
            {
                label: 'Perfil',
-               icon: 'pi pi-fw pi-power-off'
+               icon: 'pi pi-fw pi-power-off',
+               routerLink:"/perfil"
            }
       ];
   }
