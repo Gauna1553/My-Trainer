@@ -15,7 +15,6 @@ import { RutinasComponent } from './modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CommonModule } from '@angular/common';
-import { MenubarModule } from 'primeng/menubar';
 
 
 @NgModule({
@@ -33,7 +32,6 @@ import { MenubarModule } from 'primeng/menubar';
     AppRoutingModule,
     CommonModule,
     SharedModule,
-    MenubarModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

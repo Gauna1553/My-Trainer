@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Inicio',
               icon: 'pi pi-fw pi-file',
+              routerLink:"/",
               /*items: [
                   {
                       label: 'New',
@@ -45,6 +46,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Ejercicios',
               icon: 'pi pi-fw pi-pencil',
+              routerLink:"/ejercicios"
               /*items: [
                   {
                       label: 'Left',
@@ -67,6 +69,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Crear Rutina',
               icon: 'pi pi-fw pi-user',
+              routerLink:"/crearrutinas"
               /*items: [
                   {
                       label: 'New',
@@ -101,11 +104,12 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Rutinas',
               icon: 'pi pi-fw pi-calendar',
-              /*items: [
+              routerLink:"/rutinas",
+              items: [
                   {
-                      label: 'Edit',
+                      label: 'Pecho',
                       icon: 'pi pi-fw pi-pencil',
-                      items: [
+                      /*items: [
                           {
                               label: 'Save',
                               icon: 'pi pi-fw pi-calendar-plus'
@@ -114,23 +118,24 @@ export class NavbarComponent implements OnInit{
                               label: 'Delete',
                               icon: 'pi pi-fw pi-calendar-minus'
                           }
-                      ]
+                      ]*/
                   },
                   {
-                      label: 'Archieve',
+                      label: 'Espalda',
                       icon: 'pi pi-fw pi-calendar-times',
-                      items: [
+                      /*items: [
                           {
                               label: 'Remove',
                               icon: 'pi pi-fw pi-calendar-minus'
                           }
-                      ]
+                      ]*/
                   }
-              ]*/
+              ]
           },
            {
                label: 'Perfil',
-               icon: 'pi pi-fw pi-power-off'
+               icon: 'pi pi-fw pi-power-off',
+               routerLink:"/perfil"
            }
       ];
   }
