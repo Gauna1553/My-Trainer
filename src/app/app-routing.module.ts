@@ -7,7 +7,7 @@ import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.compo
 import { HomeComponent } from './modules/home/home.component';
 
 const routes: Routes = [
-  //lazyloading
+   //lazyloading
   {path: "auth",
   loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},{
   path: '', component: HomeComponent},{   //ruta de home
