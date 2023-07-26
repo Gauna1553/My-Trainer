@@ -12,9 +12,9 @@ export class NavbarComponent implements OnInit{
   ngOnInit() {
       this.items = [
           {
-              label: 'File',
+              label: 'Inicio',
               icon: 'pi pi-fw pi-file',
-              items: [
+              /*items: [
                   {
                       label: 'New',
                       icon: 'pi pi-fw pi-plus',
@@ -40,12 +40,12 @@ export class NavbarComponent implements OnInit{
                       label: 'Export',
                       icon: 'pi pi-fw pi-external-link'
                   }
-              ]
+              ]*/
           },
           {
-              label: 'Edit',
+              label: 'Ejercicios',
               icon: 'pi pi-fw pi-pencil',
-              items: [
+              /*items: [
                   {
                       label: 'Left',
                       icon: 'pi pi-fw pi-align-left'
@@ -62,12 +62,12 @@ export class NavbarComponent implements OnInit{
                       label: 'Justify',
                       icon: 'pi pi-fw pi-align-justify'
                   }
-              ]
+              ]*/
           },
           {
-              label: 'Users',
+              label: 'Crear Rutina',
               icon: 'pi pi-fw pi-user',
-              items: [
+              /*items: [
                   {
                       label: 'New',
                       icon: 'pi pi-fw pi-user-plus'
@@ -96,12 +96,12 @@ export class NavbarComponent implements OnInit{
                           }
                       ]
                   }
-              ]
+              ]*/
           },
           {
-              label: 'Events',
+              label: 'Rutinas',
               icon: 'pi pi-fw pi-calendar',
-              items: [
+              /*items: [
                   {
                       label: 'Edit',
                       icon: 'pi pi-fw pi-pencil',
@@ -126,12 +126,12 @@ export class NavbarComponent implements OnInit{
                           }
                       ]
                   }
-              ]
+              ]*/
           },
-          {
-              label: 'Quit',
-              icon: 'pi pi-fw pi-power-off'
-          }
+           {
+               label: 'Perfil',
+               icon: 'pi pi-fw pi-power-off'
+           }
       ];
   }
 }
