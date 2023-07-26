@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
+
+
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-root',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
