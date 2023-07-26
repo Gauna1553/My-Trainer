@@ -6,6 +6,7 @@ import { RutinasComponent } from '../modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from '../modules/crearrutinas/crearrutinas.component';
 import { EjerciciosComponent } from '../modules/ejercicios/ejercicios.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MenubarModule} from 'primeng/menubar'
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     CommonModule,
+    MenubarModule
   ],
   exports:[NavbarComponent]
 })
