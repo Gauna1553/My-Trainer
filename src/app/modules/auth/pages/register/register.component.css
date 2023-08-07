@@ -54,11 +54,11 @@
   }
   
   .signin a {
-    color: #E6C492;
+    color: #3D494C;
   }
   
   .signin a:hover {
-    text-decoration: underline royalblue;
+    text-decoration: underline #4B595D;
   }
   
   .flex {
@@ -107,7 +107,7 @@
   .submit {
     border: none;
     outline: none;
-    background-color: royalblue;
+    background-color: #96998C;
     padding: 10px;
     border-radius: 10px;
     color: #fff;
@@ -116,7 +116,7 @@
 }
 
 .submit:hover {
-    background-color: rgb(56, 90, 194);
+    background-color: #3D494C;
 }
 
 @keyframes pulse {
