@@ -72,12 +72,6 @@
       text-decoration: underline royalblue;
     }
     
-    .flex {
-      display: flex;
-      width: 100%;
-      gap: 6px;
-    }
-    
     .form label {
       position: relative;
     }
@@ -125,6 +119,17 @@
       font-size: 16px;
       transform: .3s ease;
   }
+
+  .crearc {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 11px;
+    transform: .3s ease;
+}
   
   .submit:hover {
       background-color: rgb(56, 90, 194);

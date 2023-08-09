@@ -33,28 +33,21 @@
     </div> -->
 
     <form class="form">
-        <p class="title">Registrarse</p>
-        <p class="message">Crea un nuevo usuario</p>
-        <div class="flex">
+        <p class="title">Login</p>
+        <p class="message">Inicia Sesion</p>
+       
             <label>
                 <input required="" placeholder="" type="text" class="input">
                 <span>Nombre</span>
             </label>
-        </div>  
-        <label>
-            <input required="" placeholder="" type="email" class="input">
-            <span>Email</span>
-        </label> 
+      
+         
             
         <label>
             <input required="" placeholder="" type="password" class="input">
             <span>Contraseña</span>
         </label>
-        <label>
-            <input required="" placeholder="" type="password" class="input">
-            <span>Confirmar Contraseña</span>
-        </label>
-        <button class="submit">Crear Cuenta</button>
-        <p class="signin">Ya tienes una cuenta creada? <a href="../login/login.component.html">Iniciar Sesion</a> </p>
+        <button class="submit">Entrar</button>       
 </form>
+<p class="signin">¿No tienes una cuenta? <button class="submit" routerLink="../register">Crea una cuenta</button></p>
     
