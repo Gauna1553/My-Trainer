@@ -5,6 +5,8 @@ import { RutinasComponent } from './modules/rutinas/rutinas.component';
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
 import { HomeComponent } from './modules/home/home.component';
+import { RegisterComponent } from './modules/auth/pages/register/register.component';
+import { LoginComponent } from './modules/auth/pages/login/login.component';
 
 const routes: Routes = [
    //lazyloading
@@ -14,8 +16,9 @@ const routes: Routes = [
   path: 'perfil', component: PerfilComponent},{   //ruta de perfil
   path: 'rutinas', component: RutinasComponent},{   //ruta de rutinas
   path: 'ejercicios', component: EjerciciosComponent},{   //ruta de ejercicios
-  path: 'crear', component: CrearrutinasComponent   //ruta de crearrutinas
-  }
+  path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
+  path: 'login', component:LoginComponent}, { //ruta del login
+  path: 'register', component:RegisterComponent}, //ruta del register
 ];
 
 @NgModule({
