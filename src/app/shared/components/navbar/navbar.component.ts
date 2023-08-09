@@ -69,7 +69,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Crear Rutina',
               icon: 'pi pi-fw pi-user',
-              routerLink:"/crearrutinas"
+              routerLink:"/crear"
               /*items: [
                   {
                       label: 'New',
