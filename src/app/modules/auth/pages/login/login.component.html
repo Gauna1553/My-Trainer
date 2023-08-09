@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   
-    <title>Inicio de sesion</title>
-</head>
-<body>
-    <div class="container mt-5 w-75  rounded shadow">
+
+    <!-- <div class="container mt-5 w-75  rounded shadow">
         <div class="row align-items-stretch log">
             <div class="col fondoform  rounded">
                
@@ -14,7 +8,7 @@
             <div class="col bg-white p-5 rounded-end">
 
                 <h2 class="fw-bold text-center py-5">Bienvenido</h2>
-                <!--Login-->
+                
                 <form action="#">
                     <div class="mb-4">
                         <label for="email" class="form-label">Email</label>
@@ -36,6 +30,31 @@
             </div>
         </div>
     
-    </div>
-</body>
-</html>
+    </div> -->
+
+    <form class="form">
+        <p class="title">Registrarse</p>
+        <p class="message">Crea un nuevo usuario</p>
+        <div class="flex">
+            <label>
+                <input required="" placeholder="" type="text" class="input">
+                <span>Nombre</span>
+            </label>
+        </div>  
+        <label>
+            <input required="" placeholder="" type="email" class="input">
+            <span>Email</span>
+        </label> 
+            
+        <label>
+            <input required="" placeholder="" type="password" class="input">
+            <span>Contraseña</span>
+        </label>
+        <label>
+            <input required="" placeholder="" type="password" class="input">
+            <span>Confirmar Contraseña</span>
+        </label>
+        <button class="submit">Crear Cuenta</button>
+        <p class="signin">Ya tienes una cuenta creada? <a href="../login/login.component.html">Iniciar Sesion</a> </p>
+</form>
+    
