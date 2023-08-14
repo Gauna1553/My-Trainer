@@ -1,31 +1,4 @@
-    <div>
-        <div class="row align-items-stretch log">
-            <div class="col fondoform  rounded">
-            </div>
-            <div class="col bg-white p-5 rounded-end">
-                <h2 class="fw-bold text-center py-5">Bienvenido</h2>
-                
-                <form action="#">
-                    <div class="mb-4">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email">
-                    </div>
-                    <div class="mb-4">
-                        <label for="contrase" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="contrase">
-                    </div>
-                    <div class="d-grid" >
-                        <button type="submit" class="btn btn-primary"> Iniciar Sesion</button>
-                    </div>
-                    <div class="my-3">
-                        <span><button routerLink="/register">No tienes cuenta creada?</button></span><br>
-                        <span><button routerLink="/#">Recuperar Contraseña</button></span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <form class="form">
+<form class="form">
         <p class="title">Login</p>
         <p class="message">Inicia Sesion</p>
             <label>
@@ -36,6 +9,6 @@
             <input required="" placeholder="" type="password" class="input">
             <span>Contraseña</span>
         </label>
-        <button class="submit">Entrar</button>       
+        <button class="submit" routerLink="/">Entrar</button>       
 </form>
 <p class="signin">¿No tienes una cuenta? <button class="submit" routerLink="/register">Crea una cuenta</button></p>
