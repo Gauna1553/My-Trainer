@@ -8,5 +8,7 @@ export class AuthService {
 
   constructor(public auth: AngularFireAuth) {}
 
-  registrarse(nombre:string, contraseña:string) {}
+  registrarse(nombre:string, contraseña:string) {
+    return this.auth.createUserWithEmailAndPassword(nombre,contraseña)
+  }
 }
