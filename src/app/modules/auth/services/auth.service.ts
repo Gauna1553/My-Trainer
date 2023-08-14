@@ -6,5 +6,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'
 })
 export class AuthService {
 
-  constructor(public auth: AngularFireAuth) { }
+  constructor(public auth: AngularFireAuth) {}
+
+  registrarse(nombre:string, contraseña:string) {}
 }
