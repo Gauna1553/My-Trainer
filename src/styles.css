@@ -17,6 +17,7 @@
 /*CAMBIA EL COLOR DE LA LISTA DESPLEGABLE Y EL TEXTO*/
 .p-submenu-list{   
     background-color: black !important;
+    border-radius: 4% !important;
 }
 
 /*CAMBIA EL COLOR DE LOS BOTONES*/
