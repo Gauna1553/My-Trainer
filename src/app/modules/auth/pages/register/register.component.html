@@ -18,11 +18,11 @@
         </label> 
             
         <label>
-            <input [(ngModel)]="usuarios.contrasena" required="" placeholder="" type="password" class="input">
+            <input [(ngModel)]="usuarios.contrasena" required="" placeholder="" type="password" class="input" #input minlength="6">
             <span>Contraseña</span>
         </label>
         <label>
-            <input [(ngModel)]="usuarios.contrasena" required="" placeholder="" type="password" class="input">
+            <input [(ngModel)]="usuarios.contrasena" required="" placeholder="" type="password" class="input" #input minlength="6">
             <span>Confirmar Contraseña</span>
         </label>
         <button class="submit">Crear Cuenta</button>
