@@ -10,8 +10,8 @@
 }
 
 /*CAMBIA EL COLOR DEL TEXTO DEL MENU*/
-.p-menuitem-text{
-    color:white !important;   
+.p-menuitem-text {
+    color: var(--text-primary) !important;
 }
 
 /*CAMBIA EL COLOR DE LA LISTA DESPLEGABLE Y EL TEXTO*/
@@ -21,7 +21,7 @@
 }
 
 /*CAMBIA EL COLOR DE LOS BOTONES*/
-.p-menuitem-link {
-    background-color: black !important;
-    color:white !important;  
+.p-ripple :hover{
+    color: black !important;  
+    opacity: 0.9 !important;
 }
