@@ -27,7 +27,6 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     CommonModule,
     SharedModule,
-
   ],
 
   providers: [],
