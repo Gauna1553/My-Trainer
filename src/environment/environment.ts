@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    firebase: {
+    firebaseConfig: {
         projectId: 'my-trainer-842fa',
         appId: '1:27757548967:web:685ad6943ad52d63351282',
         storageBucket: 'my-trainer-842fa.appspot.com',
