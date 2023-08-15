@@ -15,6 +15,7 @@ import { RutinasComponent } from './modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CommonModule } from '@angular/common';
+import { ConcepinfComponent } from './modules/concepinf/concepinf.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CommonModule } from '@angular/common';
     PerfilComponent,
     RutinasComponent,
     CrearrutinasComponent,
-    EjerciciosComponent
+    EjerciciosComponent,
+    ConcepinfComponent
   ],
   imports: [
     BrowserModule,
