@@ -11,7 +11,7 @@
 
 /*CAMBIA EL COLOR DEL TEXTO DEL MENU*/
 .p-menuitem-text {
-    color: var(--text-primary) !important;
+    color: var(--primary) !important;
 }
 
 /*CAMBIA EL COLOR DE LA LISTA DESPLEGABLE Y EL TEXTO*/
