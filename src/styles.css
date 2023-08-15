@@ -12,3 +12,9 @@
 .p-menuitem-text{
     color:white !important;   
 }
+
+/*CAMBIA EL COLOR DE LA LISTA DESPLEGABLE Y EL TEXTO*/
+.p-submenu-list{
+    color:white !important;   
+    background-color: black !important;
+}
