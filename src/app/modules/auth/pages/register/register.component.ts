@@ -32,7 +32,7 @@ async registrarse() {
     const res = await this.servicioAuth.registrarse(credenciales.nombre,credenciales.contrasena,credenciales.apellidos,credenciales.email).then(res => {
       alert("Se agrego un nuevo usuario con exito")
     })
-    .catch(error => {console.log('error =>', error)});
+    .catch(error => alert("Hubo un error al registrarse: (\n"+error));
     console.log(res);
 }
 }
