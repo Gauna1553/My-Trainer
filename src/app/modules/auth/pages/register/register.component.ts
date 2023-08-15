@@ -26,6 +26,6 @@ async registrarse() {
     contrasena: this.usuarios.contrasena
   }
 
-  const res = this.servicioAuth.registrarse(credenciales.email,credenciales.contrasena)
+  const res = await this.servicioAuth.registrarse(credenciales.email,credenciales.contrasena)
 }
 }
