@@ -3,7 +3,12 @@
 
 @import "primeng/resources/primeng.css";
 
-/*CAMBIO EL COLOR DE FONDO DE LA NAVBAR*/
+/*CAMBIA EL COLOR DE FONDO DE LA NAVBAR*/
 .p-menubar{
     background-color: black !important;
+}
+
+/*CAMBIA EL COLOR DEL TEXTO DEL MENU*/
+.p-menuitem-text{
+    color:white !important;   
 }
