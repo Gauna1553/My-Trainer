@@ -1,3 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+
+/*SE APLICA EL '!IMPORTANT' PARA QUE PISE LAS IMPORTACIONES DE PRIMENG*/
+
+/*CAMBIA EL COLOR DE FONDO DE LA NAVBAR*/
+.p-menubar{
+    background-color: black !important;
+}
+
+/*CAMBIA EL COLOR DEL TEXTO DEL MENU*/
+.p-menuitem-text{
+    color:white !important;   
+}
+
+/*CAMBIA EL COLOR DE LA LISTA DESPLEGABLE Y EL TEXTO*/
+.p-submenu-list{
+    color:white !important;   
+    background-color: black !important;
+}
+
+/*CAMBIA EL COLOR DE LOS BOTONES*/
+.p-menuitem-link {
+    background-color: black !important;
+    color:white !important;  
+}
