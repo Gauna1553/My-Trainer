@@ -5,8 +5,6 @@ import { RutinasComponent } from './modules/rutinas/rutinas.component';
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
 import { HomeComponent } from './modules/home/home.component';
-import { LoginComponent } from './modules/auth/pages/login/login.component';
-import { RegisterComponent } from './modules/auth/pages/register/register.component';
 
 const routes: Routes = [
    //lazyloading
