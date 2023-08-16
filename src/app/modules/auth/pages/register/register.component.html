@@ -25,7 +25,7 @@
             <input [(ngModel)]="usuarios.contrasena" required="" placeholder="" type="password" class="input">
             <span>Confirmar Contraseña</span>
         </label>
-        <button class="submit">Crear Cuenta</button>
+        <button class="submit" (click)="registrarse()">Crear Cuenta</button>
     </form>
     <p class="signin">Ya tienes una cuenta creada? <button routerLink="/login" class ="submit">Iniciar Sesion</button></p>
 </div>
