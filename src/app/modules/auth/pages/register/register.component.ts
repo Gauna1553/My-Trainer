@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Usuario } from 'src/app/model/usuarios';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,17 +11,18 @@ export class RegisterComponent {
   hide = true;
 
 usuarios: Usuario = {
-  uid: '',
-  nombre: '',
-  apellidos: '',
-  email: '',
-  contrasena: ''
+    uid: '',
+    nombre: '',
+    apellidos: '',
+    email: '',
+    contrasena: ''
 }
 
-constructor (public servicioAuth: AuthService) {}
+constructor (public servicioAuth: AuthService) {
+  }
 
- //tomamos nuevos registros y tomamos los resultados
-  async registrarse() {
+  //tomamos nuevos registros y tomamos los resultados
+  async registrarse() {       
     const credenciales = {
       nombre: this.usuarios.nombre,
       contraseña: this.usuarios.contrasena,
