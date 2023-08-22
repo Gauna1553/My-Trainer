@@ -1,7 +1,7 @@
 export interface Usuario {
     uid: string;
     nombre: string;
-    apellidos:string;
+    apellido:string;
     email:string;
     contrasena: string;
 }
