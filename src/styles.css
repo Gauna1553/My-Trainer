@@ -6,12 +6,12 @@
 
 /*CAMBIA EL COLOR DE FONDO DE LA NAVBAR*/
 .p-menubar{
-    background-color: black !important;
+    background-color: rgb(0, 0, 0) !important;
 }
 
 /*CAMBIA EL COLOR DEL TEXTO DEL MENU*/
 .p-menuitem-text {
-    color: var(--highlight-text-color) !important;
+    color: var(--purple-600) !important;
 }
 
 /*CAMBIA EL COLOR DE LA LISTA DESPLEGABLE Y EL TEXTO*/
