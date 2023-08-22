@@ -4,25 +4,25 @@
         <p class="message">Crea un nuevo usuario</p>
         <div class="flex">
             <label>
-                <input [(ngModel)]="usuarios.nombre" required="" placeholder="" type="text" class="input">
+                <input required placeholder="" type="text" class="input">
                 <span>Nombre</span>
             </label>
             <label>
-                <input [(ngModel)]="usuarios.apellidos" required="" placeholder="" type="text" class="input">
+                <input required placeholder="" type="text" class="input">
                 <span>Apellidos</span>
             </label>
         </div>  
         <label>
-            <input [(ngModel)]="usuarios.email" required="" placeholder="" type="email" class="input">
+            <input required placeholder="" type="email" class="input">
             <span>Email</span>
         </label> 
             
         <label>
-            <input [(ngModel)]="usuarios.contrasena" required="" placeholder="" type="password" class="input" #input minlength="6">
+            <input required placeholder="" type="password" class="input" #input minlength="6">
             <span>Contraseña</span>
         </label>
         <label>
-            <input [(ngModel)]="usuarios.contrasena" required="" placeholder="" type="password" class="input" #input minlength="6">
+            <input [(ngModel)]="usuarios.contrasena" required placeholder="" type="password" class="input" #input minlength="6">
             <span>Confirmar Contraseña</span>
         </label>
         <button class="submit">Crear Cuenta</button>

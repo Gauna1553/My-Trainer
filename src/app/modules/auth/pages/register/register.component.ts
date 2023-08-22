@@ -13,7 +13,7 @@ export class RegisterComponent {
 usuarios: Usuario = {
     uid: '',
     nombre: '',
-    apellidos: '',
+    apellido: '',
     email: '',
     contrasena: ''
 }
