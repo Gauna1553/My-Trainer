@@ -25,10 +25,10 @@ constructor (public servicioAuth: AuthService) {
   async registrarse() {       
     const credenciales = {
       nombre: this.usuarios.nombre,
-      contraseña: this.usuarios.contrasena,
+      contrasena: this.usuarios.contrasena,
     }
   
-  const res = await this.servicioAuth.registrarse(credenciales.nombre,credenciales.contraseña).then(res => {
+  const res = await this.servicioAuth.registrarse(credenciales.nombre,credenciales.contrasena).then(res => {
     alert("se agrego un nuevo usuario con exito")
   })
   .catch(error => alert("Hubo un error la registrarse: (\n"+error));
