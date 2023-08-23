@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
-import { Ejercicios } from '../model/ejercicios';
+import { Ejercicio } from '../model/ejercicios';
+import { collection, addDoc } from '@firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ export class EjerciciosService {
 
   constructor(private firestore : Firestore) { }
 
-  addEjercicio(ejercicio: Ejercicios){}
+  addEjercicio(ejercicio: Ejercicio){
+    const ejercicioRef = collection(this.firestore, 'ejercicios');
+  }
 
 
 }

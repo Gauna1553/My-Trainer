@@ -1,5 +1,5 @@
 // Estructura que tendran los ejercicios
-export interface Ejercicios{
+export interface Ejercicio{
     id?:string;
     nombre: string;
     grupomuscular: string;
