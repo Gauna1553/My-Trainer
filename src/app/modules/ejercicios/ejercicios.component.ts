@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
+
 
 @Component({
   selector: 'app-ejercicios',

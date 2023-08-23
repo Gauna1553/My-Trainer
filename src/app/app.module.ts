@@ -10,6 +10,7 @@ import { RutinasComponent } from './modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CommonModule } from '@angular/common';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     CommonModule,
     SharedModule,
+    DialogModule
   ],
 
   providers: [],
