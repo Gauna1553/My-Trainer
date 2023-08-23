@@ -12,7 +12,9 @@ export class ConcepinfComponent {
 
   constructor(){
     this.info=[{
-      img
+      img:"",
+      nombre:"",
+      definicion:""
     }
   ]
   }
