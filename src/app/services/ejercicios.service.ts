@@ -12,6 +12,7 @@ export class EjerciciosService {
 
   addEjercicio(ejercicio: Ejercicio){
     const ejercicioRef = collection(this.firestore, 'ejercicios');
+    return addDoc(ejercicioRef, ejercicio);
   }
 
 
