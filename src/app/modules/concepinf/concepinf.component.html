@@ -1,35 +1,35 @@
 <div class="principal">
-<div class="card mb-1 card_focus card1" style="max-width: 100%; height: 100%">
+<div *ngFor="let i of info" class="card mb-1 card_focus card1" style="max-width: 100%; height: 100%">
   <div class="row no-gutters">
     <div class="col-md-4">
       <div class="card text-white mb-3 d-flex" style="max-width: 100%; height: 20rem">
-        <img src="" alt="">
+        <img src="{{i.img}}" alt="">
        
       </div>
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"></h5>
+        <h5 class="card-title">{{i.nombre}}</h5>
         <p class="card-text">
-       
+       {{i.definicion}}
         </p>
         
       </div>
     </div>
   </div>
 </div>
-<div class="card mb-1 card_focus card2" style="max-width: 100%; height: 100%">
+<div *ngFor="let i of info" class="card mb-1 card_focus card2" style="max-width: 100%; height: 100%">
   <div class="row no-gutters">
     <div class="col-md-4">
       <div class="card text-white  mb-3 d-flex" style="max-width: 100%; height: 20rem">
-        <img src="" alt="">
+        <img src="{{i.img}}" alt="">
       </div>
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"></h5>
+        <h5 class="card-title">{{i.nombre}}</h5>
         <p class="card-text">
-          
+          {{i.definicion}}
         </p>
         
       </div>
@@ -37,28 +37,18 @@
   </div>
 </div>
 
-<div class="card card_focus card3" style="max-width: 100%; height: 100%">
+<div *ngFor="let i of info" class="card card_focus card3" style="max-width: 100%; height: 100%">
           <div class="row">
             <div class="col-md-4">
               <div class="card text-white  mb-3 d-flex" style="max-width: 100%; height: 20rem">
-                <img src="../../../assets/sobrecarga.jpg"  alt="">
+                <img src="{{i.img}}"  alt="">
               </div>
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Sobrecarga Progresiva</h5>
+                <h5 class="card-title">{{i.nombre}}</h5>
                 <p class="card-text">
-                  Cuanto más avancemos en las sesiones, notaremos que cada vez realizaremos menos esfuerzo
-             ya que nuestro cuerpo se acostumbra a las cargas que lo sometemos. Ahí es donde entra este concepto. 
-             Porque es una manera de ir progresando y mejorar el rendimiento, por ejemplo: <br>
-            <ol>
-              <li>Semana 1 (sentadilla): 4 series de 8 repeticiones con 40kg</li>
-              <li>Semana 2: 4 series de 6 repeticiones con 45kg</li>
-              <li>Semana 3: 4 series de 8 repeticiones con 45kg </li>
-            </ol> 
-              Aumentamos la intensidad (40kg🡪45kg) y reducimos el volumen (4S8R🡪4S6R), hasta que el cuerpo
-              se acostumbre a la nueva carga y podamos aumentar el volumen, mejorando así el rendimiento. 
-                
+                  {{i.definicion}}
               </div>
             </div>
           </div>

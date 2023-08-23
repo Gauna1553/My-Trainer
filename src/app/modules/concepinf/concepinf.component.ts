@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Conceps } from 'src/app/model/interfaces/conceps';
+import { Conceps } from 'src/app/model/conceps';
 
 @Component({
   selector: 'app-concepinf',
