@@ -11,4 +11,5 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 })
 export class EjerciciosComponent {
   constructor(private ejerciciosService: EjerciciosService, private messageService: MessageService, private confirmationService: ConfirmationService){}
+  
 }
