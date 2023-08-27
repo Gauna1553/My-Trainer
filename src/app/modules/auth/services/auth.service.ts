@@ -12,4 +12,12 @@ export class AuthService {
   registrarse(nombre: string, contrasena: string) {
     return this.auth.createUserWithEmailAndPassword(nombre,contrasena)
   }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+        // Usuario registrado exitosamente
+    })
+    .catch((error) => {
+        // Manejar el error, como el caso del correo electrónico inválido
+    });
 }
