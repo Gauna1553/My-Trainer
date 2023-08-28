@@ -1,15 +1,21 @@
 <p>ejercicios works!</p>
-<p-dialog [(visible)]="productDialog" [style]="{ width: '450px' }" header="Product Details" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="ejercicioDialog" [style]="{ width: '450px' }" header="Product Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" [alt]="product.image" class="block m-auto pb-3" *ngIf="product.image" />
+        <img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />
         <div class="field">
             <label for="name">Name</label>
-            <input type="text" pInputText id="name" [(ngModel)]="product.name" required autofocus />
-            <small class="p-error" *ngIf="submitted && !product.name">Name is required.</small>
+            <input type="text" pInputText id="name" [(ngModel)]="ejercicio.name" required autofocus />
+            <small class="p-error" *ngIf="submitted && !ejercicio.name">El nombre es obligatorio.</small>
         </div>
         <div class="field">
-            <label for="description">Description</label>
-            <textarea id="description" pInputTextarea [(ngModel)]="product.description" required rows="3" cols="20"></textarea>
+            <label for="name">Grupo Muscular</label>
+            <input type="text" pInputText id="grupo" [(ngModel)]="ejercicio.grupomuscular" required autofocus />
+            <small class="p-error" *ngIf="submitted && !ejercicio.grupomuscular">El grupo es obligatorio.</small>
+        </div>
+        <div class="field">
+            <label for="name">Rango de Repeticiones</label>
+            <input type="text" pInputText id="rango" [(ngModel)]="ejercicio.rango" required autofocus />
+            <small class="p-error" *ngIf="submitted && !ejercicio.rango">El rango es obligatorio.</small>
         </div>
     </ng-template>
 </p-dialog>
