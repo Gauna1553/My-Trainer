@@ -24,7 +24,7 @@ usuarios: Usuario = {
   //creamos una nueva collecion para usuarios
   coleccionUsuarios: Usuario[] = [];
 
-constructor (public servicioAuth: AuthService) {
+constructor (public servicioAuth: AuthService, public servicioFirestore: FirestoreService) {
   }
 
   //tomamos nuevos registros y tomamos los resultados
@@ -38,6 +38,24 @@ constructor (public servicioAuth: AuthService) {
     alert("se agrego un nuevo usuario con exito")
   })
   .catch(error => alert("Hubo un error la registrarse: (\n"+error));
-  console.log(res);
+  const uid = await this.servicioAuth.getUid();
+
+  //guarda un nuevo usuario
+  this.usuarios.uid = uid;
 }
-}
+
+  async guardarUser(){
+    this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
+    .then(res =>{
+      console.log(this.usuarios);
+    })
+    .catch(error =>{
+      console.log('Error =>',error)
+    })
+  }
+
+  async ngOnInit(){
+    const uid = await this.servicioAuth.getUid();
+    console.log(uid)
+  }
+};
