@@ -18,16 +18,21 @@ usuarios: Usuario = {
     contrasena: ''
 }
 
+  uid = '';
+
+  //creamos una nueva collecion para usuarios
+  coleccionUsuarios: Usuario[] = [];
+
 constructor (public servicioAuth: AuthService) {
   }
 
   //tomamos nuevos registros y tomamos los resultados
-  async registrarse() {       
+  async registrarse() {
     const credenciales = {
       email: this.usuarios.email,
       contrasena: this.usuarios.contrasena,
     }
-  
+
   const res = await this.servicioAuth.registrarse(credenciales.email,credenciales.contrasena).then(res => {
     alert("se agrego un nuevo usuario con exito")
   })
