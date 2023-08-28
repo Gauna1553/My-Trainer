@@ -19,5 +19,13 @@ export class EjerciciosComponent {
   }  
 
   constructor(private ejerciciosService: EjerciciosService, private messageService: MessageService, private confirmationService: ConfirmationService){}
+
+  async registrarEjercicio(){
+    const ejercicios = {
+      nombre
+    }
+  }
   
+  async onSubmit()
+
 }
