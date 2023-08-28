@@ -12,7 +12,6 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 export class EjerciciosComponent {
 
   ejercicio: Ejercicio = {
-    id: '',
     nombre: '',
     grupomuscular: '',
     rangorep: ''
@@ -22,10 +21,10 @@ export class EjerciciosComponent {
 
   async registrarEjercicio(){
     const ejercicios = {
-      nombre
+      nombre: this.ejercicio.nombre,
+      grupomuscular :this.ejercicio.grupomuscular ,
+      rangorep:  parseInt(this.ejercicio.rangorep)
     }
   }
-  
-  async onSubmit()
 
 }
