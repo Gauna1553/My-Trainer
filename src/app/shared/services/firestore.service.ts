@@ -7,7 +7,9 @@ import { Usuario } from 'src/app/model/usuarios';
 })
 export class FirestoreService {
   private usuariosColletion: AngularFirestoreCollection<Usuario>
+  //dentro de los parametros de la BD
   constructor(private database: AngularFirestore) {
+  //referenciamos colección de la BD
     this.usuariosColletion = this.database.collection<Usuario>('usuarios');
   }
 

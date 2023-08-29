@@ -9,7 +9,7 @@ import { FirestoreService } from 'src/app/shared/services/firestore.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  hide = true;
+  hide = true; //esto es el input
 
 usuarios: Usuario = {
     uid: '',
@@ -42,6 +42,8 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
 
   //guarda un nuevo usuario
   this.usuarios.uid = uid;
+
+  this.guardarUser();
 }
 
   async guardarUser(){
