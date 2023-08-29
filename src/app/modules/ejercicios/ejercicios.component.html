@@ -4,9 +4,9 @@
     <ng-template pTemplate="content">
         <!--<img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />-->
         <div class="field">
-            <label for="name">Name</label>
-            <input type="text" pInputText id="name" [(ngModel)]="ejercicio.name" required autofocus />
-            <small class="p-error" *ngIf="submitted && !ejercicio.name">El nombre es obligatorio.</small>
+            <label for="name">Nombre</label>
+            <input type="text" pInputText id="name" [(ngModel)]="ejercicio.nombre" required autofocus />
+            <small class="p-error" *ngIf="submitted && !ejercicio.nombre">El nombre es obligatorio.</small>
         </div>
         <div class="field">
             <label for="name">Grupo Muscular</label>
