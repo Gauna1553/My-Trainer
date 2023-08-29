@@ -11,6 +11,7 @@ import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.compo
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,6 +30,8 @@ import { DialogModule } from 'primeng/dialog';
     CommonModule,
     SharedModule,
     DialogModule
+  ],exports: [
+    FormsModule
   ],
 
   providers: [],

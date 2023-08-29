@@ -5,7 +5,7 @@
         <!--<img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />-->
         <div class="field">
             <label for="name">Nombre</label>
-            <input type="text" pInputText id="name" [(ngModel)]="ejercicio.nombre" required autofocus />
+            <input [(ngModel)]="ejercicio.nombre" type="text" pInputText id="name"  required autofocus />
             <small class="p-error" *ngIf="submitted && !ejercicio.nombre">El nombre es obligatorio.</small>
         </div>
         <div class="field">
@@ -15,8 +15,8 @@
         </div>
         <div class="field">
             <label for="name">Rango de Repeticiones</label>
-            <input type="text" pInputText id="rango" [(ngModel)]="ejercicio.rango" required autofocus />
-            <small class="p-error" *ngIf="submitted && !ejercicio.rango">El rango es obligatorio.</small>
+            <input type="text" pInputText id="rango" [(ngModel)]="ejercicio.rangorep" required autofocus />
+            <small class="p-error" *ngIf="submitted && !ejercicio.rangorep">El rango es obligatorio.</small>
         </div>
     </ng-template>
 </p-dialog>
