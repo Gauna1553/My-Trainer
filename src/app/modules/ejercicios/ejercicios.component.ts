@@ -23,8 +23,8 @@ export class EjerciciosComponent {
   async registrarEjercicio(){
     const ejercicios = {
       nombre: this.ejercicio.nombre,
-      grupomuscular :this.ejercicio.grupomuscular ,
-      rangorep:  parseInt(this.ejercicio.rangorep)
+      grupomuscular: this.ejercicio.grupomuscular,
+      rangorep: this.ejercicio.rangorep
     }
   }
 
