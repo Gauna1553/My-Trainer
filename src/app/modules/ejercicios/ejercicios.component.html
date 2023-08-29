@@ -2,7 +2,7 @@
 <!--[(visible)]="ejercicioDialog"-->
 <p-dialog  [style]="{ width: '450px' }" header="Product Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />
+        <!--<img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />-->
         <div class="field">
             <label for="name">Name</label>
             <input type="text" pInputText id="name" [(ngModel)]="ejercicio.name" required autofocus />
