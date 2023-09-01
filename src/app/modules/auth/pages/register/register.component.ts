@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Usuario } from 'src/app/model/usuarios';
+import { FirestoreService } from 'src/app/shared/services/firestore.service';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,7 @@ import { Usuario } from 'src/app/model/usuarios';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  hide = true;
+  hide = true; //esto es el input
 
 usuarios: Usuario = {
     uid: '',
@@ -18,20 +19,45 @@ usuarios: Usuario = {
     contrasena: ''
 }
 
-constructor (public servicioAuth: AuthService) {
+  uid = '';
+
+  //creamos una nueva collecion para usuarios
+  coleccionUsuarios: Usuario[] = [];
+
+constructor (public servicioAuth: AuthService, public servicioFirestore: FirestoreService) {
   }
 
   //tomamos nuevos registros y tomamos los resultados
-  async registrarse() {       
+  async registrarse() {
     const credenciales = {
-      nombre: this.usuarios.nombre,
+      email: this.usuarios.email,
       contrasena: this.usuarios.contrasena,
     }
-  
-  const res = await this.servicioAuth.registrarse(credenciales.nombre,credenciales.contrasena).then(res => {
+
+  const res = await this.servicioAuth.registrarse(credenciales.email,credenciales.contrasena).then(res => {
     alert("se agrego un nuevo usuario con exito")
   })
   .catch(error => alert("Hubo un error la registrarse: (\n"+error));
-  console.log(res);
+  const uid = await this.servicioAuth.getUid();
+
+  //guarda un nuevo usuario
+  this.usuarios.uid = uid;
+
+  this.guardarUser();
 }
-}
+
+  async guardarUser(){
+    this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
+    .then(res =>{
+      console.log(this.usuarios);
+    })
+    .catch(error =>{
+      console.log('Error =>',error)
+    })
+  }
+
+  async ngOnInit(){
+    const uid = await this.servicioAuth.getUid();
+    console.log(uid)
+  }
+};
