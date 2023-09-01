@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './modules/home/home.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
+
 import { PerfilComponent } from './modules/perfil/perfil.component';
 import { RutinasComponent } from './modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
@@ -19,7 +19,7 @@ import { environment } from 'src/environment/environment';
   declarations: [
     AppComponent,
     HomeComponent,
-    FooterComponent,
+  
     PerfilComponent,
     RutinasComponent,
     CrearrutinasComponent,
