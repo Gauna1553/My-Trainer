@@ -10,6 +10,9 @@ import { RutinasComponent } from './modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CommonModule } from '@angular/common';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from 'src/environment/environment';
 
 
 @NgModule({
@@ -27,6 +30,10 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     CommonModule,
     SharedModule,
+    //importar firebase
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireModule,
   ],
 
   providers: [],
