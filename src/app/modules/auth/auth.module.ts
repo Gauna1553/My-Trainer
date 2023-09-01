@@ -23,6 +23,9 @@ import { environment } from 'src/environment/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule
+  ],
+  exports: [
+    FormsModule
   ]
 })
 export class AuthModule { }
