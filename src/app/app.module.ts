@@ -10,9 +10,11 @@ import { RutinasComponent } from './modules/rutinas/rutinas.component';
 import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
 import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CommonModule } from '@angular/common';
+import { ConcepinfComponent } from './modules/concepinf/concepinf.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environment/environment';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { environment } from 'src/environment/environment';
     PerfilComponent,
     RutinasComponent,
     CrearrutinasComponent,
-    EjerciciosComponent
+    EjerciciosComponent,
+    ConcepinfComponent
   ],
   imports: [
     BrowserModule,
