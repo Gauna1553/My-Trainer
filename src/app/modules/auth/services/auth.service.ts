@@ -9,6 +9,12 @@ export class AuthService {
 
   constructor(public auth: AngularFireAuth) {}
 
+  //Funcion para iniciar sesión
+  iniciarSesion(email:string,contrasena: string){
+    return this.auth.signInWithEmailAndPassword(email, contrasena);
+  }
+
+  //Funcion para registrarse
   registrarse(nombre: string, contrasena: string) {
     return this.auth.createUserWithEmailAndPassword(nombre,contrasena)
   }
