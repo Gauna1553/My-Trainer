@@ -1,14 +1,3 @@
-/* body{
-    background: #3d494C ;
-    background-size: cover;
-}
-.fondoform{
-    background-image: url("src\assets\hqdefault.jpg") ;
-    background-size: cover;
-    
-    background-position: center center;
-} */
-
 @media only screen and (min-width:320px) and (max-width:1920px) {
     .form {
       display: flex;
