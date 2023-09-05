@@ -1,22 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
-
 /*SE APLICA EL '!IMPORTANT' PARA QUE PISE LAS IMPORTACIONES DE PRIMENG*/
 
 /*CAMBIA EL COLOR DE FONDO DE LA NAVBAR*/
 .p-menubar{
-    background-color: rgb(0, 0, 0) !important;
+    background-color: rgb(0, 0, 0) !important
 }
 
 /*CAMBIA EL COLOR DEL TEXTO DEL MENU*/
 .p-menuitem-text {
-    color: var(--purple-600) !important;
+    color:rgb(240, 194, 126)!important;
+    padding: 0 10px;
 }
 
+.p-menuitem-text :hover{
+   background-color: rgb(27, 34, 36)!important; 
+}
 /*CAMBIA EL COLOR DE LA LISTA DESPLEGABLE Y EL TEXTO*/
 .p-submenu-list{   
-    background-color: black !important;
+    background-color:rgb(61, 73, 76)!important;
     border-radius: 4% !important;
     height: 210% !important;
 }

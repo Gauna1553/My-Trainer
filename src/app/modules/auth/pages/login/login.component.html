@@ -2,13 +2,13 @@
         <p class="title">Login</p>
         <p class="message">Inicia Sesion</p>
             <label>
-                <input required="" placeholder="" type="text" class="input">
-                <span>Nombre</span>
+                <input required="" placeholder="" type="text" class="input" [(ngModel)]="usuarios.email" name="nombre">
+                <span>Ingrese su email</span>
             </label>
         <label>
-            <input required="" placeholder="" type="password" class="input">
-            <span>Contraseña</span>
+            <input required="" placeholder="" type="password" class="input" [(ngModel)]="usuarios.contrasena" name="email">
+            <span>Ingrese su contraseña</span>
         </label>
-        <button class="submit" routerLink="/">Entrar</button>       
+        <button class="submit" routerLink="/" (click)="iniciar()">Entrar</button>       
 </form>
-<p class="signin">¿No tienes una cuenta? <button class="submit" routerLink="/register">Crea una cuenta</button></p>
+<p class="signin">¿No tienes una cuenta? <button class="submit" routerLink="/auth/register">Crea una cuenta</button></p>
