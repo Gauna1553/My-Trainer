@@ -12,7 +12,11 @@ import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environment/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { EjerciciosService } from './services/ejercicios.service';
+import { FirestoreModule } from '@angular/fire/firestore'
 
 @NgModule({
   declarations: [
@@ -22,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     PerfilComponent,
     RutinasComponent,
     CrearrutinasComponent,
-    EjerciciosComponent
+    EjerciciosComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,11 +35,16 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     DialogModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireModule,
+    FirestoreModule
+  
   ],exports: [
     FormsModule
   ],
 
-  providers: [],
+  providers: [EjerciciosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
