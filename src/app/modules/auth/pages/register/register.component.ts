@@ -56,7 +56,7 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
   async guardarUser(){
     this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
     .then(res =>{
-      console.log(this.usuarios);
+      //console.log(this.usuarios);
     })
     .catch(error =>{
       console.log('Error =>',error)

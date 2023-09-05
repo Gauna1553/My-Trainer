@@ -36,7 +36,7 @@ export class LoginComponent {
     const res = await this.servicioAuth.iniciarSesion(credenciales.email,credenciales.contrasena)
     .then(res => {
       alert("Se ha logeado con exito")
-      console.log(res);
+      //console.log(res);
 
       this.router.navigate(['/'])
     })
