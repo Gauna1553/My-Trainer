@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Usuario } from 'src/app/model/usuarios';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,7 @@ usuarios: Usuario = {
   //creamos una nueva collecion para usuarios
   coleccionUsuarios: Usuario[] = [];
 
-constructor (public servicioAuth: AuthService, public servicioFirestore: FirestoreService) {
+constructor (public servicioAuth: AuthService, public servicioFirestore: FirestoreService, public router: Router) {
   }
 
   //tomamos nuevos registros y tomamos los resultados
@@ -37,6 +38,11 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
 
   const res = await this.servicioAuth.registrarse(credenciales.email,credenciales.contrasena).then(res => {
     alert("se agrego un nuevo usuario con exito")
+
+    console.log(res)
+
+    this.router.navigate(['/']);
+
   })
   .catch(error => alert("Hubo un error la registrarse: (\n"+error));
   const uid = await this.servicioAuth.getUid();
@@ -50,7 +56,7 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
   async guardarUser(){
     this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
     .then(res =>{
-      console.log(this.usuarios);
+      //console.log(this.usuarios);
     })
     .catch(error =>{
       console.log('Error =>',error)

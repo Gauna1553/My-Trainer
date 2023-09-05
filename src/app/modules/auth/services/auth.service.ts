@@ -11,12 +11,14 @@ export class AuthService {
 
   //Funcion para iniciar sesión
   iniciarSesion(email:string,contrasena: string){
+    //Valida el email y al contraseña de la BD
     return this.auth.signInWithEmailAndPassword(email, contrasena);
   }
 
   //Funcion para registrarse
-  registrarse(nombre: string, contrasena: string) {
-    return this.auth.createUserWithEmailAndPassword(nombre,contrasena)
+  registrarse(email: string, contrasena: string) {
+    //Retorna un nuevo valor de nombre y contraseña
+    return this.auth.createUserWithEmailAndPassword(email,contrasena)
   }
 
   async getUid(){

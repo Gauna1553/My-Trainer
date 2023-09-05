@@ -4,7 +4,6 @@ import { Usuario } from 'src/app/model/usuarios';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,8 +36,9 @@ export class LoginComponent {
     const res = await this.servicioAuth.iniciarSesion(credenciales.email,credenciales.contrasena)
     .then(res => {
       alert("Se ha logeado con exito")
+      //console.log(res);
 
-      this.router.navigate(['/inicio'])
+      this.router.navigate(['/'])
     })
     .catch(error => {
       alert('Error al loguearse :( \n' + error)
