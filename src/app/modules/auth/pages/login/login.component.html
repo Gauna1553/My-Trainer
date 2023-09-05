@@ -2,12 +2,12 @@
         <p class="title">Login</p>
         <p class="message">Inicia Sesion</p>
             <label>
-                <input required="" placeholder="" type="text" class="input">
-                <span>Nombre</span>
+                <input required="" placeholder="" type="text" class="input" [(ngModel)]="usuarios.email" name="nombre">
+                <span>Ingrese su email</span>
             </label>
         <label>
-            <input required="" placeholder="" type="password" class="input">
-            <span>Contraseña</span>
+            <input required="" placeholder="" type="password" class="input" [(ngModel)]="usuarios.contrasena" name="email">
+            <span>Ingrese su contraseña</span>
         </label>
         <button class="submit" routerLink="/">Entrar</button>       
 </form>

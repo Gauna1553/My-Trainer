@@ -16,7 +16,8 @@ usuarios: Usuario = {
     nombre: '',
     apellido: '',
     email: '',
-    contrasena: ''
+    contrasena: '',
+    rol: ''
 }
 
   uid = '';
