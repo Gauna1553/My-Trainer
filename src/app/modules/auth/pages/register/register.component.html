@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div>
+    <form class="form" action="/firebase.json" method="post">
+        <p class="title">Registrarse</p>
+        <p class="message">Crea un nuevo usuario</p>
+        <div class="flex">
+            <label>
+                <input [(ngModel)]="usuarios.nombre" name="nombre" required placeholder="" type="text" class="input">
+                <span>Nombre</span>
+            </label>
+            <label>
+                <input [(ngModel)]="usuarios.apellido" name="apellido" required placeholder="" type="text" class="input">
+                <span>Apellidos</span>
+            </label>
+        </div>
+        <label>
+            <input [(ngModel)]="usuarios.email" name="email" required placeholder="" type="email" class="input">
+            <span>Email</span>
+        </label>
+        <label>
+            <input [(ngModel)]="usuarios.contrasena" name="contrasena" required placeholder="" type="password" class="input" #input minlength="6">
+            <span>Contraseña</span>
+        </label>
+        <label>
+            <input [(ngModel)]="usuarios.contrasena" name="repetir contrasena" required placeholder="" type="password" class="input" #input minlength="6">
+            <span>Confirmar Contraseña</span>
+        </label>
+        <button class="submit" (click)="registrarse()" routerLink="/">Crear Cuenta</button>
+    </form>
+    <p class="signin">Ya tienes una cuenta creada? <button routerLink="/auth/login" class ="submit">Iniciar Sesion</button></p>
+</div>
