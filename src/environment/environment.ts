@@ -1,13 +1,12 @@
 export const environment = {
     production: false,
-    firebase: {
-        projectId: 'my-trainer-842fa',
-        appId: '1:27757548967:web:685ad6943ad52d63351282',
-        storageBucket: 'my-trainer-842fa.appspot.com',
-        locationId: 'southamerica-east1',
-        apiKey: 'AIzaSyAqwcWVbzAN_jxdAm_5u3uPg3uFbEUu4A4',
-        authDomain: 'my-trainer-842fa.firebaseapp.com',
-        messagingSenderId: '27757548967',
-        measurementId: 'G-37WXQL8TL6',
-        },
+    firebaseConfig: {
+        apiKey: "AIzaSyB9n0EpOOhiPBa3uyb6Hng3Ov60xqyYw6M",
+        authDomain: "prueba-855d2.firebaseapp.com",
+        projectId: "prueba-855d2",
+        storageBucket: "prueba-855d2.appspot.com",
+        messagingSenderId: "548638751323",
+        appId: "1:548638751323:web:ad8200e1da84844cf11d7e",
+        measurementId: "G-3QW6B49R33"
+    }
     };
