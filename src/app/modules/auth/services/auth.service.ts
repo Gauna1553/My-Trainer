@@ -16,9 +16,9 @@ export class AuthService {
   }
 
   //Funcion para registrarse
-  registrarse(nombre: string, contrasena: string) {
+  registrarse(email: string, contrasena: string) {
     //Retorna un nuevo valor de nombre y contraseña
-    return this.auth.createUserWithEmailAndPassword(nombre,contrasena)
+    return this.auth.createUserWithEmailAndPassword(email,contrasena)
   }
 
   async getUid(){
