@@ -11,20 +11,22 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 })
 export class EjerciciosComponent {
 
-  ejercicio: Ejercicio = {
+  modal: boolean = true;
+
+  ejercicios: Ejercicio = {
     nombre: '',
     grupomuscular: '',
     rangorep: ''
   }  
   submitted: any;
 
-  constructor(private ejerciciosService: EjerciciosService, private messageService: MessageService, private confirmationService: ConfirmationService){}
+  constructor(public ejerciciosService: EjerciciosService, public messageService: MessageService, public confirmationService: ConfirmationService){}
 
   async registrarEjercicio(){
     const ejercicios = {
-      nombre: this.ejercicio.nombre,
-      grupomuscular: this.ejercicio.grupomuscular,
-      rangorep: this.ejercicio.rangorep
+      nombre: this.ejercicios.nombre,
+      grupomuscular: this.ejercicios.grupomuscular,
+      rangorep: this.ejercicios.rangorep
     }
   }
 

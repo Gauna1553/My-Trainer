@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CrearrutinasComponent } from './crearrutinas.component';
+import { ConcepinfComponent } from './concepinf.component';
 
 
 
 @NgModule({
   declarations: [
-    CrearrutinasComponent
-  ],
+    ConcepinfComponent
+    ],
   imports: [
     CommonModule
   ]
 })
-export class CrearrutinasModule { }
+export class ConcepinfModule { }

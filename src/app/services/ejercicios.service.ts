@@ -19,6 +19,6 @@ export class EjerciciosService {
 
   getEjercicios(): Observable<Ejercicio[]>{
     const ejercicioRef = collection(this.moduloFire, 'ejercicios');
-     return collectionData(ejercicioRef, { idField: 'id'}) as Observable<Ejercicio[]>;
+      return collectionData(ejercicioRef, { idField: 'id'}) as Observable<Ejercicio[]>;
   }
 }

@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RutinasComponent } from './rutinas.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  RutinasComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class RutinasModule { }
