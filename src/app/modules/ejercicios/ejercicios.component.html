@@ -5,18 +5,18 @@
         <!--<img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />-->
         <div class="field">
             <label for="nombre">Nombre</label>
-            <input [(ngModel)]="ejercicio.nombre" name="ejerNombre" type="text" pInputText id="nombre"  required autofocus />
-            <small class="p-error" *ngIf="submitted && !ejercicio.nombre">El nombre es obligatorio.</small>
+            <input [(ngModel)]="ejercicios.nombre" name="ejerNombre" type="text" pInputText id="nombre"  required autofocus />
+            <small class="p-error" *ngIf="submitted && !ejercicios.nombre">El nombre es obligatorio.</small>
         </div>
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
-            <input type="text" pInputText id="grupo" [(ngModel)]="ejercicio.grupomuscular" name ="grupmuscular" required autofocus/>
-            <small class="p-error" *ngIf="submitted && !ejercicio.grupomuscular">El grupo es obligatorio.</small>
+            <input type="text" pInputText id="grupo" [(ngModel)]="ejercicios.grupomuscular" name ="grupmuscular" required autofocus >
+            <small class="p-error" *ngIf="submitted && !ejercicios.grupomuscular">El grupo es obligatorio.</small>
         </div>
         <div class="field">
             <label for="reango">Rango de Repeticiones</label>
-            <input type="text" pInputText id="rango" [(ngModel)]="ejercicio.rangorep" name="rangorep" required autofocus />
-            <small class="p-error" *ngIf="submitted && !ejercicio.rangorep">El rango es obligatorio.</small>
+            <input type="text" pInputText id="rango" [(ngModel)]="ejercicios.rangorep" name="rangorep" required autofocus />
+            <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
     </ng-template>
 </p-dialog>

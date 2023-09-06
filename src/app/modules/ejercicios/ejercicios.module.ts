@@ -14,7 +14,7 @@ import { DialogModule } from 'primeng/dialog'
   imports: [
     CommonModule,
     FormsModule,
-    DialogModule
+    DialogModule,
   ]
 })
 export class EjerciciosModule { }

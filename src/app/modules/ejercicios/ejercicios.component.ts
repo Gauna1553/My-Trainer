@@ -11,7 +11,7 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 })
 export class EjerciciosComponent {
 
-  ejercicio: Ejercicio = {
+  ejercicios: Ejercicio = {
     nombre: '',
     grupomuscular: '',
     rangorep: ''
@@ -22,9 +22,9 @@ export class EjerciciosComponent {
 
   async registrarEjercicio(){
     const ejercicios = {
-      nombre: this.ejercicio.nombre,
-      grupomuscular: this.ejercicio.grupomuscular,
-      rangorep: this.ejercicio.rangorep
+      nombre: this.ejercicios.nombre,
+      grupomuscular: this.ejercicios.grupomuscular,
+      rangorep: this.ejercicios.rangorep
     }
   }
 
