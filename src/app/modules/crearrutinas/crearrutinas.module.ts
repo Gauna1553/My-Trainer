@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CrearrutinasComponent } from './crearrutinas.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CrearrutinasComponent
+  ],
   imports: [
     CommonModule
   ]
