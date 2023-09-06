@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EjerciciosComponent } from './ejercicios.component';
+import { FormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog'
+
 
 
 
@@ -9,7 +12,9 @@ import { EjerciciosComponent } from './ejercicios.component';
     EjerciciosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    DialogModule
   ]
 })
 export class EjerciciosModule { }

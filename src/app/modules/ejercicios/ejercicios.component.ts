@@ -18,7 +18,7 @@ export class EjerciciosComponent {
   }  
   submitted: any;
 
-  constructor(private ejerciciosService: EjerciciosService, private messageService: MessageService, private confirmationService: ConfirmationService){}
+  constructor(public ejerciciosService: EjerciciosService, public messageService: MessageService, public confirmationService: ConfirmationService){}
 
   async registrarEjercicio(){
     const ejercicios = {
