@@ -11,6 +11,8 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 })
 export class EjerciciosComponent {
 
+  modal: boolean = true;
+
   ejercicios: Ejercicio = {
     nombre: '',
     grupomuscular: '',

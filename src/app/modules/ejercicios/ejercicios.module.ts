@@ -4,6 +4,7 @@ import { EjerciciosComponent } from './ejercicios.component';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,12 +16,14 @@ import { InputTextModule } from 'primeng/inputtext';
     CommonModule,
     FormsModule,
     DialogModule,
-    InputTextModule
+    InputTextModule,
+    ReactiveFormsModule
   ], 
   exports: [
     FormsModule,
     DialogModule,
-    InputTextModule
+    InputTextModule,
+    ReactiveFormsModule
   ]
 })
 export class EjerciciosModule { }
