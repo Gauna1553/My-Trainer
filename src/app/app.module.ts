@@ -13,6 +13,7 @@ import { EjerciciosModule } from './modules/ejercicios/ejercicios.module';
 import { CrearrutinasModule } from './modules/crearrutinas/crearrutinas.module';
 import { HomeModule } from './modules/home/home.module';
 import { PerfilModule } from './modules/perfil/perfil.module';
+import { RutinasModule } from './modules/rutinas/rutinas.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { PerfilModule } from './modules/perfil/perfil.module';
     EjerciciosModule,
     CrearrutinasModule,
     HomeModule,
-    PerfilModule
+    PerfilModule,
+    RutinasModule
   ],exports: [
     FormsModule,
   ],
