@@ -14,7 +14,7 @@
             <small class="p-error" *ngIf="submitted && !ejercicios.grupomuscular">El grupo es obligatorio.</small>
         </div>
         <div class="field">
-            <label for="reango">Rango de Repeticiones</label>
+            <label for="rango">Rango de Repeticiones</label>
             <input type="text" pInputText id="rango" [(ngModel)]="ejercicios.rangorep" name="rangorep" required autofocus />
             <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
