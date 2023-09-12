@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { EjerciciosModule } from './modules/ejercicios/ejercicios.module';
 import { CrearrutinasModule } from './modules/crearrutinas/crearrutinas.module';
 import { HomeModule } from './modules/home/home.module';
+import { PerfilModule } from './modules/perfil/perfil.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { HomeModule } from './modules/home/home.module';
     AngularFireAuthModule,
     EjerciciosModule,
     CrearrutinasModule,
-    HomeModule
+    HomeModule,
+    PerfilModule
   ],exports: [
     FormsModule,
   ],
