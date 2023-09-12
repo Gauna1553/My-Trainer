@@ -11,6 +11,7 @@ import { environment } from 'src/environment/environment';
 import { FormsModule } from '@angular/forms';
 import { EjerciciosModule } from './modules/ejercicios/ejercicios.module';
 import { CrearrutinasModule } from './modules/crearrutinas/crearrutinas.module';
+import { HomeModule } from './modules/home/home.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CrearrutinasModule } from './modules/crearrutinas/crearrutinas.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     EjerciciosModule,
-    CrearrutinasModule
+    CrearrutinasModule,
+    HomeModule
   ],exports: [
     FormsModule,
   ],
