@@ -9,6 +9,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environment/environment';
 import { FormsModule } from '@angular/forms';
+import { EjerciciosModule } from './modules/ejercicios/ejercicios.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     //importar firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    EjerciciosModule
   ],exports: [
     FormsModule,
   ],
