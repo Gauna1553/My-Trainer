@@ -14,6 +14,7 @@ import { CrearrutinasModule } from './modules/crearrutinas/crearrutinas.module';
 import { HomeModule } from './modules/home/home.module';
 import { PerfilModule } from './modules/perfil/perfil.module';
 import { RutinasModule } from './modules/rutinas/rutinas.module';
+import { ConcepinfModule } from './modules/concepinf/concepinf.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RutinasModule } from './modules/rutinas/rutinas.module';
     CrearrutinasModule,
     HomeModule,
     PerfilModule,
-    RutinasModule
+    RutinasModule,
+    ConcepinfModule
   ],exports: [
     FormsModule,
   ],
