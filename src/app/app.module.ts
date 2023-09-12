@@ -29,6 +29,7 @@ import { ConcepinfModule } from './modules/concepinf/concepinf.module';
     //importar firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    // MODULOS DE LOS COMPONENTES DE LA INTERFAZ
     EjerciciosModule,
     CrearrutinasModule,
     HomeModule,
