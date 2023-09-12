@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class EjerciciosService {
 
-  /*constructor(private moduloFire : Firestore) { }
+  constructor(private moduloFire : Firestore) { }
 
   addEjercicio(ejercicio: Ejercicio){
     const ejercicioRef = collection(this.moduloFire, 'ejercicios');
@@ -19,5 +19,5 @@ export class EjerciciosService {
   getEjercicios(): Observable<Ejercicio[]>{
     const ejercicioRef = collection(this.moduloFire, 'ejercicios');
       return collectionData(ejercicioRef, { idField: 'id'}) as Observable<Ejercicio[]>;
-  }*/
+  }
 }
