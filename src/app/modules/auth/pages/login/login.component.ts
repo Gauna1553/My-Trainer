@@ -44,4 +44,12 @@ export class LoginComponent {
       alert('Error al loguearse :( \n' + error)
     })
   }
+
+  async salir(){
+    const res = await this.servicioAuth.cerrarSesion()
+    .then(res => {
+      alert ("Se ha deslogeado correctamente");
+      this.router.navigate(['/'])
+    })
+  }
 }
