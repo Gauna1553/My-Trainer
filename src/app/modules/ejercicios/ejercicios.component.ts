@@ -30,7 +30,6 @@ export class EjerciciosComponent implements OnInit{
   }
   hideDialog(){
     this.ejerciciosDialog = false;
-    const nombreInput = (document.getElementById('nombre') as HTMLInputElement).value = "";
   }
 
   async registrarEjercicio(){
