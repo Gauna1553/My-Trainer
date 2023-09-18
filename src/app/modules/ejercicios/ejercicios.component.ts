@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
@@ -9,7 +9,11 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
   styleUrls: ['./ejercicios.component.css'],
   providers:[MessageService, ConfirmationService]
 })
-export class EjerciciosComponent {
+export class EjerciciosComponent implements OnInit{
+
+  ngOnInit(): void {}
+
+  ejerciciosDialog: boolean = false;
 
   ejercicios: Ejercicio = {
     nombre: '',
@@ -18,7 +22,15 @@ export class EjerciciosComponent {
   }  
   submitted: any;
 
-  constructor(public ejerciciosService: EjerciciosService, public messageService: MessageService, public confirmationService: ConfirmationService){}
+  constructor(){}
+
+  openNew() {
+    this.submitted = false;
+    this.ejerciciosDialog = true;
+  }
+  hideDialog(){
+    this.ejerciciosDialog = false
+  }
 
   async registrarEjercicio(){
     const ejercicios = {
