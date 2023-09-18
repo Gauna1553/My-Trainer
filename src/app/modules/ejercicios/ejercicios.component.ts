@@ -29,7 +29,10 @@ export class EjerciciosComponent implements OnInit{
     this.ejerciciosDialog = true;
   }
   hideDialog(){
-    this.ejerciciosDialog = false
+    this.ejerciciosDialog = false;
+    this.ejercicios.nombre = '';
+    this.ejercicios.grupomuscular = '';
+    this.ejercicios.rangorep = '';
   }
 
   async registrarEjercicio(){

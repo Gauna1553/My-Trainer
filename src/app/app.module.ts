@@ -13,15 +13,15 @@ import { HomeModule } from './modules/home/home.module';
 import { PerfilModule } from './modules/perfil/perfil.module';
 import { RutinasModule } from './modules/rutinas/rutinas.module';
 import { ConcepinfModule } from './modules/concepinf/concepinf.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // LAS ANIMACIONES DE PRIME
 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
-
-
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { EjerciciosService } from './services/ejercicios.service';
     HomeModule,
     PerfilModule,
     RutinasModule,
-    ConcepinfModule
+    ConcepinfModule,
+    BrowserAnimationsModule
   ],exports: [
   ],
 
