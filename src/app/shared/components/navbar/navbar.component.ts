@@ -66,7 +66,7 @@ export class NavbarComponent implements OnInit{
                   }
               ]*/
           },
-          {
+          /*{
               label: 'Crear Rutina',
               icon: 'pi pi-fw pi-user',
               routerLink:"/crear"
@@ -99,8 +99,8 @@ export class NavbarComponent implements OnInit{
                           }
                       ]
                   }
-              ]*/
-          },
+              ]
+          },*/
           {
               label: 'Rutinas',
               icon: 'pi pi-fw pi-calendar',
