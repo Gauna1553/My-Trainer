@@ -16,7 +16,7 @@
 }
 
 .p-menuitem-text :hover{
-   background-color: rgb(27, 34, 36)!important; 
+    background-color: rgb(27, 34, 36)!important; 
 }
 /*CAMBIA EL COLOR DE LA LISTA DESPLEGABLE Y EL TEXTO*/
 .p-submenu-list{   
