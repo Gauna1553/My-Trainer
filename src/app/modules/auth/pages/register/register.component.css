@@ -107,7 +107,7 @@
   .submit {
     border: none;
     outline: none;
-    background-color: #96998C;
+    background-color: #3D494C;
     padding: 10px;
     border-radius: 10px;
     color: rgb(240, 194, 126);
@@ -116,7 +116,8 @@
 }
 
 .submit:hover {
-    background-color: #3D494C;
+    background-color: #96998C;
+    color: #000;
 }
 
 @keyframes pulse {
