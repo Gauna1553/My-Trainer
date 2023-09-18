@@ -14,7 +14,7 @@ import { HomeModule } from './modules/home/home.module';
 import { PerfilModule } from './modules/perfil/perfil.module';
 import { RutinasModule } from './modules/rutinas/rutinas.module';
 import { ConcepinfModule } from './modules/concepinf/concepinf.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // LAS ANIMACIONES DE PRIME
 
 
 @NgModule({
