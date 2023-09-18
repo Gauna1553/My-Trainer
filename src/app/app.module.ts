@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 //Los modulos para los formularos de login y register
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environment/environment'; //Es donde se encuentra alojado nuestra base de datos
 
 //Los modulos de cada componente
 import { EjerciciosModule } from './modules/ejercicios/ejercicios.module';
