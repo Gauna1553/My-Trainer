@@ -30,6 +30,7 @@ export class EjerciciosComponent implements OnInit{
   }
   hideDialog(){
     this.ejerciciosDialog = false;
+    this.ejercicios.nombre = '';
   }
 
   async registrarEjercicio(){
