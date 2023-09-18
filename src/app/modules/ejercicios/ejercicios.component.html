@@ -3,9 +3,9 @@
 
 <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicios" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()">Cancelar</button>
         <!--<img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />-->
-        
+
         <div class="field">
             <label for="nombre">Nombre</label>
             <input [(ngModel)]="ejercicios.nombre" name="ejerNombre" type="text"  id="nombre" required autofocus>
