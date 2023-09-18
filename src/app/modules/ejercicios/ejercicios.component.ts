@@ -29,7 +29,8 @@ export class EjerciciosComponent implements OnInit{
     this.ejerciciosDialog = true;
   }
   hideDialog(){
-    this.ejerciciosDialog = false
+    this.ejerciciosDialog = false;
+    const nombreInput = (document.getElementById('nombre') as HTMLInputElement).value = "";
   }
 
   async registrarEjercicio(){
