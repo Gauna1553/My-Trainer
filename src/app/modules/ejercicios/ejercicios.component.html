@@ -1,7 +1,7 @@
 <p>ejercicios works!</p>
 <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()">Nuevo+</button>
 
-<p-dialog [(visible)]="ejerciciosDialog" [style]="{'min-width': '25rem'}" header="Ejercicios" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="ejerciciosDialog" header="Ejercicios" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()">Cancelar</button>
         <button pButton pRipple label="Save" icon="pi pi-times" class="p-button-text" (click)="hideDialog()">Guardar</button>
