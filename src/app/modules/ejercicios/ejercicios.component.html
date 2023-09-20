@@ -1,9 +1,8 @@
 <p>ejercicios works!</p>
-<button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()">Nuevo+</button>
+<button pButton  label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()">Nuevo+</button>
 
 <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicios" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()">Cancelar</button>
         <!--<img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />-->
 
         <div class="field">
@@ -23,8 +22,9 @@
             <input  [(ngModel)]="ejercicios.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
             <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
-        <ng-template pTemplate="footer">
 
+        <ng-template pTemplate="footer">
+            <button pButton label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()">Cancelar</button>
         </ng-template>
     </ng-template>
 </p-dialog>
