@@ -32,10 +32,12 @@
             <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
     </ng-template>
-    
+
     <ng-template pTemplate="footer">
         <br>
+        <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
         <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO, POR AHORA SOLO LA CANCELA PERO CUANDO  SE TERMINE EL CRUD GUARDARA -->
         <button pButton label="Guardar" icon="pi pi-check" class="p-button-text" (click)="hideDialog()"></button>
     </ng-template>
 </p-dialog>
