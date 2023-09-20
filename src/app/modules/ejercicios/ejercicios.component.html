@@ -1,9 +1,10 @@
 <p>ejercicios works!</p>
+<!-- ESTE BOTON ABRE EL POPUP -->
 <button pButton label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
 
+<!-- POPUP -->
 <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <!--<img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />-->
 
         <div class="field">
             <label for="nombre">Nombre</label>
