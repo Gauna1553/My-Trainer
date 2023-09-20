@@ -13,7 +13,7 @@
 
   .title {
     font-size: 28px;
-    color: royalblue;
+    color: #000;
     font-weight: 600;
     letter-spacing: -1px;
     position: relative;
@@ -29,13 +29,13 @@
     width: 16px;
     border-radius: 50%;
     left: 0px;
-    background-color: royalblue;
+    background-color: rgb(61, 73, 76);
   }
   
   .title::before {
     width: 18px;
     height: 18px;
-    background-color: royalblue;
+    background-color: rgb(150, 153, 140);
   }
   
   .title::after {
@@ -107,16 +107,17 @@
   .submit {
     border: none;
     outline: none;
-    background-color: #96998C;
+    background-color: #3D494C;
     padding: 10px;
     border-radius: 10px;
-    color: #fff;
+    color: rgb(240, 194, 126);
     font-size: 16px;
     transform: .3s ease;
 }
 
 .submit:hover {
-    background-color: #3D494C;
+    background-color: #96998C;
+    color: #000;
 }
 
 @keyframes pulse {
