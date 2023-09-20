@@ -23,10 +23,12 @@
             <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
 
-        <div>
-            <br>
-            <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-            <button pButton label="Guardar" icon="pi pi-check" class="p-button-text" (click)="hideDialog()"></button>
-        </div>
+      
+      
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <br>
+        <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton label="Guardar" icon="pi pi-check" class="p-button-text" (click)="hideDialog()"></button>
     </ng-template>
 </p-dialog>
