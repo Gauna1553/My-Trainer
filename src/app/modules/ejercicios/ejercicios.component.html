@@ -14,12 +14,16 @@
             <small class="p-error" *ngIf="submitted && !ejercicios.nombre">El nombre es obligatorio.</small>
         </div>
 
+        <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
+            <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
             <input [(ngModel)]="ejercicios.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required autofocus>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicios.grupomuscular">El grupo es obligatorio.</small>
         </div>
 
+        
         <div class="field">
             <label for="rango">Rango de Repeticiones</label>
             <input [(ngModel)]="ejercicios.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
