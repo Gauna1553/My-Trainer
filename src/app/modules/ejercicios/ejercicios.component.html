@@ -31,10 +31,8 @@
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
-
-      
-      
     </ng-template>
+    
     <ng-template pTemplate="footer">
         <br>
         <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
