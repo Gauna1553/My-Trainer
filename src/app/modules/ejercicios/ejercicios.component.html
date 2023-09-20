@@ -1,5 +1,5 @@
 <p>ejercicios works!</p>
-<button pButton label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()">Nuevo+</button>
+<button pButton label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
 
 <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
@@ -7,24 +7,25 @@
 
         <div class="field">
             <label for="nombre">Nombre</label>
-            <input [(ngModel)]="ejercicios.nombre" pInputText name="ejerNombre" type="text"  id="nombre" required autofocus>
+            <input [(ngModel)]="ejercicios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required autofocus>
             <small class="p-error" *ngIf="submitted && !ejercicios.nombre">El nombre es obligatorio.</small>
         </div>
 
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
-            <input  [(ngModel)]="ejercicios.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required autofocus>
+            <input [(ngModel)]="ejercicios.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required autofocus>
             <small class="p-error" *ngIf="submitted && !ejercicios.grupomuscular">El grupo es obligatorio.</small>
         </div>
 
         <div class="field">
             <label for="rango">Rango de Repeticiones</label>
-            <input  [(ngModel)]="ejercicios.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
+            <input [(ngModel)]="ejercicios.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
             <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
 
-        <ng-template pTemplate="footer">
-            <button pButton label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()">Cancelar</button>
-        </ng-template>
+        <div>
+            <br>
+            <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        </div>
     </ng-template>
 </p-dialog>
