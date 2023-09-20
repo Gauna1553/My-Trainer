@@ -8,19 +8,19 @@
 
         <div class="field">
             <label for="nombre">Nombre</label>
-            <input [(ngModel)]="ejercicios.nombre" name="ejerNombre" type="text"  id="nombre" required autofocus>
+            <input [(ngModel)]="ejercicios.nombre" pInputText name="ejerNombre" type="text"  id="nombre" required autofocus>
             <small class="p-error" *ngIf="submitted && !ejercicios.nombre">El nombre es obligatorio.</small>
         </div>
 
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
-            <input type="text" id="grupo" [(ngModel)]="ejercicios.grupomuscular" name ="grupomuscular" required autofocus>
+            <input  [(ngModel)]="ejercicios.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required autofocus>
             <small class="p-error" *ngIf="submitted && !ejercicios.grupomuscular">El grupo es obligatorio.</small>
         </div>
 
         <div class="field">
             <label for="rango">Rango de Repeticiones</label>
-            <input type="text" id="rango" [(ngModel)]="ejercicios.rangorep" name="rangorep" required autofocus>
+            <input  [(ngModel)]="ejercicios.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
             <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
     </ng-template>
