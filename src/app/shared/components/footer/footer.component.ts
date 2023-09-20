@@ -28,12 +28,10 @@ export class FooterComponent implements OnInit {
         label: 'Creadores',
         icon: 'pi pi-fw pi-user',
         routerLink:"/crear"
-       
     },
     
 
   ];
 }
-  }
- 
+}
 

@@ -3,7 +3,6 @@
     position: fixed;
     width: 100%;
     bottom: 0;
-    
     background-color:rgb(61, 73, 76);
     color:rgb(240, 194, 126);
   }
@@ -12,13 +11,13 @@
     padding:0;
     list-style:none;
     text-align:center;
-    font-size:18px;
+    font-size:18%;
     line-height:1.6;
     margin-bottom:0;
   }
   
   .footer li {
-    padding:0 10px;
+    padding:0 10%;
   }
   
   .footer ul a {
@@ -37,5 +36,4 @@
     margin-bottom:0;
   }
   
-
 }
