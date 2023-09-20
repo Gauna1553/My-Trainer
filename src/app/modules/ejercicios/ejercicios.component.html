@@ -2,13 +2,15 @@
 <!-- ESTE BOTON ABRE EL POPUP -->
 <button pButton label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
 
-<!-- POPUP -->
+<!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
 <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-
+        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
             <label for="nombre">Nombre</label>
+            <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
             <input [(ngModel)]="ejercicios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required autofocus>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicios.nombre">El nombre es obligatorio.</small>
         </div>
 
