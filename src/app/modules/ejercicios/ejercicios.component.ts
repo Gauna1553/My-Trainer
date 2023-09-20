@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { Ejercicio } from 'src/app/model/ejercicios';
 
 @Component({
   selector: 'app-ejercicios',
   templateUrl: './ejercicios.component.html',
   styleUrls: ['./ejercicios.component.css'],
-  providers:[MessageService, ConfirmationService]
+  providers:[]
 })
 export class EjerciciosComponent implements OnInit{
 
