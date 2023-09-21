@@ -9,9 +9,14 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
   providers:[]
 })
 export class EjerciciosComponent implements OnInit{
+  ejercicioss! :Ejercicio[];
 
   constructor(public servicioEjercicios: EjerciciosService){}
-  ngOnInit(): void {}
+  ngOnInit(){
+    this.servicioEjercicios.getEjercicio().then((data)=>{
+      this.ejercicioss = data;
+    });
+  }
 
   ejerciciosDialog: boolean = false;
 

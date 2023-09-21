@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class EjerciciosService {
 
   constructor() { }
-  getEjercicios(){
+  getEjercicioData(){
     return [
       {
         nombre: 'Press de Banca Plana',
@@ -37,5 +37,8 @@ export class EjerciciosService {
         rangorep: '6-10'
       },
     ]
+  }
+  getEjercicio(){
+    return Promise.resolve(this.getEjercicioData())
   }
 }
