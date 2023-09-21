@@ -37,26 +37,12 @@ export class NavbarComponent implements OnInit{
                   {
                       label: 'Pecho',
                       icon: 'pi pi-fw pi-pencil',
-                      /*items: [
-                          {
-                              label: 'Save',
-                              icon: 'pi pi-fw pi-calendar-plus'
-                          },
-                          {
-                              label: 'Delete',
-                              icon: 'pi pi-fw pi-calendar-minus'
-                          }
-                      ]*/
+                      //items: []
                   },
                   {
                       label: 'Espalda',
                       icon: 'pi pi-fw pi-calendar-times',
-                      /*items: [
-                          {
-                              label: 'Remove',
-                              icon: 'pi pi-fw pi-calendar-minus'
-                          }
-                      ]*/
+                      //items: []
                   }
               ]
           },
