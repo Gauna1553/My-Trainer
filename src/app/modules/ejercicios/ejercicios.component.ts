@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ejercicio } from 'src/app/model/ejercicios';
+import { EjerciciosService } from 'src/app/services/ejercicios.service';
 
 @Component({
   selector: 'app-ejercicios',
@@ -20,7 +21,7 @@ export class EjerciciosComponent implements OnInit{
   }  
   submitted: any;
 
-  constructor(){}
+  constructor(public servicioEjercicios: EjerciciosService){}
 
   openNew() {
     this.submitted = false;
