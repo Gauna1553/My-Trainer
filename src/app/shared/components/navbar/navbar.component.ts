@@ -48,7 +48,7 @@ export class NavbarComponent implements OnInit{
           },
            {
                label: 'Perfil',
-               icon: 'pi pi-fw pi-power-off',
+               icon: 'pi pi-user',
                routerLink:"/perfil"
            }
       ];
