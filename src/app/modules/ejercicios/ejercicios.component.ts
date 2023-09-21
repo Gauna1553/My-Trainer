@@ -10,6 +10,7 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 })
 export class EjerciciosComponent implements OnInit{
 
+  constructor(public servicioEjercicios: EjerciciosService){}
   ngOnInit(): void {}
 
   ejerciciosDialog: boolean = false;
@@ -21,7 +22,7 @@ export class EjerciciosComponent implements OnInit{
   }  
   submitted: any;
 
-  constructor(public servicioEjercicios: EjerciciosService){}
+  
 
   openNew() {
     this.submitted = false;
