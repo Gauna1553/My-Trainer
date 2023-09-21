@@ -45,7 +45,14 @@
 
 <!-- TABLA DE LOS EJERCICIOS -->
 <div class="card">
-    <p-table>
+    <p-table [value]="ejercicioss" dataKey="nombre" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template class="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Grupo Muscular</th>
+                <th>Rango de Repeticiones</th>
+            </tr>
+        </ng-template>
         
     </p-table>
 </div>
