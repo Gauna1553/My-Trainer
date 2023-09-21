@@ -33,12 +33,4 @@ export class EjerciciosComponent implements OnInit{
     this.ejercicios.rangorep = '';
   }
 
-  async registrarEjercicio(){
-    const ejercicios = {
-      nombre: this.ejercicios.nombre,
-      grupomuscular: this.ejercicios.grupomuscular,
-      rangorep: this.ejercicios.rangorep
-    }
-  }
-
 }
