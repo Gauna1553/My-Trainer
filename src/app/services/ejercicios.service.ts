@@ -9,5 +9,13 @@ import { Observable } from 'rxjs';
 export class EjerciciosService {
 
   constructor() { }
-  
+  getEjercicios(){
+    return [
+      {
+        nombre: '',
+        grupomuscular: '',
+        rangorep: ''
+      }
+    ]
+  }
 }
