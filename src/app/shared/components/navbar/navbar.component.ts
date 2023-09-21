@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit{
           {
               label: 'Rutinas',
               icon: 'pi pi-fw pi-calendar',
-              routerLink:"/rutinas",
+              //routerLink:"/rutinas",
               items: [
                   {
                       label: 'Pecho',
