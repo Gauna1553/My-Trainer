@@ -58,7 +58,7 @@
         <ng-template pTemplate="body" let-ejercicios let-editing="editing">
             <tr>
                 <!-- COLUMNA DE NOMBRES -->
-                <td [pEditableColumn]="ejercicios.nombre" pEditableColumnField="code">
+                <td [pEditableColumn]="ejercicios.nombre" pEditableColumnField="nombre">
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <input pInputText type="text" [(ngModel)]="ejercicios.nombre" />
@@ -69,7 +69,7 @@
                     </p-cellEditor>
                 </td>
                 <!-- COLUMNA DE GRUPO MUSCULAR -->
-                <td [pEditableColumn]="ejercicios.grupomuscular" pEditableColumnField="name">
+                <td [pEditableColumn]="ejercicios.grupomuscular" pEditableColumnField="grupomuscular">
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <input pInputText type="text" [(ngModel)]="ejercicios.grupomuscular" required />
@@ -80,7 +80,7 @@
                     </p-cellEditor>
                 </td>
                 <!-- COLUMNA DE RANGO DE REPETICIONES -->
-                <td [pEditableColumn]="ejercicios.rangorep" pEditableColumnField="name">
+                <td [pEditableColumn]="ejercicios.rangorep" pEditableColumnField="rangorep">
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <input pInputText type="text" [(ngModel)]="ejercicios.rangorep" required />
