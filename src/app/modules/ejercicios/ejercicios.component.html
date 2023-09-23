@@ -1,6 +1,5 @@
 <p>ejercicios works!</p>
 <!-- ESTE BOTON ABRE EL POPUP -->
-<button pButton label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
 
 
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
@@ -46,8 +45,9 @@
 <!-- TABLA DE LOS EJERCICIOS -->
 
 <div class="card" class="container">
-    <p-table [value]="ejerciciosss" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [value]="ejerciciosss" dataKey="id" >
         <ng-template pTemplate="header">
+            <button pButton label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
             <tr>
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
