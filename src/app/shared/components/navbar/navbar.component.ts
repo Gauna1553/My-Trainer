@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit{
       this.items = [
           {
               label: 'Inicio',
-              icon: 'pi pi-fw pi-file',
+              icon: 'pi pi-home',
               routerLink:"/",
               //items: []
           },
