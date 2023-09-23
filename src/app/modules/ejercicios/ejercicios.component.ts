@@ -9,12 +9,14 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
   providers:[]
 })
 export class EjerciciosComponent implements OnInit{
-  ejercicioss! :Ejercicio[];
+  
+  ejerciciosss! :Ejercicio[];
 
   constructor(public servicioEjercicios: EjerciciosService){}
+
   ngOnInit(){
     this.servicioEjercicios.getEjercicio().then((data)=>{
-      this.ejercicioss = data;
+      this.ejerciciosss = data;
     });
   }
 
