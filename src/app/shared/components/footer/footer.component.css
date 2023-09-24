@@ -35,4 +35,10 @@
     color:#aaa;
     margin-bottom: 0;
   }
+
+  .footer button {
+    margin-top: 15px;
+    background-color: rgb(61, 73, 76);
+    color: rgb(240, 194, 126);
+  }
 }
