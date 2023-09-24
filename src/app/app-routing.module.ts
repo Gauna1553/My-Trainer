@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PerfilComponent } from './modules/perfil/perfil.component';
-import { RutinasComponent } from './modules/rutinas/rutinas.component';
-import { EjerciciosComponent } from './modules/ejercicios/ejercicios.component';
 import { HomeComponent } from './modules/home/home.component';
-import { ConcepinfComponent } from './modules/concepinf/concepinf.component';
 
 const routes: Routes = [
    //lazyloading
