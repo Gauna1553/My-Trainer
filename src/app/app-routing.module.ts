@@ -17,7 +17,7 @@ const routes: Routes = [
   path: '', component: HomeComponent},{   //ruta de home
   path: 'perfil', loadChildren:()=>import('./modules/perfil/perfil.module').then(m=>m.PerfilModule)},{   //ruta de perfil
   path: 'rutinas', loadChildren:()=>import('./modules/rutinas/rutinas.module').then(m=>m.RutinasModule)},{   //ruta de rutinas
-  path: 'ejercicios', component: EjerciciosComponent},{   //ruta de ejercicios
+  path: 'ejercicios', loadChildren:()=>import('./modules/ejercicios/ejercicios.module').then(m=>m.EjerciciosModule)},{   //ruta de ejercicios
   //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
   path: 'login', component:LoginComponent}, { //ruta del login
   path: 'register', component:RegisterComponent}, { //ruta del regiser
