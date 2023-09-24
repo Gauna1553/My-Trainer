@@ -13,14 +13,22 @@ import { ConcepinfComponent } from './modules/concepinf/concepinf.component';
 const routes: Routes = [
    //lazyloading
   {path: "auth",
-  loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},{
-  path: '', component: HomeComponent},{   //ruta de home
-  path: 'perfil', component: PerfilComponent},{   //ruta de perfil
-  path: 'rutinas', component: RutinasComponent},{   //ruta de rutinas
-  path: 'ejercicios', component: EjerciciosComponent},{   //ruta de ejercicios
-  path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
-  path: 'login', component:LoginComponent}, { //ruta del login
-  path: 'register', component:RegisterComponent}, { //ruta del regiser
+  loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},
+  {
+  path: '', component: HomeComponent},
+  {   //ruta de home
+  path: 'perfil', component: PerfilComponent},
+  {   //ruta de perfil
+  path: 'rutinas', component: RutinasComponent},
+  {   //ruta de rutinas
+  path: 'ejercicios', component: EjerciciosComponent},
+  {   //ruta de ejercicios
+  path: 'crear', component: CrearrutinasComponent},
+  {   //ruta de crearrutinas
+  path: 'login', component:LoginComponent}, 
+  { //ruta del login
+  path: 'register', component:RegisterComponent}, 
+  { //ruta del regiser
   path: 'conceps', component:ConcepinfComponent},
 ];
 
