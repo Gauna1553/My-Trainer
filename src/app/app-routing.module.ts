@@ -13,7 +13,7 @@ const routes: Routes = [
   path: '', component: HomeComponent},{   //ruta de home
   path: '', loadChildren:()=>import('./modules/perfil/perfil.module').then(m=>m.PerfilModule)},{   //ruta de perfil
   path: 'rutinas', component: RutinasComponent},{   //ruta de rutinas
-  path: 'ejercicios', component: EjerciciosComponent},{   //ruta de ejercicios
+  path: '', loadChildren:()=>import('./modules/ejercicios/ejercicios.module').then(m=>m.EjerciciosModule)},{   //ruta de ejercicios
   //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
   path: 'conceps', component:ConcepinfComponent},
 ];
