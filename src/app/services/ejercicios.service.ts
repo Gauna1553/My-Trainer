@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class EjerciciosService {
 
   constructor() { }
+  //Esta funcion al ejercutarse retorna la informacion de los objetos
   getEjercicioData(){
     return [
       {
@@ -36,6 +37,7 @@ export class EjerciciosService {
       },
     ]
   }
+  //Esta funcion genera una promesa, al ejercutarse encapsula la otra funcion
   getEjercicio(){
     return Promise.resolve(this.getEjercicioData())
   }
