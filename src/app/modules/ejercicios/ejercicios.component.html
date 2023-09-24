@@ -58,9 +58,11 @@
                 <td [pEditableColumn]="ejercicios.nombre" pEditableColumnField="nombre">
                     <p-cellEditor>
                         <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
                             <input pInputText type="text" [(ngModel)]="ejercicios.nombre" />
                         </ng-template>
                         <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
                             {{ ejercicios.nombre }} 
                         </ng-template>
                     </p-cellEditor>
@@ -69,9 +71,11 @@
                 <td [pEditableColumn]="ejercicios.grupomuscular" pEditableColumnField="grupomuscular">
                     <p-cellEditor>
                         <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
                             <input pInputText type="text" [(ngModel)]="ejercicios.grupomuscular" required />
                         </ng-template>
                         <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->
                             {{ ejercicios.grupomuscular }}
                         </ng-template>
                     </p-cellEditor>
@@ -80,9 +84,11 @@
                 <td [pEditableColumn]="ejercicios.rangorep" pEditableColumnField="rangorep">
                     <p-cellEditor>
                         <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
                             <input pInputText type="text" [(ngModel)]="ejercicios.rangorep" required />
                         </ng-template>
                         <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
                             {{ ejercicios.rangorep }}
                         </ng-template>
                     </p-cellEditor>
