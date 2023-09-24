@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -8,6 +10,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class FooterComponent implements OnInit {
   declare items: MenuItem[];
+
+  constructor(public servicioAuth: AuthService, public router: Router) {}
   
 
   ngOnInit() {
@@ -33,5 +37,14 @@ export class FooterComponent implements OnInit {
 
   ];
 }
+  //funcion par cerrar sesion
+  async salir(){
+    const res = await this.servicioAuth.cerrarSesion()
+    .then(res =>{
+      alert ("se ha deslogeado correctamente");
+      console.log(res);
+      this.router.navigate(['/inicio'])
+    })
+  }
 }
 
