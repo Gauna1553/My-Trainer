@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit{
               label: 'Rutinas',
               icon: 'pi pi-fw pi-calendar',
               routerLink:"/rutinas",
-              items: [
+              /*items: [
                   {
                       label: 'Pecho',
                       //icon: 'pi pi-fw pi-pencil',
@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit{
                       //icon: 'pi pi-fw pi-calendar-times',
                       //items: []
                   }
-              ]
+              ]*/
           },
            {
                label: 'Perfil',
