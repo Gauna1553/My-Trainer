@@ -16,7 +16,7 @@ const routes: Routes = [
   loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},{
   path: '', component: HomeComponent},{   //ruta de home
   path: 'perfil', loadChildren:()=>import('./modules/perfil/perfil.module').then(m=>m.PerfilModule)},{   //ruta de perfil
-  path: 'rutinas', component: RutinasComponent},{   //ruta de rutinas
+  path: 'rutinas', loadChildren:()=>import('./modules/rutinas/rutinas.module').then(m=>m.RutinasModule)},{   //ruta de rutinas
   path: 'ejercicios', component: EjerciciosComponent},{   //ruta de ejercicios
   //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
   path: 'login', component:LoginComponent}, { //ruta del login
