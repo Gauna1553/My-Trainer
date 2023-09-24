@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -16,13 +17,15 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     DialogModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    TableModule
   ], 
   exports: [
     FormsModule,
     DialogModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    TableModule
   ]
 })
 export class EjerciciosModule { }
