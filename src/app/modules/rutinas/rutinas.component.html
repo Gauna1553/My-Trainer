@@ -2,23 +2,24 @@
 <div class="card">
     <p-fieldset legend="Pecho" [toggleable]="true">
         <div class="card">
-            <p-table [tableStyle]="{ 'min-width': '50rem' }">
+            <p-table [value]="rutinapecho" [tableStyle]="{ 'min-width': '50rem' }">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>Nombre</th>
-                        <th>Rango de repeticiones</th>
+                        <th>Rango de Repeticiones</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-product>
+                <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
                     <tr>
-                        <td><p>a</p></td>
-                        <td><p>a</p></td>
+                        <td>{{ r.nombre }}</td>
+                        <td>{{ r.rangorep }}</td>
                     </tr>
                 </ng-template>
             </p-table>
         </div>
     </p-fieldset>
 </div>
+
 <div class="card">
     <p-fieldset legend="Espalda" [toggleable]="true">
         <p></p>
