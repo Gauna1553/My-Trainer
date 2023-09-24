@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collectionData, collection, addDoc } from '@angular/fire/firestore';
-import { Ejercicio } from '../model/ejercicios';
-import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -9,15 +6,37 @@ import { Observable } from 'rxjs';
 })
 export class EjerciciosService {
 
-  constructor(private moduloFire : Firestore) { }
-
-  addEjercicio(ejercicio: Ejercicio){
-    const ejercicioRef = collection(this.moduloFire, 'ejercicios');
-    return addDoc(ejercicioRef, ejercicio);
+  constructor() { }
+  getEjercicioData(){
+    return [
+      {
+        nombre: 'Press de Banca Plana',
+        grupomuscular: 'Pecho',
+        rangorep: '6-10'
+      },
+      {
+        nombre: 'Press de Banca Inclinada',
+        grupomuscular: 'Pecho',
+        rangorep: '6-10'
+      },
+      {
+        nombre: 'Pec Deck',
+        grupomuscular: 'Pecho',
+        rangorep: '8-12'
+      },
+      {
+        nombre: 'Jalon en polea',
+        grupomuscular: 'Espalda',
+        rangorep: '6-10'
+      },
+      {
+        nombre: 'Remo Gironda',
+        grupomuscular: 'Espalda',
+        rangorep: '6-10'
+      },
+    ]
   }
-
-  getEjercicios(): Observable<Ejercicio[]>{
-    const ejercicioRef = collection(this.moduloFire, 'ejercicios');
-      return collectionData(ejercicioRef, { idField: 'id'}) as Observable<Ejercicio[]>;
+  getEjercicio(){
+    return Promise.resolve(this.getEjercicioData())
   }
 }

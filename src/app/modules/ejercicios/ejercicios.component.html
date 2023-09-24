@@ -1,28 +1,93 @@
-<p>ejercicios works!</p>
-<button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()">Nuevo+</button>
-
-<p-dialog [(visible)]="ejerciciosDialog" header="Ejercicios" [modal]="true" styleClass="p-fluid">
+<!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
+<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()">Cancelar</button>
-        <button pButton pRipple label="Save" icon="pi pi-times" class="p-button-text" (click)="hideDialog()">Guardar</button>
-        <!--<img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + ejercicio.image"  class="block m-auto pb-3" *ngIf="ejercicio.image" />-->
-
+        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
             <label for="nombre">Nombre</label>
-            <input [(ngModel)]="ejercicios.nombre" name="ejerNombre" type="text"  id="nombre" required autofocus>
+            <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+            <input [(ngModel)]="ejercicios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required autofocus>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicios.nombre">El nombre es obligatorio.</small>
         </div>
 
+        <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
-            <input type="text" id="grupo" [(ngModel)]="ejercicios.grupomuscular" name ="grupomuscular" required autofocus>
+            <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
+            <input [(ngModel)]="ejercicios.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required autofocus>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicios.grupomuscular">El grupo es obligatorio.</small>
         </div>
 
+        <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
             <label for="rango">Rango de Repeticiones</label>
-            <input type="text" id="rango" [(ngModel)]="ejercicios.rangorep" name="rangorep" required autofocus>
+            <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
+            <input [(ngModel)]="ejercicios.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
         </div>
     </ng-template>
+
+    <ng-template pTemplate="footer">
+        <br>
+        <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
+        <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO, POR AHORA SOLO LA CANCELA PERO CUANDO  SE TERMINE EL CRUD GUARDARA -->
+        <button pButton label="Guardar" icon="pi pi-check" class="p-button-text" (click)="hideDialog()"></button>
+    </ng-template>
 </p-dialog>
+
+<!-- TABLA DE LOS EJERCICIOS -->
+<div class="card" class="container">
+    <p-table [value]="ejerciciosss" dataKey="id" >
+        <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
+        <ng-template pTemplate="header">
+            <!-- ESTE BOTON ABRE EL POPUP -->
+            <button pButton label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+            <tr>
+                <th>Nombre</th>
+                <th>Grupo Muscular</th>
+                <th>Rango de Repeticiones</th>
+            </tr>
+        </ng-template>
+        <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
+        <ng-template pTemplate="body" let-ejercicios let-editing="editing">
+            <tr>
+                <!-- COLUMNA DE NOMBRES -->
+                <td [pEditableColumn]="ejercicios.nombre" pEditableColumnField="nombre">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="ejercicios.nombre" />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ ejercicios.nombre }} 
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <!-- COLUMNA DE GRUPO MUSCULAR -->
+                <td [pEditableColumn]="ejercicios.grupomuscular" pEditableColumnField="grupomuscular">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="ejercicios.grupomuscular" required />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ ejercicios.grupomuscular }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <!-- COLUMNA DE RANGO DE REPETICIONES -->
+                <td [pEditableColumn]="ejercicios.rangorep" pEditableColumnField="rangorep">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="ejercicios.rangorep" required />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ ejercicios.rangorep }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
