@@ -1,4 +1,4 @@
-<p>rutinas works!</p>
+
 <div class="card">
     <p-fieldset legend="Pecho" [toggleable]="true">
         <div class="card">
@@ -22,18 +22,42 @@
 
 <div class="card">
     <p-fieldset legend="Espalda" [toggleable]="true">
-        <p></p>
+        <div class="card">
+            <p-table [value]="rutinaespalda">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Rango de Repeticiones</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
+                    <tr>
+                        <td>{{ r.nombre }}</td>
+                        <td>{{ r.rangorep }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
     </p-fieldset>
 </div>
 
 <div class="card">
     <p-fieldset legend="Piernas" [toggleable]="true">
-        <p></p>
-    </p-fieldset>
-</div>
-
-<div class="card">
-    <p-fieldset legend="Hombros" [toggleable]="true">
-        <p></p>
+        <div class="card">
+            <p-table [value]="rutinapiernas">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Rango de Repeticiones</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
+                    <tr>
+                        <td>{{ r.nombre }}</td>
+                        <td>{{ r.rangorep }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
     </p-fieldset>
 </div>
