@@ -2,6 +2,7 @@
 #nombre, #grupo, #rango {
     margin-top: 2%;
 }
+/* ESTO HACE QUE EL BOTON DE NUEVO TENGA UN MARGEN ARRIBA Y ABAJO */
 button{
     margin-bottom:5%;
     margin-top: 5%;
