@@ -6,6 +6,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { EjerciciosRoutingModule } from './ejercicios-routing.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TableModule } from 'primeng/table';
     DialogModule,
     InputTextModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    EjerciciosRoutingModule
   ], 
   exports: [
     FormsModule,
