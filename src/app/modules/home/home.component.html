@@ -1,12 +1,24 @@
 <h1 align="center">My Trainer</h1>
-<p-galleria [value]="images">
+<!--<p-galleria [value]="images">
     <ng-template pTemplate="item" let-item>
         <img [src]="item.imageSrc" [alt]="item.alt" width="900px" height="600px"/>
     </ng-template>
     <ng-template pTemplate="thumbnail" let-item>
-      <div class="grid grid-nogutter justify-content-center">
-          <img [src]="item.thumbnailSrc" width="100px" height="75px
-          "/>
-      </div>
-  </ng-template>
-  </p-galleria>
+        <div class="grid grid-nogutter justify-content-center">
+            <img [src]="item.thumbnailSrc" width="100px" height="75px"/>
+        </div>
+    </ng-template>
+    </p-galleria>-->
+
+    <div class="card md:flex md:justify-content-center">
+        <p-galleria [value]="images">
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.imageSrc" [alt]="item.alt" width="900px" height="600px"/>
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="item.thumbnailSrc" width="100px" height="75px"/>
+                </div>
+            </ng-template>
+        </p-galleria>
+    </div>

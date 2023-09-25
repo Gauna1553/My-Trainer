@@ -13,34 +13,34 @@ export class HomeComponent {
     {
 
         imageSrc: "../../../assets/hqdefault.jpg",
-        thumbnailSrc: "../../../assets/autito1.jpg",
-        alt: "Description for Image 1",
-        title: "Title 1"
+        thumbnailSrc: "../../../assets/hqdefault.jpg",
+        alt: "Imagen 1",
+        title: "Gordo ruso"
     },
     {
-      imageSrc: "../../../assets/hondaek9.jpg",
-        thumbnailSrc: "../../../assets/hondaek9.jpg",
-        alt: "Description for Image 1",
-        title: "Title 1"
+      imageSrc: "../../../assets/logo.png",
+        thumbnailSrc: "../../../assets/logo.png",
+        alt: "Imagen 2",
+        title: "Imagen 2"
 
     },
     {
-    imageSrc: "../../../assets/audiquattro.jpg",
-        thumbnailSrc: "../../../assets/audiquattro.jpg",
-        alt: "Description for Image 1",
-        title: "Title 1"
+    imageSrc: "../../../assets/sobrecarga.jpg",
+        thumbnailSrc: "../../../assets/sobrecarga.jpg",
+        alt: "Imagen 3",
+        title: "Imagen 3"
     },
     {
-      imageSrc: "../../../assets/mustf.webp",
-          thumbnailSrc: "../../../assets/mustf.webp",
-          alt: "Description for Image 1",
-          title: "Title 1"
+      imageSrc: "../../../assets/intensidad.jpg",
+          thumbnailSrc: "../../../assets/intensidad.jpg",
+          alt: "Imagen 4",
+          title: "Imagen 4"
       },
       {
-        imageSrc: "../../../assets/ddsrt.jpg",
-            thumbnailSrc: "../../../assets/ddsrt.jpg",
-            alt: "Description for Image 1",
-            title: "Title 1"
+        imageSrc: "../../../assets/volumen.jpg",
+            thumbnailSrc: "../../../assets/volumen.jpg",
+            alt: "Imagen 5",
+            title: "Imagen 5"
         },
   ]
 }

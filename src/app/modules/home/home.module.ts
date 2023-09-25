@@ -11,7 +11,9 @@ import { Galleria, GalleriaModule } from 'primeng/galleria';
   ],
   imports: [
     CommonModule,
-    GalleriaModule
+    GalleriaModule,
+  ],
+  exports: [
   ]
 })
 export class HomeModule { }
