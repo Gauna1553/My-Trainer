@@ -1,61 +1,79 @@
-<div class="card">
-    <p-table>
-        <ng-template pTemplate="caption"> Rutina Push-Pull-Legs </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Día 1 (Empuje)</th>
-                <th>Día 2 (Tracción)</th>
-                <th>Día 3 (Piernas)</th>
-                <th>Día 4 (Descanso)</th>
-                <th>Día 5 (Empuje)</th>
-                <th>Día 6 (Tracción)</th>
-                <th>Día 7 (Piernas)</th>
-            </tr>
-            <tr>
-                <th>Press banca inclinada: 2-3 sets x 6-10 reps</th>
-                <th>Jalon al pecho: 3 sets 8-12 reps</th>
-                <th>Elevacion de gemelos: 3 sets 8-12 reps</th>
-                <th>Día de descanso</th>
-                <th>Press en banco plano: 3 sets 8-12 reps</th>
-                <th>remo con barra: 3 sets de 6-10 reps</th>
-                <th>Sentadilla libre: 3 sets de 6-10 reps</th>
-            </tr>
-            <tr>
-                <th>Press militar: 3 sets de 6-10 reps</th>
-                <th>Remo unilateral: 3 sets de 8-12 reps</th>
-                <th>Sentadilla en maquina hack: 3 sets de 6-10 reps</th>
-                <th>Día de descanso</th>
-                <th>Cruces en polea alta: 3 sets de 8-12 reps</th>
-                <th>Remo sentado con agarre cerrado: 3 sets de 6-10 reps</th>
-                <th>Peso muerto con barra: 3 sets de 8-12 reps</th>
-            </tr>
-            <tr>
-                <th>Peck deck: 3 sets de 6-10 reps</th>
-                <th>Remo en barra t: 3 sets de 6-10 reps</th>
-                <th>Curl de isquiotibiales sentado: 3 sets de 6-10 reps</th>
-                <th>Día de descanso</th>
-                <th>Extension de triceps en polea: 3 sets de 8-12 reps</th>
-                <th>Pullover en polea: 3 sets de 8-12 reps</th>
-                <th>Elevacion de gemelos: 3 sets de 10-15 reps</th>
-            </tr>
-            <tr>
-                <th>Elevaciones laterales en polea: 3 sets de 6-10 reps</th>
-                <th>Face pull: 3 sets de 6-10 reps</th>
-                <th>Extensiones de cuadriceps: 3 sets de 8-12 reps</th>
-                <th>Día de descanso</th>
-                <th>Press de banca inclinada: 3 sets de 8-12 reps</th>
-                <th>Remo unilateral en polea: 3 sets de 6-10 reps</th>
-                <th>Prensa: 3 sets de 6-10 reps</th>
-            </tr>
-            <tr>
-                <th>Extension de triceps en polea: 3 sets de 8-12 reps</th>
-                <th>Curl predicador: 3 sets de 8-12 reps</th>
-                <th>Aductor en maquina: 3 sets de 6-10 reps</th>
-                <th>Día de descanso</th>
-                <th>Cruces en polea baja: 3 sets de 8-12 reps</th>
-                <th>Remo con barra: 3 sets de 6-10 reps</th>
-                <th>Hip thrust: 3 sets de 8-12 reps</th>
-            </tr>
-        </ng-template>
-    </p-table>
-</div>
+<body>
+    <!-- TITULO DEL COMPONENTE -->
+    <h1 id="title">Mis Rutinas</h1>
+    <!-- CONTENEDOR DE LA RUTINA DE PECHO -->
+    <div class="card" id="primeracard">
+        <p-fieldset legend="Pecho" [toggleable]="true"> <!-- TOGGLEABLE PERMITE QUE SE EXPANDA O CONTRAIGA -->
+            <div class="card">
+                <!-- TABLA DE LA RUTINA DE PECHO -->
+                <p-table [value]="rutinapecho">
+                    <!-- HEADER DE LA TABLA -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <!-- COLUMNAS Y LOS NOMBRES -->
+                            <th>Nombre</th>
+                            <th>Rango de Repeticiones</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
+                        <tr>
+                            <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
+                            <td>{{ r.nombre }}</td>
+                            <td>{{ r.rangorep }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-fieldset>
+    </div>
+    <!-- CONTENEDOR DE LA RUTINA DE ESPALDA -->
+    <div class="card">
+        <p-fieldset legend="Espalda" [toggleable]="true">
+            <div class="card">
+                <!-- TABLA DE RUTINA DE ESPALDA -->
+                <p-table [value]="rutinaespalda">
+                    <!-- HEADER -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <!-- COLUMNAS Y NOMBRES -->
+                            <th>Nombre</th>
+                            <th>Rango de Repeticiones</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
+                        <tr>
+                            <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
+                            <td>{{ r.nombre }}</td>
+                            <td>{{ r.rangorep }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-fieldset>
+    </div>
+    <!-- CONTENEDOR DE LA RUTINA DE PIERNAS -->
+    <div class="card" id="finalcard">
+        <p-fieldset legend="Piernas" [toggleable]="true">
+            <div class="card">
+                <!-- TABLA DE RUTINAS DE PIERNA -->
+                <p-table [value]="rutinapiernas">
+                    <!-- HEADER -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <!-- COLUMNAS Y SUS NOMBRES -->
+                            <th>Nombre</th>
+                            <th>Rango de Repeticiones</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
+                        <tr>
+                            <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
+                            <td>{{ r.nombre }}</td>
+                            <td>{{ r.rangorep }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-fieldset>
+    </div>
+</body>

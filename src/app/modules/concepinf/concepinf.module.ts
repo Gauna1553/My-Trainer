@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConcepinfComponent } from './concepinf.component';
+import { ConcepinfRoutingModule } from './concepinf-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { ConcepinfComponent } from './concepinf.component';
     ConcepinfComponent
     ],
   imports: [
-    CommonModule
+    CommonModule,
+    ConcepinfRoutingModule
   ]
 })
 export class ConcepinfModule { }
