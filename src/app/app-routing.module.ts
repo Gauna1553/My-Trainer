@@ -4,7 +4,7 @@ import { HomeComponent } from './modules/home/home.component';
 
 const routes: Routes = [
    //lazyloading
-  {path: "auth",
+  {path: "",
   loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},{
   path: '', component: HomeComponent},{   //ruta de home
   // SE DEJAN ESTAS RUTAS VACIAS PORQUE YA SE DECLARARON EN CADA UNO DE LOS ROUTING 
