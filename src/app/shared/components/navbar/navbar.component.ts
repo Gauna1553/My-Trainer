@@ -32,31 +32,7 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Rutinas',
         icon: 'pi pi-fw pi-calendar',
-        routerLink: '/rutinas',
-        items: [
-          {
-            label: 'Pecho',
-            //icon: 'pi pi-fw pi-pencil',
-            //items: []
-          },
-          {
-              label: 'Rutinas',
-              icon: 'pi pi-fw pi-calendar',
-              routerLink:"/rutinas",
-              /*items: [
-                  {
-                      label: 'Pecho',
-                      //icon: 'pi pi-fw pi-pencil',
-                      //items: []
-                  },
-                  {
-                      label: 'Espalda',
-                      //icon: 'pi pi-fw pi-calendar-times',
-                      //items: []
-                  }
-              ]*/
-          },
-        ],
+        routerLink: '/rutinas'
       },
       {
         label: 'Perfil',
