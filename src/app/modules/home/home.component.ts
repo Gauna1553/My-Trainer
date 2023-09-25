@@ -9,6 +9,8 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  responsiveOptions: any[] | undefined;
+  
   images = [
     {
 

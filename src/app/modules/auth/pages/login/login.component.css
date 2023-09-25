@@ -1,4 +1,4 @@
-@media only screen and (min-width:180px) and (max-width:1920px) {
+@media only screen and (min-width:180px) and (max-width:1920px) and (min-height: 320px) and (max-height: 1080px){
     .form {
       display: flex;
       flex-direction: column;
@@ -9,6 +9,7 @@
       border-radius: 20px;
       position: relative;
       margin: 0 auto;
+      margin-bottom: 8%;
     }
   
     .title {
