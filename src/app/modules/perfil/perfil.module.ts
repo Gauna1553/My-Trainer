@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PerfilComponent } from './perfil.component';
+import { PerfilRoutingModule } from './perfil-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { PerfilComponent } from './perfil.component';
     PerfilComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PerfilRoutingModule
   ]
 })
 export class PerfilModule { }
