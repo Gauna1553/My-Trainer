@@ -12,7 +12,7 @@ export class HomeComponent {
   images = [
     {
 
-        imageSrc: "../../../assets/autito1.jpg",
+        imageSrc: "../../../assets/hqdefault.jpg",
         thumbnailSrc: "../../../assets/autito1.jpg",
         alt: "Description for Image 1",
         title: "Title 1"
