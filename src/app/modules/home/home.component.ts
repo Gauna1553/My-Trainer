@@ -42,4 +42,5 @@ export class HomeComponent {
             alt: "Description for Image 1",
             title: "Title 1"
         },
+  ]
 }
