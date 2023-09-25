@@ -5,9 +5,10 @@ import { RutinasRoutingModule } from './rutinas-routing.module';
 import { FieldsetModule } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
 
+
 @NgModule({
   declarations: [
-  RutinasComponent
+  RutinasComponent,
   ],
   imports: [
     CommonModule,
