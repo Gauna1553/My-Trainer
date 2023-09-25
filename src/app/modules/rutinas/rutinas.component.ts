@@ -7,12 +7,13 @@ import { Ejercicio } from 'src/app/model/ejercicios';
   styleUrls: ['./rutinas.component.css']
 })
 export class RutinasComponent {
-
-  public rutinapecho!: Ejercicio[];
-  public rutinaespalda!: Ejercicio[];
-  public rutinapiernas!: Ejercicio[];
+  // DEFINICION DE LAS PROPIEDADES DONDE VOY A GUARDAR LOS EJERCICIOS
+  public rutinapecho: Ejercicio[];
+  public rutinaespalda: Ejercicio[];
+  public rutinapiernas: Ejercicio[];
 
   constructor() {
+    // METO DENTRO DE UN ARREGLO CADA UNO DE LOS EJERCICIOS DE LA RUTINA DE PECHO
     this.rutinapecho = [
       {
         nombre: 'Press de Banca',
@@ -30,6 +31,7 @@ export class RutinasComponent {
         rangorep: '8-12'
       }
     ];
+    // METO DENTRO DE UN ARREGLO CADA UNO DE LOS EJERCICIOS DE LA RUTINA DE ESPALDA
     this.rutinaespalda = [
       {
         nombre:'Pull Over',
@@ -45,6 +47,7 @@ export class RutinasComponent {
         rangorep: '6-8'
       }
     ];
+    // METO DENTRO DE UN ARREGLO CADA UNO DE LOS EJERCICIOS DE LA RUTINA DE PIERNAS
     this.rutinapiernas = [
       {
         nombre: 'Leg Press',
@@ -60,6 +63,5 @@ export class RutinasComponent {
         rangorep: '3-5'
       }
     ];
-    
   }
 }
