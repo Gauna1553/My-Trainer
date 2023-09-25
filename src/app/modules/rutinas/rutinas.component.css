@@ -8,3 +8,9 @@ div{
 #primeracard{
     margin-top: 2%;
 }
+#title{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2%;   
+    text-shadow: 2px 2px 2px rgb(208, 218, 229);
+}
