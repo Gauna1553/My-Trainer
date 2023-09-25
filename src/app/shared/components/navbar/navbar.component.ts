@@ -59,7 +59,7 @@ export class NavbarComponent implements OnInit {
         ],
       },
       {
-        label: '<div class ="perfil">Perfil</div>',
+        label: 'Perfil',
         icon: 'pi pi-user',
         routerLink: '/perfil',
       },
