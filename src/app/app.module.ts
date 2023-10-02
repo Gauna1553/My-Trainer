@@ -22,10 +22,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
+import { TableComponent } from './modules/admin/components/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
