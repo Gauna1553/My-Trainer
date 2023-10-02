@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
 import { TableComponent } from './modules/admin/components/table/table.component';
+import { AdminModule } from './modules/admin.module';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TableComponent } from './modules/admin/components/table/table.component
     PerfilModule,
     RutinasModule,
     ConcepinfModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AdminModule
   ],exports: [
   ],
 
