@@ -25,7 +25,7 @@ import { EjerciciosService } from './services/ejercicios.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +42,7 @@ import { EjerciciosService } from './services/ejercicios.service';
     PerfilModule,
     RutinasModule,
     ConcepinfModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],exports: [
   ],
 

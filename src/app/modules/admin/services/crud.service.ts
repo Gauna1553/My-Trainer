@@ -6,7 +6,7 @@ import { Ejercicio } from 'src/app/model/ejercicios';
 @Injectable({
   providedIn: 'root'
 })
-export class EjerciciosService {
+export class CrudService {
   private ejerciciosColeccion: AngularFirestoreCollection<Ejercicio>
 
   constructor(private database: AngularFirestore) {

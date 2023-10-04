@@ -16,9 +16,9 @@ export class EjerciciosComponent implements OnInit{
 
   ngOnInit(){
     // Traigo toda la informacion de la tabla desde el ejerciciosservice
-    this.servicioEjercicios.getEjercicio().then((data)=>{
+    /*this.servicioEjercicios.getEjercicio().then((data)=>{
       this.ejerciciosss = data;
-    });
+    });*/
   }
   //Defino la visibilidad del popup como falsa de forma default
   ejerciciosDialog: boolean = false;
@@ -26,7 +26,8 @@ export class EjerciciosComponent implements OnInit{
   ejercicios: Ejercicio = {
     nombre: '',
     grupomuscular: '',
-    rangorep: ''
+    rangorep: '',
+    idEjercicio: '',
   }  
   // Todavia no usamos esto
   submitted: any;
