@@ -41,20 +41,21 @@
 
 <!-- TABLA DE LOS EJERCICIOS -->
 <div class="card" class="container">
-    <p-table [value]="ejerciciosss" dataKey="id" >
+    <p-table [value]="ejerciciosss" dataKey="id" editMode="row">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
                 <th>Rango de Repeticiones</th>
+                <th></th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
-        <ng-template pTemplate="body" let-ejercicios let-editing="editing">
-            <tr>
+        <ng-template pTemplate="body" let-ejercicios let-editing="editing" let-ri="rowIndex">
+            <tr [pEditableRow]="ejercicios">
                 <!-- COLUMNA DE NOMBRES -->
-                <td [pEditableColumn]="ejercicios.nombre" pEditableColumnField="nombre">
+                <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
@@ -67,7 +68,7 @@
                     </p-cellEditor>
                 </td>
                 <!-- COLUMNA DE GRUPO MUSCULAR -->
-                <td [pEditableColumn]="ejercicios.grupomuscular" pEditableColumnField="grupomuscular">
+                <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
@@ -80,7 +81,7 @@
                     </p-cellEditor>
                 </td>
                 <!-- COLUMNA DE RANGO DE REPETICIONES -->
-                <td [pEditableColumn]="ejercicios.rangorep" pEditableColumnField="rangorep">
+                <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
@@ -91,6 +92,13 @@
                             {{ ejercicios.rangorep }}
                         </ng-template>
                     </p-cellEditor>
+                </td>
+                <td>
+                    <div class="flex align-items-center justify-content-center gap-2">
+                        <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+                        <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                        <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+                    </div>
                 </td>
             </tr>
         </ng-template>
