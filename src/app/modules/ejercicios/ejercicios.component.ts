@@ -9,6 +9,8 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
   providers:[]
 })
 export class EjerciciosComponent implements OnInit{
+  database = '';
+
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
   ejerciciosss! :Ejercicio[];
 
@@ -46,4 +48,18 @@ export class EjerciciosComponent implements OnInit{
     this.ejercicios.rangorep = '';
   }
 
-}
+  agregarEjercicio(ejercicio: Ejercicio){ 
+    return new Promise(async(resolve,reject) => {
+      try{
+        const id = this.database.createId();
+        ejercicio.idEjercicio = id;
+
+        const resultado = await this.ejerciciosColeccion.doc(id).set(ejercicio)
+
+        resolve(resultado)
+      } catch (error) {
+        reject(error);
+      }
+    })
+  }
+} 
