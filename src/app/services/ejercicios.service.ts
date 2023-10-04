@@ -2,16 +2,15 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs';
 import { Ejercicio } from 'src/app/model/ejercicios';
-export { crearEjercicio } from 'src/app/services/ejercicios.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EjerciciosService {
-  private ejerciciosColeccion: AngularFirestoreCollection<Ejercicio>
+  public ejerciciosColeccion: AngularFirestoreCollection<Ejercicio>
 
   constructor(private database: AngularFirestore) {
-    this.ejerciciosColeccion = database.collection('ejecicios')
+    this.ejerciciosColeccion = database.collection('ejecicios');
   }
 
   //funcion para crear un ejercicio nuevo
