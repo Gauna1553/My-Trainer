@@ -8,6 +8,7 @@ import { Ejercicio } from 'src/app/model/ejercicios';
 })
 export class CrudService {
   private ejerciciosColeccion: AngularFirestoreCollection<Ejercicio>
+  
   constructor(private database: AngularFirestore) {
     this.ejerciciosColeccion: database.collection('ejecicios')
   }
