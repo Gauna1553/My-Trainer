@@ -44,7 +44,6 @@ export class EjerciciosComponent implements OnInit{
     this.ejercicios.nombre = '';
     this.ejercicios.grupomuscular = '';
     this.ejercicios.rangorep = '';
-    this.ejercicios.idEjercicio = '';
   }
 
 }
