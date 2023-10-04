@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs';
 import { Ejercicio } from 'src/app/model/ejercicios';
+export { crearEjercicio } from 'src/app/services/ejercicios.service';
 
 @Injectable({
   providedIn: 'root'

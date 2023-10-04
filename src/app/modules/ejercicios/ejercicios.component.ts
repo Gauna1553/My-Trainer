@@ -48,18 +48,18 @@ export class EjerciciosComponent implements OnInit{
     this.ejercicios.rangorep = '';
   }
 
-  agregarEjercicio(ejercicio: Ejercicio){ 
-    return new Promise(async(resolve,reject) => {
-      try{
-        const id = this.database.createId();
-        ejercicio.idEjercicio = id;
+  crearEjercicio(ejercicio: Ejercicio){ 
+  //   return new Promise(async(resolve,reject) => {
+  //     try{
+  //       const id = this.database.createId();
+  //       ejercicio.idEjercicio = id;
 
-        const resultado = await this.ejerciciosColeccion.doc(id).set(ejercicio)
+  //       const resultado = await this.ejerciciosColeccion.doc(id).set(ejercicio)
 
-        resolve(resultado)
-      } catch (error) {
-        reject(error);
-      }
-    })
-  }
-} 
+  //       resolve(resultado)
+  //     } catch (error) {
+  //       reject(error);
+  //     }
+  //   })
+  // }
+} }
