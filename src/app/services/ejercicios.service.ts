@@ -7,10 +7,10 @@ import { Ejercicio } from 'src/app/model/ejercicios';
   providedIn: 'root'
 })
 export class EjerciciosService {
-  private ejerciciosColeccion: AngularFirestoreCollection<Ejercicio>
+  public ejerciciosColeccion: AngularFirestoreCollection<Ejercicio>
 
   constructor(private database: AngularFirestore) {
-    this.ejerciciosColeccion = database.collection('ejecicios')
+    this.ejerciciosColeccion = database.collection('ejecicios');
   }
 
   //funcion para crear un ejercicio nuevo

@@ -9,6 +9,8 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
   providers:[]
 })
 export class EjerciciosComponent implements OnInit{
+  database = '';
+
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
   ejerciciosss! :Ejercicio[];
 
@@ -45,5 +47,12 @@ export class EjerciciosComponent implements OnInit{
     this.ejercicios.grupomuscular = '';
     this.ejercicios.rangorep = '';
   }
+
+  crearEjercicio(){
+    const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios).then((resp) => { //crea la colleción y almacena los datos 
+      alert("Agregado con exito") //si se pudo almancenar los datos, muestra este cartel
+    })
+  }
+
 
 }
