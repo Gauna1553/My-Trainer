@@ -35,7 +35,7 @@
         <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
         <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
         <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO, POR AHORA SOLO LA CANCELA PERO CUANDO  SE TERMINE EL CRUD GUARDARA -->
-        <button pButton label="Guardar" icon="pi pi-check" class="p-button-text" (click)="crearEjercicio()"></button>
+        <button pButton label="Crear Ejercicio" icon="pi pi-check" class="p-button-text" (click)="crearEjercicio()"></button>
     </ng-template>
 </p-dialog>
 
@@ -48,7 +48,7 @@
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
                 <th>Rango de Repeticiones</th>
-                <th></th>
+                <!--<th></th>-->
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
@@ -59,7 +59,7 @@
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
-                            <input pInputText type="text" [(ngModel)]="ejercicios.nombre" />
+                            <input pInputText type="text" [(ngModel)]="ejercicios.nombre"/>
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
