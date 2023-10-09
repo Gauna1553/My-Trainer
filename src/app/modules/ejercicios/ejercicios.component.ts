@@ -13,14 +13,16 @@ export class EjerciciosComponent implements OnInit{
 
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
   ejerciciosss! :Ejercicio[];
-
+  ejerciciosColeccion: Ejercicio [] = [];
+  
   constructor(public servicioEjercicios: EjerciciosService){}
 
   ngOnInit(){
-    // Traigo toda la informacion de la tabla desde el ejerciciosservice
-    /*this.servicioEjercicios.getEjercicio().then((data)=>{
-      this.ejerciciosss = data;
-    });*/
+    /* llamamos función obtenerProducto y le enviamos los nuevos valores
+    del formulario producto (se guardan en la colección) */
+    this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
+      this.ejerciciosColeccion = ejercicios;
+    })
   }
   //Defino la visibilidad del popup como falsa de forma default
   ejerciciosDialog: boolean = false;
