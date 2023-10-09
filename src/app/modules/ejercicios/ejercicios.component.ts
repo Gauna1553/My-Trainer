@@ -12,7 +12,7 @@ export class EjerciciosComponent implements OnInit{
   database = '';
 
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
-  ejerciciosss! :Ejercicio[];
+  //ejerciciosss! :Ejercicio[];
   ejerciciosColeccion: Ejercicio [] = [];
   
   constructor(public servicioEjercicios: EjerciciosService){}
@@ -22,6 +22,9 @@ export class EjerciciosComponent implements OnInit{
     del formulario producto (se guardan en la colección) */
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
       this.ejerciciosColeccion = ejercicios;
+      console.log(
+      ejercicios
+      )
     })
   }
   //Defino la visibilidad del popup como falsa de forma default
