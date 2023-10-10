@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EjerciciosComponent } from './ejercicios.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -18,6 +18,7 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     DialogModule,
     InputTextModule,
     ButtonModule,
