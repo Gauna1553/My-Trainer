@@ -53,18 +53,22 @@ export class EjerciciosComponent implements OnInit{
   }
 
   crearEjercicio(){
-    const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios).then((resp) => { //crea la colleción y almacena los datos 
-      alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este cartel
+    //Enviamos nuestro nuevo producto
+    const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios)
+    .then((resp) => { //crea la colleción y almacena los datos 
+      alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este alert
     }) .catch((error) => {
-      alert('No se pudo guardar el ejercicio')// si hubo algun error manda a llamar esta opcion
+      alert('No se pudo guardar el ejercicio')// si hubo algun error, nos muestra este alert
     })
   }
 
+
   borrarEjercicio() {
-    const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio).then((resp) => {
+    const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio)
+    .then((resp) => {
       alert ("Se elimino con exito el ejercicio");
     }) .catch ((error) => {
-      alert("No se pudo eliminar correctamente el ejercicio")
+      alert("No se pudo eliminar correctamente el ejercicio: (\n" + error)
     })
   }
 
@@ -80,13 +84,16 @@ export class EjerciciosComponent implements OnInit{
       grupomuscular: this.ejercicioSeleccionado.grupomuscular,
       rangorep: this.ejercicioSeleccionado.rangorep
     }
+
+    this.servicioEjercicios.modificarEjercicio(this.ejercicioSeleccionado.idEjercicio, datos)
+    .then(ejercicios => {
+      alert("El ejercicio se modifico con exito")
+    })
+    .catch(error => {
+      alert ("no se pudo modificar el ejercicio: (\n" + error)
+    })
   }
-  /*this.servicioEjercicios.modificarEjercicio(this.ejercicioSeleccionado.idEjercicio, datos)
-  .then(ejercicios => {
-    alert("El ejercicio se modifico con exito")
-  })
-  .catch(error => {
-    alert ("no se pudo modificar el ejercicio: (\n" + error)
-  })*/
+
+
 
 }
