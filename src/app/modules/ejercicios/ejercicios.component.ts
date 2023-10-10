@@ -28,6 +28,10 @@ export class EjerciciosComponent implements OnInit{
   }
   //Defino la visibilidad del popup como falsa de forma default
   ejerciciosDialog: boolean = false;
+  //Defino la visibilidad de los botones y el spinner
+  spinnerVis = false;
+  botonesVis = true;
+
 
   ejercicios: Ejercicio = {
     nombre: '',
