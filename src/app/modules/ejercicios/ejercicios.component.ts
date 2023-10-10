@@ -28,6 +28,10 @@ export class EjerciciosComponent implements OnInit{
   }
   //Defino la visibilidad del popup como falsa de forma default
   ejerciciosDialog: boolean = false;
+  //Defino la visibilidad de los botones y el spinner
+  spinnerVis = false;
+  botonesVis = true;
+
 
   ejercicios: Ejercicio = {
     nombre: '',
@@ -53,12 +57,16 @@ export class EjerciciosComponent implements OnInit{
   }
 
   crearEjercicio(){
-    //Enviamos nuestro nuevo producto
-    const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios)
-    .then((resp) => { //crea la colleción y almacena los datos 
-      alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este alert
+    this.spinnerVis = true;
+    this.botonesVis = false;
+    const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios).then((resp) => { //crea la colleción y almacena los datos 
+      alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este cartel
+      this.spinnerVis = false;
+      this.botonesVis = true;
     }) .catch((error) => {
-      alert('No se pudo guardar el ejercicio')// si hubo algun error, nos muestra este alert
+      alert('No se pudo guardar el ejercicio')// si hubo algun error manda a llamar esta opcion
+      this.spinnerVis = false;
+      this.botonesVis = true;
     })
   }
 

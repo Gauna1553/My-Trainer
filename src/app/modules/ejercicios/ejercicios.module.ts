@@ -9,6 +9,9 @@ import { TableModule } from 'primeng/table';
 import { EjerciciosRoutingModule } from './ejercicios-routing.module';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
+import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
 
 
 @NgModule({
@@ -24,6 +27,10 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
     ButtonModule,
     TableModule,
     EjerciciosRoutingModule,
+
+    TriStateCheckboxModule,
+    ProgressSpinnerModule
+
   ], 
   exports: [
     FormsModule,
@@ -31,7 +38,7 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
     InputTextModule,
     ButtonModule,
     TableModule,
-    
+    ProgressSpinnerModule
   ]
 })
 export class EjerciciosModule { }
