@@ -58,12 +58,13 @@ export class EjerciciosComponent implements OnInit{
   crearEjercicio(){
     this.loading = true
     const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios).then((resp) => { //crea la colleción y almacena los datos 
+      this.loading = false
       alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este cartel
-      this.loading = false
     }) .catch((error) => {
-      alert('No se pudo guardar el ejercicio')// si hubo algun error manda a llamar esta opcion
       this.loading = false
+      alert('No se pudo guardar el ejercicio')// si hubo algun error manda a llamar esta opcion
     })
+    this.ejerciciosDialog = false;
   }
 
 
