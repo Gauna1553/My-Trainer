@@ -12,15 +12,19 @@ export class EjerciciosComponent implements OnInit{
   database = '';
 
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
-  ejerciciosss! :Ejercicio[];
+  //ejerciciosss! :Ejercicio[];
+  ejerciciosColeccion: Ejercicio [] = [];
 
+  ejercicioSeleccionado!: Ejercicio;
+  
   constructor(public servicioEjercicios: EjerciciosService){}
 
   ngOnInit(){
-    // Traigo toda la informacion de la tabla desde el ejerciciosservice
-    /*this.servicioEjercicios.getEjercicio().then((data)=>{
-      this.ejerciciosss = data;
-    });*/
+    /* llamamos función obtenerProducto y le enviamos los nuevos valores
+    del formulario producto (se guardan en la colección) */
+    this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
+      this.ejerciciosColeccion = ejercicios;
+    })
   }
   //Defino la visibilidad del popup como falsa de forma default
   ejerciciosDialog: boolean = false;
@@ -56,5 +60,33 @@ export class EjerciciosComponent implements OnInit{
     })
   }
 
+  borrarEjercicio() {
+    const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio).then((resp) => {
+      alert ("Se elimino con exito el ejercicio");
+    }) .catch ((error) => {
+      alert("No se pudo eliminar correctamente el ejercicio")
+    })
+  }
+
+  //Editar producto -> se llama al boton para el pop up
+  editarEjercicio(ejercicioSeleccionado: Ejercicio) {
+    this.ejercicioSeleccionado = ejercicioSeleccionado;
+  }
+
+  editEjercicio() {
+    let datos: Ejercicio = {
+      nombre: this.ejercicioSeleccionado.nombre,
+      idEjercicio: this.ejercicioSeleccionado.idEjercicio,
+      grupomuscular: this.ejercicioSeleccionado.grupomuscular,
+      rangorep: this.ejercicioSeleccionado.rangorep
+    }
+  }
+  /*this.servicioEjercicios.modificarEjercicio(this.ejercicioSeleccionado.idEjercicio, datos)
+  .then(ejercicios => {
+    alert("El ejercicio se modifico con exito")
+  })
+  .catch(error => {
+    alert ("no se pudo modificar el ejercicio: (\n" + error)
+  })*/
 
 }
