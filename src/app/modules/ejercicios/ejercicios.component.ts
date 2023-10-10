@@ -70,11 +70,13 @@ export class EjerciciosComponent implements OnInit{
     })
   }
 
+
   borrarEjercicio() {
-    const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio).then((resp) => {
+    const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio)
+    .then((resp) => {
       alert ("Se elimino con exito el ejercicio");
     }) .catch ((error) => {
-      alert("No se pudo eliminar correctamente el ejercicio")
+      alert("No se pudo eliminar correctamente el ejercicio: (\n" + error)
     })
   }
 
@@ -90,13 +92,16 @@ export class EjerciciosComponent implements OnInit{
       grupomuscular: this.ejercicioSeleccionado.grupomuscular,
       rangorep: this.ejercicioSeleccionado.rangorep
     }
+
+    this.servicioEjercicios.modificarEjercicio(this.ejercicioSeleccionado.idEjercicio, datos)
+    .then(ejercicios => {
+      alert("El ejercicio se modifico con exito")
+    })
+    .catch(error => {
+      alert ("no se pudo modificar el ejercicio: (\n" + error)
+    })
   }
-  /*this.servicioEjercicios.modificarEjercicio(this.ejercicioSeleccionado.idEjercicio, datos)
-  .then(ejercicios => {
-    alert("El ejercicio se modifico con exito")
-  })
-  .catch(error => {
-    alert ("no se pudo modificar el ejercicio: (\n" + error)
-  })*/
+
+
 
 }
