@@ -9,7 +9,6 @@ import { TableModule } from 'primeng/table';
 import { EjerciciosRoutingModule } from './ejercicios-routing.module';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
-import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
     ButtonModule,
     TableModule,
     EjerciciosRoutingModule,
-    TriStateCheckboxModule
   ], 
   exports: [
     FormsModule,
