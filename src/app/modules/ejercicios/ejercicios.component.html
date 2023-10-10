@@ -48,7 +48,7 @@
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
                 <th>Rango de Repeticiones</th>
-                <!--<th></th>-->
+                <th>Editar o eliminar</th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
@@ -92,6 +92,16 @@
                             {{ ejercicios.rangorep }}
                         </ng-template>
                     </p-cellEditor>
+                </td>             
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- BOTONES PARA ELIMINAR O EDITAR LOS DATOS EN CADA FILA-->
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="borrarEjercicio()"></button>
+                        </ng-template>
+                    </p-cellEditor>
                 </td>
                 <td>
                     <div class="flex align-items-center justify-content-center gap-2">
@@ -106,5 +116,5 @@
     </p-table>
     <!-- ESTE BOTON ABRE EL POPUP -->
     <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="openNew()"></button>
-    <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="borrarEjercicio()"></button>
+    <!--<button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="borrarEjercicio()"></button>-->
 </div>

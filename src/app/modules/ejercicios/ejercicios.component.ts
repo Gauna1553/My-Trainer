@@ -14,6 +14,8 @@ export class EjerciciosComponent implements OnInit{
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
   //ejerciciosss! :Ejercicio[];
   ejerciciosColeccion: Ejercicio [] = [];
+
+  ejercicioSeleccionado!: Ejercicio;
   
   constructor(public servicioEjercicios: EjerciciosService){}
 
@@ -22,9 +24,6 @@ export class EjerciciosComponent implements OnInit{
     del formulario producto (se guardan en la colección) */
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
       this.ejerciciosColeccion = ejercicios;
-      console.log(
-      ejercicios
-      )
     })
   }
   //Defino la visibilidad del popup como falsa de forma default
@@ -69,5 +68,25 @@ export class EjerciciosComponent implements OnInit{
     })
   }
 
+  //Editar producto -> se llama al boton para el pop up
+  editarEjercicio(ejercicioSeleccionado: Ejercicio) {
+    this.ejercicioSeleccionado = ejercicioSeleccionado;
+  }
+
+  editEjercicio() {
+    let datos: Ejercicio = {
+      nombre: this.ejercicioSeleccionado.nombre,
+      idEjercicio: this.ejercicioSeleccionado.idEjercicio,
+      grupomuscular: this.ejercicioSeleccionado.grupomuscular,
+      rangorep: this.ejercicioSeleccionado.rangorep
+    }
+  }
+  /*this.servicioEjercicios.modificarEjercicio(this.ejercicioSeleccionado.idEjercicio, datos)
+  .then(ejercicios => {
+    alert("El ejercicio se modifico con exito")
+  })
+  .catch(error => {
+    alert ("no se pudo modificar el ejercicio: (\n" + error)
+  })*/
 
 }
