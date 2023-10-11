@@ -19,7 +19,7 @@ export class EjerciciosComponent implements OnInit{
 
   selectedCities: string[] = [];
 
-  ejercicio!:Ejercicio
+  ejercicios!:Ejercicio
 
   constructor(public servicioEjercicios: EjerciciosService){}
 
