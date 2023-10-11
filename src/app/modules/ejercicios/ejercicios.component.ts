@@ -78,13 +78,13 @@ export class EjerciciosComponent implements OnInit{
 
 
   borrarEjercicio() {
-    console.log(this.ejercicioss)
-    /*const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio)
+    //console.log(this.ejercicioss)
+    const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio)
     .then((resp) => {
       alert ("Se elimino con exito el ejercicio");
     }) .catch ((error) => {
       alert("No se pudo eliminar correctamente el ejercicio: (\n" + error)
-    })*/
+    })
   }
 
   //Editar producto -> se llama al boton para el pop up
