@@ -22,14 +22,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
-import { RutinasComponent } from './modules/visitante/components/rutinas/rutinas.component';
-import { HomeComponent } from './modules/visitante/components/home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    RutinasComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,
