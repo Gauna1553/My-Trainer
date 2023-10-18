@@ -23,9 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
