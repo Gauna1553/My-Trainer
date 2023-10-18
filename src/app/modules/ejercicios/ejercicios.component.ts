@@ -16,7 +16,11 @@ export class EjerciciosComponent implements OnInit{
   ejerciciosColeccion: Ejercicio [] = [];
 
   ejercicioSeleccionado!: Ejercicio;
-  
+
+  selectedCities: string[] = [];
+
+  ejercicios!:Ejercicio
+
   constructor(public servicioEjercicios: EjerciciosService){}
 
   ngOnInit(){
@@ -24,6 +28,8 @@ export class EjerciciosComponent implements OnInit{
     del formulario producto (se guardan en la colección) */
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
       this.ejerciciosColeccion = ejercicios;
+
+      //Es una coleccion para poder seleccionar a mas de un elemento
     })
   }
   //Defino la visibilidad del popup como falsa de forma default
@@ -32,7 +38,7 @@ export class EjerciciosComponent implements OnInit{
   loading = false;
 
 
-  ejercicios: Ejercicio = {
+  ejercicioss: Ejercicio = {
     nombre: '',
     grupomuscular: '',
     rangorep: '',
@@ -50,12 +56,13 @@ export class EjerciciosComponent implements OnInit{
   //Esta funcion cierra el popup al hacer que su visibilidad sea falsa y resetea los inputs
   hideDialog(){
     this.ejerciciosDialog = false;
-    this.ejercicios.nombre = '';
-    this.ejercicios.grupomuscular = '';
-    this.ejercicios.rangorep = '';
+    this.ejercicioss.nombre = '';
+    this.ejercicioss.grupomuscular = '';
+    this.ejercicioss.rangorep = '';
   }
 
   crearEjercicio(){
+
     this.loading = true
     const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios).then((resp) => { //crea la colleción y almacena los datos 
       this.loading = false
@@ -69,6 +76,7 @@ export class EjerciciosComponent implements OnInit{
 
 
   borrarEjercicio() {
+    //console.log(this.ejercicioss)
     const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio)
     .then((resp) => {
       alert ("Se elimino con exito el ejercicio");

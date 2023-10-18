@@ -6,27 +6,27 @@
         <div class="field">
             <label for="nombre">Nombre</label>
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required autofocus>
+            <input [(ngModel)]="ejercicioss.nombre" pInputText name="ejerNombre" type="text" id="nombre" required autofocus>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicios.nombre">El nombre es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !ejercicioss.nombre">El nombre es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
             <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicios.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required autofocus>
+            <input [(ngModel)]="ejercicioss.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required autofocus>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicios.grupomuscular">El grupo es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !ejercicioss.grupomuscular">El grupo es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
             <label for="rango">Rango de Repeticiones</label>
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicios.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
+            <input [(ngModel)]="ejercicioss.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicios.rangorep">El rango es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !ejercicioss.rangorep">El rango es obligatorio.</small>
         </div>
     </ng-template>
 
@@ -47,16 +47,27 @@
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
+                <th></th>
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
                 <th>Rango de Repeticiones</th>
-                <th>Editar o eliminar</th>
+                <th style="width: 10%"><button pButton pRipple icon="pi pi-trash" class="p-button-danger mr-2" label="Eliminar" (click)="borrarEjercicio()"></button></th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
         <ng-template pTemplate="body" let-ejercicios let-editing="editing" let-ri="rowIndex">
             <tr>
                 <!-- COLUMNA DE NOMBRES -->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!--CheckBox que permite seleccionar el ejercicio-->
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <p-tableCheckbox [value]="ejercicios"></p-tableCheckbox>
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
@@ -94,16 +105,6 @@
                             {{ ejercicios.rangorep }}
                         </ng-template>
                     </p-cellEditor>
-                </td>             
-                <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- BOTONES PARA ELIMINAR O EDITAR LOS DATOS EN CADA FILA-->
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="borrarEjercicio()"></button>
-                        </ng-template>
-                    </p-cellEditor>
                 </td>
                 <td>
                     <div class="flex align-items-center justify-content-center gap-2">
@@ -118,5 +119,4 @@
     </p-table>
     <!-- ESTE BOTON ABRE EL POPUP -->
     <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="openNew()"></button>
-    <!--<button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="borrarEjercicio()"></button>-->
 </div>

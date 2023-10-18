@@ -11,6 +11,9 @@ import { Ejercicio } from 'src/app/model/ejercicios';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { CheckboxModule } from 'primeng/checkbox';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -27,10 +30,10 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ButtonModule,
     TableModule,
     EjerciciosRoutingModule,
-
     TriStateCheckboxModule,
-    ProgressSpinnerModule
-
+    ProgressSpinnerModule,
+    CheckboxModule,
+    //BrowserAnimationsModule
   ], 
   exports: [
     FormsModule,
