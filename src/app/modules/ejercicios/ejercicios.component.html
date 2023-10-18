@@ -56,7 +56,7 @@
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
         <ng-template pTemplate="body" let-ejercicios let-editing="editing" let-ri="rowIndex">
-            <tr>
+            <tr [pEditableRow]="ejercicios">
                 <!-- COLUMNA DE NOMBRES -->
                 <td>
                     <p-cellEditor>
