@@ -62,7 +62,6 @@ export class EjerciciosComponent implements OnInit{
   }
 
   crearEjercicio(){
-
     this.loading = true
     const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios).then((resp) => { //crea la colleción y almacena los datos 
       this.loading = false
@@ -75,8 +74,8 @@ export class EjerciciosComponent implements OnInit{
 
     /*
     Esta funcion lo que hace es crear ejercicios y almacenarlos en la base de datos de firebase.
-    Los datos son son almacenados en la constante resultado, y si se logro guardar correctamente, se muestra el primer mensaje.
-    En caso de no haberse guardado, se almacena el error en se muestra el segundo mensaje.
+    Los datos son almacenados en la constante resultado, y si se logro guardar correctamente, se muestra el primer mensaje.
+    En caso de no haberse guardado, se almacena el error y se muestra el segundo mensaje.
      */
   }
 
