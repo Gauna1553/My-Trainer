@@ -51,6 +51,9 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
   this.usuarios.uid = uid;
 
   this.guardarUser();
+    /*
+      Esta función toma los valores de email y contraseña, y los valida para así permitir al usuario registrarse.
+    */
 }
 
   async guardarUser(){
@@ -61,6 +64,12 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
     .catch(error =>{
       console.log('Error =>',error)
     })
+    /*
+      Esta función se encarga de guardar a los usuarios creados con la función de arriba, la BD.
+      
+      BD= Base de Datos
+      
+    */
   }
 
   async ngOnInit(){

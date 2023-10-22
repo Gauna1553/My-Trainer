@@ -13,6 +13,9 @@ export class AuthService {
   iniciarSesion(email:string,contrasena: string){
     //Valida el email y al contraseña de la BD
     return this.auth.signInWithEmailAndPassword(email, contrasena);
+    /*
+      Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
+    */
   }
 
   //Funcion para registrarse
