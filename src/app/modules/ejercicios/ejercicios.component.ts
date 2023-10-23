@@ -17,8 +17,7 @@ export class EjerciciosComponent implements OnInit{
 
   ejercicioSeleccionado!: Ejercicio;
 
-  selectedCities: string[] = [];
-
+  
   ejercicios!:Ejercicio
 
   constructor(public servicioEjercicios: EjerciciosService){}
