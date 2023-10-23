@@ -78,14 +78,19 @@ export class EjerciciosComponent implements OnInit{
      */
   }
 
+  mostrarBorrar(ejercicioSeleccionado:Ejercicio) {
+    this.ejercicioSeleccionado = ejercicioSeleccionado;
+  }
+
 
   borrarEjercicio() {
     //console.log(this.ejercicioss)
-    const eliminar = this.servicioEjercicios.eliminarEjercicios(this.ejercicios.idEjercicio)
-    .then((resp) => {
-      alert ("Se elimino con exito el ejercicio");
-    }) .catch ((error) => {
-      alert("No se pudo eliminar correctamente el ejercicio: (\n" + error)
+    this.servicioEjercicios.eliminarEjercicios(this.ejercicioSeleccionado.idEjercicio)
+    .then (respuesta => {
+      alert("el ejercicio se eliminio correctamente")
+    })
+    .catch (error => {
+      alert ("No se pudo eliminar ejercicio: \n"+error)
     })
 
     /*
