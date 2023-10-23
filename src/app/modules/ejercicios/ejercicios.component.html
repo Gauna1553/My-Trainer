@@ -47,7 +47,6 @@
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
-                <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
                 <th>Rango de Repeticiones</th>
@@ -57,11 +56,6 @@
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
         <ng-template pTemplate="body" let-ejerciciosss let-editing="editing" let-ri="rowIndex">
             <tr [pEditableRow]="ejerciciosss">
-                <!-- CHECKBOX PARA SELECCIONAR EJERCICIOS -->
-                <td>
-                    <p-tableCheckbox [value]="ejerciciosss.nombre"></p-tableCheckbox>
-                </td>
-    
                 <!-- COLUMNA DE NOMBRES -->
                 <td>
                     <p-cellEditor>
@@ -103,7 +97,7 @@
                         </ng-template>
                     </p-cellEditor>
                 </td>
-                
+
                 <td>
                     <div class="flex align-items-center justify-content-center gap-2">
                         <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
