@@ -6,7 +6,7 @@
         <div class="field">
             <label for="nombre">Nombre</label>
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.nombre" pInputText name="ejerNombre" type="text" id="nombre" required autofocus>
+            <input [(ngModel)]="ejercicioss.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicioss.nombre">El nombre es obligatorio.</small>
         </div>
@@ -15,7 +15,7 @@
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
             <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required autofocus>
+            <input [(ngModel)]="ejercicioss.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicioss.grupomuscular">El grupo es obligatorio.</small>
         </div>
@@ -24,7 +24,7 @@
         <div class="field">
             <label for="rango">Rango de Repeticiones</label>
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.rangorep" pInputText type="text" id="rango" name="rangorep" required autofocus>
+            <input [(ngModel)]="ejercicioss.rangorep" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !ejercicioss.rangorep">El rango es obligatorio.</small>
         </div>
