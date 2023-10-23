@@ -61,7 +61,6 @@ export class EjerciciosComponent implements OnInit{
   }
 
   crearEjercicio(){
-
     this.loading = true
     const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicios).then((resp) => { //crea la colleción y almacena los datos 
       this.loading = false
@@ -71,6 +70,12 @@ export class EjerciciosComponent implements OnInit{
       this.loading = false
       alert('No se pudo guardar el ejercicio')// si hubo algun error manda a llamar esta opcion
     })
+
+    /*
+    Esta funcion lo que hace es crear ejercicios y almacenarlos en la base de datos de firebase.
+    Los datos son almacenados en la constante resultado, y si se logro guardar correctamente, se muestra el primer mensaje.
+    En caso de no haberse guardado, se almacena el error y se muestra el segundo mensaje.
+     */
   }
 
 
@@ -82,6 +87,12 @@ export class EjerciciosComponent implements OnInit{
     }) .catch ((error) => {
       alert("No se pudo eliminar correctamente el ejercicio: (\n" + error)
     })
+
+    /*
+    Esta funcion se encargar de tomar la ID de los ejercicios almacenados en la BD, y por medio de un boton
+    al cual se le asigna esta función, se borrara el ejercicio deseado.
+    Si se pudo borrar correctamente, se muestra el primer mensaje, en caso contrario, se mostrara el segundo.
+    */
   }
 
   //Editar producto -> se llama al boton para el pop up
@@ -106,6 +117,9 @@ export class EjerciciosComponent implements OnInit{
     })
   }
 
-
+  /*
+  Esta funcion toma los valores asignados de la colección de ejercicios, y los modifica, excepto el valor ID.
+  En caso de hacerlo bien, se muestra el primer mensaje, en caso contrario, muestra el segundo mensaje
+   */
 
 }

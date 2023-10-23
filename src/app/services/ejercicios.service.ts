@@ -27,6 +27,12 @@ export class EjerciciosService {
         reject(error);
       }
     })
+
+    /*
+      Esta función genera una nueva promesa asincrona en la cual se le asigna un ID al objeto ejercicio.
+    */
+
+      //async, es decir que se ejecuta de manera desfazada a nuestra petición
   }
 
 
@@ -35,12 +41,19 @@ export class EjerciciosService {
     // pipe -> tuberia por donde viajan esos nuevos datos
     // map -> recorre esos datos y luego los lee
     return  this.ejerciciosColeccion.snapshotChanges().pipe(map((action => action.map(a => a.payload.doc.data()))))
+
+    /*
+      Esta función se encarga de llamar a los datos que se le solicitan, y mostrarlos en pantalla
+    */
   }
 
   //funcion para editar los ejercicios
   /*Enviamos el id del ejercicio seleccionado y su nueva información*/
   modificarEjercicio(idEjercicio: string, nuevaData: Ejercicio) {
     return this.database.collection('ejercicios').doc(idEjercicio).update(nuevaData);
+    /*
+      Esta función se encarga de llamar al objeto ejercicios, y modificar un valor ya existente
+    */
   }
 
   //funcion para Eliminar Ejercicios
@@ -55,4 +68,7 @@ export class EjerciciosService {
       }
     })
   }
+  /*
+    Esta función es la encargada de eliminar un objeto por medio de su ID, la cual se llama directamente de la BD
+  */
 }
