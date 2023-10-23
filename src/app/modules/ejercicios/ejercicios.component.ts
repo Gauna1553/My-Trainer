@@ -84,7 +84,6 @@ export class EjerciciosComponent implements OnInit{
 
 
   borrarEjercicio() {
-    //console.log(this.ejercicioss)
     this.servicioEjercicios.eliminarEjercicios(this.ejercicioSeleccionado.idEjercicio)
     .then (respuesta => {
       alert("el ejercicio se eliminio correctamente")
