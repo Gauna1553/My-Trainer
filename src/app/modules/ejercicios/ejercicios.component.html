@@ -42,8 +42,8 @@
 </p-dialog>
 
 <!-- TABLA DE LOS EJERCICIOS -->
-<div class="card" class="container">
-    <p-table [value]="ejerciciosColeccion" dataKey="id" editMode="row" [(selection)]="ejercicioSeleccionado">
+<div class="container">
+    <p-table [value]="ejerciciosColeccion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
@@ -59,8 +59,9 @@
             <tr [pEditableRow]="ejerciciosss">
                 <!-- CHECKBOX PARA SELECCIONAR EJERCICIOS -->
                 <td>
-                    <p-tableCheckbox [value]="ejerciciosss"></p-tableCheckbox>
+                    <p-tableCheckbox [value]="ejerciciosss.nombre"></p-tableCheckbox>
                 </td>
+    
                 <!-- COLUMNA DE NOMBRES -->
                 <td>
                     <p-cellEditor>
@@ -74,6 +75,7 @@
                         </ng-template>
                     </p-cellEditor>
                 </td>
+
                 <!-- COLUMNA DE GRUPO MUSCULAR -->
                 <td>
                     <p-cellEditor>
@@ -87,6 +89,7 @@
                         </ng-template>
                     </p-cellEditor>
                 </td>
+
                 <!-- COLUMNA DE RANGO DE REPETICIONES -->
                 <td>
                     <p-cellEditor>
@@ -100,6 +103,7 @@
                         </ng-template>
                     </p-cellEditor>
                 </td>
+                
                 <td>
                     <div class="flex align-items-center justify-content-center gap-2">
                         <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
@@ -109,7 +113,7 @@
                     </div>
                 </td>
             </tr>
-        </ng-template>
+        </ng-template>   
     </p-table>
     <!-- ESTE BOTON ABRE EL POPUP -->
     <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="openNew()"></button>
