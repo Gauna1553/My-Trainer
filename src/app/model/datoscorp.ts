@@ -1,4 +1,4 @@
-export interface Datoscorp {
+export interface Datos {
     sexo:number;
     edad:number;
     altura:number;
