@@ -22,11 +22,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
+import { CalculadoraCALComponent } from './modules/calculadora-cal/calculadora-cal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CalculadoraCALComponent,
   ],
   imports: [
     BrowserModule,
