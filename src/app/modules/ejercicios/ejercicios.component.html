@@ -97,7 +97,16 @@
                         </ng-template>
                     </p-cellEditor>
                 </td>
-
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!--Boton para eliminar ejercicios-->
+                        </ng-template>
+                        <ng-template>
+                            <button pButton icon = "pi pi-trash" label = "Eliminar" class = "p-button-text" (click)="mostrarBorrar(ejerciciosss)"></button>
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
                 <td>
                     <div class="flex align-items-center justify-content-center gap-2">
                         <!-- <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>

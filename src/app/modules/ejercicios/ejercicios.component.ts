@@ -96,7 +96,7 @@ export class EjerciciosComponent implements OnInit{
       alert("el ejercicio se eliminio correctamente")
     })
     .catch (error => {
-      alert ("No se pudo eliminar ejercicio: \n"+error)
+      alert ("No se pudo eliminar el ejercicio: \n"+error)
     })
 
     /*
