@@ -87,6 +87,11 @@ export class EjerciciosComponent implements OnInit{
     } else {
       alert("No se borro el ejercicio")
     }
+
+    /*
+      Esta función lo que hace es a traves de un confirm, preguntarle al usuario si quiere eliminar un ejercicio.
+      En caso que toque el boton de aceptar, llama a la función de borrarEjercicio(). En caso contrario, aparece el segundo cartel.
+    */
   }
 
 
