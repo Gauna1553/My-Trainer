@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RoutingRoutingModule } from './routing-routing.module';
+import { CalculadoraRoutingModule } from './calculadora-routing.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RoutingRoutingModule
+    CalculadoraRoutingModule
   ]
 })
 export class RoutingModule { }
