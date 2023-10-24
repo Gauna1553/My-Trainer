@@ -11,8 +11,6 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 export class EjerciciosComponent implements OnInit{
   database = '';
 
-  
-
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
   //ejerciciosss! :Ejercicio[];
   ejerciciosColeccion: Ejercicio [] = [];
@@ -115,7 +113,7 @@ export class EjerciciosComponent implements OnInit{
   editarEjercicio(ejercicioSeleccionado: Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
     if (confirm("Desea editar el ejercicio?") === true) {
-      this.openNew()
+      this.editEjercicio();
     } else {
       alert("No se pudo modificar el ejercicio")
     }
