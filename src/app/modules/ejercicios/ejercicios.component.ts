@@ -119,6 +119,10 @@ export class EjerciciosComponent implements OnInit{
     } else {
       alert("No se pudo modificar el ejercicio")
     }
+    /*
+      Esta función lo que hace es seguir el mismo ejemplo de mostrarBorrar().
+      La principal diferencia es que ahora abre una ventana modal con los campos del ejercicio actuales, para así poder editarlos.
+    */
   }
 
   editEjercicio() {
