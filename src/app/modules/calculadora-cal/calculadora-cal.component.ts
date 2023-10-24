@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Datoscorp } from 'src/app/model/datoscorp';
 
 @Component({
   selector: 'app-calculadora-cal',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class CalculadoraCALComponent {
 
+ 
 }
