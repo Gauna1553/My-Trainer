@@ -1,1 +1,40 @@
-
+<form name="calcform" action="Calc()" method="post" class="">
+    <table summary="" align="center" border="0">
+    <tbody><tr>
+    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Peso</strong>&nbsp;(kg)&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td bgcolor="#eeeee0" align="right"><input type="text" name="wt" size="24" onchange="value=preFormat(value,2,0)"></td>
+    </tr>
+    <tr>
+    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Altura </strong>&nbsp;(cm)&nbsp;:</td>
+    <td bgcolor="#eeeee0" align="right"><input type="text" name="ht" size="24" onchange="value=preFormat(value,2,0)"></td>
+    </tr>
+    <tr>
+    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Edad </strong>&nbsp;(años)&nbsp;:</td>
+    <td bgcolor="#eeeee0" align="right"><input type="text" name="ag" size="24" onchange="value=preFormat(value,2,0)"></td>
+    </tr>
+    <tr>
+    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Sexo</strong></td>
+    <td bgcolor="#eeeee0" align="right">
+    <select name="sx"><option value="1">Masculino</option><option value="2">Femenino</option></select></td>
+    </tr>
+    <tr>
+    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Actividad física</strong></td>
+    <td bgcolor="#eeeee0" align="right">
+    <select name="act"><option value="1">Sedentaria</option><option value="1.2">Ligeramente activa</option><option selected="selected" value="1.4">Moderadamente Activa</option><option value="1.6">Muy activa</option><option value="1.8">Extremadamente activa</option></select></td>
+    </tr>
+    <tr>
+    <td bgcolor="#eeeee0" colspan="2" align="center"><strong>Resultados</strong></td>
+    </tr>
+    <tr>
+    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Tasa metabílica basal (TMB)</strong></td>
+    <td bgcolor="#eeeee0" align="right"><input type="text" name="bmr" size="20" readonly="readonly"></td>
+    </tr>
+    <tr>
+    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Calorías necesarias para la actividad física</strong></td>
+    <td bgcolor="#eeeee0" align="right"><input type="text" name="bfat" size="20" readonly="readonly"></td>
+    </tr>
+    <tr>
+    <td colspan="2" bgcolor="#eeeee0" align="center">
+    <input type="button" value="Calcular" onclick="Calc()"><br>
+    <input type="reset" value="Borrar"></td>
+    
