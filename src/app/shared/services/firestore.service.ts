@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'
 import { Usuario } from 'src/app/model/usuarios';
-import { Datos } from 'src/app/model/datoscorp';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,6 @@ export class FirestoreService {
     //RESOLVE: promesa resulta -> similar al then
     //REJECT: promesa rechazada -> similar al catch
     return new Promise(async(resolve,reject) =>{
-
       try {
         const resultado = await this.usuariosColletion.doc(id).update({
           edad: edad,
