@@ -103,7 +103,8 @@
                             <!--Boton para eliminar ejercicios-->
                         </ng-template>
                         <ng-template pTemplate="output">
-                            <button pButton icon = "pi pi-trash" label = "Eliminar" class = "p-button-danger" (click)="mostrarBorrar(ejerciciosss)"></button>
+                            <button pButton icon = "pi pi-trash" class = "p-button-danger" (click)="mostrarBorrar(ejerciciosss)"></button>
+                            <button pButton icon = "pi pi-pencil" class = "p-button-success" (click)="editarEjercicio(ejerciciosss)"></button>
                         </ng-template>
                     </p-cellEditor>
                 </td>

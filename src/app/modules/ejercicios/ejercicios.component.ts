@@ -11,8 +11,6 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 export class EjerciciosComponent implements OnInit{
   database = '';
 
-  delete = confirm("Desea eliminar el ejercicio?")
-
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
   //ejerciciosss! :Ejercicio[];
   ejerciciosColeccion: Ejercicio [] = [];
@@ -82,11 +80,16 @@ export class EjerciciosComponent implements OnInit{
 
   mostrarBorrar(ejercicioSeleccionado:Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
-    if (this.delete == true) {
+    if (confirm("Desea eliminar el ejercicio?")=== true) {
       this.borrarEjercicio()
     } else {
       alert("No se borro el ejercicio")
     }
+
+    /*
+      Esta función lo que hace es a traves de un confirm, preguntarle al usuario si quiere eliminar un ejercicio.
+      En caso que toque el boton de aceptar, llama a la función de borrarEjercicio(). En caso contrario, aparece el segundo cartel.
+    */
   }
 
 
@@ -109,6 +112,15 @@ export class EjerciciosComponent implements OnInit{
   //Editar producto -> se llama al boton para el pop up
   editarEjercicio(ejercicioSeleccionado: Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
+    if (confirm("Desea editar el ejercicio?") === true) {
+      this.editEjercicio();
+    } else {
+      alert("No se pudo modificar el ejercicio")
+    }
+    /*
+      Esta función lo que hace es seguir el mismo ejemplo de mostrarBorrar().
+      La principal diferencia es que ahora abre una ventana modal con los campos del ejercicio actuales, para así poder editarlos.
+    */
   }
 
   editEjercicio() {
