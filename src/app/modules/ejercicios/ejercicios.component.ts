@@ -11,7 +11,7 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 export class EjerciciosComponent implements OnInit{
   database = '';
 
-  delete = confirm("¿Desea eliminar el ejercicio?")
+  delete = confirm("Desea eliminar el ejercicio?")
 
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
   //ejerciciosss! :Ejercicio[];
@@ -82,7 +82,7 @@ export class EjerciciosComponent implements OnInit{
 
   mostrarBorrar(ejercicioSeleccionado:Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
-    if (this.delete === true) {
+    if (this.delete == true) {
       this.borrarEjercicio()
     } else {
       alert("No se borro el ejercicio")

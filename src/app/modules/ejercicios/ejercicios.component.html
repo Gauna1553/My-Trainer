@@ -50,7 +50,7 @@
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
                 <th>Rango de Repeticiones</th>
-                <th style="width: 10%"><button pButton pRipple icon="pi pi-trash" class="p-button-danger mr-2" label="Eliminar" (click)="borrarEjercicio()"></button></th>
+                <th>Eliminar o editar</th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
@@ -102,8 +102,8 @@
                         <ng-template pTemplate="input">
                             <!--Boton para eliminar ejercicios-->
                         </ng-template>
-                        <ng-template>
-                            <button pButton icon = "pi pi-trash" label = "Eliminar" class = "p-button-text" (click)="mostrarBorrar(ejerciciosss)"></button>
+                        <ng-template pTemplate="output">
+                            <button pButton icon = "pi pi-trash" label = "Eliminar" class = "p-button-danger" (click)="mostrarBorrar(ejerciciosss)"></button>
                         </ng-template>
                     </p-cellEditor>
                 </td>
