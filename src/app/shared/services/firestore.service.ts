@@ -14,11 +14,12 @@ export class FirestoreService {
     this.usuariosColletion = this.database.collection<Usuario>('usuarios');
   }
 
-  agregarDatos(edad:number,sexo:number ,altura:number, peso:number){
+  agregarDatos(id:string,edad:number,sexo:number ,altura:number, peso:number){
     //RESOLVE: promesa resulta -> similar al then
     //REJECT: promesa rechazada -> similar al catch
     return new Promise(async(resolve,reject) =>{
       try {
+        
         const resultado = await this.usuariosColletion.doc(id).update({
           edad: edad,
           sexo: sexo,

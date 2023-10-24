@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Datos } from 'src/app/model/datoscorp';
+import { Usuario } from 'src/app/model/usuarios';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
 
 @Component({
@@ -13,16 +13,22 @@ export class CalculadoraCALComponent {
   constructor ( public servicioFirestore: FirestoreService) {
   }
 
-  datos: Datos={
-    sexo:0,
-    altura:0,
-    peso:0,
-    edad:0,
+  datos: Usuario={
+    sexo: 0,
+    altura: 0,
+    peso: 0,
+    edad: 0,
+    uid: undefined,
+    nombre: '',
+    apellido: '',
+    email: '',
+    rol: '',
+    contrasena: ''
   }
 
   
   async guardarDatos(){
-    this.servicioFirestore.agregarDatos(this.datos, this.datos.altura,this.datos.edad,this.datos.peso,this.datos.sexo)
+    this.servicioFirestore.agregarDatos(this.datos.uid, this.datos.altura,this.datos.edad,this.datos.peso,this.datos.sexo)
     .then(res =>{
       //console.log(this.usuarios);
     })
