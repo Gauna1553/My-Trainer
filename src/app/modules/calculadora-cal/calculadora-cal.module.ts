@@ -11,4 +11,4 @@ import { CalculadoraRoutingModule } from './calculadora-routing.module';
     CalculadoraRoutingModule
   ]
 })
-export class RoutingModule { }
+export class CalculadoraCALModule { }
