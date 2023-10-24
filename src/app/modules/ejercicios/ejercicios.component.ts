@@ -113,7 +113,7 @@ export class EjerciciosComponent implements OnInit{
   editarEjercicio(ejercicioSeleccionado: Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
     if (confirm("Desea editar el ejercicio?") === true) {
-      this.editEjercicio();
+      this.openNew();
     } else {
       alert("No se pudo modificar el ejercicio")
     }
