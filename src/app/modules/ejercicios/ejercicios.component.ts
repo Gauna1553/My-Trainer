@@ -17,6 +17,10 @@ export class EjerciciosComponent implements OnInit{
 
   ejercicioSeleccionado!: Ejercicio;
 
+  editar = false;
+
+  idEditar="";
+
   
   ejercicios!:Ejercicio
 
@@ -62,15 +66,26 @@ export class EjerciciosComponent implements OnInit{
 
   crearEjercicio(){
     this.loading = true
-    const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicioss).then((resp) => { //crea la colleción y almacena los datos 
-      this.loading = false
-      alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este cartel
-      this.ejerciciosDialog = false;
-    }) .catch((error) => {
-      this.loading = false
-      alert('No se pudo guardar el ejercicio')// si hubo algun error manda a llamar esta opcion
-    })
-
+    if(!this.editar){
+      const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicioss).then((resp) => { //crea la colleción y almacena los datos 
+        this.loading = false
+        alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este cartel
+        this.ejerciciosDialog = false;
+      }) .catch((error) => {
+        this.loading = false
+        alert('No se pudo guardar el ejercicio')// si hubo algun error manda a llamar esta opcion
+      })
+  
+    }
+    else{
+      this.ejercicioss.idEjercicio = this.idEditar;
+      this.servicioEjercicios.modificarEjercicio(this.idEditar, this.ejercicioss).then((resul)=>{
+        this.loading = false
+        this.editar=false;
+        this.ejerciciosDialog = false;
+      })
+    }
+    
     /*
     Esta funcion lo que hace es crear ejercicios y almacenarlos en la base de datos de firebase.
     Los datos son almacenados en la constante resultado, y si se logro guardar correctamente, se muestra el primer mensaje.
@@ -113,7 +128,9 @@ export class EjerciciosComponent implements OnInit{
   editarEjercicio(ejercicioSeleccionado: Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
     if (confirm("Desea editar el ejercicio?") === true) {
-      this.editEjercicio();
+      this.editar = true;
+      this.idEditar = ejercicioSeleccionado.idEjercicio;
+      this.openNew();
     } else {
       alert("No se pudo modificar el ejercicio")
     }
@@ -124,6 +141,7 @@ export class EjerciciosComponent implements OnInit{
   }
 
   editEjercicio() {
+      console.log(this.ejercicios)
     let datos: Ejercicio = {
       nombre: this.ejercicioSeleccionado.nombre,
       idEjercicio: this.ejercicioSeleccionado.idEjercicio,
