@@ -6,27 +6,29 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
   selector: 'app-ejercicios',
   templateUrl: './ejercicios.component.html',
   styleUrls: ['./ejercicios.component.css'],
-  providers:[]
+  providers: []
 })
-export class EjerciciosComponent implements OnInit{
+export class EjerciciosComponent implements OnInit {
   database = '';
+  // Todavia no usamos esto
+  submitted = false;
 
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
   //ejerciciosss! :Ejercicio[];
-  ejerciciosColeccion: Ejercicio [] = [];
+  ejerciciosColeccion: Ejercicio[] = [];
 
   ejercicioSeleccionado!: Ejercicio;
 
   editar = false;
 
-  idEditar="";
+  idEditar = "";
 
-  
-  ejercicios!:Ejercicio
 
-  constructor(public servicioEjercicios: EjerciciosService){}
+  ejercicios!: Ejercicio
 
-  ngOnInit(){
+  constructor(public servicioEjercicios: EjerciciosService) { }
+
+  ngOnInit() {
     /* llamamos función obtenerProducto y le enviamos los nuevos valores
     del formulario producto (se guardan en la colección) */
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
@@ -46,56 +48,58 @@ export class EjerciciosComponent implements OnInit{
     grupomuscular: '',
     rangorep: '',
     idEjercicio: '',
-  }  
-  // Todavia no usamos esto
-  submitted: any;
+  }
 
-  
+
   //Esta funcion abre el popup al hacer que su visibilidad sea verdadera
   openNew() {
     this.submitted = false;
     this.ejerciciosDialog = true;
   }
   //Esta funcion cierra el popup al hacer que su visibilidad sea falsa y resetea los inputs
-  hideDialog(){
+  hideDialog() {
     this.ejerciciosDialog = false;
     this.ejercicioss.nombre = '';
     this.ejercicioss.grupomuscular = '';
     this.ejercicioss.rangorep = '';
   }
 
-  crearEjercicio(){
-    this.loading = true
-    if(!this.editar){
+  crearEjercicio() {
+    this.submitted = true
+    if (!this.editar && this.ejercicioss.nombre && this.ejercicioss.grupomuscular && this.ejercicioss.rangorep) {
+      this.loading = true
       const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicioss).then((resp) => { //crea la colleción y almacena los datos 
         this.loading = false
         alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este cartel
         this.ejerciciosDialog = false;
-      }) .catch((error) => {
+      }).catch((error) => {
         this.loading = false
         alert('No se pudo guardar el ejercicio')// si hubo algun error manda a llamar esta opcion
       })
-  
+
     }
-    else{
-      this.ejercicioss.idEjercicio = this.idEditar;
-      this.servicioEjercicios.modificarEjercicio(this.idEditar, this.ejercicioss).then((resul)=>{
-        this.loading = false
-        this.editar=false;
-        this.ejerciciosDialog = false;
-      })
+    else {
+      if (this.ejercicioss.nombre && this.ejercicioss.grupomuscular && this.ejercicioss.rangorep) {
+        this.loading = true
+        this.ejercicioss.idEjercicio = this.idEditar;
+        this.servicioEjercicios.modificarEjercicio(this.idEditar, this.ejercicioss).then((resul) => {
+          this.loading = false
+          this.editar = false;
+          this.ejerciciosDialog = false;
+        })
+      }
     }
     
     /*
     Esta funcion lo que hace es crear ejercicios y almacenarlos en la base de datos de firebase.
     Los datos son almacenados en la constante resultado, y si se logro guardar correctamente, se muestra el primer mensaje.
     En caso de no haberse guardado, se almacena el error y se muestra el segundo mensaje.
-     */
+    */
   }
 
-  mostrarBorrar(ejercicioSeleccionado:Ejercicio) {
+  mostrarBorrar(ejercicioSeleccionado: Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
-    if (confirm("Desea eliminar el ejercicio?")=== true) {
+    if (confirm("Desea eliminar el ejercicio?") === true) {
       this.borrarEjercicio()
     } else {
       alert("No se borro el ejercicio")
@@ -110,12 +114,12 @@ export class EjerciciosComponent implements OnInit{
 
   borrarEjercicio() {
     this.servicioEjercicios.eliminarEjercicios(this.ejercicioSeleccionado.idEjercicio)
-    .then (respuesta => {
-      alert("el ejercicio se eliminio correctamente")
-    })
-    .catch (error => {
-      alert ("No se pudo eliminar el ejercicio: \n"+error)
-    })
+      .then(respuesta => {
+        alert("el ejercicio se eliminio correctamente")
+      })
+      .catch(error => {
+        alert("No se pudo eliminar el ejercicio: \n" + error)
+      })
 
     /*
     Esta funcion se encargar de tomar la ID de los ejercicios almacenados en la BD, y por medio de un boton
@@ -141,7 +145,7 @@ export class EjerciciosComponent implements OnInit{
   }
 
   editEjercicio() {
-      console.log(this.ejercicios)
+    console.log(this.ejercicios)
     let datos: Ejercicio = {
       nombre: this.ejercicioSeleccionado.nombre,
       idEjercicio: this.ejercicioSeleccionado.idEjercicio,
@@ -150,12 +154,12 @@ export class EjerciciosComponent implements OnInit{
     }
 
     this.servicioEjercicios.modificarEjercicio(this.ejercicioSeleccionado.idEjercicio, datos)
-    .then(ejercicios => {
-      alert("El ejercicio se modifico con exito")
-    })
-    .catch(error => {
-      alert ("no se pudo modificar el ejercicio: (\n" + error)
-    })
+      .then(ejercicios => {
+        alert("El ejercicio se modifico con exito")
+      })
+      .catch(error => {
+        alert("no se pudo modificar el ejercicio: (\n" + error)
+      })
   }
 
   /*
