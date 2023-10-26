@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 //servicio de autentificacion de firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable, of, switchMap } from 'rxjs';
 import { Usuario } from 'src/app/model/usuarios';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
     this.usuario$ = this.auth.authState.pipe(
       switchMap( usuario$ => {
         if (usuario$) {
-          return this.afs.doc<Usuario>(`usuarios/${usuario$.uid}`).valueChanges
+          return this.afs.doc<Usuario>(`usuarios/${usuario$.uid}`).valueChanges();
         }
         return of (null);
       })
@@ -54,4 +55,16 @@ export class AuthService {
     return this.auth.signOut();
   }
 
+  private updateUserData(usuario$: Usuario) {
+    const userRef: AngularFirestoreDocument<Usuario> = this.afs.doc(`usuarios/${usuario$.uid}`);
+
+    const data: Usuario = {
+      uid: usuario$.uid,
+      email: usuario$.email,
+      contrasena: usuario$.contrasena,
+      nombre: usuario$.nombre,
+      apellido: usuario$.apellido,
+    };
+    return userRef.set(data, {merge: true})
+  }
 }

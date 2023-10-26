@@ -52,7 +52,7 @@ var AuthService = /** @class */ (function () {
         this.afs = afs;
         this.usuario$ = this.auth.authState.pipe(rxjs_1.switchMap(function (usuario$) {
             if (usuario$) {
-                return _this.afs.doc("usuarios/" + usuario$.uid).valueChanges;
+                return _this.afs.doc("usuarios/" + usuario$.uid).valueChanges();
             }
             return rxjs_1.of(null);
         }));
@@ -93,6 +93,17 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.cerrarSesion = function () {
         //devuelve una promesa vacias
         return this.auth.signOut();
+    };
+    AuthService.prototype.updateUserData = function (usuario$) {
+        var userRef = this.afs.doc("usuarios/" + usuario$.uid);
+        var data = {
+            uid: usuario$.uid,
+            email: usuario$.email,
+            contrasena: usuario$.contrasena,
+            nombre: usuario$.nombre,
+            apellido: usuario$.apellido
+        };
+        return userRef.set(data, { merge: true });
     };
     AuthService = __decorate([
         core_1.Injectable({

@@ -58,7 +58,6 @@ var LoginComponent = /** @class */ (function () {
             email: '',
             contrasena: '',
             apellido: ''
-            //Arreglo en donde se guardarar en los parametros del objeto Ejercicio
         };
     }
     LoginComponent.prototype.iniciar = function () {
