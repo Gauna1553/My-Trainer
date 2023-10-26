@@ -7,6 +7,12 @@ var RoleValidator = /** @class */ (function () {
     RoleValidator.prototype.isVistante = function (usuario) {
         return usuario.rol === 'Visitante';
     };
+    RoleValidator.prototype.isAdministrador = function (usuario) {
+        return usuario.rol === 'Administrador';
+    };
+    RoleValidator.prototype.isUsuario = function (usuario) {
+        return usuario.rol === 'Usuario';
+    };
     return RoleValidator;
 }());
 exports.RoleValidator = RoleValidator;
