@@ -6,7 +6,7 @@ export class RoleValidator {
     }
 
     isAdministrador(usuario: Usuario):boolean {
-        return usuario.rol === 'Administrador';
+        return usuario.rol === 'Admin';
     }
 
     isUsuario(usuario: Usuario):boolean {

@@ -8,7 +8,7 @@ var RoleValidator = /** @class */ (function () {
         return usuario.rol === 'Visitante';
     };
     RoleValidator.prototype.isAdministrador = function (usuario) {
-        return usuario.rol === 'Administrador';
+        return usuario.rol === 'Admin';
     };
     RoleValidator.prototype.isUsuario = function (usuario) {
         return usuario.rol === 'Usuario';
