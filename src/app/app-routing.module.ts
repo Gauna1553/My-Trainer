@@ -12,7 +12,9 @@ const routes: Routes = [
   path: '', loadChildren:()=>import('./modules/rutinas/rutinas.module').then(m=>m.RutinasModule)},{   //ruta de rutinas
   path: '', loadChildren:()=>import('./modules/ejercicios/ejercicios.module').then(m=>m.EjerciciosModule)},{   //ruta de ejercicios
   //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
-  path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)}, //ruta de concepinf
+  path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},
+   { path: 'editor', loadChildren: () => import('./modules/editor/editor.module').then(m => m.EditorModule) },
+   { path: 'visitante', loadChildren: () => import('./modules/visitante/visitante.module').then(m => m.VisitanteModule) }, //ruta de concepinf
 ];
 
 @NgModule({
