@@ -13,6 +13,7 @@ import { HomeModule } from './modules/home/home.module';
 import { PerfilModule } from './modules/perfil/perfil.module';
 import { RutinasModule } from './modules/rutinas/rutinas.module';
 import { ConcepinfModule } from './modules/concepinf/concepinf.module';
+import { CalculadoraCALComponent } from './modules/calculadora-cal/calculadora-cal.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
@@ -22,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
-import { CalculadoraCALComponent } from './modules/calculadora-cal/calculadora-cal.component';
+import { AuthService } from './modules/auth/services/auth.service';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { CalculadoraCALComponent } from './modules/calculadora-cal/calculadora-c
   ],exports: [
   ],
 
-  providers: [EjerciciosService],
+  providers: [EjerciciosService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

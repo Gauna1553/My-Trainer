@@ -1,13 +1,26 @@
 import { Injectable } from '@angular/core';
 //servicio de autentificacion de firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth'
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable, of, switchMap } from 'rxjs';
+import { Usuario } from 'src/app/model/usuarios';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  public usuario$: Observable<Usuario>
 
-  constructor(public auth: AngularFireAuth) {}
+  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
+    this.usuario$ = this.auth.authState.pipe(
+      switchMap( usuario$ => {
+        if (usuario$) {
+          return this.afs.doc<Usuario>(`usuarios/${usuario$.uid}`).valueChanges
+        }
+        return of (null);
+      })
+    )
+  }
 
   //Funcion para iniciar sesión
   iniciarSesion(email:string,contrasena: string){
@@ -17,6 +30,7 @@ export class AuthService {
       Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
     */
   }
+
 
   //Funcion para registrarse
   registrarse(email: string, contrasena: string) {

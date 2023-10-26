@@ -42,81 +42,63 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.LoginComponent = void 0;
+exports.AuthService = void 0;
 var core_1 = require("@angular/core");
-var LoginComponent = /** @class */ (function () {
-    function LoginComponent(servicioAuth, firestore, router
-    //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
-    ) {
-        this.servicioAuth = servicioAuth;
-        this.firestore = firestore;
-        this.router = router;
-        this.hide = true; //esto es el input
-        this.usuarios = {
-            uid: '',
-            nombre: '',
-            email: '',
-            contrasena: '',
-            apellido: ''
-            //Arreglo en donde se guardarar en los parametros del objeto Ejercicio
-        };
+var rxjs_1 = require("rxjs");
+var AuthService = /** @class */ (function () {
+    function AuthService(auth, afs) {
+        var _this = this;
+        this.auth = auth;
+        this.afs = afs;
+        this.usuario$ = this.auth.authState.pipe(rxjs_1.switchMap(function (usuario$) {
+            if (usuario$) {
+                return _this.afs.doc("usuarios/" + usuario$.uid).valueChanges;
+            }
+            return rxjs_1.of(null);
+        }));
     }
-    LoginComponent.prototype.iniciar = function () {
+    //Funcion para iniciar sesión
+    AuthService.prototype.iniciarSesion = function (email, contrasena) {
+        //Valida el email y al contraseña de la BD
+        return this.auth.signInWithEmailAndPassword(email, contrasena);
+        /*
+          Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
+        */
+    };
+    //Funcion para registrarse
+    AuthService.prototype.registrarse = function (email, contrasena) {
+        //Retorna un nuevo valor de nombre y contraseña
+        return this.auth.createUserWithEmailAndPassword(email, contrasena);
+    };
+    AuthService.prototype.getUid = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var credenciales, res;
-            var _this = this;
+            var user;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        credenciales = {
-                            email: this.usuarios.email,
-                            contrasena: this.usuarios.contrasena
-                        };
-                        return [4 /*yield*/, this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
-                                .then(function (res) {
-                                alert("Se ha logeado con exito");
-                                //console.log(res);
-                                _this.router.navigate(['/']);
-                            })["catch"](function (error) {
-                                alert('Error al loguearse :( \n' + error);
-                            })
-                            /*
-                              Esta función se encarga de recorrer la BD en busca de los datos de email y contraseñas almacenadas para asi poder permitirle al usuario
-                              inicar sesión.
-                            */
-                        ];
+                    case 0: return [4 /*yield*/, this.auth.currentUser];
                     case 1:
-                        res = _a.sent();
+                        user = _a.sent();
+                        if (user == null) {
+                            return [2 /*return*/, null];
+                        }
+                        else {
+                            return [2 /*return*/, user.uid];
+                        }
                         return [2 /*return*/];
                 }
             });
         });
     };
-    LoginComponent.prototype.salir = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var res;
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.servicioAuth.cerrarSesion()
-                            .then(function (res) {
-                            alert("Se ha deslogeado correctamente");
-                            _this.router.navigate(['/']);
-                        })];
-                    case 1:
-                        res = _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
+    ;
+    AuthService.prototype.cerrarSesion = function () {
+        //devuelve una promesa vacias
+        return this.auth.signOut();
     };
-    LoginComponent = __decorate([
-        core_1.Component({
-            selector: 'app-login',
-            templateUrl: './login.component.html',
-            styleUrls: ['./login.component.css']
+    AuthService = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], LoginComponent);
-    return LoginComponent;
+    ], AuthService);
+    return AuthService;
 }());
-exports.LoginComponent = LoginComponent;
+exports.AuthService = AuthService;
