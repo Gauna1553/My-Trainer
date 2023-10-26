@@ -65,9 +65,9 @@ export class EjerciciosComponent implements OnInit {
   }
 
   crearEjercicio() {
-    this.loading = true
     this.submitted = true
     if (!this.editar && this.ejercicioss.nombre && this.ejercicioss.grupomuscular && this.ejercicioss.rangorep) {
+      this.loading = true
       const resultado = this.servicioEjercicios.crearEjercicio(this.ejercicioss).then((resp) => { //crea la colleción y almacena los datos 
         this.loading = false
         alert("Se creo correctamente el ejercicio") //si se pudo almancenar los datos, muestra este cartel
@@ -80,6 +80,7 @@ export class EjerciciosComponent implements OnInit {
     }
     else {
       if (this.ejercicioss.nombre && this.ejercicioss.grupomuscular && this.ejercicioss.rangorep) {
+        this.loading = true
         this.ejercicioss.idEjercicio = this.idEditar;
         this.servicioEjercicios.modificarEjercicio(this.idEditar, this.ejercicioss).then((resul) => {
           this.loading = false
