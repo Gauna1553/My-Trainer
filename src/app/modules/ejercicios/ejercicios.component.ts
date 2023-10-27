@@ -10,11 +10,9 @@ import { EjerciciosService } from 'src/app/services/ejercicios.service';
 })
 export class EjerciciosComponent implements OnInit {
   database = '';
-  // Todavia no usamos esto
   submitted = false;
 
   // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
-  //ejerciciosss! :Ejercicio[];
   ejerciciosColeccion: Ejercicio[] = [];
 
   ejercicioSeleccionado!: Ejercicio;
@@ -22,6 +20,11 @@ export class EjerciciosComponent implements OnInit {
   editar = false;
 
   idEditar = "";
+
+  //Defino la visibilidad del popup como falsa de forma default
+  ejerciciosDialog: boolean = false;
+  //Defino la visibilidad del loading
+  loading = false;
 
 
   ejercicios!: Ejercicio
@@ -37,11 +40,6 @@ export class EjerciciosComponent implements OnInit {
       //Es una coleccion para poder seleccionar a mas de un elemento
     })
   }
-  //Defino la visibilidad del popup como falsa de forma default
-  ejerciciosDialog: boolean = false;
-  //Defino la visibilidad del loading
-  loading = false;
-
 
   ejercicioss: Ejercicio = {
     nombre: '',
@@ -89,7 +87,7 @@ export class EjerciciosComponent implements OnInit {
         })
       }
     }
-    
+
     /*
     Esta funcion lo que hace es crear ejercicios y almacenarlos en la base de datos de firebase.
     Los datos son almacenados en la constante resultado, y si se logro guardar correctamente, se muestra el primer mensaje.
@@ -166,5 +164,4 @@ export class EjerciciosComponent implements OnInit {
   Esta funcion toma los valores asignados de la colección de ejercicios, y los modifica, excepto el valor ID.
   En caso de hacerlo bien, se muestra el primer mensaje, en caso contrario, muestra el segundo mensaje
    */
-
 }
