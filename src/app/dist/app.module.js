@@ -29,6 +29,7 @@ var animations_1 = require("@angular/platform-browser/animations"); // LAS ANIMA
 //Los servicios creados
 var ejercicios_service_1 = require("./services/ejercicios.service");
 var auth_service_1 = require("./modules/auth/services/auth.service");
+var can_edit_guard_1 = require("./modules/auth/guard/can-edit.guard");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -55,7 +56,7 @@ var AppModule = /** @class */ (function () {
                 concepinf_module_1.ConcepinfModule,
                 animations_1.BrowserAnimationsModule,
             ], exports: [],
-            providers: [ejercicios_service_1.EjerciciosService, auth_service_1.AuthService],
+            providers: [ejercicios_service_1.EjerciciosService, auth_service_1.AuthService, can_edit_guard_1.canEditGuard],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
