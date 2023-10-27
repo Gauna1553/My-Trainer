@@ -65,7 +65,7 @@ var AuthService = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.auth = auth;
         _this.afs = afs;
-        _this.usuario$ = _this.auth.authState.pipe(rxjs_1.switchMap(function (usuario$) {
+        _this.usuario = _this.auth.authState.pipe(rxjs_1.switchMap(function (usuario$) {
             if (usuario$) {
                 return _this.afs.doc("usuarios/" + usuario$.uid).valueChanges();
             }

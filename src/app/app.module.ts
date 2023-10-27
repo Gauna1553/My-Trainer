@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environment/environment'; //Es donde se encuentra alojado nuestra base de datos
-import { canEditGuard } from './modules/auth/guard/can-edit.guard';
 
 
 //Los modulos de cada componente
@@ -52,7 +51,7 @@ import { AuthService } from './modules/auth/services/auth.service';
   ],exports: [
   ],
 
-  providers: [EjerciciosService, AuthService, canEditGuard],
+  providers: [EjerciciosService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,11 +11,11 @@ import { RoleValidator } from '../helpers/roleValidator';
   providedIn: 'root'
 })
 export class AuthService extends RoleValidator{
-  public usuario$: Observable<Usuario>;
+  public usuario: Observable<Usuario>;
 
   constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
     super();
-    this.usuario$ = this.auth.authState.pipe(
+    this.usuario = this.auth.authState.pipe(
       switchMap( usuario$ => {
         if (usuario$) {
           return this.afs.doc<Usuario>(`usuarios/${usuario$.uid}`).valueChanges();

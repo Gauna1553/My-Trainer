@@ -15,7 +15,7 @@ var canEditGuard = /** @class */ (function () {
     }
     canEditGuard.prototype.canActivate = function () {
         var _this = this;
-        return this.authSvc.usuario$.pipe(rxjs_1.take(1), rxjs_1.map(function (usuario) { return usuario && _this.authSvc.isAdministrador(usuario); }), rxjs_1.tap(function (canEdit) {
+        return this.authSvc.usuario.pipe(rxjs_1.take(1), rxjs_1.map(function (usuario) { return usuario && _this.authSvc.isAdministrador(usuario); }), rxjs_1.tap(function (canEdit) {
             if (!canEdit) {
                 window.alert('Acceso denegado. No tienes permiso de administradro');
             }

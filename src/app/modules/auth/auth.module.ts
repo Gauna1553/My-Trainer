@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environment/environment';
+import { canEditGuard } from './guard/can-edit.guard';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { environment } from 'src/environment/environment';
   ],
   exports: [
     FormsModule
-  ]
+  ],
+  providers: [canEditGuard]
 })
 export class AuthModule { }
