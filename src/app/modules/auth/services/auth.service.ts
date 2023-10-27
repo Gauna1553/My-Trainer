@@ -4,15 +4,17 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable, of, switchMap } from 'rxjs';
 import { Usuario } from 'src/app/model/usuarios';
+import { RoleValidator } from '../helpers/roleValidator';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  public usuario$: Observable<Usuario>
+export class AuthService extends RoleValidator{
+  public usuario$: Observable<Usuario>;
 
   constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
+    super();
     this.usuario$ = this.auth.authState.pipe(
       switchMap( usuario$ => {
         if (usuario$) {
@@ -24,12 +26,14 @@ export class AuthService {
   }
 
   //Funcion para iniciar sesión
-  iniciarSesion(email:string,contrasena: string){
+  async iniciarSesion(email:string,contrasena: string) {
     //Valida el email y al contraseña de la BD
     return this.auth.signInWithEmailAndPassword(email, contrasena);
     /*
       Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
     */
+
+      //this.updateUserData();
   }
 
 
@@ -64,6 +68,7 @@ export class AuthService {
       contrasena: usuario$.contrasena,
       nombre: usuario$.nombre,
       apellido: usuario$.apellido,
+      rol: 'Admin'
     };
     return userRef.set(data, {merge: true})
   }

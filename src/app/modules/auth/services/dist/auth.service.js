@@ -1,4 +1,17 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -45,25 +58,29 @@ exports.__esModule = true;
 exports.AuthService = void 0;
 var core_1 = require("@angular/core");
 var rxjs_1 = require("rxjs");
-var AuthService = /** @class */ (function () {
+var roleValidator_1 = require("../helpers/roleValidator");
+var AuthService = /** @class */ (function (_super) {
+    __extends(AuthService, _super);
     function AuthService(auth, afs) {
-        var _this = this;
-        this.auth = auth;
-        this.afs = afs;
-        this.usuario$ = this.auth.authState.pipe(rxjs_1.switchMap(function (usuario$) {
+        var _this = _super.call(this) || this;
+        _this.auth = auth;
+        _this.afs = afs;
+        _this.usuario$ = _this.auth.authState.pipe(rxjs_1.switchMap(function (usuario$) {
             if (usuario$) {
                 return _this.afs.doc("usuarios/" + usuario$.uid).valueChanges();
             }
             return rxjs_1.of(null);
         }));
+        return _this;
     }
     //Funcion para iniciar sesión
     AuthService.prototype.iniciarSesion = function (email, contrasena) {
-        //Valida el email y al contraseña de la BD
-        return this.auth.signInWithEmailAndPassword(email, contrasena);
-        /*
-          Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
-        */
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                //Valida el email y al contraseña de la BD
+                return [2 /*return*/, this.auth.signInWithEmailAndPassword(email, contrasena)];
+            });
+        });
     };
     //Funcion para registrarse
     AuthService.prototype.registrarse = function (email, contrasena) {
@@ -101,7 +118,8 @@ var AuthService = /** @class */ (function () {
             email: usuario$.email,
             contrasena: usuario$.contrasena,
             nombre: usuario$.nombre,
-            apellido: usuario$.apellido
+            apellido: usuario$.apellido,
+            rol: 'Admin'
         };
         return userRef.set(data, { merge: true });
     };
@@ -111,5 +129,5 @@ var AuthService = /** @class */ (function () {
         })
     ], AuthService);
     return AuthService;
-}());
+}(roleValidator_1.RoleValidator));
 exports.AuthService = AuthService;
