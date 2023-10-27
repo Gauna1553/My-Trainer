@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
+import { canEditGuard } from './modules/auth/guard/can-edit.guard';
 
 const routes: Routes = [
    //lazyloading
@@ -13,7 +14,13 @@ const routes: Routes = [
   path: '', loadChildren:()=>import('./modules/ejercicios/ejercicios.module').then(m=>m.EjerciciosModule)},{   //ruta de ejercicios
   //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},
-  { path: 'visitante', loadChildren: () => import('./modules/visitante/visitante.module').then(m => m.VisitanteModule) }, //ruta de concepinf
+  {
+    path: 'visitante', loadChildren: () => import('./modules/visitante/visitante.module').then(m => m.VisitanteModule) //ruta de visitante
+  }, 
+  {
+    path: 'admin', loadChildren: ()=> import('./modules/admin/admin.module').then(m => m.AdminModule), //ruta de admin
+    canActivate: [canEditGuard]
+  },
 ];
 
 @NgModule({

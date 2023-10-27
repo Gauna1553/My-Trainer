@@ -10,6 +10,7 @@ exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var home_component_1 = require("./modules/home/home.component");
+var can_edit_guard_1 = require("./modules/auth/guard/can-edit.guard");
 var routes = [
     //lazyloading
     { path: "", loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/auth/auth.module'); }).then(function (m) { return m.AuthModule; }); } },
@@ -29,7 +30,15 @@ var routes = [
         path: '',
         loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/concepinf/concepinf.module'); }).then(function (m) { return m.ConcepinfModule; }); }
     },
-    { path: 'visitante', loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/visitante/visitante.module'); }).then(function (m) { return m.VisitanteModule; }); } },
+    {
+        path: 'visitante',
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/visitante/visitante.module'); }).then(function (m) { return m.VisitanteModule; }); } //ruta de visitante
+    },
+    {
+        path: 'admin',
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/admin/admin.module'); }).then(function (m) { return m.AdminModule; }); },
+        canActivate: [can_edit_guard_1.canEditGuard]
+    },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
