@@ -13,6 +13,7 @@ import { HomeModule } from './modules/home/home.module';
 import { PerfilModule } from './modules/perfil/perfil.module';
 import { RutinasModule } from './modules/rutinas/rutinas.module';
 import { ConcepinfModule } from './modules/concepinf/concepinf.module';
+import { CalculadoraCALModule } from './modules/calculadora-cal/calculadora-cal.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
@@ -22,13 +23,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
-import { CalculadoraCALComponent } from './modules/calculadora-cal/calculadora-cal.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalculadoraCALComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,6 +47,7 @@ import { CalculadoraCALComponent } from './modules/calculadora-cal/calculadora-c
     RutinasModule,
     ConcepinfModule,
     BrowserAnimationsModule,
+    CalculadoraCALModule
   ],exports: [
   ],
 
