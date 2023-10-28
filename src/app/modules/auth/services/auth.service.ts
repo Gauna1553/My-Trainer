@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 //servicio de autentificacion de firebase
-import { AngularFireAuth } from '@angular/fire/compat/auth'
+import { AngularFireAuth} from '@angular/fire/compat/auth'
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'
 export class AuthService {
 
   constructor(public auth: AngularFireAuth) {}
+
+  get userState$() {
+    return this.auth.user;
+  }
 
   //Funcion para iniciar sesión
   iniciarSesion(email:string,contrasena: string){
