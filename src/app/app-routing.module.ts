@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
+import { authGuard } from './modules/guards/auth.guard';
 
 const routes: Routes = [
    //lazyloading
-  {path: "",
+  {path: "", canActivate:[authGuard],
   loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},
   {path: 'inicio', component: HomeComponent},{   //ruta de home
   // SE DEJAN ESTAS RUTAS VACIAS PORQUE YA SE DECLARARON EN CADA UNO DE LOS ROUTING 
