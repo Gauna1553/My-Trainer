@@ -1,5 +1,5 @@
 export interface Datos {
-    sexo:number;
+    sexo:string;
     edad:number;
     altura:number;
     peso:number;

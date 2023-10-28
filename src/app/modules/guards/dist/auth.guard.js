@@ -8,5 +8,5 @@ var rxjs_1 = require("rxjs");
 exports.authGuard = function () {
     var authService = core_1.inject(auth_service_1.AuthService);
     var router = core_1.inject(router_1.Router);
-    return authService.userState$.pipe(rxjs_1.take(1), rxjs_1.tap(function (res) { return console.log(!!res); }), rxjs_1.tap(function (isLoggedIn) { return (!!isLoggedIn ? router.navigate(['/home']) : true); }));
+    return authService.userState$.pipe(rxjs_1.take(1), rxjs_1.tap(function (res) { return console.log(!!res); }), rxjs_1.tap(function (isLoggedIn) { return (isLoggedIn ? router.createUrlTree(['/inicio']) : true); }));
 };
