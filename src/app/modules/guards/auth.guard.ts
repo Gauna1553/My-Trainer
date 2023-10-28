@@ -9,6 +9,7 @@ export const authGuard = () => {
 
   return authService.userState$.pipe(
     take(1),
-    tap( (isLoggedIn) => (isLoggedIn? router.createUrlTree(['/home']) : true))
+    tap((res) => console.log(!!res)),
+    tap( (isLoggedIn) => (!!isLoggedIn? router.navigate(['/home']) : true))
   )
 };
