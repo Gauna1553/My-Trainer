@@ -1,40 +1,115 @@
-<form name="calcform" action="Calc()" method="post" class="">
-    <table summary="" align="center" border="0">
-    <tbody><tr>
-    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Peso</strong>&nbsp;(kg)&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td bgcolor="#eeeee0" align="right"><input type="text" name="wt" size="24" onchange="value=preFormat(value,2,0)"></td>
-    </tr>
-    <tr>
-    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Altura </strong>&nbsp;(cm)&nbsp;:</td>
-    <td bgcolor="#eeeee0" align="right"><input type="text" name="ht" size="24" onchange="value=preFormat(value,2,0)"></td>
-    </tr>
-    <tr>
-    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Edad </strong>&nbsp;(años)&nbsp;:</td>
-    <td bgcolor="#eeeee0" align="right"><input type="text" name="ag" size="24" onchange="value=preFormat(value,2,0)"></td>
-    </tr>
-    <tr>
-    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Sexo</strong></td>
-    <td bgcolor="#eeeee0" align="right">
-    <select name="sx"><option value="1">Masculino</option><option value="2">Femenino</option></select></td>
-    </tr>
-    <tr>
-    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Actividad física</strong></td>
-    <td bgcolor="#eeeee0" align="right">
-    <select name="act"><option value="1">Sedentaria</option><option value="1.2">Ligeramente activa</option><option selected="selected" value="1.4">Moderadamente Activa</option><option value="1.6">Muy activa</option><option value="1.8">Extremadamente activa</option></select></td>
-    </tr>
-    <tr>
-    <td bgcolor="#eeeee0" colspan="2" align="center"><strong>Resultados</strong></td>
-    </tr>
-    <tr>
-    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Tasa metabílica basal (TMB)</strong></td>
-    <td bgcolor="#eeeee0" align="right"><input type="text" name="bmr" size="20" readonly="readonly"></td>
-    </tr>
-    <tr>
-    <td bgcolor="#eeeee0" align="left">&nbsp;<strong>Calorías necesarias para la actividad física</strong></td>
-    <td bgcolor="#eeeee0" align="right"><input type="text" name="bfat" size="20" readonly="readonly"></td>
-    </tr>
-    <tr>
-    <td colspan="2" bgcolor="#eeeee0" align="center">
-    <input type="button" value="Calcular" onclick="Calc()"><br>
-    <input type="reset" value="Borrar"></td>
+<h1 id="title">Mis Ejercicios</h1>
+<!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
+<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+        <div class="field">
+            <label for="nombre">Nombre</label>
+            <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+            <input [(ngModel)]="ejercicioss.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+            <small class="p-error" *ngIf="submitted && !ejercicioss.nombre">El nombre es obligatorio.</small>
+        </div>
+
+        <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
+        <div class="field">
+            <label for="grupo">Grupo Muscular</label>
+            <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
+            <input [(ngModel)]="ejercicioss.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+            <small class="p-error" *ngIf="submitted && !ejercicioss.grupomuscular">El grupo es obligatorio.</small>
+        </div>
+
+        <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
+        <div class="field">
+            <label for="rango">Rango de Repeticiones</label>
+            <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
+            <input [(ngModel)]="ejercicioss.rangorep" pInputText type="text" id="rango" name="rangorep" required>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+            <small class="p-error" *ngIf="submitted && !ejercicioss.rangorep">El rango es obligatorio.</small>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <br>
+        <div>
+            <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
+            <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+            <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
+            <button pButton label="Crear Ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearEjercicio()" ></button>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<!-- TABLA DE LOS EJERCICIOS -->
+<div class="container">
+    <p-table [value]="ejerciciosColeccion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+        <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Grupo Muscular</th>
+                <th>Rango de Repeticiones</th>
+                <th style="width: 10%"><button pButton pRipple icon="pi pi-trash" class="p-button-danger mr-2" label="Eliminar" (click)="borrarEjercicio()"></button></th>
+            </tr>
+        </ng-template>
+        <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
+        <ng-template pTemplate="body" let-ejerciciosss let-editing="editing" let-ri="rowIndex">
+            <tr [pEditableRow]="ejerciciosss">
+                <!-- COLUMNA DE NOMBRES -->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
+                            <input pInputText type="text" [(ngModel)]="ejerciciosss.nombre"/>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
+                            {{ ejerciciosss.nombre }} 
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+                <!-- COLUMNA DE GRUPO MUSCULAR -->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
+                            <input pInputText type="text" [(ngModel)]="ejerciciosss.grupomuscular" required />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->
+                            {{ ejerciciosss.grupomuscular }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+                <!-- COLUMNA DE RANGO DE REPETICIONES -->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
+                            <input pInputText type="text" [(ngModel)]="ejerciciosss.rangorep" required />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
+                            {{ ejerciciosss.rangorep }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+                <td>
+                    <div class="flex align-items-center justify-content-center gap-2">
+                        <!-- <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+                        <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-trash"  class="p-button-rounded p-button-text"></button>
+                        <button *ngIf="!editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                        <button *ngIf="!editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>-->
+                    </div> 
+                </td>
+            </tr>
+        </ng-template>   
+    </p-table>
+    <!-- ESTE BOTON ABRE EL POPUP -->
+    <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="openNew()"></button>
+</div>
     
