@@ -17,8 +17,13 @@ export class RutinasService {
     return new Promise(async(resolve,reject)=>{
       try{
         const id = this.database.createId();
-      }catch{
+        rutina.idRutina = id;
 
+        const resultado = await this.rutinasColeccion.doc(id).set(rutina);
+
+        resolve(resultado)
+      }catch(error){
+        reject(error)
       }
     })
   }
