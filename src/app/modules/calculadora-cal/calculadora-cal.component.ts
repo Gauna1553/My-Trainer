@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-calculadora-cal',
@@ -12,6 +13,7 @@ export class CalculadoraCALComponent {
 
   constructor ( public servicioFirestore: FirestoreService) {
   }
+
 
   datos: Usuario={
     sexo: 0,
