@@ -11,6 +11,9 @@ import { Usuario } from 'src/app/model/usuarios';
   providedIn: 'root'
 })
 export class AuthService{
+  getCurrentUserRole() {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {}
 
