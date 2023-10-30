@@ -66,21 +66,23 @@ export class FirestoreService {
 
 
 // editarProducto(){
-//   let datos: Producto = {
-//     idProducto: this.productoSeleccionado.idProducto,
-//     nombre: this.producto.value.nombre!,
-//     imagen: this.producto.value.imagen!,
-//     alt: this.producto.value.alt!,
-//     descripcion: this.producto.value.descripcion!,
-//     precio: this.producto.value.precio!,
-//     categoria: this.producto.value.categoria!
-//   }
-
-//   this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
+//   let datoscorp: Usuario = {
+//   sexo: this.usuario.sexo,
+//   altura: this.usuario.altura,
+//   peso: this.usuario.peso,
+//   edad: this.usuario.edad,
+//   uid: this.usuario.uid,
+//   nombre: '',
+//   apellido: '',
+//   email: '',
+//   rol: '',
+//   contrasena: ''
+// }
+//   this.servicioFirestore.modificardatos(id: string, edad:number,sexo:number ,altura:number, peso:number)
 //   .then(producto => {
-//     alert("El producto fue modificado con éxito.");
+//     alert("Sus datos se modificaron con exito.");
 //   })
 //   .catch(error => {
-//     alert("No se pudo modificar el producto :( \n"+error);
+//     alert("No se pudieron modificar sus datos :( \n"+error);
 //   })
 // }
