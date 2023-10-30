@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RutinasService } from 'src/app/services/rutinas.service';
 
 @Component({
   selector: 'app-crearrutinas',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class CrearrutinasComponent {
 
+
+  constructor(public servicioRutinas: RutinasService){}
 }
