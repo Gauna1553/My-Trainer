@@ -37,28 +37,6 @@ export class CalculadoraCALComponent {
     })
    
   }
-
-  async editarDatos(){
-    let datos:Usuario= {
-    sexo: this.datos.sexo!,
-    altura: this.datos.altura!,
-    peso: this.datos.peso!,
-    edad: this.datos.edad!,
-    uid: this.datos.uid,
-    nombre:'',
-    apellido: '',
-    email: '',
-    rol: '',
-    contrasena: ''
-  }
-    this.servicioFirestore.modificardatos(this.datos.uid, this.datos.edad, this.datos.sexo , this.datos.altura, this.datos.peso)
-    .then(datos => {
-      alert("Sus datos se modificaron con exito.");
-    })
-    .catch(error => {
-      alert("No se pudieron modificar sus datos :( \n"+error);
-    })
-  }
 };
 
 

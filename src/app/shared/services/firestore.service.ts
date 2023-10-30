@@ -14,15 +14,7 @@ export class FirestoreService {
     this.usuariosColletion = this.database.collection<Usuario>('usuarios');
   }
 
-  modificardatos(id: string, edad:number,sexo:number ,altura:number, peso:number){
-    return this.usuariosColletion.doc(id).update({
-      edad: edad,
-      sexo: sexo,
-      altura: altura,
-      peso: peso
-    }
-   )
-  }
+
      
   agregarDatos(id:string,edad:number,sexo:number ,altura:number, peso:number){
     //RESOLVE: promesa resulta -> similar al then
