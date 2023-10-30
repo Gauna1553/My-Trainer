@@ -64,25 +64,3 @@ export class FirestoreService {
   }
 }
 
-
-// editarProducto(){
-//   let datoscorp: Usuario = {
-//   sexo: this.usuario.sexo,
-//   altura: this.usuario.altura,
-//   peso: this.usuario.peso,
-//   edad: this.usuario.edad,
-//   uid: this.usuario.uid,
-//   nombre: '',
-//   apellido: '',
-//   email: '',
-//   rol: '',
-//   contrasena: ''
-// }
-//   this.servicioFirestore.modificardatos(id: string, edad:number,sexo:number ,altura:number, peso:number)
-//   .then(producto => {
-//     alert("Sus datos se modificaron con exito.");
-//   })
-//   .catch(error => {
-//     alert("No se pudieron modificar sus datos :( \n"+error);
-//   })
-// }
