@@ -27,10 +27,11 @@ import { EjerciciosService } from './services/ejercicios.service';
 import { AuthService } from './modules/auth/services/auth.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    CalculadoraCALComponent,
+    
   ],
   imports: [
     BrowserModule,

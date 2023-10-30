@@ -1,4 +1,5 @@
 "use strict";
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,6 +13,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+=======
+>>>>>>> 26bc9d5d0364f16950b1b8a9cf002d8ee59741c6
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,6 +60,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.AuthService = void 0;
 var core_1 = require("@angular/core");
+<<<<<<< HEAD
 var rxjs_1 = require("rxjs");
 var roleValidator_1 = require("../helpers/roleValidator");
 var AuthService = /** @class */ (function (_super) {
@@ -81,6 +85,26 @@ var AuthService = /** @class */ (function (_super) {
                 return [2 /*return*/, this.auth.signInWithEmailAndPassword(email, contrasena)];
             });
         });
+=======
+var AuthService = /** @class */ (function () {
+    function AuthService(auth) {
+        this.auth = auth;
+    }
+    Object.defineProperty(AuthService.prototype, "userState$", {
+        get: function () {
+            return this.auth.user;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    //Funcion para iniciar sesión
+    AuthService.prototype.iniciarSesion = function (email, contrasena) {
+        //Valida el email y al contraseña de la BD
+        return this.auth.signInWithEmailAndPassword(email, contrasena);
+        /*
+          Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
+        */
+>>>>>>> 26bc9d5d0364f16950b1b8a9cf002d8ee59741c6
     };
     //Funcion para registrarse
     AuthService.prototype.registrarse = function (email, contrasena) {
@@ -111,6 +135,7 @@ var AuthService = /** @class */ (function (_super) {
         //devuelve una promesa vacias
         return this.auth.signOut();
     };
+<<<<<<< HEAD
     AuthService.prototype.updateUserData = function (usuario$) {
         var userRef = this.afs.doc("usuarios/" + usuario$.uid);
         var data = {
@@ -123,11 +148,17 @@ var AuthService = /** @class */ (function (_super) {
         };
         return userRef.set(data, { merge: true });
     };
+=======
+>>>>>>> 26bc9d5d0364f16950b1b8a9cf002d8ee59741c6
     AuthService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
     ], AuthService);
     return AuthService;
+<<<<<<< HEAD
 }(roleValidator_1.RoleValidator));
+=======
+}());
+>>>>>>> 26bc9d5d0364f16950b1b8a9cf002d8ee59741c6
 exports.AuthService = AuthService;

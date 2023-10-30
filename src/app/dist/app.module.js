@@ -20,7 +20,6 @@ var home_module_1 = require("./modules/home/home.module");
 var perfil_module_1 = require("./modules/perfil/perfil.module");
 var rutinas_module_1 = require("./modules/rutinas/rutinas.module");
 var concepinf_module_1 = require("./modules/concepinf/concepinf.module");
-var calculadora_cal_component_1 = require("./modules/calculadora-cal/calculadora-cal.component");
 var app_routing_module_1 = require("./app-routing.module");
 var common_1 = require("@angular/common");
 var platform_browser_1 = require("@angular/platform-browser");
@@ -36,7 +35,6 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                calculadora_cal_component_1.CalculadoraCALComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,

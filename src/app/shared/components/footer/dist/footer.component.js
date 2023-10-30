@@ -42,56 +42,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.LoginComponent = void 0;
+exports.FooterComponent = void 0;
 var core_1 = require("@angular/core");
-var LoginComponent = /** @class */ (function () {
-    function LoginComponent(servicioAuth, firestore, router
-    //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
-    ) {
+var FooterComponent = /** @class */ (function () {
+    function FooterComponent(servicioAuth, router) {
         this.servicioAuth = servicioAuth;
-        this.firestore = firestore;
         this.router = router;
-        this.hide = true; //esto es el input
-        this.usuarios = {
-            uid: '',
-            nombre: '',
-            email: '',
-            contrasena: '',
-            apellido: ''
-        };
     }
-    LoginComponent.prototype.iniciar = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var credenciales, res;
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        credenciales = {
-                            email: this.usuarios.email,
-                            contrasena: this.usuarios.contrasena
-                        };
-                        return [4 /*yield*/, this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
-                                .then(function (res) {
-                                alert("Se ha logeado con exito");
-                                //console.log(res);
-                                _this.router.navigate(['/']);
-                            })["catch"](function (error) {
-                                alert('Error al loguearse :( \n' + error);
-                            })
-                            /*
-                              Esta función se encarga de recorrer la BD en busca de los datos de email y contraseñas almacenadas para asi poder permitirle al usuario
-                              inicar sesión.
-                            */
-                        ];
-                    case 1:
-                        res = _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
+    FooterComponent.prototype.ngOnInit = function () {
+        this.items = [
+            {
+                label: 'Conceptos e Informacion',
+                icon: 'pi pi-fw pi-file',
+                routerLink: "/conceps"
+            },
+            {
+                label: 'Contactos',
+                icon: 'pi pi-fw pi-pencil',
+                routerLink: "/ejercicios"
+            },
+            {
+                label: 'Creadores',
+                icon: 'pi pi-fw pi-user',
+                routerLink: "/crear"
+            },
+        ];
     };
-    LoginComponent.prototype.salir = function () {
+    //funcion par cerrar sesion
+    FooterComponent.prototype.salir = function () {
         return __awaiter(this, void 0, void 0, function () {
             var res;
             var _this = this;
@@ -99,8 +77,9 @@ var LoginComponent = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.servicioAuth.cerrarSesion()
                             .then(function (res) {
-                            alert("Se ha deslogeado correctamente");
-                            _this.router.navigate(['/']);
+                            alert("se ha deslogeado correctamente");
+                            console.log(res);
+                            _this.router.navigate(['/login']);
                         })];
                     case 1:
                         res = _a.sent();
@@ -109,13 +88,13 @@ var LoginComponent = /** @class */ (function () {
             });
         });
     };
-    LoginComponent = __decorate([
+    FooterComponent = __decorate([
         core_1.Component({
-            selector: 'app-login',
-            templateUrl: './login.component.html',
-            styleUrls: ['./login.component.css']
+            selector: 'app-footer',
+            templateUrl: './footer.component.html',
+            styleUrls: ['./footer.component.css']
         })
-    ], LoginComponent);
-    return LoginComponent;
+    ], FooterComponent);
+    return FooterComponent;
 }());
-exports.LoginComponent = LoginComponent;
+exports.FooterComponent = FooterComponent;

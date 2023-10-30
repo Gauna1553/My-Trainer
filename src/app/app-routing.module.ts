@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
-import { canEditGuard } from './modules/auth/guard/can-edit.guard';
+
+import { authGuard } from './modules/guards/auth.guard';
 
 const routes: Routes = [
    //lazyloading
-  {path: "",
+  {path: "", canActivate:[authGuard],
   loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},
   {path: 'inicio', component: HomeComponent},{   //ruta de home
   // SE DEJAN ESTAS RUTAS VACIAS PORQUE YA SE DECLARARON EN CADA UNO DE LOS ROUTING 
@@ -19,8 +20,9 @@ const routes: Routes = [
   }, 
   {
     path: 'admin', loadChildren: ()=> import('./modules/admin/admin.module').then(m => m.AdminModule), //ruta de admin
-    canActivate: [canEditGuard]
-  },
+  },{
+  path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},{ //ruta de concepinf
+  path: '', loadChildren:()=>import('./modules/calculadora-cal/calculadora-cal.module').then(m=>m.CalculadoraCALModule)}
 ];
 
 @NgModule({

@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 //servicio de autentificacion de firebase
+<<<<<<< HEAD
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable, of, switchMap } from 'rxjs';
 import { Usuario } from 'src/app/model/usuarios';
 import { RoleValidator } from '../helpers/roleValidator';
 
+=======
+import { AngularFireAuth} from '@angular/fire/compat/auth'
+>>>>>>> 26bc9d5d0364f16950b1b8a9cf002d8ee59741c6
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +27,10 @@ export class AuthService extends RoleValidator{
         return of (null);
       })
     )
+  }
+
+  get userState$() {
+    return this.auth.user;
   }
 
   //Funcion para iniciar sesión

@@ -43,7 +43,7 @@ export class FooterComponent implements OnInit {
     .then(res =>{
       alert ("se ha deslogeado correctamente");
       console.log(res);
-      this.router.navigate(['/inicio'])
+      this.router.navigate(['/login'])
     })
   }
 }
