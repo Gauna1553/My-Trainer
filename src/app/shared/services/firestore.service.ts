@@ -14,6 +14,16 @@ export class FirestoreService {
     this.usuariosColletion = this.database.collection<Usuario>('usuarios');
   }
 
+  modificardatos(id: string, edad:number,sexo:number ,altura:number, peso:number){
+    return this.usuariosColletion.doc(id).update({
+      edad: edad,
+      sexo: sexo,
+      altura: altura,
+      peso: peso
+    }
+   )
+  }
+     
   agregarDatos(id:string,edad:number,sexo:number ,altura:number, peso:number){
     //RESOLVE: promesa resulta -> similar al then
     //REJECT: promesa rechazada -> similar al catch
@@ -53,3 +63,24 @@ export class FirestoreService {
     })
   }
 }
+
+
+// editarProducto(){
+//   let datos: Producto = {
+//     idProducto: this.productoSeleccionado.idProducto,
+//     nombre: this.producto.value.nombre!,
+//     imagen: this.producto.value.imagen!,
+//     alt: this.producto.value.alt!,
+//     descripcion: this.producto.value.descripcion!,
+//     precio: this.producto.value.precio!,
+//     categoria: this.producto.value.categoria!
+//   }
+
+//   this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
+//   .then(producto => {
+//     alert("El producto fue modificado con éxito.");
+//   })
+//   .catch(error => {
+//     alert("No se pudo modificar el producto :( \n"+error);
+//   })
+// }
