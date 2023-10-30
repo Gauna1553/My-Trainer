@@ -24,16 +24,12 @@ export class LoginComponent {
     nombre: '',
     email: '',
     contrasena: '',
-<<<<<<< HEAD
     apellido: '',
-=======
     rol: '',
-    apellido: '',
     sexo: 0,
     altura: 0,
     peso: 0,
     edad: 0
->>>>>>> 26bc9d5d0364f16950b1b8a9cf002d8ee59741c6
 
     //Arreglo en donde se guardarar en los parametros del objeto Ejercicio
   }

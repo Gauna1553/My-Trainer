@@ -1,33 +1,18 @@
 import { Injectable } from '@angular/core';
 //servicio de autentificacion de firebase
-<<<<<<< HEAD
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable, of, switchMap } from 'rxjs';
 import { Usuario } from 'src/app/model/usuarios';
-import { RoleValidator } from '../helpers/roleValidator';
 
-=======
-import { AngularFireAuth} from '@angular/fire/compat/auth'
->>>>>>> 26bc9d5d0364f16950b1b8a9cf002d8ee59741c6
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService extends RoleValidator{
-  public usuario: Observable<Usuario>;
+export class AuthService{
 
-  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
-    super();
-    this.usuario = this.auth.authState.pipe(
-      switchMap( usuario$ => {
-        if (usuario$) {
-          return this.afs.doc<Usuario>(`usuarios/${usuario$.uid}`).valueChanges();
-        }
-        return of (null);
-      })
-    )
-  }
+  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {}
 
   get userState$() {
     return this.auth.user;
@@ -69,15 +54,5 @@ export class AuthService extends RoleValidator{
 
   private updateUserData(usuario$: Usuario) {
     const userRef: AngularFirestoreDocument<Usuario> = this.afs.doc(`usuarios/${usuario$.uid}`);
-
-    const data: Usuario = {
-      uid: usuario$.uid,
-      email: usuario$.email,
-      contrasena: usuario$.contrasena,
-      nombre: usuario$.nombre,
-      apellido: usuario$.apellido,
-      rol: 'Admin'
-    };
-    return userRef.set(data, {merge: true})
   }
 }
