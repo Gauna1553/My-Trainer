@@ -9,10 +9,12 @@ exports.__esModule = true;
 exports.AuthModule = void 0;
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
+//Modulos de Firebase
 var compat_1 = require("@angular/fire/compat");
 var auth_1 = require("@angular/fire/compat/auth");
 var storage_1 = require("@angular/fire/compat/storage");
 var auth_routing_module_1 = require("./auth-routing.module");
+//Modulos a utilizar
 var login_component_1 = require("./pages/login/login.component");
 var register_component_1 = require("./pages/register/register.component");
 var forms_1 = require("@angular/forms");
