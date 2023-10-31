@@ -99,7 +99,7 @@ export class EjerciciosComponent implements OnInit{
     */
   }
 
-  //Editar producto -> se llama al boton para el pop up
+  //Editar ejercicio -> se llama al boton para el pop up
   editarEjercicio(ejercicioSeleccionado: Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
   }
