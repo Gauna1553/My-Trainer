@@ -25,7 +25,11 @@ export class LoginComponent {
     email: '',
     contrasena: '',
     rol: '',
-    apellido: ''
+    apellido: '',
+    peso: 0,
+    altura: 0,
+    sexo: 0,
+    edad: 0,
 
     //Arreglo en donde se guardarar en los parametros del objeto Ejercicio
   }

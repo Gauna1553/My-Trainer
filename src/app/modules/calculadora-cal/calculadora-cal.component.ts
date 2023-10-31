@@ -37,7 +37,7 @@ export class CalculadoraCALComponent {
     .catch(error =>{
       console.log('Error =>',error)
     })
-   
+
   }
 };
 
