@@ -18,9 +18,9 @@ export class CalculadoraCALComponent {
 
   submitted: any;
 
-  datosColección: Usuario[] = [];
+  datosColección: DatoUsuarios[] = [];
 
-  datosSeleccionado!: Usuario;
+  datosSeleccionado!: DatoUsuarios;
 
   loading = false;
 
@@ -58,7 +58,7 @@ export class CalculadoraCALComponent {
   }
 
 
-  editarDatos(datosSeleccionado:Usuario) {
+  editarDatos(datosSeleccionado:DatoUsuarios) {
     this.datosSeleccionado = datosSeleccionado;
   }
 
@@ -71,7 +71,13 @@ export class CalculadoraCALComponent {
       sexo: this.datos.sexo,
     }
 
-    this.servicioDatos.modificarDatos
+    this.servicioDatos.modificarDatos(this.datosSeleccionado.uid, datos)
+    .then(datos => {
+      alert ("Los datos fueron modificados con exito")
+    })
+    .catch (error => {
+      alert ("No se pudieron modificar los datos")
+    })
   }
 };
 
