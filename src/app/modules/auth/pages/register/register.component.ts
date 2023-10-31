@@ -19,11 +19,6 @@ usuarios: Usuario = {
     email: '',
     contrasena: '',
     rol: '',
-    edad: 0,
-    altura: 0,
-    peso: 0,
-    sexo:0
-
 }
 
   uid = '';
