@@ -4,7 +4,7 @@
     <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
-            <label for="nombre">Nombre</label>
+            <label for="nombre">Altura</label>
             <!-- INPUT PARA INGRESAR LA ALTURA DEL USUARIO -->
             <input [(ngModel)]="datos.altura" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
@@ -13,7 +13,7 @@
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <div class="field">
-            <label for="grupo">Grupo Muscular</label>
+            <label for="grupo">Peso</label>
             <!-- INPUT PARA INGRESAR EL PESO DEL USUARIO -->
             <input [(ngModel)]="datos.peso" pInputText name="grupomuscular" type="text" id="grupo" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
@@ -22,7 +22,7 @@
 
         <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
-            <label for="rango">Rango de Repeticiones</label>
+            <label for="rango">Edad</label>
             <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
             <input [(ngModel)]="datos.edad" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
@@ -31,7 +31,7 @@
 
         <!-- CAMPO PARA INGRESAR EL SEXO DEL USUARIO -->
         <div class="field">
-            <label for="rango">Rango de Repeticiones</label>
+            <label for="rango">Sexo</label>
             <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
             <input [(ngModel)]="datos.sexo" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
@@ -56,9 +56,10 @@
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
-                <th>Nombre</th>
-                <th>Grupo Muscular</th>
-                <th>Rango de Repeticiones</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>Edad</th>
+                <th>Sexo</th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
