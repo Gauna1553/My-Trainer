@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CrearrutinasComponent } from './crearrutinas.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -13,9 +14,11 @@ import { DialogModule } from 'primeng/dialog';
   imports: [
     CommonModule,
     DropdownModule,
-    DialogModule
+    DialogModule,
+    InputTextModule
   ],exports:[
-    CrearrutinasComponent
+    CrearrutinasComponent,
+    InputTextModule
   ]
 })
 export class CrearrutinasModule { }
