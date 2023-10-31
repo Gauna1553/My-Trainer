@@ -5,19 +5,19 @@
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
             <label for="nombre">Nombre</label>
-            <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
+            <!-- INPUT PARA INGRESAR LA ALTURA DEL USUARIO -->
+            <input [(ngModel)]="datos.altura" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicioss.nombre">El nombre es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !datos.altura">El nombre es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
-            <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required>
+            <!-- INPUT PARA INGRESAR EL PESO DEL USUARIO -->
+            <input [(ngModel)]="datos.peso" pInputText name="grupomuscular" type="text" id="grupo" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicioss.grupomuscular">El grupo es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !datos.peso">El grupo es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->

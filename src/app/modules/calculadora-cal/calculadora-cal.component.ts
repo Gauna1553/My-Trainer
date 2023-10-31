@@ -13,8 +13,12 @@ export class CalculadoraCALComponent {
 
   constructor ( public servicioFirestore: FirestoreService) {}
 
+  //Defino la visibilidad del pop up
   datosDialog: boolean = false
 
+  submitted: any;
+
+  datosColección: Usuario[] = [];
 
   datos: Usuario = {
     sexo: 0,
@@ -29,6 +33,20 @@ export class CalculadoraCALComponent {
     contrasena: ''
   }
 
+  //Esta función se encarga de abrir el pop up
+  openNew() {
+    this.submitted = false;
+    this.datosDialog = true;
+  }
+
+  //Esta función se encarga de cerrar el pop up
+  hideDialog() {
+    this.datosDialog = false;
+    this.datos.altura = 0;
+    this.datos.peso = 0;
+    this.datos.sexo = 0;
+    this.datos.edad = 0;
+  }
   
   async guardarDatos(){
     this.servicioFirestore.agregarDatos(this.datos.uid, this.datos.altura,this.datos.edad,this.datos.peso,this.datos.sexo)
