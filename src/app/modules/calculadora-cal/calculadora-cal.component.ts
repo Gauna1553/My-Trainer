@@ -57,7 +57,7 @@ export class CalculadoraCALComponent {
     })
   }
 
-
+  //Editar datos -> se llama al boton para el pop up
   editarDatos(datosSeleccionado:DatoUsuarios) {
     this.datosSeleccionado = datosSeleccionado;
   }
@@ -78,6 +78,11 @@ export class CalculadoraCALComponent {
     .catch (error => {
       alert ("No se pudieron modificar los datos")
     })
+    
+  /*
+  Esta funcion toma los valores asignados de la colección de usuarios, y los modifica, excepto el valor ID.
+  En caso de hacerlo bien, se muestra el primer mensaje, en caso contrario, muestra el segundo mensaje
+  */
   }
 };
 

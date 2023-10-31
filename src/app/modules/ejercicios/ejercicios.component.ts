@@ -124,6 +124,6 @@ export class EjerciciosComponent implements OnInit{
   /*
   Esta funcion toma los valores asignados de la colección de ejercicios, y los modifica, excepto el valor ID.
   En caso de hacerlo bien, se muestra el primer mensaje, en caso contrario, muestra el segundo mensaje
-   */
+  */
 
 }
