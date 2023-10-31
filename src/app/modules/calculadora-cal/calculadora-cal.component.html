@@ -45,14 +45,14 @@
             <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
             <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <button pButton label="Crear Ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearEjercicio()" ></button>
+            <button pButton label="Crear Ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>
         </div>
     </ng-template>
 </p-dialog>
 
 <!-- TABLA DE LOS EJERCICIOS -->
 <div class="container">
-    <p-table [value]="ejerciciosColeccion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+    <p-table [value]="datosColección" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
@@ -63,7 +63,7 @@
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
-        <ng-template pTemplate="body" let-ejerciciosss let-editing="editing" let-ri="rowIndex">
+        <ng-template pTemplate="body" let-datoss let-editing="editing" let-ri="rowIndex">
             <tr [pEditableRow]="ejerciciosss">
                 <!-- COLUMNA DE NOMBRES -->
                 <td>

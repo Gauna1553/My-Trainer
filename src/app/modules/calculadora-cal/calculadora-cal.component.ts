@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
-import { FirestoreService } from 'src/app/shared/services/firestore.service';
+import { DatosService } from 'src/app/shared/services/datos.service';
 import { OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ import { OnInit } from '@angular/core';
 
 export class CalculadoraCALComponent {
 
-  constructor ( public servicioFirestore: FirestoreService) {}
+  constructor (public servicioDatos: DatosService) {}
 
   //Defino la visibilidad del pop up
   datosDialog: boolean = false
@@ -19,6 +19,8 @@ export class CalculadoraCALComponent {
   submitted: any;
 
   datosColección: Usuario[] = [];
+
+  datosSeleccionado!: Usuario;
 
   loading = false;
 
@@ -51,13 +53,21 @@ export class CalculadoraCALComponent {
   }
   
   async guardarDatos(){
-    this.servicioFirestore.agregarDatos(this.datos.uid, this.datos.altura,this.datos.edad,this.datos.peso,this.datos.sexo)
+    this.servicioDatos.agregarDatos(this.datos.uid, this.datos.altura,this.datos.edad,this.datos.peso,this.datos.sexo)
     .then(res =>{
       //console.log(this.usuarios);
     })
     .catch(error =>{
       console.log('Error =>',error)
     })
+  }
+
+  MostrarBorrar(datosSeleccionado: Usuario) {
+    this.datosSeleccionado = datosSeleccionado;
+  }
+
+  borrarDatos() {
+    
   }
 };
 

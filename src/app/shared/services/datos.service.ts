@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'
+import { map } from 'rxjs';
 
 
 
@@ -36,5 +37,24 @@ agregarDatos(id:string,edad:number,sexo:number ,altura:number, peso:number){
     }
   })
 }
+
+obtenerDatos () {
+  // snapshoot -> captura los cambios
+  // pipe -> tuberia por donde viajan esos nuevos datos
+  // map -> recorre esos datos y luego los lee
+  return  this.usuariosColeccion.snapshotChanges().pipe(map((action => action.map(a => a.payload.doc.data()))))
+  /*
+    Esta función se encarga de llamar a los datos que se le solicitan, y mostrarlos en pantalla
+  */
+}
+
+  //funcion para editar los datos ingresados por el usuario
+  /*Enviamos el id del usuario seleccionado y su nueva información*/
+  modificarEjercicio(uid: string, nuevaData: Usuario) {
+    return this.database.collection('ejercicios').doc(uid).update(nuevaData);
+    /*
+      Esta función se encarga de llamar al objeto usuario, y modificar un valor ya existente
+    */
+  }
 
 }
