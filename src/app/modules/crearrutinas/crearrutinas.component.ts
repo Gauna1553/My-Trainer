@@ -10,4 +10,6 @@ export class CrearrutinasComponent {
   visible = true;
 
   constructor(public servicioRutinas: RutinasService){}
+
+  
 }
