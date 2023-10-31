@@ -7,7 +7,7 @@ import { RutinasService } from 'src/app/services/rutinas.service';
   styleUrls: ['./crearrutinas.component.css']
 })
 export class CrearrutinasComponent {
-
+  visible = true;
 
   constructor(public servicioRutinas: RutinasService){}
 }

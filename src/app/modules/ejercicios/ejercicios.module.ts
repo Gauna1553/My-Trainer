@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EjerciciosComponent } from './ejercicios.component';
 import { EjerciciosRoutingModule } from './ejercicios-routing.module';
+import { CrearrutinasModule } from '../crearrutinas/crearrutinas.module';
 
 
 //Importaciones de Prime
@@ -35,6 +36,7 @@ import { CheckboxModule } from 'primeng/checkbox';
     ProgressSpinnerModule,
     CheckboxModule,
     //BrowserAnimationsModule
+    CrearrutinasModule
   ], 
   exports: [
     FormsModule,
@@ -42,7 +44,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     InputTextModule,
     ButtonModule,
     TableModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    CrearrutinasModule
   ]
 })
 export class EjerciciosModule { }

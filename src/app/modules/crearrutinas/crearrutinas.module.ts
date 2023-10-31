@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrearrutinasComponent } from './crearrutinas.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -9,7 +11,11 @@ import { CrearrutinasComponent } from './crearrutinas.component';
     CrearrutinasComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    DropdownModule,
+    DialogModule
+  ],exports:[
+    CrearrutinasComponent
   ]
 })
 export class CrearrutinasModule { }
