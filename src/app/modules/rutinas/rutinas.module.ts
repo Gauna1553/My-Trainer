@@ -4,6 +4,7 @@ import { RutinasComponent } from './rutinas.component';
 import { RutinasRoutingModule } from './rutinas-routing.module';
 import { FieldsetModule } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
+import { CrearrutinasModule } from '../crearrutinas/crearrutinas.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { TableModule } from 'primeng/table';
     CommonModule,
     RutinasRoutingModule,
     FieldsetModule,
-    TableModule
+    TableModule,
+    CrearrutinasModule
   ]
 })
 export class RutinasModule { }
