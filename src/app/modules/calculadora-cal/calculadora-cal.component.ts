@@ -20,7 +20,7 @@ export class CalculadoraCALComponent {
 
   submitted: any;
 
-  datosColección: DatoUsuarios[] = [];
+  datosColeccion: DatoUsuarios[] = [];
 
   datosSeleccionado!: DatoUsuarios;
 

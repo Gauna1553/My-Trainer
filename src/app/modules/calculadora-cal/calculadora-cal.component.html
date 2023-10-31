@@ -52,7 +52,7 @@
 
 <!-- TABLA DE LOS EJERCICIOS -->
 <div class="container">
-    <p-table [value]="datos" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+    <p-table [value]="datosColeccion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
@@ -62,7 +62,7 @@
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
-        <ng-template pTemplate="body" let-datoss let-editing="editing" let-ri="rowIndex">
+        <ng-template pTemplate="body" let-datos let-editing="editing" let-ri="rowIndex">
             <tr [pEditableRow]="datos">
                 <!-- COLUMNA DE NOMBRES -->
                 <td>

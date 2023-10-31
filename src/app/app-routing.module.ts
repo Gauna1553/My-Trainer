@@ -13,7 +13,7 @@ const routes: Routes = [
   path: '', loadChildren:()=>import('./modules/ejercicios/ejercicios.module').then(m=>m.EjerciciosModule)},{   //ruta de ejercicios
   //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},{ //ruta de concepinf
-  path: '', loadChildren:()=>import('./modules/calculadora-cal/calculadora-cal.module').then(m=>m.CalculadoraCALModule)}
+  path: '/calculadora', loadChildren:()=>import('./modules/calculadora-cal/calculadora-cal.module').then(m=>m.CalculadoraCALModule)}
 ];
 
 @NgModule({
