@@ -20,6 +20,8 @@ export class CalculadoraCALComponent {
 
   datosColección: Usuario[] = [];
 
+  loading = false;
+
   datos: Usuario = {
     sexo: 0,
     altura: 0,
@@ -56,7 +58,6 @@ export class CalculadoraCALComponent {
     .catch(error =>{
       console.log('Error =>',error)
     })
-
   }
 };
 

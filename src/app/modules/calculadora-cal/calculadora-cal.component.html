@@ -23,10 +23,19 @@
         <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
             <label for="rango">Rango de Repeticiones</label>
-            <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.rangorep" pInputText type="text" id="rango" name="rangorep" required>
+            <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
+            <input [(ngModel)]="datos.edad" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicioss.rangorep">El rango es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !datos.edad">El rango es obligatorio.</small>
+        </div>
+
+        <!-- CAMPO PARA INGRESAR EL SEXO DEL USUARIO -->
+        <div class="field">
+            <label for="rango">Rango de Repeticiones</label>
+            <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
+            <input [(ngModel)]="datos.sexo" pInputText type="text" id="rango" name="rangorep" required>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+            <small class="p-error" *ngIf="submitted && !datos.sexo">El rango es obligatorio.</small>
         </div>
     </ng-template>
 
