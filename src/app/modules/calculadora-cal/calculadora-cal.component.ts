@@ -11,11 +11,12 @@ import { OnInit } from '@angular/core';
 
 export class CalculadoraCALComponent {
 
-  constructor ( public servicioFirestore: FirestoreService) {
-  }
+  constructor ( public servicioFirestore: FirestoreService) {}
+
+  datosDialog: boolean = false
 
 
-  datos: Usuario={
+  datos: Usuario = {
     sexo: 0,
     altura: 0,
     peso: 0,
