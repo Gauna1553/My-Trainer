@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Usuario } from 'src/app/model/usuarios';
+import { DatoUsuarios, Usuario } from 'src/app/model/usuarios';
 import { DatosService } from 'src/app/shared/services/datos.service';
 import { OnInit } from '@angular/core';
 
@@ -24,17 +24,12 @@ export class CalculadoraCALComponent {
 
   loading = false;
 
-  datos: Usuario = {
+  datos: DatoUsuarios = {
     sexo: 0,
     altura: 0,
     peso: 0,
     edad: 0,
-    uid: undefined,
-    nombre: '',
-    apellido: '',
-    email: '',
-    rol: '',
-    contrasena: ''
+    uid: '',
   }
 
   //Esta función se encarga de abrir el pop up
@@ -62,12 +57,21 @@ export class CalculadoraCALComponent {
     })
   }
 
-  MostrarBorrar(datosSeleccionado: Usuario) {
+
+  editarDatos(datosSeleccionado:Usuario) {
     this.datosSeleccionado = datosSeleccionado;
   }
 
-  borrarDatos() {
-    
+  edtiDatos() {
+    let datos: DatoUsuarios = {
+      uid: this.datos.uid,
+      edad: this.datos.edad,
+      altura: this.datos.altura,
+      peso: this.datos.peso,
+      sexo: this.datos.sexo,
+    }
+
+    this.servicioDatos.modificarDatos
   }
 };
 
