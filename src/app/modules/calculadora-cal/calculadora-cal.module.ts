@@ -29,6 +29,10 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     TableModule,
     TriStateCheckboxModule,
     ProgressSpinnerModule
+  ],
+  exports: [
+    TableModule,
+    FormsModule
   ]
 })
 export class CalculadoraCALModule { }

@@ -16,6 +16,8 @@ export class CalculadoraCALComponent {
   //Defino la visibilidad del pop up
   datosDialog: boolean = false
 
+  database = '';
+
   submitted: any;
 
   datosColección: DatoUsuarios[] = [];

@@ -1,6 +1,6 @@
 <h1 id="title">Mis Ejercicios</h1>
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
-<p-dialog [(visible)]="datosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="datosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [closable]="false" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
@@ -52,29 +52,28 @@
 
 <!-- TABLA DE LOS EJERCICIOS -->
 <div class="container">
-    <p-table [value]="datosColección" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+    <p-table [value]="datos" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
                 <th>Rango de Repeticiones</th>
-                <th style="width: 10%"><button pButton pRipple icon="pi pi-trash" class="p-button-danger mr-2" label="Eliminar" (click)="borrarEjercicio()"></button></th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
         <ng-template pTemplate="body" let-datoss let-editing="editing" let-ri="rowIndex">
-            <tr [pEditableRow]="ejerciciosss">
+            <tr [pEditableRow]="datos">
                 <!-- COLUMNA DE NOMBRES -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.nombre"/>
+                            <input pInputText type="text" [(ngModel)]="datos.altura"/>
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
-                            {{ ejerciciosss.nombre }} 
+                            {{ datos.altura }} 
                         </ng-template>
                     </p-cellEditor>
                 </td>
@@ -84,11 +83,11 @@
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.grupomuscular" required />
+                            <input pInputText type="text" [(ngModel)]="datos.peso" required />
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->
-                            {{ ejerciciosss.grupomuscular }}
+                            {{ datos.peso }}
                         </ng-template>
                     </p-cellEditor>
                 </td>
@@ -98,11 +97,11 @@
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.rangorep" required />
+                            <input pInputText type="text" [(ngModel)]="datos.edad" required />
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
-                            {{ ejerciciosss.rangorep }}
+                            {{ datos.edad }}
                         </ng-template>
                     </p-cellEditor>
                 </td>
