@@ -27,7 +27,7 @@ export class CalculadoraCALComponent {
   loading = false;
 
   datos: DatoUsuarios = {
-    sexo: 0,
+    sexo: '',
     altura: 0,
     peso: 0,
     edad: 0,
@@ -45,12 +45,12 @@ export class CalculadoraCALComponent {
     this.datosDialog = false;
     this.datos.altura = 0;
     this.datos.peso = 0;
-    this.datos.sexo = 0;
+    this.datos.sexo = '';
     this.datos.edad = 0;
   }
   
   async guardarDatos(){
-    this.servicioDatos.agregarDatos(this.datos.uid, this.datos.altura,this.datos.edad,this.datos.peso,this.datos.sexo)
+    this.servicioDatos.agregarDatos(this.datos.uid, this.datos.altura, this.datos.sexo, this.datos.edad, this.datos.peso)
     .then(res =>{
       //console.log(this.usuarios);
     })

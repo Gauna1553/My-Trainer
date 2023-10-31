@@ -84,7 +84,7 @@
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
-                            <input pInputText type="text" [(ngModel)]="datos.peso" required />
+                            <input pInputText type="number" [(ngModel)]="datos.peso" required />
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->

@@ -5,12 +5,11 @@ export interface Usuario {
     email:string;
     rol: string;
     contrasena: string;
-
 }
 
 export interface DatoUsuarios {
     uid: string|any;
-    sexo:number;
+    sexo:string;
     edad:number;
     altura:number;
     peso:number;

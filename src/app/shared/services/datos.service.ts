@@ -17,7 +17,7 @@ export class DatosService {
   }
 
 
-agregarDatos(id:string,edad:number,sexo:number ,altura:number, peso:number){
+agregarDatos(id:string,edad:number,sexo:string ,altura:number, peso:number){
   //RESOLVE: promesa resulta -> similar al then
   //REJECT: promesa rechazada -> similar al catch
   return new Promise(async(resolve,reject) =>{
@@ -25,7 +25,7 @@ agregarDatos(id:string,edad:number,sexo:number ,altura:number, peso:number){
       
       const resultado = await this.usuariosColeccion.doc(id).update({
         edad: edad,
-        sexo: 0,
+        sexo: sexo,
         altura: altura,
         peso: peso
       })
