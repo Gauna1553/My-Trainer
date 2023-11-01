@@ -19,6 +19,7 @@ export class CalculadoraCALComponent {
     peso: 0,
     edad: 0,
     uid: undefined,
+    credenciales: '',
     nombre: '',
     apellido: '',
     email: '',
