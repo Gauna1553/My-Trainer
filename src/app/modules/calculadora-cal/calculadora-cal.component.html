@@ -67,7 +67,7 @@
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
         <ng-template pTemplate="body" let-datos let-editing="editing" let-ri="rowIndex">
             <tr [pEditableRow]="datos">
-                <!-- COLUMNA DE NOMBRES -->
+                <!-- COLUMNA DE ALTURA DEL USUARIO -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
@@ -81,7 +81,7 @@
                     </p-cellEditor>
                 </td>
 
-                <!-- COLUMNA DE GRUPO MUSCULAR -->
+                <!-- COLUMNA DEL PESO DEL USUARIO -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
@@ -95,7 +95,7 @@
                     </p-cellEditor>
                 </td>
 
-                <!-- COLUMNA DE RANGO DE REPETICIONES -->
+                <!-- COLUMNA DE LA EDAD DEL USUARIO -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
@@ -105,6 +105,20 @@
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
                             {{ datos.edad }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+                <!-- COLUMNA DEL GENERO DEL USUARIO -->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
+                            <input pInputText type="text" [(ngModel)]="datos.sexo" required />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
+                            {{ datos.sexo }}
                         </ng-template>
                     </p-cellEditor>
                 </td>
@@ -123,4 +137,3 @@
     <!-- ESTE BOTON ABRE EL POPUP -->
     <button pButton label="Subir Datos" class="p-button-secondary mr-2" (click)="openNew()"></button>
 </div>
-    
