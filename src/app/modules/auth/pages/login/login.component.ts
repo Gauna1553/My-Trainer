@@ -64,7 +64,7 @@ export class LoginComponent {
             const credenciales = data.credenciales;
 
             //Rediriges al usuario basado en sus credenciales
-            if (credenciales === 'user') {
+            if (credenciales === 'usuario') {
               this.router.navigate(['/inicio']);
             } else {
               if (credenciales === 'admin') {
