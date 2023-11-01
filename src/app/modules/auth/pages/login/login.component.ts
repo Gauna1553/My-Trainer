@@ -42,11 +42,11 @@ export class LoginComponent {
     }
 
     const res = await this.servicioAuth.iniciarSesion(credenciales.email,credenciales.contrasena)
-    .then(res => {
+    .then((res) => {
       alert("Se ha logeado con exito")
       //console.log(res);
 
-      this.router.navigate(['/'])
+      this.router.navigate(['/inicio'])
     })
     .catch(error => {
       alert('Error al loguearse :( \n' + error)

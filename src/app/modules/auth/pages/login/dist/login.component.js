@@ -82,7 +82,7 @@ var LoginComponent = /** @class */ (function () {
                                 .then(function (res) {
                                 alert("Se ha logeado con exito");
                                 //console.log(res);
-                                _this.router.navigate(['/']);
+                                _this.router.navigate(['/inicio']);
                             })["catch"](function (error) {
                                 alert('Error al loguearse :( \n' + error);
                             })
