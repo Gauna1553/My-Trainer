@@ -13,7 +13,7 @@ export class RoleGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     const expectedRole = next.data['expectedRole']; // Obtiene el rol esperado de los datos de la ruta
-    const currentUserRole = this.authService.getCurrentUserRole(); // Obtén el rol actual del usuario
+    const currentUserRole = this.authService.RolesUsuarios(); // Obtén el rol actual del usuario
 
     if (currentUserRole === expectedRole) {
       return true; // Permite el acceso si el rol coincide

@@ -23,12 +23,6 @@ export class NavbarComponent implements OnInit {
         routerLink: '/ejercicios',
         //items: []
       },
-      /*{
-              label: 'Crear Rutina',
-              icon: 'pi pi-fw pi-user',
-              routerLink:"/crear",
-              //items: []
-          },*/
       {
         label: 'Rutinas',
         icon: 'pi pi-fw pi-calendar',

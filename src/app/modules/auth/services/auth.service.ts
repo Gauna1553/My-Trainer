@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 //servicio de autentificacion de firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Observable, of, switchMap } from 'rxjs';
-import { Usuario } from 'src/app/model/usuarios';
+import { Roles } from 'src/app/model/roles';
 
 
 
@@ -11,15 +10,7 @@ import { Usuario } from 'src/app/model/usuarios';
   providedIn: 'root'
 })
 export class AuthService{
-  getCurrentUserRole() {
-    throw new Error('Method not implemented.');
-  }
-
   constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {}
-
-  get userState$() {
-    return this.auth.user;
-  }
 
   //Funcion para iniciar sesión
   async iniciarSesion(email:string,contrasena: string) {
@@ -55,7 +46,8 @@ export class AuthService{
     return this.auth.signOut();
   }
 
-  private updateUserData(usuario$: Usuario) {
-    const userRef: AngularFirestoreDocument<Usuario> = this.afs.doc(`usuarios/${usuario$.uid}`);
-  }
+RolesUsuarios() {
+
+}
+
 }

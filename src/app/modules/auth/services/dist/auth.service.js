@@ -49,16 +49,6 @@ var AuthService = /** @class */ (function () {
         this.auth = auth;
         this.afs = afs;
     }
-    AuthService.prototype.getCurrentUserRole = function () {
-        throw new Error('Method not implemented.');
-    };
-    Object.defineProperty(AuthService.prototype, "userState$", {
-        get: function () {
-            return this.auth.user;
-        },
-        enumerable: false,
-        configurable: true
-    });
     //Funcion para iniciar sesión
     AuthService.prototype.iniciarSesion = function (email, contrasena) {
         return __awaiter(this, void 0, void 0, function () {
@@ -97,8 +87,7 @@ var AuthService = /** @class */ (function () {
         //devuelve una promesa vacias
         return this.auth.signOut();
     };
-    AuthService.prototype.updateUserData = function (usuario$) {
-        var userRef = this.afs.doc("usuarios/" + usuario$.uid);
+    AuthService.prototype.RolesUsuarios = function () {
     };
     AuthService = __decorate([
         core_1.Injectable({
