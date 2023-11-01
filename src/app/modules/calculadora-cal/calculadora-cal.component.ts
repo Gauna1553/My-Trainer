@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DatoUsuarios, Usuario } from 'src/app/model/usuarios';
 import { DatosService } from 'src/app/shared/services/datos.service';
 import { OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 interface Gens {
   name: string,
@@ -23,7 +24,7 @@ export class CalculadoraCALComponent {
 
   generos: Gens[] | undefined;
 
-  selectedGens: Gens | undefined;
+  gensSelected: Gens | undefined;
 
   database = '';
 
@@ -60,11 +61,10 @@ export class CalculadoraCALComponent {
 
   ngOnInit() {
     this.generos = [
-      {name : '', code: ''},
       {name : 'Masculino', code: 'M'},
       {name : 'Femenino', code: 'F'},
       {name : 'Prefiero no decirlo', code: 'X'},
-    ]
+    ];
   }
   
   async guardarDatos(){
