@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalculadoraCALComponent } from './calculadora-cal.component';
 import { CalculadoraRoutingModule } from './calculadora-routing.module';
+
 //Importaciones de Prime
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
@@ -10,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -28,7 +30,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ButtonModule,
     TableModule,
     TriStateCheckboxModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    DropdownModule
   ],
   exports: [
     TableModule,

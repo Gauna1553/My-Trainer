@@ -33,7 +33,9 @@
         <div class="field">
             <label for="rango">Sexo</label>
             <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
-            <input [(ngModel)]="datos.sexo" pInputText type="text" id="rango" name="rangorep" required>
+            <div class = "card flex justify-content-center">
+                <p-dropdown [options]="generos" [(ngModel)]="selectedGens" optionLabel="name"></p-dropdown>
+            </div>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !datos.sexo">El rango es obligatorio.</small>
         </div>

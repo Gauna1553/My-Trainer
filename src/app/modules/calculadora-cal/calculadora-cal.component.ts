@@ -3,6 +3,11 @@ import { DatoUsuarios, Usuario } from 'src/app/model/usuarios';
 import { DatosService } from 'src/app/shared/services/datos.service';
 import { OnInit } from '@angular/core';
 
+interface Gens {
+  name: string,
+  code : string,
+}
+
 @Component({
   selector: 'app-calculadora-cal',
   templateUrl: './calculadora-cal.component.html',
@@ -15,6 +20,10 @@ export class CalculadoraCALComponent {
 
   //Defino la visibilidad del pop up
   datosDialog: boolean = false
+
+  generos: Gens[] | undefined;
+
+  selectedGens: Gens | undefined;
 
   database = '';
 
@@ -47,6 +56,15 @@ export class CalculadoraCALComponent {
     this.datos.peso = 0;
     this.datos.sexo = '';
     this.datos.edad = 0;
+  }
+
+  ngOnInit() {
+    this.generos = [
+      {name : '', code: ''},
+      {name : 'Masculino', code: 'M'},
+      {name : 'Femenino', code: 'F'},
+      {name : 'Prefiero no decirlo', code: 'X'},
+    ]
   }
   
   async guardarDatos(){
