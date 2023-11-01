@@ -27,7 +27,8 @@ export class LoginComponent {
     public servicioAuth: AuthService,
     public firestore: FirestoreService,
     public router :Router,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth, 
+    private fireStore: AngularFirestore
     //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
     ){}
 
@@ -55,9 +56,10 @@ export class LoginComponent {
 
     const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
     .then ((res) => {
+      ///////Base de datos///////
       this.afAuth.authState.subscribe(user => {
         if (user) {
-          this.firestore.colecction('usuarios').doc(user.uid).valueChanges().subscribe((data: any)=> {
+          this.fireStore.collection('usuarios').doc(user.uid).valueChanges().subscribe((data: any)=> {
             //Aqui se obtienen las credenciales del usuario
             const credenciales = data.credenciales;
 

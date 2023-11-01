@@ -45,13 +45,14 @@ exports.__esModule = true;
 exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(servicioAuth, firestore, router, afAuth
+    function LoginComponent(servicioAuth, firestore, router, afAuth, fireStore
     //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
     ) {
         this.servicioAuth = servicioAuth;
         this.firestore = firestore;
         this.router = router;
         this.afAuth = afAuth;
+        this.fireStore = fireStore;
         this.hide = true; //esto es el input
         this.usuarios = {
             uid: '',
@@ -81,9 +82,10 @@ var LoginComponent = /** @class */ (function () {
                         };
                         return [4 /*yield*/, this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
                                 .then(function (res) {
+                                ///////Base de datos///////
                                 _this.afAuth.authState.subscribe(function (user) {
                                     if (user) {
-                                        _this.firestore.colecction('usuarios').doc(user.uid).valueChanges().subscribe(function (data) {
+                                        _this.fireStore.collection('usuarios').doc(user.uid).valueChanges().subscribe(function (data) {
                                             //Aqui se obtienen las credenciales del usuario
                                             var credenciales = data.credenciales;
                                             //Rediriges al usuario basado en sus credenciales
