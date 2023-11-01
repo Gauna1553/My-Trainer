@@ -1,8 +1,19 @@
 import { Component } from '@angular/core';
-import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { Usuario } from 'src/app/model/usuarios';
 import { Router } from '@angular/router';
+
+//Servicios importados
 import { AuthService } from '../../services/auth.service';
+import { FirestoreService } from 'src/app/shared/services/firestore.service';
+
+
+
+//Importaciones de firebase
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
+
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +26,9 @@ export class LoginComponent {
   constructor(
     public servicioAuth: AuthService,
     public firestore: FirestoreService,
-    public router :Router
+    public router :Router,
+    private afAuth: AngularFireAuth, 
+    private fireStore: AngularFirestore
     //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
     ){}
 
@@ -24,8 +37,9 @@ export class LoginComponent {
     nombre: '',
     email: '',
     contrasena: '',
-    rol: '',
     apellido: '',
+    rol: '',
+    credenciales: '',
     sexo: 0,
     altura: 0,
     peso: 0,
@@ -38,18 +52,37 @@ export class LoginComponent {
     const credenciales = {
     email: this.usuarios.email,
     contrasena: this.usuarios.contrasena
-    }
+    };
 
-    const res = await this.servicioAuth.iniciarSesion(credenciales.email,credenciales.contrasena)
-    .then(res => {
-      alert("Se ha logeado con exito")
-      //console.log(res);
+    const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
+    .then ((res) => {
+      ///////Base de datos///////
+      this.afAuth.authState.subscribe(user => {
+        if (user) {
+          this.fireStore.collection('usuarios').doc(user.uid).valueChanges().subscribe((data: any)=> {
+            //Aqui se obtienen las credenciales del usuario
+            const credenciales = data.credenciales;
 
-      this.router.navigate(['/'])
-    })
-    .catch(error => {
-      alert('Error al loguearse :( \n' + error)
-    })
+            //Rediriges al usuario basado en sus credenciales
+            if (credenciales === 'usuario') {
+              this.router.navigate(['/inicio']);
+            } else {
+              if (credenciales === 'admin') {
+                this.router.navigate(['/admin']);
+              } else {
+                this.router.navigate(['/visitante'])
+              }
+            }
+          })
+        } else {
+          //Usuario no logeado
+          this.router.navigate(['/login']);
+        }
+      })
+    }) .catch((error) => {
+      console.error(error)
+      //Usuario no valido
+    });
 
     /*
       Esta función se encarga de recorrer la BD en busca de los datos de email y contraseñas almacenadas para asi poder permitirle al usuario
@@ -61,7 +94,7 @@ export class LoginComponent {
     const res = await this.servicioAuth.cerrarSesion()
     .then(res => {
       alert ("Se ha deslogeado correctamente");
-      this.router.navigate(['/'])
+      this.router.navigate(['/login'])
     })
   }
   /*

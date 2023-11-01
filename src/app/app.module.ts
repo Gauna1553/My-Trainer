@@ -6,6 +6,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environment/environment'; //Es donde se encuentra alojado nuestra base de datos
 
+
 //Los modulos de cada componente
 import { EjerciciosModule } from './modules/ejercicios/ejercicios.module';
 import { CrearrutinasModule } from './modules/crearrutinas/crearrutinas.module';
@@ -13,7 +14,7 @@ import { HomeModule } from './modules/home/home.module';
 import { PerfilModule } from './modules/perfil/perfil.module';
 import { RutinasModule } from './modules/rutinas/rutinas.module';
 import { ConcepinfModule } from './modules/concepinf/concepinf.module';
-import { CalculadoraCALModule } from './modules/calculadora-cal/calculadora-cal.module';
+import { CalculadoraCALComponent } from './modules/calculadora-cal/calculadora-cal.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 //Los servicios creados
 import { EjerciciosService } from './services/ejercicios.service';
+import { AuthService } from './modules/auth/services/auth.service';
 
 
 
@@ -47,11 +49,10 @@ import { EjerciciosService } from './services/ejercicios.service';
     RutinasModule,
     ConcepinfModule,
     BrowserAnimationsModule,
-    CalculadoraCALModule
   ],exports: [
   ],
 
-  providers: [EjerciciosService],
+  providers: [EjerciciosService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
