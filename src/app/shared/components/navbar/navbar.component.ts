@@ -15,13 +15,11 @@ export class NavbarComponent implements OnInit {
         label: 'Inicio',
         icon: 'pi pi-home',
         routerLink: '/inicio',
-        //items: []
       },
       {
         label: 'Ejercicios',
         icon: 'pi pi-fw pi-pencil',
         routerLink: '/ejercicios',
-        //items: []
       },
       {
         label: 'Rutinas',
