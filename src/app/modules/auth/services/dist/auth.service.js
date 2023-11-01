@@ -45,9 +45,9 @@ exports.__esModule = true;
 exports.AuthService = void 0;
 var core_1 = require("@angular/core");
 var AuthService = /** @class */ (function () {
-    function AuthService(auth, afs) {
+    function AuthService(auth, router) {
         this.auth = auth;
-        this.afs = afs;
+        this.router = router;
     }
     //Funcion para iniciar sesión
     AuthService.prototype.iniciarSesion = function (email, contrasena) {
@@ -87,8 +87,13 @@ var AuthService = /** @class */ (function () {
         //devuelve una promesa vacias
         return this.auth.signOut();
     };
-    AuthService.prototype.RolesUsuarios = function () {
-    };
+    Object.defineProperty(AuthService.prototype, "token", {
+        get: function () {
+            return this.auth.idToken;
+        },
+        enumerable: false,
+        configurable: true
+    });
     AuthService = __decorate([
         core_1.Injectable({
             providedIn: 'root'

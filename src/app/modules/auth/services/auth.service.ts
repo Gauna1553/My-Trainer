@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 //servicio de autentificacion de firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 import { Roles } from 'src/app/model/roles';
 
 
@@ -10,7 +11,7 @@ import { Roles } from 'src/app/model/roles';
   providedIn: 'root'
 })
 export class AuthService{
-  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {}
+  constructor(public auth: AngularFireAuth, private router: Router) {}
 
   //Funcion para iniciar sesión
   async iniciarSesion(email:string,contrasena: string) {
@@ -46,8 +47,9 @@ export class AuthService{
     return this.auth.signOut();
   }
 
-RolesUsuarios() {
+  get token() {
+    return this.auth.idToken;
+  }
 
-}
 
 }
