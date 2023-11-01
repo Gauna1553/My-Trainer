@@ -42,35 +42,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.LoginComponent = void 0;
+exports.RegisterComponent = void 0;
 var core_1 = require("@angular/core");
-var LoginComponent = /** @class */ (function () {
-    function LoginComponent(servicioAuth, firestore, router, afAuth, fireStore
-    //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
-    ) {
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent(servicioAuth, servicioFirestore, router) {
         this.servicioAuth = servicioAuth;
-        this.firestore = firestore;
+        this.servicioFirestore = servicioFirestore;
         this.router = router;
-        this.afAuth = afAuth;
-        this.fireStore = fireStore;
         this.hide = true; //esto es el input
         this.usuarios = {
             uid: '',
             nombre: '',
+            apellido: '',
             email: '',
             contrasena: '',
-            apellido: '',
             rol: '',
-            sexo: 0,
+            edad: 0,
             altura: 0,
             peso: 0,
-            edad: 0
-            //Arreglo en donde se guardarar en los parametros del objeto Ejercicio
+            sexo: 0
         };
+        this.uid = '';
+        //creamos una nueva collecion para usuarios
+        this.coleccionUsuarios = [];
     }
-    LoginComponent.prototype.iniciar = function () {
+    //tomamos nuevos registros y tomamos los resultados
+    RegisterComponent.prototype.registrarse = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var credenciales, res;
+            var credenciales, res, uid;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -79,69 +78,59 @@ var LoginComponent = /** @class */ (function () {
                             email: this.usuarios.email,
                             contrasena: this.usuarios.contrasena
                         };
-                        return [4 /*yield*/, this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
-                                .then(function (res) {
-                                ///////Base de datos///////
-                                _this.afAuth.authState.subscribe(function (usuario) {
-                                    if (usuario) {
-                                        _this.fireStore.collection('usuarios').doc(usuario.uid).valueChanges().subscribe(function (data) {
-                                            //Aqui se obtienen las credenciales del usuario
-                                            var rol = data.rol;
-                                            //Rediriges al usuario basado en sus credenciales
-                                            if (rol === 'usuario') {
-                                                _this.router.navigate(['/inicio']);
-                                            }
-                                            else {
-                                                if (rol === 'admin') {
-                                                    _this.router.navigate(['/admin']);
-                                                }
-                                                else {
-                                                    _this.router.navigate(['/visitante']);
-                                                }
-                                            }
-                                        });
-                                    }
-                                    else {
-                                        //Usuario no logeado
-                                        _this.router.navigate(['/login']);
-                                    }
-                                });
-                            })["catch"](function (error) {
-                                console.error(error);
-                                //Usuario no valido
-                            })];
+                        return [4 /*yield*/, this.servicioAuth.registrarse(credenciales.email, credenciales.contrasena).then(function (res) {
+                                alert("se agrego un nuevo usuario con exito");
+                                console.log(res);
+                                _this.router.navigate(['/login']);
+                            })["catch"](function (error) { return alert("Hubo un error la registrarse: (\n" + error); })];
                     case 1:
                         res = _a.sent();
+                        return [4 /*yield*/, this.servicioAuth.getUid()];
+                    case 2:
+                        uid = _a.sent();
+                        //guarda un nuevo usuario
+                        this.usuarios.uid = uid;
+                        this.guardarUser();
                         return [2 /*return*/];
                 }
             });
         });
     };
-    LoginComponent.prototype.salir = function () {
+    RegisterComponent.prototype.guardarUser = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var res;
-            var _this = this;
+            return __generator(this, function (_a) {
+                this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
+                    .then(function (res) {
+                    //console.log(this.usuarios);
+                })["catch"](function (error) {
+                    console.log('Error =>', error);
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    RegisterComponent.prototype.ngOnInit = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var uid;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.servicioAuth.cerrarSesion()
-                            .then(function (res) {
-                            alert("Se ha deslogeado correctamente");
-                            _this.router.navigate(['/login']);
-                        })];
+                    case 0: return [4 /*yield*/, this.servicioAuth.getUid()];
                     case 1:
-                        res = _a.sent();
+                        uid = _a.sent();
+                        console.log(uid);
                         return [2 /*return*/];
                 }
             });
         });
     };
-    LoginComponent = __decorate([
+    RegisterComponent = __decorate([
         core_1.Component({
-            selector: 'app-login',
-            templateUrl: './login.component.html',
-            styleUrls: ['./login.component.css']
+            selector: 'app-register',
+            templateUrl: './register.component.html',
+            styleUrls: ['./register.component.css']
         })
-    ], LoginComponent);
-    return LoginComponent;
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
-exports.LoginComponent = LoginComponent;
+exports.RegisterComponent = RegisterComponent;
+;

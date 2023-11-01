@@ -46,7 +46,7 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
 
     console.log(res)
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
 
   })
   .catch(error => alert("Hubo un error la registrarse: (\n"+error));

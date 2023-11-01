@@ -12,8 +12,10 @@ var router_1 = require("@angular/router");
 var home_component_1 = require("./modules/home/home.component");
 var roles_guard_1 = require("./modules/guard/roles.guard");
 var roles_1 = require("./model/roles");
+var visitante_component_1 = require("./modules/visitante/visitante.component");
 var routes = [
     //lazyloading
+    { path: '', component: visitante_component_1.VisitanteComponent },
     { path: '', loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/auth/auth.module'); }).then(function (m) { return m.AuthModule; }); } },
     { path: 'inicio', component: home_component_1.HomeComponent, canActivate: [roles_guard_1.RoleGuard], data: { expect: roles_1.Roles.Usuario } },
     {

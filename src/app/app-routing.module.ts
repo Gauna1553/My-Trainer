@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
 import { RoleGuard } from './modules/guard/roles.guard';
 import { Roles } from './model/roles';
+import { VisitanteComponent } from './modules/visitante/visitante.component';
 
 
 const routes: Routes = [
    //lazyloading
+  { path: '', component:VisitanteComponent},
   {path: '',loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},
   {path: 'inicio', component: HomeComponent,canActivate:[RoleGuard], data: { expect: Roles.Usuario }},{   //ruta de home
   // SE DEJAN ESTAS RUTAS VACIAS PORQUE YA SE DECLARARON EN CADA UNO DE LOS ROUTING 
