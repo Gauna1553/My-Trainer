@@ -4,6 +4,7 @@ export interface Usuario {
     apellido:string;
     email:string;
     rol: string;
+    credenciales: string;
     contrasena: string;
     sexo:number;
     edad:number;
