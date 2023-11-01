@@ -39,7 +39,6 @@ export class LoginComponent {
     contrasena: '',
     apellido: '',
     rol: '',
-    credenciales: '',
     sexo: 0,
     altura: 0,
     peso: 0,
@@ -57,17 +56,17 @@ export class LoginComponent {
     const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
     .then ((res) => {
       ///////Base de datos///////
-      this.afAuth.authState.subscribe(user => {
-        if (user) {
-          this.fireStore.collection('usuarios').doc(user.uid).valueChanges().subscribe((data: any)=> {
+      this.afAuth.authState.subscribe(usuario => {
+        if (usuario) {
+          this.fireStore.collection('usuarios').doc(usuario.uid).valueChanges().subscribe((data: any)=> {
             //Aqui se obtienen las credenciales del usuario
-            const credenciales = data.credenciales;
+            const rol = data.rol;
 
             //Rediriges al usuario basado en sus credenciales
-            if (credenciales === 'usuario') {
+            if (rol === 'usuario') {
               this.router.navigate(['/inicio']);
             } else {
-              if (credenciales === 'admin') {
+              if (rol === 'admin') {
                 this.router.navigate(['/admin']);
               } else {
                 this.router.navigate(['/visitante'])

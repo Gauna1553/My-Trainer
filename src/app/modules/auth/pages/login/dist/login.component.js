@@ -61,7 +61,6 @@ var LoginComponent = /** @class */ (function () {
             contrasena: '',
             apellido: '',
             rol: '',
-            credenciales: '',
             sexo: 0,
             altura: 0,
             peso: 0,
@@ -83,17 +82,17 @@ var LoginComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
                                 .then(function (res) {
                                 ///////Base de datos///////
-                                _this.afAuth.authState.subscribe(function (user) {
-                                    if (user) {
-                                        _this.fireStore.collection('usuarios').doc(user.uid).valueChanges().subscribe(function (data) {
+                                _this.afAuth.authState.subscribe(function (usuario) {
+                                    if (usuario) {
+                                        _this.fireStore.collection('usuarios').doc(usuario.uid).valueChanges().subscribe(function (data) {
                                             //Aqui se obtienen las credenciales del usuario
-                                            var credenciales = data.credenciales;
+                                            var rol = data.rol;
                                             //Rediriges al usuario basado en sus credenciales
-                                            if (credenciales === 'usuario') {
+                                            if (rol === 'usuario') {
                                                 _this.router.navigate(['/inicio']);
                                             }
                                             else {
-                                                if (credenciales === 'admin') {
+                                                if (rol === 'admin') {
                                                     _this.router.navigate(['/admin']);
                                                 }
                                                 else {

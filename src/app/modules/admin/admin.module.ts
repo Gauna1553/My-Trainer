@@ -6,10 +6,13 @@ import { AdminRoutingModule } from './admin-routing.module';
 
 //Angular
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './admin.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AdminComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,

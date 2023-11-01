@@ -19,7 +19,6 @@ usuarios: Usuario = {
     email: '',
     contrasena: '',
     rol: '',
-    credenciales: '',
     edad: 0,
     altura: 0,
     peso: 0,
