@@ -45,12 +45,13 @@ exports.__esModule = true;
 exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(servicioAuth, firestore, router
+    function LoginComponent(servicioAuth, firestore, router, afAuth
     //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
     ) {
         this.servicioAuth = servicioAuth;
         this.firestore = firestore;
         this.router = router;
+        this.afAuth = afAuth;
         this.hide = true; //esto es el input
         this.usuarios = {
             uid: '',
@@ -80,17 +81,34 @@ var LoginComponent = /** @class */ (function () {
                         };
                         return [4 /*yield*/, this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
                                 .then(function (res) {
-                                alert("Se ha logeado con exito");
-                                //console.log(res);
-                                _this.router.navigate(['/inicio']);
+                                _this.afAuth.authState.subscribe(function (user) {
+                                    if (user) {
+                                        _this.firestore.colecction('usuarios').doc(user.uid).valueChanges().subscribe(function (data) {
+                                            //Aqui se obtienen las credenciales del usuario
+                                            var credenciales = data.credenciales;
+                                            //Rediriges al usuario basado en sus credenciales
+                                            if (credenciales === 'user') {
+                                                _this.router.navigate(['/inicio']);
+                                            }
+                                            else {
+                                                if (credenciales === 'admin') {
+                                                    _this.router.navigate(['/admin']);
+                                                }
+                                                else {
+                                                    _this.router.navigate(['/visitante']);
+                                                }
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        //Usuario no logeado
+                                        _this.router.navigate(['/login']);
+                                    }
+                                });
                             })["catch"](function (error) {
-                                alert('Error al loguearse :( \n' + error);
-                            })
-                            /*
-                              Esta función se encarga de recorrer la BD en busca de los datos de email y contraseñas almacenadas para asi poder permitirle al usuario
-                              inicar sesión.
-                            */
-                        ];
+                                console.error(error);
+                                //Usuario no valido
+                            })];
                     case 1:
                         res = _a.sent();
                         return [2 /*return*/];
@@ -107,7 +125,7 @@ var LoginComponent = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.servicioAuth.cerrarSesion()
                             .then(function (res) {
                             alert("Se ha deslogeado correctamente");
-                            _this.router.navigate(['/']);
+                            _this.router.navigate(['/login']);
                         })];
                     case 1:
                         res = _a.sent();
