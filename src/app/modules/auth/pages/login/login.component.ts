@@ -39,6 +39,7 @@ export class LoginComponent {
     contrasena: '',
     apellido: '',
     rol: '',
+    token: '',
     sexo: 0,
     altura: 0,
     peso: 0,

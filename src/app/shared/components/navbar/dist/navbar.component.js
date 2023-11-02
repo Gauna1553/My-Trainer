@@ -18,6 +18,7 @@ var NavbarComponent = /** @class */ (function () {
             contrasena: '',
             apellido: '',
             rol: '',
+            token: '',
             sexo: 0,
             altura: 0,
             peso: 0,
