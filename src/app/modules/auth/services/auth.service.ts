@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 
 
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService{
-  constructor(public auth: AngularFireAuth, private router: Router) {}
+  constructor(public auth: AngularFireAuth, private router: Router, private http: HttpClient) {}
 
   //Funcion para iniciar sesión
   async iniciarSesion(email:string,contrasena: string) {
@@ -21,6 +23,17 @@ export class AuthService{
     */
 
       //this.updateUserData();
+  }
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem('authToken') != null;
+  }
+
+  getUserInfo (): Observable<any> {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      return this.http.get()
+    }
   }
 
 

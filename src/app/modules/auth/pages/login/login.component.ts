@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 //Servicios importados
 import { AuthService } from '../../services/auth.service';
@@ -12,6 +13,7 @@ import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
+import { Observable, tap } from 'rxjs';
 
 
 
@@ -28,7 +30,8 @@ export class LoginComponent {
     public firestore: FirestoreService,
     public router :Router,
     private afAuth: AngularFireAuth, 
-    private fireStore: AngularFirestore
+    private fireStore: AngularFirestore,
+    private http: HttpClient
     //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
     ){}
 
@@ -88,6 +91,15 @@ export class LoginComponent {
       Esta función se encarga de recorrer la BD en busca de los datos de email y contraseñas almacenadas para asi poder permitirle al usuario
       inicar sesión.
     */
+  }
+
+  login(email:String, contrasena: String): Observable<any> {
+    return this.http.post('/api/login', {email, contrasena})
+    .pipe (
+      tap(response => {
+        localStorage.setItem('authToken', response.token)
+      })
+    )
   }
 
   async salir(){

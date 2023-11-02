@@ -44,8 +44,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
+var rxjs_1 = require("rxjs");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(servicioAuth, firestore, router, afAuth, fireStore
+    function LoginComponent(servicioAuth, firestore, router, afAuth, fireStore, http
     //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
     ) {
         this.servicioAuth = servicioAuth;
@@ -53,6 +54,7 @@ var LoginComponent = /** @class */ (function () {
         this.router = router;
         this.afAuth = afAuth;
         this.fireStore = fireStore;
+        this.http = http;
         this.hide = true; //esto es el input
         this.usuarios = {
             uid: '',
@@ -117,6 +119,12 @@ var LoginComponent = /** @class */ (function () {
                 }
             });
         });
+    };
+    LoginComponent.prototype.login = function (email, contrasena) {
+        return this.http.post('/api/login', { email: email, contrasena: contrasena })
+            .pipe(rxjs_1.tap(function (response) {
+            localStorage.setItem('authToken', response.token);
+        }));
     };
     LoginComponent.prototype.salir = function () {
         return __awaiter(this, void 0, void 0, function () {
