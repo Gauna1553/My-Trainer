@@ -25,17 +25,6 @@ export class AuthService{
       //this.updateUserData();
   }
 
-  isLoggedIn(): boolean {
-    return localStorage.getItem('authToken') != null;
-  }
-
-  getUserInfo (): Observable<any> {
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      return this.http.get()
-    }
-  }
-
 
   //Funcion para registrarse
   registrarse(email: string, contrasena: string) {

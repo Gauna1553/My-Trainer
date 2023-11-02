@@ -93,14 +93,6 @@ export class LoginComponent {
     */
   }
 
-  login(email:String, contrasena: String): Observable<any> {
-    return this.http.post('/api/login', {email, contrasena})
-    .pipe (
-      tap(response => {
-        localStorage.setItem('authToken', response.token)
-      })
-    )
-  }
 
   async salir(){
     const res = await this.servicioAuth.cerrarSesion()
