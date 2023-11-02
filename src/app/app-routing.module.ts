@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
 import { RoleGuard } from './modules/guard/roles.guard';
-import { Roles } from './model/roles';
 import { VisitanteComponent } from './modules/visitante/visitante.component';
 
 
@@ -10,7 +9,7 @@ const routes: Routes = [
    //lazyloading
   { path: '', component:VisitanteComponent},
   {path: '',loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},
-  {path: 'inicio', component: HomeComponent,canActivate:[RoleGuard], data: { expect: Roles.Usuario }},{   //ruta de home
+  {path: 'inicio', component: HomeComponent,canActivate:[RoleGuard]},{   //ruta de home
   // SE DEJAN ESTAS RUTAS VACIAS PORQUE YA SE DECLARARON EN CADA UNO DE LOS ROUTING 
   path: '', loadChildren:()=>import('./modules/perfil/perfil.module').then(m=>m.PerfilModule)},{   //ruta de perfil
   path: '', loadChildren:()=>import('./modules/rutinas/rutinas.module').then(m=>m.RutinasModule)},{   //ruta de rutinas
@@ -18,9 +17,9 @@ const routes: Routes = [
   //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},
   {
-    path: '', loadChildren: () => import('./modules/visitante/visitante.module').then(m => m.VisitanteModule),canActivate:[RoleGuard], data: { expect: Roles.Visitante } //ruta de visitante
+    path: '', loadChildren: () => import('./modules/visitante/visitante.module').then(m => m.VisitanteModule),canActivate:[RoleGuard] //ruta de visitante
   }, 
-  {path: '', loadChildren: ()=> import('./modules/admin/admin.module').then(m => m.AdminModule),canActivate:[RoleGuard], data: { expect: Roles.Admin }, //ruta de admin
+  {path: '', loadChildren: ()=> import('./modules/admin/admin.module').then(m => m.AdminModule),canActivate:[RoleGuard], //ruta de admin
 },{
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},{ //ruta de concepinf
   path: '', loadChildren:()=>import('./modules/calculadora-cal/calculadora-cal.module').then(m=>m.CalculadoraCALModule)},

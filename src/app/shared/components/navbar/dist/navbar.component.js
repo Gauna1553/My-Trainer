@@ -24,15 +24,19 @@ var NavbarComponent = /** @class */ (function () {
             edad: 0
         };
     }
+    NavbarComponent.prototype.mostrarDatos = function (usuarios) {
+        if (usuarios.rol === 'visitante') {
+            this.mostrar = true;
+        }
+    };
+    ;
     NavbarComponent.prototype.ngOnInit = function () {
         this.items = [
             {
                 label: 'Inicio',
                 icon: 'pi pi-home',
                 routerLink: '/inicio',
-                mostrarDatos: function () {
-                    return true;
-                }
+                mostrar: this.mostrarDatos
             },
             {
                 label: 'Ejercicios',
@@ -51,12 +55,6 @@ var NavbarComponent = /** @class */ (function () {
             },
         ];
     };
-    NavbarComponent.prototype.mostrarDatos = function (usuarios) {
-        if (usuarios.rol === 'visitante') {
-            this.mostrar = true;
-        }
-    };
-    ;
     NavbarComponent = __decorate([
         core_1.Component({
             selector: 'app-navbar',

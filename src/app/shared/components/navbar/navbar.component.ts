@@ -25,6 +25,12 @@ export class NavbarComponent implements OnInit {
     edad: 0
   }
 
+  mostrarDatos(usuarios : Usuario) {
+    if (usuarios.rol === 'visitante') {
+      this.mostrar = true;
+    }
+  };
+
 
   ngOnInit() {
     this.items = [
@@ -32,9 +38,7 @@ export class NavbarComponent implements OnInit {
         label: 'Inicio',
         icon: 'pi pi-home',
         routerLink: '/inicio',
-        mostrarDatos(){
-          return true;
-        }
+        mostrar: this.mostrarDatos,
       },
       {
         label: 'Ejercicios',
@@ -53,10 +57,4 @@ export class NavbarComponent implements OnInit {
       },
     ];
   }
-
-  mostrarDatos(usuarios : Usuario) {
-    if (usuarios.rol === 'visitante') {
-      this.mostrar = true;
-    }
-  };
 };
