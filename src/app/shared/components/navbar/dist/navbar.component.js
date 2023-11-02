@@ -24,9 +24,12 @@ var NavbarComponent = /** @class */ (function () {
             edad: 0
         };
     }
-    NavbarComponent.prototype.mostrarDatos = function (usuarios) {
-        if (usuarios.rol === 'visitante') {
+    NavbarComponent.prototype.mostrarDatos = function (mostrar) {
+        if (this.usuarios.rol === 'visitante') {
             this.mostrar = true;
+        }
+        else {
+            this.mostrar = !this.mostrar;
         }
     };
     ;
@@ -46,12 +49,14 @@ var NavbarComponent = /** @class */ (function () {
             {
                 label: 'Rutinas',
                 icon: 'pi pi-fw pi-calendar',
-                routerLink: '/rutinas'
+                routerLink: '/rutinas',
+                mostrar: this.mostrarDatos
             },
             {
                 label: 'Perfil',
                 icon: 'pi pi-user',
-                routerLink: '/perfil'
+                routerLink: '/perfil',
+                mostrar: this.mostrarDatos
             },
         ];
     };

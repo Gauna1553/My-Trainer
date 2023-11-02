@@ -25,9 +25,11 @@ export class NavbarComponent implements OnInit {
     edad: 0
   }
 
-  mostrarDatos(usuarios : Usuario) {
-    if (usuarios.rol === 'visitante') {
+  mostrarDatos(mostrar : boolean) {
+    if (this.usuarios.rol === 'visitante') {
       this.mostrar = true;
+    } else {
+      this.mostrar = !this.mostrar
     }
   };
 
@@ -48,12 +50,14 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Rutinas',
         icon: 'pi pi-fw pi-calendar',
-        routerLink: '/rutinas'
+        routerLink: '/rutinas',
+        mostrar: this.mostrarDatos,
       },
       {
         label: 'Perfil',
         icon: 'pi pi-user',
         routerLink: '/perfil',
+        mostrar: this.mostrarDatos,
       },
     ];
   }
