@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Usuario } from 'src/app/model/usuarios';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,22 @@ import { MenuItem } from 'primeng/api';
 })
 export class NavbarComponent implements OnInit {
   declare items: MenuItem[];
+  mostrar: boolean = false
+
+  usuarios: Usuario = {
+    uid: '',
+    nombre: '',
+    email: '',
+    contrasena: '',
+    apellido: '',
+    rol: '',
+    sexo: 0,
+    altura: 0,
+    peso: 0,
+    edad: 0
+  }
+
+  
 
   ngOnInit() {
     this.items = [
@@ -33,4 +50,8 @@ export class NavbarComponent implements OnInit {
       },
     ];
   }
+
+  mostrarDatos(usuarios.rol = 'visitante') {
+    this.mostrar = true;
+  };
 }
