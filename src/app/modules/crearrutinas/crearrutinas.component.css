@@ -1,8 +1,16 @@
 p-dialog{
     height: 70%;
 }
-.container{
-    margin-top: 10%;
-    align-items: center;
-    padding-left: 30%;
+.container1{
+    margin-top: 5%;
+    width: 50%;
+    margin-left:10%;
+}
+.container2{
+    margin-top:5%;
+    width: 40%;
+    margin-right: 5%;
+}
+.containers{
+    display: flex;
 }
