@@ -1,20 +1,22 @@
-        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-        <div class="field">
-            <label for="nombre">Nombre</label>
-            <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-            <input  pInputText type="text" id="nombre" required>
-            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <!--<small class="p-error" >El nombre es obligatorio.</small>-->
-        </div>
+<!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+<div class="field">
+    <label for="nombre">Nombre</label>
+    <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+    <input pInputText type="text" id="nombre" required>
+    <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+    <!--<small class="p-error" >El nombre es obligatorio.</small>-->
+</div>
 
-        <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
-        <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
-            <div class="card flex justify-content-center">
-                <p-listbox [options]="rutinas"  [filter]="true" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"></p-listbox>
-            </div>
-        </p-dialog>
-        <br>
-        <div>
-            <button (click)="openNew()">aaa</button>
-            <button>aaa</button>
-        </div>
+<!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
+<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Ejercicio Nuevo"
+    [modal]="true" styleClass="p-fluid">
+    <div class="card flex justify-content-center">
+        <p-listbox [options]="rutinas" [filter]="true" [style]="{ width: '100%' }"
+            [listStyle]="{'max-height': '220px'}"></p-listbox>
+    </div>
+</p-dialog>
+<br>
+<div>
+    <button (click)="openNew()">aaa</button>
+    <button>aaa</button>
+</div>
