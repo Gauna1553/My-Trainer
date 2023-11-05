@@ -9,11 +9,11 @@
     </div>
 
     <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
-    <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Ejercicio Nuevo"
+    <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Seleccionar Ejercicio"
         [modal]="true" styleClass="p-fluid">
         <div class="card flex justify-content-center">
-            <p-listbox [options]="rutinas" [filter]="true" [style]="{ width: '100%' }"
-                [listStyle]="{'max-height': '220px'}"></p-listbox>
+            <p-listbox [options]="rutinas" [filter]="true" [style]="{ width: '100%' }"[listStyle]="{'max-height': '220px'}"></p-listbox>
+            <button>aaa</button>
         </div>
     </p-dialog>
     <br>
