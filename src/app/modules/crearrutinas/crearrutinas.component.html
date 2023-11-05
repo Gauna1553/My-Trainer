@@ -9,16 +9,8 @@
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
-            <div class="card xl:flex xl:justify-content-center">
-                <p-orderList [value]="rutinas" [listStyle]="{ 'max-height': '30rem' }" header="Rutinas" filterBy="nombre" filterPlaceholder="Filtrar por nombre">
-                    <ng-template let-product pTemplate="item">
-                        <div class="flex flex-wrap p-2 align-items-center gap-3">
-                            <div class="flex-1 flex flex-column gap-2">
-                                <span class="font-bold">{{ product.name }}</span>
-                            </div>
-                        </div>
-                    </ng-template>
-                </p-orderList>
+            <div class="card flex justify-content-center">
+                <p-listbox [options]="rutinas"  [filter]="true" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"></p-listbox>
             </div>
         </p-dialog>
         <br>

@@ -10,7 +10,7 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 export class CrearrutinasComponent {
   visible = true;
   ejerciciosDialog = false
-  rutinas: Rutina[]=[]
+  rutinas = ['Pecho', 'Espalda', 'Piernas']
   constructor(public servicioRutinas: RutinasService){}
 
   openNew(){

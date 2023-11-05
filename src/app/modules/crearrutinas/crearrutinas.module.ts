@@ -6,7 +6,7 @@ import { CrearrutinasComponent } from './crearrutinas.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
-import { OrderListModule } from 'primeng/orderlist';
+import { ListboxModule } from 'primeng/listbox';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { OrderListModule } from 'primeng/orderlist';
     DropdownModule,
     DialogModule,
     InputTextModule,
-    OrderListModule
+    ListboxModule
   ],exports:[
     CrearrutinasComponent,
   ]
