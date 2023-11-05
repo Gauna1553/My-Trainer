@@ -1,3 +1,8 @@
 p-dialog{
     height: 70%;
 }
+.container{
+    margin-top: 10%;
+    align-items: center;
+    padding-left: 30%;
+}
