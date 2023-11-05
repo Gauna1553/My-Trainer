@@ -9,22 +9,16 @@
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
-            <div class="card">
-                <p-pickList [source]="sourceProducts" [target]="targetProducts" sourceHeader="Available" targetHeader="Selected" [dragdrop]="true" [responsive]="true" [sourceStyle]="{ height: '30rem' }"
-                    [targetStyle]="{ height: '30rem' }" filterBy="name" sourceFilterPlaceholder="Search by name" targetFilterPlaceholder="Search by name" breakpoint="1400px">
+            <div class="card xl:flex xl:justify-content-center">
+                <p-orderList [value]="rutinas" [listStyle]="{ 'max-height': '30rem' }" header="Rutinas" filterBy="nombre" filterPlaceholder="Filtrar por nombre">
                     <ng-template let-product pTemplate="item">
                         <div class="flex flex-wrap p-2 align-items-center gap-3">
                             <div class="flex-1 flex flex-column gap-2">
                                 <span class="font-bold">{{ product.name }}</span>
-                                <div class="flex align-products-center gap-2">
-                                    <i class="pi pi-tag text-sm"></i>
-                                    <span>{{ product.category }}</span>
-                                </div>
                             </div>
-                            <span class="font-bold text-900">{{ '$' + product.price }}</span>
                         </div>
                     </ng-template>
-                </p-pickList>
+                </p-orderList>
             </div>
         </p-dialog>
         <br>

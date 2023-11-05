@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Rutina } from 'src/app/model/rutinas';
 import { RutinasService } from 'src/app/services/rutinas.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 export class CrearrutinasComponent {
   visible = true;
   ejerciciosDialog = false
+  rutinas: Rutina[]=[]
   constructor(public servicioRutinas: RutinasService){}
 
   openNew(){
