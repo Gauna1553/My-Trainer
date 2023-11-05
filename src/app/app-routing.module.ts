@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
+import { CrearrutinasComponent } from './modules/crearrutinas/crearrutinas.component';
 
 const routes: Routes = [
    //lazyloading
@@ -11,7 +12,7 @@ const routes: Routes = [
   path: '', loadChildren:()=>import('./modules/perfil/perfil.module').then(m=>m.PerfilModule)},{   //ruta de perfil
   path: '', loadChildren:()=>import('./modules/rutinas/rutinas.module').then(m=>m.RutinasModule)},{   //ruta de rutinas
   path: '', loadChildren:()=>import('./modules/ejercicios/ejercicios.module').then(m=>m.EjerciciosModule)},{   //ruta de ejercicios
-  //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
+  path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},{ //ruta de concepinf
   path: '', loadChildren:()=>import('./modules/calculadora-cal/calculadora-cal.module').then(m=>m.CalculadoraCALModule)}
 ];

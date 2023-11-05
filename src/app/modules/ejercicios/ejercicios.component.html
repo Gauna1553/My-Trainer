@@ -1,6 +1,6 @@
 <h1 id="title">Mis Ejercicios</h1>
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
-<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="false" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">

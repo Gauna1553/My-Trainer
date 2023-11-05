@@ -1,5 +1,3 @@
-<p-dialog [(visible)]="visible" [style]="{ width: '450px' }" header="Rutina Nueva" [modal]="true" styleClass="p-fluid">
-    <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
             <label for="nombre">Nombre</label>
@@ -10,24 +8,14 @@
         </div>
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
+        <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
         <div class="field" id="drop">
             <label for="">Ejercicios</label>
-            <p-dropdown  optionLabel="name"></p-dropdown>
+            <p-dropdown  optionLabel="name" [filter]="true"></p-dropdown>
         </div>
-
-        <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-        <div class="field">
-            <label for="rango">Rango de Repeticiones</label>
-            <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <input  pInputText type="text" id="rango" required>
-            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <!--<small class="p-error" >El rango es obligatorio.</small>-->
-        </div>
-    </ng-template>
-
-    <ng-template pTemplate="footer">
+        </p-dialog>
         <br>
         <div>
+            <button (click)="openNew()">aaa</button>
+            <button>aaa</button>
         </div>
-    </ng-template>
-</p-dialog>
