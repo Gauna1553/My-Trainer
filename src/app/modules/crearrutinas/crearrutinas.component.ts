@@ -13,6 +13,12 @@ export class CrearrutinasComponent {
   rutinas = ['Pecho', 'Espalda', 'Piernas']
   constructor(public servicioRutinas: RutinasService){}
 
+  rutina: Rutina = {
+    idRutina: '',
+    nombre: '',
+    ejercicios: []
+  }
+
   openNew(){
     this.ejerciciosDialog = true
   }
