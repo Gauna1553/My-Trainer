@@ -6,27 +6,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.HomeModule = void 0;
+exports.PerfilModule = void 0;
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var home_component_1 = require("./home.component");
+var perfil_component_1 = require("./perfil.component");
 //Importacion de prime
-var galleria_1 = require("primeng/galleria");
-var HomeModule = /** @class */ (function () {
-    function HomeModule() {
+var button_1 = require("primeng/button");
+var PerfilModule = /** @class */ (function () {
+    function PerfilModule() {
     }
-    HomeModule = __decorate([
+    PerfilModule = __decorate([
         core_1.NgModule({
             declarations: [
-                home_component_1.HomeComponent
+                perfil_component_1.PerfilComponent
             ],
             imports: [
                 common_1.CommonModule,
-                galleria_1.GalleriaModule,
-            ],
-            exports: []
+                button_1.ButtonModule
+            ]
         })
-    ], HomeModule);
-    return HomeModule;
+    ], PerfilModule);
+    return PerfilModule;
 }());
-exports.HomeModule = HomeModule;
+exports.PerfilModule = PerfilModule;
