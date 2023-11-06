@@ -14,6 +14,7 @@ export class CrearrutinasComponent {
   ejerciciosDialog = false
   rutinas = ['Pecho', 'Espalda', 'Piernas']
 
+  selectedEjer: Ejercicio[] = []
   ejerciciosColeccion: Ejercicio[] = [];
 
   constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService){}

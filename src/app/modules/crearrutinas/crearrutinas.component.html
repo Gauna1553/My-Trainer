@@ -1,7 +1,7 @@
 <div class="containers">
     <div class="container1">
         <h2>Crear Rutina</h2>
-        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+        <!-- CAMPO PARA INGRESAR EL NOMBRE DE LA RUTINA -->
         <div class="field">
             <label for="nombre">Nombre</label>
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
@@ -11,23 +11,23 @@
         </div>
         <br>
         <div>
-            <button (click)="openNew()">aaa</button>
+            <button (click)="openNew()">Agregar Ejercicio</button>
             <button>aaa</button>
         </div>
     </div>
     <div class="container2">
         <h2>Ejercicios Agregados</h2>
         <div class="card flex justify-content-center">
-            <p-listbox [options]="rutina.ejercicios" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"
+            <p-listbox [options]="selectedEjer" optionLabel="nombre" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"
                 [disabled]="true"></p-listbox>
         </div>
     </div>
 </div>
-<!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
+
 <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Seleccionar Ejercicio"
     [modal]="true" styleClass="p-fluid">
     <div class="card flex justify-content-center">
-        <p-listbox [options]="ejerciciosColeccion" optionLabel="nombre" [(ngModel)]="rutina.ejercicios" [filter]="true" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"></p-listbox>
+        <p-listbox [options]="ejerciciosColeccion" optionLabel="nombre" [multiple]="true" [metaKeySelection]="false" [(ngModel)]="selectedEjer" [filter]="true" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"></p-listbox>
         <button>aaa</button>
     </div>
 </p-dialog>
