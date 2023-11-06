@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 //Los modulos para los formularos de login y register
 import { AngularFireModule } from '@angular/fire/compat';
@@ -49,6 +50,7 @@ import { AuthService } from './modules/auth/services/auth.service';
     RutinasModule,
     ConcepinfModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],exports: [
   ],
 

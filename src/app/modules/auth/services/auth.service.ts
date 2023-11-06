@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 //servicio de autentificacion de firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth'
@@ -18,9 +19,24 @@ export class AuthService{
 
   //Funcion para iniciar sesión
   async iniciarSesion(email:string,contrasena: string) {
-    
     //Valida el email y al contraseña de la BD
     return this.auth.signInWithEmailAndPassword(email, contrasena);
+    this.auth.authState.subscribe(
+      async user =>  {
+        await user?.getIdToken()
+        .then(
+          token => {
+            this.cookieService.set("idToken", token)
+          }
+        ) 
+        .catch(
+          error => {
+            console.error("Ocurrio un error: ", error);
+            
+          }
+        )
+      }
+    )
     
     //Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
   }
