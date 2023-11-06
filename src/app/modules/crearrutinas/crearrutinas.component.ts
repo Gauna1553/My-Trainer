@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
+import { EjerciciosService } from 'src/app/services/ejercicios.service';
 import { RutinasService } from 'src/app/services/rutinas.service';
 
 @Component({
@@ -15,7 +16,13 @@ export class CrearrutinasComponent {
 
   ejerciciosColeccion: Ejercicio[] = [];
 
-  constructor(public servicioRutinas: RutinasService){}
+  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService){}
+
+  ngOnInit(){
+    this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
+      this.ejerciciosColeccion = ejercicios
+    })
+  }
 
   rutina: Rutina = {
     idRutina: '',
