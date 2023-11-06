@@ -24,6 +24,7 @@ import { environment } from 'src/environment/environment';
     CommonModule,
     AuthRoutingModule,
     FormsModule,
+    
     //importar firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
