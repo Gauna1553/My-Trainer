@@ -16,7 +16,6 @@ export class DatosService {
     this.usuariosColeccion = this.database.collection<DatoUsuarios>('usuarios');
   }
 
-
 agregarDatos(id:string,edad:number,sexo:string ,altura:number, peso:number){
   //RESOLVE: promesa resulta -> similar al then
   //REJECT: promesa rechazada -> similar al catch
@@ -57,4 +56,33 @@ obtenerDatos () {
     */
   }
 
+  // calcularIMCDeUsuario() {
+  //   const id = 'some-user-id';
+  //   const edad = 25;
+  //   const sexo = 'hombre';
+  //   const altura = 175;
+  //   const peso = 75;
+   
+   
+  //   // Calcular y mostrar el IMC del usuario
+  //   const imc = calcularIMC(edad, sexo, altura, peso);
+  //   console.log(`El IMC del usuario es: ${imc}`);
+  //  }
+
+  guardarIMC(uid:string, edad:number, sexo:string, altura:number, peso:number) {
+    const imc = calcularIMC(edad, sexo, altura, peso);
+  
+    try {
+      await db.collection('imcs').doc(id).set({
+        imc: imc,
+        fecha: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+      console.log('IMC guardado con éxito');
+    } catch (error) {
+      console.error('Error al guardar el IMC:', error);
+    }
+  }
+
 }
+
+
