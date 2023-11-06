@@ -13,4 +13,5 @@ export interface DatoUsuarios {
     edad:number;
     altura:number;
     peso:number;
+    imc:number;
 }

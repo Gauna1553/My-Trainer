@@ -69,13 +69,13 @@ obtenerDatos () {
      imc = this.calcularIMC(edad, sexo, altura, peso);
   
     try {
-      this.database.collection('usuarios').doc(uid).set({
+      this.database.collection('usuarios').doc(uid).update({
         imc: imc,
         
       });
       console.log('IMC guardado con éxito');
     } catch (error) {
-      console.error('Error al guardar el IMC:', error);
+      error
     }
   }
 
