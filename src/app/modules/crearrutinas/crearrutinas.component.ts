@@ -22,4 +22,12 @@ export class CrearrutinasComponent {
   openNew(){
     this.ejerciciosDialog = true
   }
+
+  agregarRutina(){
+    const resultado = this.servicioRutinas.crearRutina(this.rutina).then((resp) => {
+      alert('Se creo la rutina con exito')
+    }).catch((error) => {
+      alert('No se pudo crear la rutina')
+    })
+  }
 }

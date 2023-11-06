@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrearrutinasComponent } from './crearrutinas.component';
+import { FormsModule } from '@angular/forms';
 
 //Importaciones de PrimeNG
 import { DropdownModule } from 'primeng/dropdown';
@@ -17,7 +18,8 @@ import { ListboxModule } from 'primeng/listbox';
     DropdownModule,
     DialogModule,
     InputTextModule,
-    ListboxModule
+    ListboxModule,
+    FormsModule
   ],exports:[
     CrearrutinasComponent,
   ]
