@@ -12,7 +12,6 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 export class CrearrutinasComponent {
   visible = true;
   ejerciciosDialog = false
-  rutinas = ['Pecho', 'Espalda', 'Piernas']
 
   selectedEjer: Ejercicio[] = []
   ejerciciosColeccion: Ejercicio[] = [];
