@@ -5,7 +5,7 @@
         <div class="field">
             <label for="nombre">Nombre</label>
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-            <input pInputText type="text" id="nombre" required>
+            <input pInputText [(ngModel)]="rutina.nombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <!--<small class="p-error" >El nombre es obligatorio.</small>-->
         </div>
@@ -18,7 +18,7 @@
     <div class="container2">
         <h2>Ejercicios Agregados</h2>
         <div class="card flex justify-content-center">
-            <p-listbox [options]="rutinas" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"
+            <p-listbox [options]="rutina.ejercicios" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"
                 [disabled]="true"></p-listbox>
         </div>
     </div>
