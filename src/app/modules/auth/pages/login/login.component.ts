@@ -57,6 +57,7 @@ export class LoginComponent {
     const credenciales = {
     email: this.usuarios.email,
     contrasena: this.usuarios.contrasena
+    //guarda los parametros email y constraseña en una constante
     };
 
     const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)

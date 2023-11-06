@@ -81,6 +81,7 @@ var LoginComponent = /** @class */ (function () {
                         credenciales = {
                             email: this.usuarios.email,
                             contrasena: this.usuarios.contrasena
+                            //guarda los parametros email y constraseña en una constante
                         };
                         return [4 /*yield*/, this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
                                 .then(function (res) {
