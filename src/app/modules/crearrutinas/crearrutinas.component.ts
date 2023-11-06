@@ -27,7 +27,7 @@ export class CrearrutinasComponent {
   rutina: Rutina = {
     idRutina: '',
     nombre: '',
-    ejercicios: []
+    ejercicios: this.selectedEjer
   }
 
   openNew(){
