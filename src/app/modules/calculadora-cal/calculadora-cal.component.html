@@ -132,8 +132,11 @@
                     </div> 
                 </td>
             </tr>
+            
         </ng-template>   
     </p-table>
     <!-- ESTE BOTON ABRE EL POPUP -->
     <button pButton label="Subir Datos" class="p-button-secondary mr-2" (click)="openNew()"></button>
+    <button pButton label="Calcular" class="p-button-secondary mr-2" (click)="calcular()"></button>
+    <h3>Tu IMC es: <span id="imc">0</span></h3>
 </div>

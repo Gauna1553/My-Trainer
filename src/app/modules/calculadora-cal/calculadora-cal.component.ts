@@ -104,6 +104,15 @@ export class CalculadoraCALComponent {
   En caso de hacerlo bien, se muestra el primer mensaje, en caso contrario, muestra el segundo mensaje
   */
   }
-};
 
+  async calcular() {
+    try {
+        const result = this.servicioDatos.guardarIMC(this.datos.uid, this.datos.edad, this.datos.sexo, this.datos.altura, this.datos.peso, this.datos.imc);
+      
+    } catch (error) {
+        console.error('Error al guardar el IMC:', error);
+    }
+}
+ 
 
+}

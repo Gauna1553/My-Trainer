@@ -63,6 +63,7 @@ obtenerDatos () {
     } else {
        throw new Error('Sexo inválido. Debe ser "hombre" o "mujer".');
     }
+   
    }
 
   guardarIMC(uid:string, edad: number, sexo: string, altura: number, peso: number, imc:number) {
