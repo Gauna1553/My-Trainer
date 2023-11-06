@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
+
 //servicio de autentificacion de firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -12,10 +10,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService{
-  constructor(public auth: AngularFireAuth, private router: Router, private http: HttpClient) {}
+  constructor(
+    public auth: AngularFireAuth,  
+    private cookieService: CookieService) {}
 
   //Funcion para iniciar sesión
   async iniciarSesion(email:string,contrasena: string) {
+    
     //Valida el email y al contraseña de la BD
     return this.auth.signInWithEmailAndPassword(email, contrasena);
     /*
@@ -45,6 +46,7 @@ export class AuthService{
 
   cerrarSesion() {
     //devuelve una promesa vacias
+    this.cookieService.delete('firebaseAuthToken')
     return this.auth.signOut();
   }
 
