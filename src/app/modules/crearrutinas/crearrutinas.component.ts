@@ -27,7 +27,7 @@ export class CrearrutinasComponent {
   rutina: Rutina = {
     idRutina: '',
     nombre: '',
-    ejercicios: this.selectedEjer
+    ejercicios: []
   }
 
   openNew(){
@@ -35,6 +35,7 @@ export class CrearrutinasComponent {
   }
 
   agregarRutina(){
+    this.rutina.ejercicios = this.selectedEjer;
     const resultado = this.servicioRutinas.crearRutina(this.rutina).then((resp) => {
       alert('Se creo la rutina con exito')
     }).catch((error) => {
