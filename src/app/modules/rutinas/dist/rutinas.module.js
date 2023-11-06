@@ -10,6 +10,7 @@ exports.RutinasModule = void 0;
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var rutinas_component_1 = require("./rutinas.component");
+var rutinas_routing_module_1 = require("./rutinas-routing.module");
 //importaciones de prime
 var fieldset_1 = require("primeng/fieldset");
 var table_1 = require("primeng/table");
@@ -23,6 +24,8 @@ var RutinasModule = /** @class */ (function () {
             ],
             imports: [
                 common_1.CommonModule,
+                rutinas_routing_module_1.RutinasRoutingModule,
+                //Imporaciones de prime
                 fieldset_1.FieldsetModule,
                 table_1.TableModule
             ]
