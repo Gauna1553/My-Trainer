@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 
 //servicio de autentificacion de firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth'
+
+//Servicio de cookies para mantener al usuario logeado el tiempo que el quiera
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -19,11 +21,8 @@ export class AuthService{
     
     //Valida el email y al contraseña de la BD
     return this.auth.signInWithEmailAndPassword(email, contrasena);
-    /*
-      Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
-    */
-
-      //this.updateUserData();
+    
+    //Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
   }
 
 

@@ -1,3 +1,4 @@
+//interfaz en donde se especifican los atributos que va a tener el usuario
 export interface Usuario {
     uid: string|any;
     nombre: string;
