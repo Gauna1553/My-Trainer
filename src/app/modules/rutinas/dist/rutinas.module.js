@@ -6,26 +6,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.PerfilModule = void 0;
+exports.RutinasModule = void 0;
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var perfil_component_1 = require("./perfil.component");
-//Importacion de prime
-var button_1 = require("primeng/button");
-var PerfilModule = /** @class */ (function () {
-    function PerfilModule() {
+var rutinas_component_1 = require("./rutinas.component");
+//importaciones de prime
+var fieldset_1 = require("primeng/fieldset");
+var table_1 = require("primeng/table");
+var RutinasModule = /** @class */ (function () {
+    function RutinasModule() {
     }
-    PerfilModule = __decorate([
+    RutinasModule = __decorate([
         core_1.NgModule({
             declarations: [
-                perfil_component_1.PerfilComponent
+                rutinas_component_1.RutinasComponent,
             ],
             imports: [
                 common_1.CommonModule,
-                button_1.ButtonModule
+                fieldset_1.FieldsetModule,
+                table_1.TableModule
             ]
         })
-    ], PerfilModule);
-    return PerfilModule;
+    ], RutinasModule);
+    return RutinasModule;
 }());
-exports.PerfilModule = PerfilModule;
+exports.RutinasModule = RutinasModule;
