@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Ejercicio } from 'src/app/model/ejercicios';
+import { Rutina } from 'src/app/model/rutinas';
 
 @Component({
   selector: 'app-rutinas',
@@ -7,6 +8,8 @@ import { Ejercicio } from 'src/app/model/ejercicios';
   styleUrls: ['./rutinas.component.css']
 })
 export class RutinasComponent {
+
+  rutinaColeccion: Rutina[] = [];
 
   constructor() {
 
