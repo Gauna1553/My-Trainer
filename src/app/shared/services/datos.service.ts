@@ -16,13 +16,13 @@ export class DatosService {
     this.usuariosColeccion = this.database.collection<DatoUsuarios>('usuarios');
   }
 
-agregarDatos(id:string,edad:number,sexo:string ,altura:number, peso:number){
+agregarDatos(uid:string,edad:number,sexo:string ,altura:number, peso:number){
   //RESOLVE: promesa resulta -> similar al then
   //REJECT: promesa rechazada -> similar al catch
   return new Promise(async(resolve,reject) =>{
     try {
       
-      const resultado = await this.usuariosColeccion.doc(id).update({
+      const resultado = await this.usuariosColeccion.doc(uid).update({
         edad: edad,
         sexo: sexo,
         altura: altura,
@@ -55,11 +55,18 @@ obtenerDatos () {
       Esta función se encarga de llamar al objeto usuario, y modificar un valor ya existente
     */
   }
+  calcularIMC(edad: number, sexo: string, altura: number, peso: number): number {
+    if (sexo === 'hombre') {
+       return 66.473 + (13.752 * peso) + (5.0033 * altura) - (6.755 * edad);
+    } else if (sexo === 'mujer') {
+       return 65.51 + (9.563 * peso) + (1.85 * altura) - (4.676 * edad);
+    } else {
+       throw new Error('Sexo inválido. Debe ser "hombre" o "mujer".');
+    }
+   }
 
-  
-
-  guardarIMC(uid:string, edad:number, sexo:string, altura:number, peso:number, imc:number) {
-     imc = calcularIMC(edad, sexo, altura, peso);
+  guardarIMC(uid:string, edad: number, sexo: string, altura: number, peso: number, imc:number) {
+     imc = this.calcularIMC(edad, sexo, altura, peso);
   
     try {
       this.database.collection('usuarios').doc(uid).set({
