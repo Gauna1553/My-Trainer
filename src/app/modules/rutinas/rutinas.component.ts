@@ -13,4 +13,10 @@ export class RutinasComponent {
   rutinaColeccion: Rutina[] = [];
 
   constructor(public servicioRutinas: RutinasService) {}
+
+  ngOnInit(){
+    this.servicioRutinas.obtenerRutina().subscribe(rutinas =>{
+      this.rutinaColeccion = rutinas;
+    })
+  }
 }
