@@ -23,6 +23,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   imports: [
     CommonModule,
     EjerciciosRoutingModule,
+
+    //Importaciones de prime
     FormsModule,
     ReactiveFormsModule,
     DialogModule,
