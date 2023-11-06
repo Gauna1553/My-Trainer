@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 //Servicios importados
 import { AuthService } from '../../services/auth.service';
@@ -31,7 +32,8 @@ export class LoginComponent {
     public router :Router,
     private afAuth: AngularFireAuth, 
     private fireStore: AngularFirestore,
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
     //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
     ){}
 
