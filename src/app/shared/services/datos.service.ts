@@ -56,26 +56,15 @@ obtenerDatos () {
     */
   }
 
-  // calcularIMC() {
-  //   const id = 'some-user-id';
-  //   const edad = 25;
-  //   const sexo = 'hombre';
-  //   const altura = 175;
-  //   const peso = 75;
-   
-   
-  //   // Calcular y mostrar el IMC del usuario
-  //   const imc = calcularIMC(edad, sexo, altura, peso);
-  //   console.log(`El IMC del usuario es: ${imc}`);
-  //  }
+  
 
-  guardarIMC(uid:string, edad:number, sexo:string, altura:number, peso:number) {
-    const imc = calcularIMC(edad, sexo, altura, peso);
+  guardarIMC(uid:string, edad:number, sexo:string, altura:number, peso:number, imc:number) {
+     imc = calcularIMC(edad, sexo, altura, peso);
   
     try {
-      await db.collection('usuarios').doc(id).set({
+      this.database.collection('usuarios').doc(uid).set({
         imc: imc,
-        fecha: firebase.firestore.FieldValue.serverTimestamp(),
+        
       });
       console.log('IMC guardado con éxito');
     } catch (error) {
