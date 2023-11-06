@@ -3,4 +3,5 @@ export interface Datos {
     edad:number;
     altura:number;
     peso:number;
+    imc:number;
 }

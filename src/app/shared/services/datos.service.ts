@@ -50,13 +50,13 @@ obtenerDatos () {
   //funcion para editar los datos ingresados por el usuario
   /*Enviamos el id del usuario seleccionado y su nueva información*/
   modificarDatos(uid: string, nuevaData: DatoUsuarios) {
-    return this.database.collection('ejercicios').doc(uid).update(nuevaData);
+    return this.database.collection('usuarios').doc(uid).update(nuevaData);
     /*
       Esta función se encarga de llamar al objeto usuario, y modificar un valor ya existente
     */
   }
 
-  // calcularIMCDeUsuario() {
+  // calcularIMC() {
   //   const id = 'some-user-id';
   //   const edad = 25;
   //   const sexo = 'hombre';
@@ -73,7 +73,7 @@ obtenerDatos () {
     const imc = calcularIMC(edad, sexo, altura, peso);
   
     try {
-      await db.collection('imcs').doc(id).set({
+      await db.collection('usuarios').doc(id).set({
         imc: imc,
         fecha: firebase.firestore.FieldValue.serverTimestamp(),
       });
