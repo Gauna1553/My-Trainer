@@ -13,6 +13,7 @@ var perfil_component_1 = require("./perfil.component");
 var perfil_routing_module_1 = require("./perfil-routing.module");
 //Importacion de prime
 var button_1 = require("primeng/button");
+var table_1 = require("primeng/table");
 var PerfilModule = /** @class */ (function () {
     function PerfilModule() {
     }
@@ -24,7 +25,9 @@ var PerfilModule = /** @class */ (function () {
             imports: [
                 common_1.CommonModule,
                 perfil_routing_module_1.PerfilRoutingModule,
-                button_1.ButtonModule
+                //importaciones de primeng
+                button_1.ButtonModule,
+                table_1.TableModule
             ]
         })
     ], PerfilModule);

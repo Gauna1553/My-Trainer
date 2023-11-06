@@ -13,6 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class AuthService{
+  token: any;
   constructor(
     public auth: AngularFireAuth,  
     private cookieService: CookieService,
@@ -24,6 +25,11 @@ export class AuthService{
         this.cookieService.set('firebaseAuthToken', await result.user.getIdToken());
       }
       return result;
+    }
+
+    registrarse(email: string, contrasena: string){
+      // retorna nuevo valor de nombre y contrasena
+      return this.auth.createUserWithEmailAndPassword(email,contrasena);
     }
   
     cerrarSesion() {

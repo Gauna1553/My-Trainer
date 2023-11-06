@@ -6,29 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.RoleGuard = void 0;
+exports.UsuariosService = void 0;
 var core_1 = require("@angular/core");
-var rxjs_1 = require("rxjs");
-var RoleGuard = /** @class */ (function () {
-    function RoleGuard(authService, router) {
-        this.authService = authService;
-        this.router = router;
+var UsuariosService = /** @class */ (function () {
+    function UsuariosService() {
     }
-    RoleGuard.prototype.canActivate = function () {
-        var _this = this;
-        return this.authService.token.pipe(rxjs_1.map(function (token) {
-            if (!token) {
-                _this.router.navigate(['/login']);
-                return false;
-            }
-            return true;
-        }));
+    UsuariosService.prototype.getUsersData = function () {
+        return;
     };
-    RoleGuard = __decorate([
+    UsuariosService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
-    ], RoleGuard);
-    return RoleGuard;
+    ], UsuariosService);
+    return UsuariosService;
 }());
-exports.RoleGuard = RoleGuard;
+exports.UsuariosService = UsuariosService;
