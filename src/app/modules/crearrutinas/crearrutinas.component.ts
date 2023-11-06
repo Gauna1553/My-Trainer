@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
 import { RutinasService } from 'src/app/services/rutinas.service';
 
@@ -11,6 +12,9 @@ export class CrearrutinasComponent {
   visible = true;
   ejerciciosDialog = false
   rutinas = ['Pecho', 'Espalda', 'Piernas']
+
+  ejerciciosColeccion: Ejercicio[] = [];
+
   constructor(public servicioRutinas: RutinasService){}
 
   rutina: Rutina = {
