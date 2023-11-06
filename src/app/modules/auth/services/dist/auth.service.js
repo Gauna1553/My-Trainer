@@ -52,7 +52,6 @@ var AuthService = /** @class */ (function () {
     //Funcion para iniciar sesión
     AuthService.prototype.iniciarSesion = function (email, contrasena) {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
             return __generator(this, function (_a) {
                 //Valida el email y al contraseña de la BD
                 return [2 /*return*/, this.auth.signInWithEmailAndPassword(email, contrasena)];
