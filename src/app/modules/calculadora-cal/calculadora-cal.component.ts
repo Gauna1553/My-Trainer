@@ -39,6 +39,7 @@ export class CalculadoraCALComponent {
     altura: 0,
     peso: 0,
     edad: 0,
+    imc: 0,
     uid: '',
   }
 
@@ -87,6 +88,7 @@ export class CalculadoraCALComponent {
       altura: this.datos.altura,
       peso: this.datos.peso,
       sexo: this.datos.sexo,
+      imc: this.datos.imc
     }
 
     this.servicioDatos.modificarDatos(this.datosSeleccionado.uid, datos)
