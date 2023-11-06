@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EjerciciosComponent } from './ejercicios.component';
+import { EjerciciosRoutingModule } from './ejercicios-routing.module';
 
 
 //Importaciones de Prime
@@ -21,6 +22,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   ],
   imports: [
     CommonModule,
+    EjerciciosRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     DialogModule,
