@@ -49,52 +49,52 @@ var AuthService = /** @class */ (function () {
         this.auth = auth;
         this.cookieService = cookieService;
     }
-    //Funcion para iniciar sesión
     AuthService.prototype.iniciarSesion = function (email, contrasena) {
         return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                //Valida el email y al contraseña de la BD
-                return [2 /*return*/, this.auth.signInWithEmailAndPassword(email, contrasena)];
+            var result, _a, _b, _c;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0: return [4 /*yield*/, this.auth.signInWithEmailAndPassword(email, contrasena)];
+                    case 1:
+                        result = _d.sent();
+                        if (!result.user) return [3 /*break*/, 3];
+                        _b = (_a = this.cookieService).set;
+                        _c = ['firebaseAuthToken'];
+                        return [4 /*yield*/, result.user.getIdToken()];
+                    case 2:
+                        _b.apply(_a, _c.concat([_d.sent()]));
+                        _d.label = 3;
+                    case 3: return [2 /*return*/, result];
+                }
             });
         });
     };
-    //Funcion para registrarse
-    AuthService.prototype.registrarse = function (email, contrasena) {
-        //Retorna un nuevo valor de nombre y contraseña
-        return this.auth.createUserWithEmailAndPassword(email, contrasena);
+    AuthService.prototype.cerrarSesion = function () {
+        this.cookieService["delete"]('firebaseAuthToken');
+        return this.auth.signOut();
     };
     AuthService.prototype.getUid = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var user;
+            var user, token;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.auth.currentUser];
                     case 1:
                         user = _a.sent();
-                        if (user == null) {
-                            return [2 /*return*/, null];
-                        }
-                        else {
-                            return [2 /*return*/, user.uid];
-                        }
-                        return [2 /*return*/];
+                        if (!(user == null)) return [3 /*break*/, 2];
+                        return [2 /*return*/, null];
+                    case 2: return [4 /*yield*/, (user === null || user === void 0 ? void 0 : user.getIdToken())];
+                    case 3:
+                        token = _a.sent();
+                        return [2 /*return*/, user.uid];
                 }
             });
         });
     };
     ;
-    AuthService.prototype.cerrarSesion = function () {
-        //devuelve una promesa vacias
-        this.cookieService["delete"]('firebaseAuthToken');
-        return this.auth.signOut();
+    AuthService.prototype.getToken = function () {
+        return this.cookieService.get("firebaseAuthToken");
     };
-    Object.defineProperty(AuthService.prototype, "token", {
-        get: function () {
-            return this.auth.idToken;
-        },
-        enumerable: false,
-        configurable: true
-    });
     AuthService = __decorate([
         core_1.Injectable({
             providedIn: 'root'

@@ -17,22 +17,19 @@ export class AuthService{
     public auth: AngularFireAuth,  
     private cookieService: CookieService,
     ) {}
-
-  //Funcion para iniciar sesión
-  async iniciarSesion(email:string,contrasena: string) {
-    //Valida el email y al contraseña de la BD
-    return this.auth.signInWithEmailAndPassword(email, contrasena);
-    
-    //Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
-  }
-
-
-  //Funcion para registrarse
-  registrarse(email: string, contrasena: string) {
-    //Retorna un nuevo valor de nombre y contraseña
-    return this.auth.createUserWithEmailAndPassword(email,contrasena)
-  }
-
+  
+    async iniciarSesion(email:string, contrasena: string) {
+      const result = await this.auth.signInWithEmailAndPassword(email, contrasena);
+      if (result.user) {
+        this.cookieService.set('firebaseAuthToken', await result.user.getIdToken());
+      }
+      return result;
+    }
+  
+    cerrarSesion() {
+      this.cookieService.delete('firebaseAuthToken');
+      return this.auth.signOut();
+    }
   async getUid(){
     //nos genera una promesa y const user la captura
     const user = await this.auth.currentUser;
@@ -40,17 +37,12 @@ export class AuthService{
     if (user == null) {
       return null;
     } else {
+      let token = await user?.getIdToken();
       return user.uid;
     }
   };
 
-  cerrarSesion() {
-    //devuelve una promesa vacias
-    this.cookieService.delete('firebaseAuthToken')
-    return this.auth.signOut();
-  }
-
-  get token() {
-    return this.auth.idToken;
+  getToken() {
+    return this.cookieService.get("firebaseAuthToken");
   }
 }
