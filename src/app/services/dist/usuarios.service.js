@@ -10,9 +10,10 @@ exports.UsuariosService = void 0;
 var core_1 = require("@angular/core");
 var UsuariosService = /** @class */ (function () {
     function UsuariosService() {
+        this.usuarios = [];
     }
-    UsuariosService.prototype.getUsersData = function () {
-        return;
+    UsuariosService.prototype.getUsersData = function (usuarios) {
+        return "ID: " + usuarios.uid + ", Nombre: " + usuarios.nombre + ", Email: " + usuarios.email + ", Rol " + usuarios.rol;
     };
     UsuariosService = __decorate([
         core_1.Injectable({

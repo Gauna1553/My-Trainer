@@ -9,11 +9,8 @@ exports.__esModule = true;
 exports.PerfilComponent = void 0;
 var core_1 = require("@angular/core");
 var PerfilComponent = /** @class */ (function () {
-    function PerfilComponent(usuariosService) {
-        this.usuariosService = usuariosService;
+    function PerfilComponent() {
     }
-    PerfilComponent.prototype.ngOnInit = function () {
-    };
     PerfilComponent = __decorate([
         core_1.Component({
             selector: 'app-perfil',
