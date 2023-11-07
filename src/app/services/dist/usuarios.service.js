@@ -21,9 +21,22 @@ var UsuariosService = /** @class */ (function () {
         return this.usuariosColeccion.snapshotChanges().pipe(rxjs_1.map(function (action) { return action.map(function (a) { return a.payload.doc.data(); }); }));
         //Esta función se encarga de tomar los datos de los usuarios y mostrarlos.
     };
+    //Modificar usuarios
     UsuariosService.prototype.modificarUsuarios = function (uid, rol, nuevaData) {
         return this.database.collection('usuarios').doc(uid).update(nuevaData);
         //Esta función de encarga de recolectar los datos ya existentes para luego modificar los que el administrador quiera
+    };
+    //Funcion para eliminar usuarios
+    UsuariosService.prototype.eliminarUsuarios = function (uid) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            try {
+                var resp = _this.usuariosColeccion.doc(uid)["delete"]();
+            }
+            catch (error) {
+                reject(error);
+            }
+        });
     };
     UsuariosService = __decorate([
         core_1.Injectable()

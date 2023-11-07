@@ -20,10 +20,22 @@ obtenerUsuario() {
     
     //Esta función se encarga de tomar los datos de los usuarios y mostrarlos.
 }
-
+    
+    //Modificar usuarios
     modificarUsuarios(uid: string, rol: string, nuevaData: string) {
         return this.database.collection('usuarios').doc(uid).update(nuevaData);
         //Esta función de encarga de recolectar los datos ya existentes para luego modificar los que el administrador quiera
+    }
+
+    //Funcion para eliminar usuarios
+    eliminarUsuarios(uid: string) {
+        return new Promise((resolve, reject) => {
+            try {
+                const resp = this.usuariosColeccion.doc(uid).delete()
+            } catch (error) {
+                reject(error)
+            }
+        })
     }
 
 }
