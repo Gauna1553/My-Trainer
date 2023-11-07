@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,DoCheck } from '@angular/core';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
@@ -11,8 +11,10 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 })
 export class CrearrutinasComponent {
 
-  ejerciciosDialog = false
-  selectedEjer: Ejercicio[] = []
+  ejerSubmitted = false
+  submitted = false;
+  ejerciciosDialog = false;
+  selectedEjer: Ejercicio[] = [];
   ejerciciosColeccion: Ejercicio[] = [];
 
   constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService) { }
@@ -21,6 +23,11 @@ export class CrearrutinasComponent {
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
       this.ejerciciosColeccion = ejercicios
     })
+  }
+  ngDoCheck(){
+    if(this.selectedEjer.length > 0){
+      this.ejerSubmitted = true
+    }
   }
 
   rutina: Rutina = {
@@ -34,13 +41,17 @@ export class CrearrutinasComponent {
   }
 
   agregarRutina() {
-    if (this.rutina.nombre && this.selectedEjer) {
+    this.submitted = true
+    if (this.rutina.nombre && this.selectedEjer.length > 0) {
+      this.ejerSubmitted = true
       this.rutina.ejercicios = this.selectedEjer;
       const resultado = this.servicioRutinas.crearRutina(this.rutina).then((resp) => {
         alert('Se creo la rutina con exito')
       }).catch((error) => {
         alert('No se pudo crear la rutina')
       })
+    }else{
+      this.ejerSubmitted = false;
     }
   }
 }

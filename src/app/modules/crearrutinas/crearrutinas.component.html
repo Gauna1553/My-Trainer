@@ -7,7 +7,8 @@
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
             <input pInputText [(ngModel)]="rutina.nombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <!--<small class="p-error" >El nombre es obligatorio.</small>-->
+            <br>
+            <small class="p-error" *ngIf="submitted && !rutina.nombre">El nombre es obligatorio.</small>
         </div>
         <br>
         <div>
@@ -17,17 +18,17 @@
     </div>
     <div class="container2">
         <h2>Ejercicios Agregados</h2>
+        <small class="p-error" *ngIf="submitted && !ejerSubmitted">Agregue ejercicios</small>
         <div class="card flex justify-content-center">
-            <p-listbox [options]="selectedEjer" optionLabel="nombre" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"
-                [disabled]="true"></p-listbox>
+            <p-listbox [options]="selectedEjer" optionLabel="nombre" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"[disabled]="true"></p-listbox>
         </div>
     </div>
 </div>
 
-<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Seleccionar Ejercicio"
-    [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="true" header="Seleccionar Ejercicio" [modal]="true" styleClass="p-fluid">
     <div class="card flex justify-content-center">
-        <p-listbox [options]="ejerciciosColeccion" optionLabel="nombre" [multiple]="true" [metaKeySelection]="false" [(ngModel)]="selectedEjer" [filter]="true" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"></p-listbox>
+        <p-listbox [options]="ejerciciosColeccion" optionLabel="nombre" [multiple]="true" [metaKeySelection]="false" [(ngModel)]="selectedEjer" 
+        [filter]="true" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"></p-listbox>
         <button>aaa</button>
     </div>
 </p-dialog>
