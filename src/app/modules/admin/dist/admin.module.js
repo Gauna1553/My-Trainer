@@ -6,31 +6,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.PerfilModule = void 0;
+exports.AdminModule = void 0;
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var perfil_component_1 = require("./perfil.component");
-var perfil_routing_module_1 = require("./perfil-routing.module");
-//Importacion de prime
-var button_1 = require("primeng/button");
+//Vsitas
+var admin_routing_module_1 = require("./admin-routing.module");
+//Angular
+var forms_1 = require("@angular/forms");
+var admin_component_1 = require("./admin.component");
+//PrimeNg
 var table_1 = require("primeng/table");
-var PerfilModule = /** @class */ (function () {
-    function PerfilModule() {
+var AdminModule = /** @class */ (function () {
+    function AdminModule() {
     }
-    PerfilModule = __decorate([
+    AdminModule = __decorate([
         core_1.NgModule({
             declarations: [
-                perfil_component_1.PerfilComponent
+                admin_component_1.AdminComponent
             ],
             imports: [
                 common_1.CommonModule,
-                perfil_routing_module_1.PerfilRoutingModule,
-                //importaciones de primeng
-                button_1.ButtonModule,
+                admin_routing_module_1.AdminRoutingModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
                 table_1.TableModule
+            ],
+            exports: [
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
             ]
         })
-    ], PerfilModule);
-    return PerfilModule;
+    ], AdminModule);
+    return AdminModule;
 }());
-exports.PerfilModule = PerfilModule;
+exports.AdminModule = AdminModule;

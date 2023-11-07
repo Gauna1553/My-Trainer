@@ -8,6 +8,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin.component';
 
+//PrimeNg
+import { Table, TableModule } from 'primeng/table';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,8 @@ import { AdminComponent } from './admin.component';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule
   ], 
   exports: [
     FormsModule,
