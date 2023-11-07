@@ -19,4 +19,8 @@ export class RutinasComponent {
       this.rutinaColeccion = rutinas;
     })
   }
+  
+  editarRutina(event: Event){
+    event.stopPropagation();
+  }
 }
