@@ -23,6 +23,7 @@ var UsuariosService = /** @class */ (function () {
     };
     UsuariosService.prototype.modificarUsuarios = function (uid, rol, nuevaData) {
         return this.database.collection('usuarios').doc(uid).update(nuevaData);
+        //Esta función de encarga de recolectar los datos ya existentes para luego modificar los que el administrador quiera
     };
     UsuariosService = __decorate([
         core_1.Injectable()

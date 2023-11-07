@@ -22,7 +22,8 @@ obtenerUsuario() {
 }
 
     modificarUsuarios(uid: string, rol: string, nuevaData: string) {
-        return this.database.collection('usuarios').doc(uid).update(nuevaData)
+        return this.database.collection('usuarios').doc(uid).update(nuevaData);
+        //Esta función de encarga de recolectar los datos ya existentes para luego modificar los que el administrador quiera
     }
 
 }
