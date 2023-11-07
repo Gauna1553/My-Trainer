@@ -21,4 +21,8 @@ obtenerUsuario() {
     //Esta función se encarga de tomar los datos de los usuarios y mostrarlos.
 }
 
+    modificarUsuarios(uid: string, rol: string, nuevaData: string) {
+        return this.database.collection('usuarios').doc(uid).update(nuevaData)
+    }
+
 }
