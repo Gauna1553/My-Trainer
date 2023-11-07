@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
-import { RoleGuard } from './modules/guard/roles.guard';
 import { VisitanteComponent } from './modules/visitante/visitante.component';
 
 
