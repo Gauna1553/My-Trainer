@@ -62,17 +62,17 @@ export class CalculadoraCALComponent {
     this.generos = [
       {name : 'Masculino', code: 'M'},
       {name : 'Femenino', code: 'F'},
-      {name : 'Prefiero no decirlo', code: 'X'},
+      
     ];
   }
   
   async guardarDatos(){
     this.servicioDatos.agregarDatos(this.datos.uid, this.datos.altura, this.datos.sexo, this.datos.edad, this.datos.peso)
     .then(res =>{
-      //console.log(this.usuarios);
+      console.log(this.datos);
     })
     .catch(error =>{
-      console.log('Error =>',error)
+      console.log('Error',error)
     })
   }
 
@@ -108,6 +108,7 @@ export class CalculadoraCALComponent {
   async calcular() {
     try {
         const result = this.servicioDatos.guardarIMC(this.datos.uid, this.datos.edad, this.datos.sexo, this.datos.altura, this.datos.peso, this.datos.imc);
+        console.log(result)
       
     } catch (error) {
         console.error('Error al guardar el IMC:', error);
