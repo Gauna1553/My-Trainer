@@ -37,5 +37,6 @@ obtenerUsuario() {
             }
         })
     }
+    //Esta función se encarga de tomar los datos del usuario almacenados en la BD, para luego eliminarlos de la misma.
 
 }
