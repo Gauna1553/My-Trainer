@@ -96,7 +96,7 @@ export class CalculadoraCALComponent {
       alert ("Los datos fueron modificados con exito")
     })
     .catch (error => {
-      alert ("No se pudieron modificar los datos")
+      alert ("No se pudieron modificar los datos"+error)
     })
     
   /*
