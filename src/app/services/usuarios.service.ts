@@ -9,7 +9,16 @@ export class UsuariosService {
     private usuariosColeccion: AngularFirestoreCollection<Usuario>
 
 constructor(private database: AngularFirestore) {
-    this.usuariosColeccion = database.collection('usuarios')
+    this.usuariosColeccion = database.collection('usuarios');
+}
+
+obtenerUsuario() {
+    //El snapshot se encarga de capturar los cambios
+    //El pipe seria el canal por donde pasan los datos
+    //El map se encargaria de recorrer esos datos y leerlos
+    return this.usuariosColeccion.snapshotChanges().pipe(map((action) => action.map((a) => a.payload.doc.data())));
+    
+    //Esta función se encarga de tomar los datos de los usuarios y mostrarlos.
 }
 
 }
