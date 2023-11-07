@@ -12,3 +12,6 @@ div{
     margin-top: 2%;   
     text-shadow: 2px 2px 2px rgb(208, 218, 229);
 }
+p-fieldset{
+    padding-bottom: 0.1%;
+}
