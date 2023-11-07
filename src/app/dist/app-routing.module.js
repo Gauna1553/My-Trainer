@@ -10,7 +10,6 @@ exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var home_component_1 = require("./modules/home/home.component");
-var roles_guard_1 = require("./modules/guard/roles.guard");
 var visitante_component_1 = require("./modules/visitante/visitante.component");
 var routes = [
     //lazyloading
@@ -34,10 +33,10 @@ var routes = [
     },
     {
         path: '',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/visitante/visitante.module'); }).then(function (m) { return m.VisitanteModule; }); },
-        canActivate: [roles_guard_1.RoleGuard] //ruta de visitante
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/visitante/visitante.module'); }).then(function (m) { return m.VisitanteModule; }); } //ruta de visitante
     },
-    { path: '', loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/admin/admin.module'); }).then(function (m) { return m.AdminModule; }); }, canActivate: [roles_guard_1.RoleGuard] }, {
+    { path: '', loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/admin/admin.module'); }).then(function (m) { return m.AdminModule; }); }
+    }, {
         path: '',
         loadChildren: function () { return Promise.resolve().then(function () { return require('./modules/concepinf/concepinf.module'); }).then(function (m) { return m.ConcepinfModule; }); }
     }, {

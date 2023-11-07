@@ -7,9 +7,6 @@ import { Usuario } from 'src/app/model/usuarios';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-
-  usuarios!: Usuario[];
-
   constructor() {
     
   }

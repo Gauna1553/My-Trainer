@@ -17,9 +17,9 @@ const routes: Routes = [
   //path: 'crear', component: CrearrutinasComponent},{   //ruta de crearrutinas
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},
   {
-    path: '', loadChildren: () => import('./modules/visitante/visitante.module').then(m => m.VisitanteModule),canActivate:[RoleGuard] //ruta de visitante
+    path: '', loadChildren: () => import('./modules/visitante/visitante.module').then(m => m.VisitanteModule) //ruta de visitante
   }, 
-  {path: '', loadChildren: ()=> import('./modules/admin/admin.module').then(m => m.AdminModule),canActivate:[RoleGuard], //ruta de admin
+  {path: '', loadChildren: ()=> import('./modules/admin/admin.module').then(m => m.AdminModule), //ruta de admin
 },{
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},{ //ruta de concepinf
   path: '', loadChildren:()=>import('./modules/calculadora-cal/calculadora-cal.module').then(m=>m.CalculadoraCALModule)},
