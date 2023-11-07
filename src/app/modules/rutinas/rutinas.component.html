@@ -1,7 +1,7 @@
 <body>
     <!-- TITULO DEL COMPONENTE -->
     <h1 id="title">Mis Rutinas</h1>
-    <!-- CONTENEDOR DE LA RUTINA DE PECHO -->
+    <!-- CONTENEDOR DE LAS RUTINAS -->
     <div class="card" id="primeracard">
         <!-- TOGGLEABLE PERMITE QUE SE EXPANDA O CONTRAIGA Y EL NGFOR ES PARA QUE LA LEGENDA SE ADAPTE A CADA RUTINA-->
         <p-fieldset *ngFor="let rutina of rutinaColeccion" legend={{rutina.nombre}} [toggleable]="true"> 
@@ -16,7 +16,7 @@
                             <th>Rango de Repeticiones</th>
                         </tr>
                     </ng-template>
-                    <ng-template pTemplate="body" let-ejercicios> <!-- ESTE NGFOR HACE QUE LOS EJERCICIOS PUEDAN MOSTRAR SUS ATRIBUTOS -->
+                    <ng-template pTemplate="body" let-ejercicios> <!-- ESTE 'let-ejercicios' HACE QUE LOS EJERCICIOS PUEDAN MOSTRAR SUS ATRIBUTOS -->
                         <tr>
                             <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
                             <td>{{ ejercicios.nombre }}</td>
