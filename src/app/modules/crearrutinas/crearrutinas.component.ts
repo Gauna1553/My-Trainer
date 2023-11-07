@@ -10,15 +10,14 @@ import { RutinasService } from 'src/app/services/rutinas.service';
   styleUrls: ['./crearrutinas.component.css']
 })
 export class CrearrutinasComponent {
-  visible = true;
-  ejerciciosDialog = false
 
+  ejerciciosDialog = false
   selectedEjer: Ejercicio[] = []
   ejerciciosColeccion: Ejercicio[] = [];
 
-  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService){}
+  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
       this.ejerciciosColeccion = ejercicios
     })
@@ -30,16 +29,18 @@ export class CrearrutinasComponent {
     ejercicios: []
   }
 
-  openNew(){
+  openNew() {
     this.ejerciciosDialog = true
   }
 
-  agregarRutina(){
-    this.rutina.ejercicios = this.selectedEjer;
-    const resultado = this.servicioRutinas.crearRutina(this.rutina).then((resp) => {
-      alert('Se creo la rutina con exito')
-    }).catch((error) => {
-      alert('No se pudo crear la rutina')
-    })
+  agregarRutina() {
+    if (this.rutina.nombre && this.selectedEjer) {
+      this.rutina.ejercicios = this.selectedEjer;
+      const resultado = this.servicioRutinas.crearRutina(this.rutina).then((resp) => {
+        alert('Se creo la rutina con exito')
+      }).catch((error) => {
+        alert('No se pudo crear la rutina')
+      })
+    }
   }
 }
