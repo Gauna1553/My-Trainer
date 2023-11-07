@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Usuario } from 'src/app/model/usuarios';
 
 @Component({
   selector: 'app-admin',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
+
+  usuarios!: Usuario[];
+
+  constructor() {
+    
+  }
+
+  ngOnInit() {
+
+  }
+
 
 }

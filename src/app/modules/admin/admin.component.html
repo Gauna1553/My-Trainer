@@ -1,21 +1,11 @@
 <p>admin works!</p>
 <br>
-
-<p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template pTemplate="header">
+<div class="contenido">
+    <ul>
         <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
+            <td><a href="">
+                <span></span>
+            </a></td>
         </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product>
-        <tr>
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.quantity }}</td>
-        </tr>
-    </ng-template>
-</p-table>
+    </ul>
+</div>
