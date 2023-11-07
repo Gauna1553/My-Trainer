@@ -36,4 +36,8 @@ export class RutinasService {
     return this.rutinasColeccion.snapshotChanges().pipe(map((action => action.map(a => a.payload.doc.data()))))
     // Esta funcion trae todas las rutinas desde firebase
   }
+
+  modificarRutina(idRutina: string, nuevaDataRutina: Rutina){
+    return this.rutinasColeccion.doc(idRutina).update(nuevaDataRutina);
+  }
 }
