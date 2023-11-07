@@ -1,26 +1,5 @@
-<!--<div  id="aaaa">
+<div  id="aaaa">
     <i class="pi pi-user"></i>
     <br>
     <button pButton label="Iniciar Sesion" class="p-button-secondary mr-2" routerLink="/login"></button>
-</div>-->
-
-<div class="card">
-    <p-table [value]="usuarios" [resizableColumns]="true" styleClass="p-datatable-gridlines" [tableStyle]="{'min-width': '50%'}">
-        <ng-template pTemplate="header">
-            <tr>
-                <th pResizableColumn>ID</th>
-                <th pResizableColumn>Nombre</th>
-                <th pResizableColumn>Correo</th>
-                <th pResizableColumn>Rol</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-usuarios>
-            <tr>
-                <td>{{usuarios.uid}}</td>
-                <td>{{usuarios.nombre}}</td>
-                <td>{{usuarios.email}}</td>
-                <td>{{usuarios.rol}}</td>
-            </tr>
-        </ng-template>
-    </p-table>
 </div>
