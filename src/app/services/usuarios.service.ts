@@ -12,6 +12,20 @@ constructor(private database: AngularFirestore) {
     this.usuariosColeccion = database.collection('usuarios');
 }
 
+crearUsuario(usuarios: Usuario) {
+    return new Promise(async(resolve, reject) => {
+        try {
+            const id = this.database.createId();
+            usuarios.uid = id;
+
+            const resultado = await this.usuariosColeccion.doc(id).set(usuarios);
+            resolve(resultado)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 obtenerUsuario() {
     //El snapshot se encarga de capturar los cambios
     //El pipe seria el canal por donde pasan los datos
@@ -22,7 +36,7 @@ obtenerUsuario() {
 }
     
     //Modificar usuarios
-    modificarUsuarios(uid: string, rol: string, nuevaData: string) {
+    modificarUsuarios(uid: string, nuevaData: string) {
         return this.database.collection('usuarios').doc(uid).update(nuevaData);
         //Esta función de encarga de recolectar los datos ya existentes para luego modificar los que el administrador quiera
     }

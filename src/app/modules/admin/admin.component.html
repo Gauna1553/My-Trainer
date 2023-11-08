@@ -1,32 +1,32 @@
 <h1 id="title">Usuarios</h1>
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
-<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="usuariosDialog" [style]="{ width: '450px' }" header="Usuarios" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
             <label for="nombre">Nombre</label>
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
+            <input [(ngModel)]="usuarios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicioss.nombre">El nombre es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarios.nombre">El nombre es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <div class="field">
             <label for="grupo">Grupo Muscular</label>
             <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.grupomuscular" pInputText name="grupomuscular" type="text" id="grupo" required>
+            <input [(ngModel)]="usuarios.email" pInputText name="grupomuscular" type="text" id="grupo" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicioss.grupomuscular">El grupo es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarios.rol">El grupo es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
             <label for="rango">Rango de Repeticiones</label>
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <input [(ngModel)]="ejercicioss.rangorep" pInputText type="text" id="rango" name="rangorep" required>
+            <input [(ngModel)]="usuarios.email" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !ejercicioss.rangorep">El rango es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarios.email">El rango es obligatorio.</small>
         </div>
     </ng-template>
 
@@ -36,15 +36,15 @@
             <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
             <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <button pButton *ngIf="!editar" label="Crear Ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearEjercicio()"></button>
-            <button pButton *ngIf="editar" label="Editar ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearEjercicio()"></button>
+            <button pButton *ngIf="!editar" label="Crear Ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
+            <button pButton *ngIf="editar" label="Editar ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
         </div>
     </ng-template>
 </p-dialog>
 
 <!-- TABLA DE LOS EJERCICIOS -->
 <div class="container">
-    <p-table [value]="ejerciciosColeccion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+    <p-table [value]="usuariosCollecion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
@@ -100,7 +100,7 @@
                 </td>
                 <td>
                     <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(ejerciciosss)"></button>
-                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarEjercicio(ejerciciosss)"></button>
+                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarUsuario(ejerciciosss)"></button>
                 </td>
             </tr>
         </ng-template>   
