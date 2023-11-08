@@ -92,6 +92,7 @@ var UsuariosService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             try {
                 var resp = _this.usuariosColeccion.doc(uid)["delete"]();
+                resolve(resp);
             }
             catch (error) {
                 reject(error);

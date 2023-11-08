@@ -84,7 +84,7 @@ export class AdminComponent {
           this.usuariosService.modificarUsuarios(this.idEditar, this.usuarioss).then((resul) => {
             this.loading = false;
             this.editar = false;
-            this.usuariosDialog = false;    
+            this.usuariosDialog = false;
           })
         }
       }
