@@ -4,7 +4,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+
+})
 export class UsuariosService {
     private usuariosColeccion: AngularFirestoreCollection<Usuario>
 

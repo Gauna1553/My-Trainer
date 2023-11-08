@@ -100,7 +100,9 @@ var UsuariosService = /** @class */ (function () {
         });
     };
     UsuariosService = __decorate([
-        core_1.Injectable()
+        core_1.Injectable({
+            providedIn: 'root'
+        })
     ], UsuariosService);
     return UsuariosService;
 }());

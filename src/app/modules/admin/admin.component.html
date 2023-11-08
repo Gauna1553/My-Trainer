@@ -1,32 +1,33 @@
-<h1 id="title">Usuarios</h1>
+<h1 id="title" align="center">Usuarios</h1>
+<br>
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
 <p-dialog [(visible)]="usuariosDialog" [style]="{ width: '450px' }" header="Usuarios" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
-            <label for="nombre">Nombre</label>
+            <label for="nombre">Email de Usuario</label>
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
             <input [(ngModel)]="usuarios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !usuarios.nombre">El nombre es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarios.email">El email es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <div class="field">
-            <label for="grupo">Grupo Muscular</label>
+            <label for="grupo">Nombre de usuario</label>
             <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
             <input [(ngModel)]="usuarios.email" pInputText name="grupomuscular" type="text" id="grupo" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !usuarios.rol">El grupo es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarios.nombre">El nombre es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
-            <label for="rango">Rango de Repeticiones</label>
+            <label for="rango">Rol de Usuario</label>
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
             <input [(ngModel)]="usuarios.email" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !usuarios.email">El rango es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarios.rol">El rol es obligatorio.</small>
         </div>
     </ng-template>
 
@@ -48,25 +49,25 @@
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
+                <th>ID</th>
                 <th>Nombre</th>
-                <th>Grupo Muscular</th>
-                <th>Rango de Repeticiones</th>
-                <th>Eliminar o editar</th>
+                <th>Rol de Usuario</th>
+                <th>Editar o eliminar</th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
-        <ng-template pTemplate="body" let-ejerciciosss let-editing="editing" let-ri="rowIndex">
+        <ng-template pTemplate="body" let-usuarios let-editing="editing" let-ri="rowIndex">
             <tr>
                 <!-- COLUMNA DE NOMBRES -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.nombre"/>
+                            <input pInputText type="text" [(ngModel)]="usuarios.nombre"/>
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
-                            {{ ejerciciosss.nombre }} 
+                            {{ usuarios.uid }} 
                         </ng-template>
                     </p-cellEditor>
                 </td>
@@ -76,11 +77,11 @@
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.grupomuscular" required />
+                            <input pInputText type="text" [(ngModel)]="usuarios.nombre" required />
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->
-                            {{ ejerciciosss.grupomuscular }}
+                            {{ usuarios.nombre }}
                         </ng-template>
                     </p-cellEditor>
                 </td>
@@ -90,17 +91,17 @@
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.rangorep" required />
+                            <input pInputText type="text" [(ngModel)]="usuarios.rol" required />
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
-                            {{ ejerciciosss.rangorep }}
+                            {{ usuarios.rol }}
                         </ng-template>
                     </p-cellEditor>
                 </td>
                 <td>
-                    <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(ejerciciosss)"></button>
-                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarUsuario(ejerciciosss)"></button>
+                    <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(usuarios)"></button>
+                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarUsuario(usuarios)"></button>
                 </td>
             </tr>
         </ng-template>   
