@@ -10,6 +10,11 @@ import { AdminComponent } from './admin.component';
 
 //PrimeNg
 import { Table, TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 @NgModule({
@@ -21,7 +26,12 @@ import { Table, TableModule } from 'primeng/table';
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule
+    TableModule,
+    DialogModule,
+    InputTextModule,
+    ButtonModule,
+    TriStateCheckboxModule,
+    ProgressSpinnerModule,
   ], 
   exports: [
     FormsModule,
