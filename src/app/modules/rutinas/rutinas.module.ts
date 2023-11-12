@@ -7,7 +7,6 @@ import { CrearrutinasModule } from '../crearrutinas/crearrutinas.module';
 import { FieldsetModule } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { DialogModule } from 'primeng/dialog';
     FieldsetModule,
     TableModule,
     CrearrutinasModule,
-    ButtonModule,
-    DialogModule
+    ButtonModule
   ]
 })
 export class RutinasModule { }
