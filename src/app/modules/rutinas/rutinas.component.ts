@@ -27,4 +27,13 @@ export class RutinasComponent {
     this.rutinaSeleccionada = rutina;
     this.router.navigate(['/crear'])
   }
+
+  borrarRutina(){
+    this.servicioRutinas.eliminarRutina(this.rutinaSeleccionada.idRutina) // Captura el id de la rutina seleccionada y la pasa como parametro
+    .then(respuesta => { //En caso de que todo salga bien saltara este alert
+      alert('La rutina se elimino correctamente');
+    }).catch(error => { //En caso de que algo haya salido mal saltara este alert que muestra el error que hubo
+      alert('No se pudo eliminar la rutina: \n'+error)
+    })
+  }
 }
