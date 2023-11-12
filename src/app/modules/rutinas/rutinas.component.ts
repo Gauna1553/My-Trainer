@@ -11,6 +11,7 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 export class RutinasComponent {
 
   rutinaColeccion: Rutina[] = [];
+  rutinasDialog = true;
 
   constructor(public servicioRutinas: RutinasService) {}
 
@@ -22,5 +23,6 @@ export class RutinasComponent {
   
   editarRutina(event: Event){
     event.stopPropagation();
+
   }
 }

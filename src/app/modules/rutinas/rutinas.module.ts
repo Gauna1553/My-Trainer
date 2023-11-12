@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RutinasComponent } from './rutinas.component';
 import { RutinasRoutingModule } from './rutinas-routing.module';
+import { CrearrutinasModule } from '../crearrutinas/crearrutinas.module';
+
 import { FieldsetModule } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
-import { CrearrutinasModule } from '../crearrutinas/crearrutinas.module';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { ButtonModule } from 'primeng/button';
     FieldsetModule,
     TableModule,
     CrearrutinasModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
   ]
 })
 export class RutinasModule { }
