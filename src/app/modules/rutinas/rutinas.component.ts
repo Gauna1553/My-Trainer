@@ -28,12 +28,18 @@ export class RutinasComponent {
     this.router.navigate(['/crear'])
   }
 
-  borrarRutina(){
-    this.servicioRutinas.eliminarRutina(this.rutinaSeleccionada.idRutina) // Captura el id de la rutina seleccionada y la pasa como parametro
-    .then(respuesta => { //En caso de que todo salga bien saltara este alert
-      alert('La rutina se elimino correctamente');
-    }).catch(error => { //En caso de que algo haya salido mal saltara este alert que muestra el error que hubo
-      alert('No se pudo eliminar la rutina: \n'+error)
-    })
+  borrarRutina(rutinaSeleccionada: Rutina, event: Event){
+    event.stopPropagation() //Esto hace que no se despliegue el fieldset
+    this.rutinaSeleccionada = rutinaSeleccionada
+    if(confirm('Desea eliminar la rutina') === true){ //Preguntamos si quiere borrar
+      this.servicioRutinas.eliminarRutina(this.rutinaSeleccionada.idRutina) // Captura el id de la rutina seleccionada y la pasa como parametro
+      .then(respuesta => { //En caso de que todo salga bien saltara este alert
+        alert('La rutina se elimino correctamente');
+      }).catch(error => { //En caso de que algo haya salido mal saltara este alert que muestra el error que hubo
+        alert('No se pudo eliminar la rutina: \n'+error)
+      })
+    }else{
+      alert('Se cancelo la eliminacion de la rutina');
+    }
   }
 }
