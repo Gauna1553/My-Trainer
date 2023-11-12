@@ -7,7 +7,7 @@
         <p-fieldset *ngFor="let rutina of rutinaColeccion" legend={{rutina.nombre}} [toggleable]="true" [collapsed]="true">
             <ng-template pTemplate="header">
                 <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger"></button>
-                <button pButton (click)="editarRutina(rutina, $event)" icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info"></button>
+                <button pButton (click)="editarRutina(rutina)" icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info"></button>
             </ng-template>
             <div class="card">
                 <!-- TABLA DE LA RUTINA DE PECHO -->

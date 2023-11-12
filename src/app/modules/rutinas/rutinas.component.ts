@@ -22,8 +22,7 @@ export class RutinasComponent {
     })
   }
   
-  editarRutina(rutina: Rutina, event: Event){
-    event.stopPropagation();
+  editarRutina(rutina: Rutina){
     this.router.navigate(['/crear'])
   }
 }
