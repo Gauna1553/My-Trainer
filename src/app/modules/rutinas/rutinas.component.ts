@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
 import { RutinasService } from 'src/app/services/rutinas.service';
@@ -13,7 +14,7 @@ export class RutinasComponent {
   rutinaColeccion: Rutina[] = [];
   rutinasDialog = true;
 
-  constructor(public servicioRutinas: RutinasService) {}
+  constructor(public servicioRutinas: RutinasService, private router: Router) {}
 
   ngOnInit(){
     this.servicioRutinas.obtenerRutina().subscribe(rutinas =>{
@@ -23,6 +24,6 @@ export class RutinasComponent {
   
   editarRutina(event: Event){
     event.stopPropagation();
-
+    this.router.navigate(['/crear'])
   }
 }
