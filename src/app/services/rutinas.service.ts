@@ -40,4 +40,16 @@ export class RutinasService {
   modificarRutina(idRutina: string, nuevaDataRutina: Rutina){
     return this.rutinasColeccion.doc(idRutina).update(nuevaDataRutina);
   }
+
+  //FUNCION PARA ELIMINAR LA RUTINA
+  eliminarRutina(idRutina: string){
+    return new Promise((resolve, reject)=>{
+      try{
+        const resp = this.rutinasColeccion.doc(idRutina).delete(); //Borra el documento de la rutina en base a su id
+        resolve(resp); //Nos notifica que se elimino la rutina
+      }catch(error){
+        reject(error); //Nos notifica del error
+      }
+    })
+  }
 }
