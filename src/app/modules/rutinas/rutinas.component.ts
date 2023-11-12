@@ -13,6 +13,7 @@ export class RutinasComponent {
 
   rutinaColeccion: Rutina[] = [];
   rutinasDialog = true;
+  rutinaSeleccionada!: Rutina; 
 
   constructor(public servicioRutinas: RutinasService, private router: Router) {}
 
@@ -23,6 +24,7 @@ export class RutinasComponent {
   }
   
   editarRutina(rutina: Rutina){
+    this.rutinaSeleccionada = rutina;
     this.router.navigate(['/crear'])
   }
 }
