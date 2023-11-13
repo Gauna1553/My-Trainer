@@ -56,9 +56,9 @@ obtenerDatos () {
     */
   }
   calcularIMC(edad: number, sexo: string, altura: number, peso: number): number {
-    if (sexo === 'hombre') {
+    if (sexo === 'Masculino') {
        return 66.473 + (13.752 * peso) + (5.0033 * altura) - (6.755 * edad);
-    } else if (sexo === 'mujer') {
+    } else if (sexo === 'Femenino') {
        return 65.51 + (9.563 * peso) + (1.85 * altura) - (4.676 * edad);
     } else {
        throw new Error('Sexo inválido. Debe ser "hombre" o "mujer".');
