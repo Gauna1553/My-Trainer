@@ -63,7 +63,6 @@ var AdminComponent = /** @class */ (function () {
         if (!this.editar && this.usuarios.nombre && this.usuarios.rol) {
             this.loading = true;
             var resultado = this.usuariosService.crearUsuario(this.usuarioss).then(function (resp) {
-                _this.loading = false;
             })["catch"](function (error) {
                 _this.loading = false;
                 alert('No se puedo crear un usuario');
@@ -72,6 +71,7 @@ var AdminComponent = /** @class */ (function () {
         else {
             if (this.usuarioss.nombre && this.usuarioss.rol) {
                 this.usuarioss.uid = this.idEditar;
+                this.usuarioss = this.usuarioss;
                 this.usuariosService.modificarUsuarios(this.idEditar, this.usuarioss).then(function (resul) {
                     _this.loading = false;
                     _this.editar = false;

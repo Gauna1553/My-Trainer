@@ -86,7 +86,6 @@ export class AdminComponent {
       if(!this.editar && this.usuarios.nombre && this.usuarios.rol) {
         this.loading = true;
         const resultado = this.usuariosService.crearUsuario(this.usuarioss).then((resp) => {
-          this.loading = false;
         }).catch ((error) => {
           this.loading = false;
           alert('No se puedo crear un usuario')
@@ -95,6 +94,7 @@ export class AdminComponent {
       else {
         if (this.usuarioss.nombre && this.usuarioss.rol) {
           this.usuarioss.uid = this.idEditar;
+          this.usuarioss = this.usuarioss;
           this.usuariosService.modificarUsuarios(this.idEditar, this.usuarioss).then((resul) => {
             this.loading = false;
             this.editar = false;
