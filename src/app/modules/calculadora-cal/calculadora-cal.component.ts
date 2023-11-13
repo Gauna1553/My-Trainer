@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DatoUsuarios, Usuario } from 'src/app/model/usuarios';
+import { DatoUsuarios } from 'src/app/model/usuarios';
 import { DatosService } from 'src/app/shared/services/datos.service';
 
 interface Gens {
