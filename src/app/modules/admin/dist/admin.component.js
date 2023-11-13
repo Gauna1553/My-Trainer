@@ -57,10 +57,10 @@ var AdminComponent = /** @class */ (function () {
         this.usuarios.email = '';
         this.usuarios.rol = '';
     };
-    AdminComponent.prototype.crearUsuario = function () {
+    AdminComponent.prototype.crearUsuario = function (usuarioss) {
         var _this = this;
         this.submitted = true;
-        if (!this.editar && this.usuarios.nombre && this.usuarios.email && this.usuarios.rol) {
+        if (!this.editar && this.usuarios.nombre && this.usuarios.rol) {
             this.loading = true;
             var resultado = this.usuariosService.crearUsuario(this.usuarioss).then(function (resp) {
                 _this.loading = false;
@@ -70,7 +70,7 @@ var AdminComponent = /** @class */ (function () {
             });
         }
         else {
-            if (this.usuarioss.nombre && this.usuarioss.email && this.usuarioss.rol) {
+            if (this.usuarioss.nombre && this.usuarioss.rol) {
                 this.usuarioss.uid = this.idEditar;
                 this.usuariosService.modificarUsuarios(this.idEditar, this.usuarioss).then(function (resul) {
                     _this.loading = false;

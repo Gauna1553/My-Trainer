@@ -81,9 +81,9 @@ export class AdminComponent {
       this.usuarios.rol = '';
     }
 
-    crearUsuario() {
+    crearUsuario(usuarioss: Usuario) {
       this.submitted = true;
-      if(!this.editar && this.usuarios.nombre && this.usuarios.email && this.usuarios.rol) {
+      if(!this.editar && this.usuarios.nombre && this.usuarios.rol) {
         this.loading = true;
         const resultado = this.usuariosService.crearUsuario(this.usuarioss).then((resp) => {
           this.loading = false;
@@ -93,7 +93,7 @@ export class AdminComponent {
         })
       }
       else {
-        if (this.usuarioss.nombre && this.usuarioss.email && this.usuarioss.rol) {
+        if (this.usuarioss.nombre && this.usuarioss.rol) {
           this.usuarioss.uid = this.idEditar;
           this.usuariosService.modificarUsuarios(this.idEditar, this.usuarioss).then((resul) => {
             this.loading = false;
