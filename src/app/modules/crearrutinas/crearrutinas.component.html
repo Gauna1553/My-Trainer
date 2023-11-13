@@ -31,6 +31,8 @@
     <div class="card flex justify-content-center">
         <p-listbox [options]="ejerciciosColeccion" optionLabel="nombre" [multiple]="true" [metaKeySelection]="false" [(ngModel)]="selectedEjer" 
         [filter]="true" [style]="{ width: '100%' }"></p-listbox>
-        <button>aaa</button>
+    </div>
+    <div id="botondialog">
+        <button pButton label="Listo" icon="pi pi-check" class="p-button-text" (click)="cerrarDialog()"></button>
     </div>
 </p-dialog>

@@ -59,4 +59,7 @@ export class CrearrutinasComponent {
   volver(){
     this.router.navigate(['/rutinas'])
   }
+  cerrarDialog(){
+    this.ejerciciosDialog = false
+  }
 }
