@@ -9,7 +9,7 @@
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
             <input [(ngModel)]="usuarios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !usuarios.email">El email es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarios.nombre">El email es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
@@ -18,14 +18,14 @@
             <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
             <input [(ngModel)]="usuarios.email" pInputText name="grupomuscular" type="text" id="grupo" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !usuarios.nombre">El nombre es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarios.email">El nombre es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
             <label for="rango">Rol de Usuario</label>
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <input [(ngModel)]="usuarios.email" pInputText type="text" id="rango" name="rangorep" required>
+            <input [(ngModel)]="usuarios.rol" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !usuarios.rol">El rol es obligatorio.</small>
         </div>
@@ -37,8 +37,8 @@
             <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
             <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <button pButton *ngIf="!editar" label="Crear Ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
-            <button pButton *ngIf="editar" label="Editar ejercicio" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
+            <button pButton *ngIf="!editar" label = "Crear Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
+            <button pButton *ngIf="editar" label = "Editar Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
         </div>
     </ng-template>
 </p-dialog>
@@ -58,12 +58,12 @@
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
         <ng-template pTemplate="body" let-usuarios let-editing="editing" let-ri="rowIndex">
             <tr>
-                <!-- COLUMNA DE NOMBRES -->
+                <!-- COLUMNA DEL ID DEL USUARIO -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
-                            <input pInputText type="text" [(ngModel)]="usuarios.nombre"/>
+                            <input pInputText type="text" [(ngModel)]="usuarios.uid"/>
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
@@ -72,7 +72,7 @@
                     </p-cellEditor>
                 </td>
 
-                <!-- COLUMNA DE GRUPO MUSCULAR -->
+                <!-- COLUMNA DEL NOMBRE DE USUARIO -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
@@ -86,7 +86,7 @@
                     </p-cellEditor>
                 </td>
 
-                <!-- COLUMNA DE RANGO DE REPETICIONES -->
+                <!-- COLUMNA DEL ROL DE USUARIO -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
