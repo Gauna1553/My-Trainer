@@ -42,4 +42,7 @@ export class RutinasComponent {
       alert('Se cancelo la eliminacion de la rutina');
     }
   }
+  crearRutina(){
+    this.router.navigate(['/crear'])
+  }
 }

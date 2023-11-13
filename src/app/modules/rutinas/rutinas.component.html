@@ -1,6 +1,9 @@
 <body>
     <!-- TITULO DEL COMPONENTE -->
-    <h1 id="title">Mis Rutinas</h1>
+    <div>
+        <h1 id="title">Mis Rutinas</h1>
+        <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="crearRutina()"></button>
+    </div>
     <!-- CONTENEDOR DE LAS RUTINAS -->
     <div class="card" id="primeracard">
         <!-- TOGGLEABLE PERMITE QUE SE EXPANDA O CONTRAIGA Y EL NGFOR ES PARA QUE LA LEGENDA SE ADAPTE A CADA RUTINA-->
