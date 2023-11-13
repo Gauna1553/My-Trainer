@@ -2,18 +2,16 @@
     <div class="container1">
         <h2>Crear Rutina</h2>
         <!-- CAMPO PARA INGRESAR EL NOMBRE DE LA RUTINA -->
-        <div class="field">
+        
             <label for="nombre">Nombre</label><BR>
             <!-- INPUT PARA INGRESAR EL NOMBRE DE LA RUTINA -->
             <input pInputText [(ngModel)]="rutina.nombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <br>
             <small class="p-error" *ngIf="submitted && !rutina.nombre">El nombre es obligatorio.</small>
-        </div>
+        
         <br>
-        <div>
-            <button pButton class="p-button-success mr-2" (click)="agregarRutina()" label="Crear Rutina"></button>
-        </div>
+        <button pButton class="p-button-secondary mr-2" (click)="agregarRutina()" label="Crear Rutina"></button>
     </div>
     <div class="container2">
         <h2>Ejercicios Agregados</h2>
