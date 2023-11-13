@@ -1,7 +1,7 @@
-a{
-    text-decoration: none !important;
+/* ESTO ANULA EL ESTILO DE PRIME Y LE SACA EL UNDERLINE A LOS FIELDSET */
+::ng-deep a {
+    text-decoration: none !important
 }
-
 div{
     margin-left: 20%;
     margin-right: 20%;
