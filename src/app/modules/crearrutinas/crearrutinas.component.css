@@ -14,3 +14,7 @@ p-dialog{
 .containers{
     display: flex;
 }
+#volver{
+    padding-left: 1%;
+    padding-top: 1%;
+}

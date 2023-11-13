@@ -1,4 +1,5 @@
 import { Component,DoCheck } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
@@ -17,7 +18,7 @@ export class CrearrutinasComponent {
   selectedEjer: Ejercicio[] = [];
   ejerciciosColeccion: Ejercicio[] = [];
 
-  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService) { }
+  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router) { }
 
   ngOnInit() {
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
@@ -53,5 +54,9 @@ export class CrearrutinasComponent {
     }else{
       this.ejerSubmitted = false;
     }
+  }
+
+  volver(){
+    this.router.navigate(['/rutinas'])
   }
 }
