@@ -25,7 +25,10 @@
         <div class="field">
             <label for="rango">Rol de Usuario</label>
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <input [(ngModel)]="usuarios.rol" pInputText type="text" id="rango" name="rangorep" required>
+            <!--<input [(ngModel)]="usuarios.rol" pInputText type="text" id="rango" name="rangorep" required>-->
+            <div class ="card flex justify-content-center">
+                <p-dropdown [options]="roles" [(ngModel)]="selectedRoles" optionLabel="Roles" placeholder="Seleccione un rol"></p-dropdown>
+            </div>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !usuarios.rol">El rol es obligatorio.</small>
         </div>

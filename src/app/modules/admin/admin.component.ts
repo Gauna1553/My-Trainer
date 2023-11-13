@@ -51,7 +51,8 @@ export class AdminComponent {
 
     this.roles = [
       {name: "Usuario", code: "User"},
-      {name: "Admin", code: "Admin"}
+      {name: "Admin", code: "Admin"},
+      {name: "Visitante", code : "Visitor"}
     ]
   }
 

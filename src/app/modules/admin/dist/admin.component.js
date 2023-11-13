@@ -46,7 +46,8 @@ var AdminComponent = /** @class */ (function () {
         });
         this.roles = [
             { name: "Usuario", code: "User" },
-            { name: "Admin", code: "Admin" }
+            { name: "Admin", code: "Admin" },
+            { name: "Visitante", code: "Visitor" }
         ];
     };
     //Esta funcion abre el popup al hacer que su visibilidad sea verdadera
