@@ -6,6 +6,9 @@ div{
     margin-top: 2%;
     margin-bottom: 8%;
 }
+.ui-fieldset, .ui-fieldset .ui-fieldset-legend {
+   text-decoration: none !important;
+}
 #title{
     font-weight: 700;
     text-align: center;

@@ -4,8 +4,9 @@
     <!-- CONTENEDOR DE LAS RUTINAS -->
     <div class="card" id="primeracard">
         <!-- TOGGLEABLE PERMITE QUE SE EXPANDA O CONTRAIGA Y EL NGFOR ES PARA QUE LA LEGENDA SE ADAPTE A CADA RUTINA-->
-        <p-fieldset *ngFor="let rutina of rutinaColeccion" legend={{rutina.nombre}} [toggleable]="true" [collapsed]="true">
+        <p-fieldset *ngFor="let rutina of rutinaColeccion" [toggleable]="true" [collapsed]="true">
             <ng-template pTemplate="header">
+                <span>{{rutina.nombre}}</span>
                 <button pButton (click)="borrarRutina(rutina,$event)" icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger"></button>
                 <button pButton (click)="editarRutina(rutina)" icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info"></button>
             </ng-template>
