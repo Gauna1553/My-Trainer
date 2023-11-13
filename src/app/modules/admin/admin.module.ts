@@ -15,6 +15,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ButtonModule,
     TriStateCheckboxModule,
     ProgressSpinnerModule,
+    DropdownModule
   ], 
   exports: [
     FormsModule,

@@ -2,12 +2,22 @@ import { Component } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
+interface Roles {
+  name: string;
+  code: string;
+}
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
+
+  roles: Roles[] | undefined;
+
+  selectedRoles: Roles | undefined;
+
   database = '';
   submitted = false;
 
@@ -38,6 +48,11 @@ export class AdminComponent {
 
       //Es una colección para así poder seleccionar a más de un elemento
     })
+
+    this.roles = [
+      {name: "Usuario", code: "User"},
+      {name: "Admin", code: "Admin"}
+    ]
   }
 
   usuarioss: Usuario = {
