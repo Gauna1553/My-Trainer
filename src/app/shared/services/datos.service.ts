@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DatoUsuarios, Usuario } from 'src/app/model/usuarios';
+import { DatoUsuarios } from 'src/app/model/usuarios';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'
 import { map } from 'rxjs';
 
