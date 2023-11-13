@@ -3,31 +3,31 @@
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
 <p-dialog [(visible)]="usuariosDialog" [style]="{ width: '450px' }" header="Usuarios" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL USUARIO -->
         <div class="field">
-            <label for="nombre">Email de Usuario</label>
+            <label for="nombre">Nombre de Usuario</label>
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
             <input [(ngModel)]="usuarios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !usuarios.nombre">El email es obligatorio.</small>
         </div>
 
-        <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
-        <div class="field">
-            <label for="grupo">Nombre de usuario</label>
+        <!-- CAMPO PARA INGRESAR EL EMAIL DEL USUARIO -->
+        <!--<div class="field">
+            <label for="correo usuarios">Email de usuario</label>-->
             <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
-            <input [(ngModel)]="usuarios.email" pInputText name="grupomuscular" type="text" id="grupo" required>
+            <!--<input [(ngModel)]="usuarios.email" pInputText name="grupomuscular" type="text" id="grupo" required>-->
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !usuarios.email">El nombre es obligatorio.</small>
-        </div>
+            <!--<small class="p-error" *ngIf="submitted && !usuarios.email">El nombre es obligatorio.</small>
+        </div>-->
 
-        <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
+        <!-- CAMPO PARA INGRESAR EL ROL QUE TENDRA EL USUARIO -->
         <div class="field">
-            <label for="rango">Rol de Usuario</label>
+            <label for="rol">Rol de Usuario</label>
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <!--<input [(ngModel)]="usuarios.rol" pInputText type="text" id="rango" name="rangorep" required>-->
-            <div class ="card flex justify-content-center">
-                <p-dropdown [options]="roles" [(ngModel)]="selectedRoles" optionLabel="Roles" placeholder="Seleccione un rol"></p-dropdown>
+            <!--<input [(ngModel)]="usuarios.rol" pInputText type="text" id="rol" name="roluser" required>-->
+            <div class="card flex justify-content-center">
+                <p-listbox [options]="roles" [(ngModel)]="selectedRoles" optionLabel="name" [style]="{'width':'15rem'}" [listStyle]="{'max-height': '220px'}"></p-listbox>
             </div>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !usuarios.rol">El rol es obligatorio.</small>
@@ -37,11 +37,11 @@
     <ng-template pTemplate="footer">
         <br>
         <div>
-            <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
+            <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO USUARIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-            <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
+            <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO USUARIO -->
             <button pButton *ngIf="!editar" label = "Crear Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
-            <button pButton *ngIf="editar" label = "Editar Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
+            <button pButton *ngIf="editar" label = "Editar Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="editUsuario()"></button>
         </div>
     </ng-template>
 </p-dialog>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/model/usuarios';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
@@ -7,6 +8,7 @@ interface Roles {
   code: string;
 }
 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -14,7 +16,8 @@ interface Roles {
 })
 export class AdminComponent {
 
-  roles: Roles[] | undefined;
+
+  roles!: Roles[];
 
   selectedRoles: Roles | undefined;
 
@@ -48,12 +51,12 @@ export class AdminComponent {
 
       //Es una colección para así poder seleccionar a más de un elemento
     })
-
+    
     this.roles = [
-      {name: "Usuario", code: "User"},
-      {name: "Admin", code: "Admin"},
-      {name: "Visitante", code : "Visitor"}
+      {name: 'Usuario', code: 'User'},
+      {name: 'Admin', code: 'Admin'},
     ]
+
   }
 
   usuarioss: Usuario = {

@@ -21,7 +21,7 @@ var inputtext_1 = require("primeng/inputtext");
 var button_1 = require("primeng/button");
 var tristatecheckbox_1 = require("primeng/tristatecheckbox");
 var progressspinner_1 = require("primeng/progressspinner");
-var dropdown_1 = require("primeng/dropdown");
+var listbox_1 = require("primeng/listbox");
 var AdminModule = /** @class */ (function () {
     function AdminModule() {
     }
@@ -41,7 +41,7 @@ var AdminModule = /** @class */ (function () {
                 button_1.ButtonModule,
                 tristatecheckbox_1.TriStateCheckboxModule,
                 progressspinner_1.ProgressSpinnerModule,
-                dropdown_1.DropdownModule
+                listbox_1.ListboxModule
             ],
             exports: [
                 forms_1.FormsModule,
