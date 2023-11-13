@@ -27,7 +27,7 @@
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
             <!--<input [(ngModel)]="usuarios.rol" pInputText type="text" id="rol" name="roluser" required>-->
             <div class="card flex justify-content-center">
-                <p-listbox [options]="roles" [(ngModel)]="selectedRoles" optionLabel="name" [style]="{'width':'15rem'}" [listStyle]="{'max-height': '220px'}"></p-listbox>
+                <p-listbox [options]="roles" [(ngModel)]="selectedRoles" [style]="{'width':'100%'}" [listStyle]="{'max-height': '220px'}"></p-listbox>
             </div>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !usuarios.rol">El rol es obligatorio.</small>
