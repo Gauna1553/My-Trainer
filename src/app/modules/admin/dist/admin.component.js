@@ -44,10 +44,6 @@ var AdminComponent = /** @class */ (function () {
             _this.usuariosCollecion = usuarios;
             //Es una colección para así poder seleccionar a más de un elemento
         });
-        this.roles = [
-            { name: 'Usuario', code: 'User' },
-            { name: 'Admin', code: 'Admin' },
-        ];
     };
     //Esta funcion abre el popup al hacer que su visibilidad sea verdadera
     AdminComponent.prototype.openNew = function () {

@@ -1,47 +1,36 @@
-<h1 id="title" align="center">Usuarios</h1>
+<h1 id="title" align="center">Mis Ejercicios</h1>
 <br>
+
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
-<p-dialog [(visible)]="usuariosDialog" [style]="{ width: '450px' }" header="Usuarios" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="usuariosDialog" [style]="{ width: '450px' }" header="Usuario Nuevo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL USUARIO -->
+        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
-            <label for="nombre">Nombre de Usuario</label>
+            <label for="nombre">Nombre</label>
             <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-            <input [(ngModel)]="usuarios.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
+            <input [(ngModel)]="usuarioss.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !usuarios.nombre">El email es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarioss.nombre">El nombre es obligatorio.</small>
         </div>
 
-        <!-- CAMPO PARA INGRESAR EL EMAIL DEL USUARIO -->
-        <!--<div class="field">
-            <label for="correo usuarios">Email de usuario</label>-->
-            <!-- INPUT PARA INGRESAR EL GRUPO MUSCULAR DEL EJERCICIO -->
-            <!--<input [(ngModel)]="usuarios.email" pInputText name="grupomuscular" type="text" id="grupo" required>-->
-            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <!--<small class="p-error" *ngIf="submitted && !usuarios.email">El nombre es obligatorio.</small>
-        </div>-->
-
-        <!-- CAMPO PARA INGRESAR EL ROL QUE TENDRA EL USUARIO -->
+        <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
-            <label for="rol">Rol de Usuario</label>
+            <label for="rango">Rol de Usuario</label>
             <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-            <!--<input [(ngModel)]="usuarios.rol" pInputText type="text" id="rol" name="roluser" required>-->
-            <div class="card flex justify-content-center">
-                <p-listbox [options]="roles" [(ngModel)]="selectedRoles" [style]="{'width':'100%'}" [listStyle]="{'max-height': '220px'}"></p-listbox>
-            </div>
+            <input [(ngModel)]="usuarioss.rol" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !usuarios.rol">El rol es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !usuarioss.rol">El rango es obligatorio.</small>
         </div>
     </ng-template>
 
     <ng-template pTemplate="footer">
         <br>
         <div>
-            <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO USUARIO -->
+            <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-            <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO USUARIO -->
-            <button pButton *ngIf="!editar" label = "Crear Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
-            <button pButton *ngIf="editar" label = "Editar Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="editUsuario()"></button>
+            <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
+            <button pButton *ngIf="!editar" label="Crear Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
+            <button pButton *ngIf="editar" label="Editar Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
         </div>
     </ng-template>
 </p-dialog>
@@ -55,56 +44,56 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Rol de Usuario</th>
-                <th>Editar o eliminar</th>
+                <th>Eliminar o editar</th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
-        <ng-template pTemplate="body" let-usuarios let-editing="editing" let-ri="rowIndex">
+        <ng-template pTemplate="body" let-usuariosss let-editing="editing" let-ri="rowIndex">
             <tr>
-                <!-- COLUMNA DEL ID DEL USUARIO -->
+                <!-- COLUMNA DE NOMBRES -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
-                            <input pInputText type="text" [(ngModel)]="usuarios.uid"/>
+                            <input pInputText type="text" [(ngModel)]="usuariosss.uid"/>
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
-                            {{ usuarios.uid }} 
+                            {{ usuariosss.uid }} 
                         </ng-template>
                     </p-cellEditor>
                 </td>
 
-                <!-- COLUMNA DEL NOMBRE DE USUARIO -->
+                <!-- COLUMNA DE GRUPO MUSCULAR -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
-                            <input pInputText type="text" [(ngModel)]="usuarios.nombre" required />
+                            <input pInputText type="text" [(ngModel)]="usuariosss.nombre" required />
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->
-                            {{ usuarios.nombre }}
+                            {{ usuariosss.email }}
                         </ng-template>
                     </p-cellEditor>
                 </td>
 
-                <!-- COLUMNA DEL ROL DE USUARIO -->
+                <!-- COLUMNA DE RANGO DE REPETICIONES -->
                 <td>
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
-                            <input pInputText type="text" [(ngModel)]="usuarios.rol" required />
+                            <input pInputText type="text" [(ngModel)]="usuariosss.rol" required />
                         </ng-template>
                         <ng-template pTemplate="output">
                             <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
-                            {{ usuarios.rol }}
+                            {{ usuariosss.rol }}
                         </ng-template>
                     </p-cellEditor>
                 </td>
                 <td>
-                    <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(usuarios)"></button>
-                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarUsuario(usuarios)"></button>
+                    <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(usuariosss)"></button>
+                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarUsuario(usuariosss)"></button>
                 </td>
             </tr>
         </ng-template>   

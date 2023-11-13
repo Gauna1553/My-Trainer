@@ -51,13 +51,8 @@ export class AdminComponent {
 
       //Es una colección para así poder seleccionar a más de un elemento
     })
-    
-    this.roles = [
-      {name: 'Usuario', code: 'User'},
-      {name: 'Admin', code: 'Admin'},
-    ]
-
   }
+
 
   usuarioss: Usuario = {
     uid: '',
