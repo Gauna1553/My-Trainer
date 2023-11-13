@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DatoUsuarios } from 'src/app/model/usuarios';
 import { DatosService } from 'src/app/shared/services/datos.service';
+import { Input } from '@angular/core';
 
 interface Gens {
   name: string,
@@ -14,6 +15,8 @@ interface Gens {
 })
 
 export class CalculadoraCALComponent {
+
+  @Input()imc:number=0;
 
   constructor (public servicioDatos: DatosService) {}
 
