@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<p-dialog [(visible)]="ejerciciosDialog" [draggable]="false" [style]="{ width: '30%'}" [closable]="true" header="Seleccionar Ejercicio" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="ejerciciosDialog" [draggable]="false" [style]="{ width: '30%'}" [closable]="false" header="Seleccionar Ejercicio" [modal]="true" styleClass="p-fluid">
     <div class="card flex justify-content-center">
         <p-listbox [options]="ejerciciosColeccion" optionLabel="nombre" [multiple]="true" [metaKeySelection]="false" [(ngModel)]="selectedEjer" 
         [filter]="true" [style]="{ width: '100%' }"></p-listbox>
