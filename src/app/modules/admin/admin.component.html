@@ -36,7 +36,8 @@
                 <div class="field">
                     <label for="nombre">Contraseña</label>
                     <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-                    <input [(ngModel)]="usuarioss.contrasena" pInputText name="ejerNombre" type="password" id="nombre" required>
+                    <!--<input [(ngModel)]="usuarioss.contrasena" pInputText name="ejerNombre" type="password" id="nombre" required>-->
+                    <p-password [(ngModel)]="usuarioss.contrasena" [toggleMask]="true"></p-password>
                     <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
                     <small class="p-error" *ngIf="submitted && !usuarioss.contrasena">El nombre es obligatorio.</small>
                 </div>
