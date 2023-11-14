@@ -14,7 +14,6 @@ var AdminComponent = /** @class */ (function () {
         this.database = '';
         this.submitted = false;
         //Creo un arreglo para guardar la información que despues se recorre para
-        //armar la tabla
         this.usuariosCollecion = [];
         this.editar = false;
         this.idEditar = '';
@@ -54,15 +53,16 @@ var AdminComponent = /** @class */ (function () {
     AdminComponent.prototype.hideDialog = function () {
         this.usuariosDialog = false;
         this.usuarios.nombre = '';
-        this.usuarios.email = '';
         this.usuarios.rol = '';
     };
-    AdminComponent.prototype.crearUsuario = function (usuarioss) {
+    AdminComponent.prototype.crearUsuario = function () {
         var _this = this;
         this.submitted = true;
         if (!this.editar && this.usuarios.nombre && this.usuarios.rol) {
             this.loading = true;
             var resultado = this.usuariosService.crearUsuario(this.usuarioss).then(function (resp) {
+                _this.loading = false;
+                alert("Se creo un usuario correctamente");
             })["catch"](function (error) {
                 _this.loading = false;
                 alert('No se puedo crear un usuario');
@@ -70,8 +70,8 @@ var AdminComponent = /** @class */ (function () {
         }
         else {
             if (this.usuarioss.nombre && this.usuarioss.rol) {
+                this.loading = true;
                 this.usuarioss.uid = this.idEditar;
-                this.usuarioss = this.usuarioss;
                 this.usuariosService.modificarUsuarios(this.idEditar, this.usuarioss).then(function (resul) {
                     _this.loading = false;
                     _this.editar = false;
@@ -87,7 +87,7 @@ var AdminComponent = /** @class */ (function () {
     };
     AdminComponent.prototype.mostrarBorrar = function (usuarioSeleccionado) {
         this.usuarioSeleccionado = usuarioSeleccionado;
-        if (confirm("¿Desea eliminar el ejercicio?") === true) {
+        if (confirm("¿Desea eliminar el usuario?") === true) {
             this.borrarUsuario();
         }
         else {
@@ -103,7 +103,7 @@ var AdminComponent = /** @class */ (function () {
             .then(function (respuesta) {
             alert("El usuario se elimino correctamente");
         })["catch"](function (error) {
-            alert("No se pudo eliminar al usuario");
+            alert("No se pudo eliminar el usuario: \n" + error);
         });
         /*
         Esta funcion se encargar de tomar la ID de los ejercicios almacenados en la BD, y por medio de un boton
@@ -143,7 +143,7 @@ var AdminComponent = /** @class */ (function () {
         };
         this.usuariosService.modificarUsuarios(this.usuarioSeleccionado.uid, datos)
             .then(function (usuarios) {
-            alert("El ejercicio se modifico con exito");
+            alert("El usuario se modifico con exito");
         })["catch"](function (error) {
             alert("No se pudo modificar los datos del usuario: (\n" + error);
         });

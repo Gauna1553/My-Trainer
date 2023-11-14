@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/model/usuarios';
 import { UsuariosService } from 'src/app/services/usuarios.service';
-
-interface Roles {
-  name: string;
-  code: string;
-}
 
 
 @Component({
@@ -15,17 +9,10 @@ interface Roles {
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-
-
-  roles!: Roles[];
-
-  selectedRoles: Roles | undefined;
-
   database = '';
   submitted = false;
 
   //Creo un arreglo para guardar la información que despues se recorre para
-  //armar la tabla
   usuariosCollecion: Usuario[] = [];
   
   usuarioSeleccionado!: Usuario;
@@ -77,15 +64,16 @@ export class AdminComponent {
     hideDialog() {
       this.usuariosDialog = false;
       this.usuarios.nombre = '';
-      this.usuarios.email = '';
       this.usuarios.rol = '';
     }
 
-    crearUsuario(usuarioss: Usuario) {
+    crearUsuario() {
       this.submitted = true;
       if(!this.editar && this.usuarios.nombre && this.usuarios.rol) {
         this.loading = true;
         const resultado = this.usuariosService.crearUsuario(this.usuarioss).then((resp) => {
+          this.loading = false;
+          alert("Se creo un usuario correctamente")
         }).catch ((error) => {
           this.loading = false;
           alert('No se puedo crear un usuario')
@@ -93,8 +81,8 @@ export class AdminComponent {
       }
       else {
         if (this.usuarioss.nombre && this.usuarioss.rol) {
+          this.loading = true;
           this.usuarioss.uid = this.idEditar;
-          this.usuarioss = this.usuarioss;
           this.usuariosService.modificarUsuarios(this.idEditar, this.usuarioss).then((resul) => {
             this.loading = false;
             this.editar = false;
@@ -112,7 +100,7 @@ export class AdminComponent {
 
     mostrarBorrar(usuarioSeleccionado: Usuario) {
       this.usuarioSeleccionado = usuarioSeleccionado;
-      if(confirm("¿Desea eliminar el ejercicio?") === true) {
+      if(confirm("¿Desea eliminar el usuario?") === true) {
         this.borrarUsuario()
       } else {
         alert("No se pudo borrar el usuario deseado")
@@ -125,11 +113,11 @@ export class AdminComponent {
 
     borrarUsuario() {
       this.usuariosService.eliminarUsuarios(this.usuarioSeleccionado.uid)
-      .then (respuesta => {
-        alert ("El usuario se elimino correctamente")
+      .then(respuesta => {
+        alert("El usuario se elimino correctamente")
       })
-      .catch (error => {
-        alert ("No se pudo eliminar al usuario")
+      .catch(error => {
+        alert("No se pudo eliminar el usuario: \n" + error)
       })
 
     /*
@@ -172,7 +160,7 @@ export class AdminComponent {
 
       this.usuariosService.modificarUsuarios(this.usuarioSeleccionado.uid, datos)
       .then(usuarios => {
-        alert("El ejercicio se modifico con exito")
+        alert("El usuario se modifico con exito")
       })
       .catch(error => {
         alert("No se pudo modificar los datos del usuario: (\n" + error)

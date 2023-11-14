@@ -28,8 +28,8 @@
             <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
             <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <button pButton *ngIf="!editar" label="Crear Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario(usuarioss)"></button>
-            <button pButton *ngIf="editar" label="Editar Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario(usuarioss)"></button>
+            <button pButton *ngIf="!editar" label="Crear Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
+            <button pButton *ngIf="editar" label="Editar Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
         </div>
     </ng-template>
 </p-dialog>

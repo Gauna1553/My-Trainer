@@ -22,6 +22,7 @@ crearUsuario(usuarios: Usuario) {
             usuarios.uid = id;
 
             const resultado = await this.usuariosColeccion.doc(id).set(usuarios);
+            
             resolve(resultado)
         } catch (error) {
             reject(error)
