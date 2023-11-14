@@ -35,9 +35,10 @@ export class AdminComponent {
     del formulario producto(estos se guardaran en la colección) */
     this.usuariosService.obtenerUsuario().subscribe(usuarios => {
       this.usuariosCollecion = usuarios
-
+      
       //Es una colección para así poder seleccionar a más de un elemento
     })
+    
   }
 
   //Arreglo donde se almacenan todos los datos del objeto de Usuario
@@ -176,4 +177,7 @@ export class AdminComponent {
   Esta funcion toma los valores asignados de la colección de ejercicios, y los modifica, excepto el valor ID.
   En caso de hacerlo bien, se muestra el primer mensaje, en caso contrario, muestra el segundo mensaje
   */
+
+
+
 }

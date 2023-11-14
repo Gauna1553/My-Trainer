@@ -20,6 +20,7 @@ export class AuthService{
     ) {}
   
     async iniciarSesion(email:string, contrasena: string) {
+      //Aqui se esta guardando el token de Firebase en una cookie
       const result = await this.auth.signInWithEmailAndPassword(email, contrasena);
       if (result.user) {
         this.cookieService.set('firebaseAuthToken', await result.user.getIdToken());

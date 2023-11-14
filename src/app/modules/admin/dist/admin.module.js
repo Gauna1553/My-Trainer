@@ -21,7 +21,7 @@ var inputtext_1 = require("primeng/inputtext");
 var button_1 = require("primeng/button");
 var tristatecheckbox_1 = require("primeng/tristatecheckbox");
 var progressspinner_1 = require("primeng/progressspinner");
-var listbox_1 = require("primeng/listbox");
+var password_1 = require("primeng/password");
 var AdminModule = /** @class */ (function () {
     function AdminModule() {
     }
@@ -33,15 +33,15 @@ var AdminModule = /** @class */ (function () {
             imports: [
                 common_1.CommonModule,
                 admin_routing_module_1.AdminRoutingModule,
+                //Importaciones de Primeng
                 forms_1.FormsModule,
-                forms_1.ReactiveFormsModule,
                 table_1.TableModule,
                 dialog_1.DialogModule,
                 inputtext_1.InputTextModule,
                 button_1.ButtonModule,
                 tristatecheckbox_1.TriStateCheckboxModule,
                 progressspinner_1.ProgressSpinnerModule,
-                listbox_1.ListboxModule
+                password_1.PasswordModule
             ],
             exports: [
                 forms_1.FormsModule,
