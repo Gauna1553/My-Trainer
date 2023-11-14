@@ -6,10 +6,10 @@
                 <span>Ingrese su email</span>
             </label>
         <label>
-            <input required="" placeholder="" type="password" class="input" [(ngModel)]="usuarios.contrasena" name="email">-
+            <input required="" placeholder="" type="password" class="input" [(ngModel)]="usuarios.contrasena" name="email">
             <span>Ingrese su contraseña</span>
         </label>
-        <button class="submit" routerLink="/" (click)="iniciar()">Iniciar Sesión</button>
+        <button class="submit" routerLink="/inicio" (click)="iniciar()">Iniciar Sesión</button>
         <button class="submit" routerLink="/login" (click)="salir()">Cerrar Sesión</button> 
 </form>
 <p class="signin">¿No tienes una cuenta? <button class="submit" routerLink="/register">Crea una cuenta</button></p>
