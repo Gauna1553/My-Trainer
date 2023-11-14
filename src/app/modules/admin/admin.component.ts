@@ -40,7 +40,7 @@ export class AdminComponent {
     })
   }
 
-
+  //Arreglo donde se almacenan todos los datos del objeto de Usuario
   usuarioss: Usuario = {
     uid: '',
     nombre: '',

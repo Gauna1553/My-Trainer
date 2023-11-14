@@ -21,6 +21,7 @@ var AdminComponent = /** @class */ (function () {
         this.usuariosDialog = false;
         //Defino la visibilidad del loading
         this.loading = false;
+        //Arreglo donde se almacenan todos los datos del objeto de Usuario
         this.usuarioss = {
             uid: '',
             nombre: '',
