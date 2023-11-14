@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 //Servicios importados
 import { AuthService } from '../../services/auth.service';
@@ -12,6 +14,7 @@ import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
+import { Observable, tap } from 'rxjs';
 
 
 
@@ -28,7 +31,9 @@ export class LoginComponent {
     public firestore: FirestoreService,
     public router :Router,
     private afAuth: AngularFireAuth, 
-    private fireStore: AngularFirestore
+    private fireStore: AngularFirestore,
+    private http: HttpClient,
+    private cookieService: CookieService
     //Estas son las declaraciones de las importaciones de Firebase a para poder utilizar
     ){}
 
@@ -39,7 +44,7 @@ export class LoginComponent {
     contrasena: '',
     apellido: '',
     rol: '',
-    credenciales: '',
+    token: '',
     sexo: 0,
     altura: 0,
     peso: 0,
@@ -52,22 +57,23 @@ export class LoginComponent {
     const credenciales = {
     email: this.usuarios.email,
     contrasena: this.usuarios.contrasena
+    //guarda los parametros email y constraseña en una constante
     };
 
     const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
     .then ((res) => {
       ///////Base de datos///////
-      this.afAuth.authState.subscribe(user => {
-        if (user) {
-          this.fireStore.collection('usuarios').doc(user.uid).valueChanges().subscribe((data: any)=> {
+      this.afAuth.authState.subscribe(usuario => {
+        if (usuario) {
+          this.fireStore.collection('usuarios').doc(usuario.uid).valueChanges().subscribe((data: any)=> {
             //Aqui se obtienen las credenciales del usuario
-            const credenciales = data.credenciales;
+            const rol = data.rol;
 
             //Rediriges al usuario basado en sus credenciales
-            if (credenciales === 'usuario') {
+            if (rol === 'usuario') {
               this.router.navigate(['/inicio']);
             } else {
-              if (credenciales === 'admin') {
+              if (rol === 'admin') {
                 this.router.navigate(['/admin']);
               } else {
                 this.router.navigate(['/visitante'])
@@ -89,6 +95,7 @@ export class LoginComponent {
       inicar sesión.
     */
   }
+
 
   async salir(){
     const res = await this.servicioAuth.cerrarSesion()

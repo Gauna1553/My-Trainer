@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 //servicio de autentificacion de firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
-import { Roles } from 'src/app/model/roles';
+
+//Servicio de cookies para mantener al usuario logeado el tiempo que el quiera
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -11,26 +13,29 @@ import { Roles } from 'src/app/model/roles';
   providedIn: 'root'
 })
 export class AuthService{
-  constructor(public auth: AngularFireAuth, private router: Router) {}
+  token: any;
+  constructor(
+    public auth: AngularFireAuth,  
+    private cookieService: CookieService,
+    ) {}
+  
+    async iniciarSesion(email:string, contrasena: string) {
+      const result = await this.auth.signInWithEmailAndPassword(email, contrasena);
+      if (result.user) {
+        this.cookieService.set('firebaseAuthToken', await result.user.getIdToken());
+      }
+      return result;
+    }
 
-  //Funcion para iniciar sesión
-  async iniciarSesion(email:string,contrasena: string) {
-    //Valida el email y al contraseña de la BD
-    return this.auth.signInWithEmailAndPassword(email, contrasena);
-    /*
-      Esta función se encarga de tomar los parametros email y contraseña, y de validarlos
-    */
-
-      //this.updateUserData();
-  }
-
-
-  //Funcion para registrarse
-  registrarse(email: string, contrasena: string) {
-    //Retorna un nuevo valor de nombre y contraseña
-    return this.auth.createUserWithEmailAndPassword(email,contrasena)
-  }
-
+    registrarse(email: string, contrasena: string){
+      // retorna nuevo valor de nombre y contrasena
+      return this.auth.createUserWithEmailAndPassword(email,contrasena);
+    }
+  
+    cerrarSesion() {
+      this.cookieService.delete('firebaseAuthToken');
+      return this.auth.signOut();
+    }
   async getUid(){
     //nos genera una promesa y const user la captura
     const user = await this.auth.currentUser;
@@ -38,18 +43,12 @@ export class AuthService{
     if (user == null) {
       return null;
     } else {
+      let token = await user?.getIdToken();
       return user.uid;
     }
   };
 
-  cerrarSesion() {
-    //devuelve una promesa vacias
-    return this.auth.signOut();
+  getToken() {
+    return this.cookieService.get("firebaseAuthToken");
   }
-
-  get token() {
-    return this.auth.idToken;
-  }
-
-
 }

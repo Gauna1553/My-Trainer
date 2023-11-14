@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 //Modulos de Firebase
 import { AngularFireModule } from '@angular/fire/compat';
@@ -23,6 +24,7 @@ import { environment } from 'src/environment/environment';
     CommonModule,
     AuthRoutingModule,
     FormsModule,
+    
     //importar firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
@@ -31,6 +33,6 @@ import { environment } from 'src/environment/environment';
   exports: [
     FormsModule
   ],
-  providers: []
+  providers: [CookieService]
 })
 export class AuthModule { }

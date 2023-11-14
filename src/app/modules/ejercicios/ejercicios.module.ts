@@ -12,8 +12,6 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { CheckboxModule } from 'primeng/checkbox';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -24,17 +22,17 @@ import { CheckboxModule } from 'primeng/checkbox';
   ],
   imports: [
     CommonModule,
+    EjerciciosRoutingModule,
+
+    //Importaciones de prime
     FormsModule,
     ReactiveFormsModule,
     DialogModule,
     InputTextModule,
     ButtonModule,
     TableModule,
-    EjerciciosRoutingModule,
     TriStateCheckboxModule,
     ProgressSpinnerModule,
-    CheckboxModule,
-    //BrowserAnimationsModule
   ], 
   exports: [
     FormsModule,

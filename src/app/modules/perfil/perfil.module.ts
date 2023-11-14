@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PerfilComponent } from './perfil.component';
 import { PerfilRoutingModule } from './perfil-routing.module';
-import { ButtonModule } from 'primeng/button';
 
+//Importacion de prime
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     CommonModule,
     PerfilRoutingModule,
-    ButtonModule
+
+    //importaciones de primeng
+    ButtonModule,
+    TableModule
   ]
 })
 export class PerfilModule { }
