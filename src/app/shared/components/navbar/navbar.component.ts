@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit {
         label: 'Inicio',
         icon: 'pi pi-home',
         routerLink: '/inicio',
-        mostrar: this.mostrarDatos,
+        //mostrar: this.mostrarDatos,
       },
       {
         label: 'Ejercicios',

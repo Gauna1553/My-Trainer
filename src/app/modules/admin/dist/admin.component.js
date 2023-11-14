@@ -128,6 +128,7 @@ var AdminComponent = /** @class */ (function () {
       */
     };
     AdminComponent.prototype.editUsuario = function () {
+        console.log(this.usuarios);
         var datos = {
             uid: this.usuarios.uid,
             nombre: this.usuarios.nombre,

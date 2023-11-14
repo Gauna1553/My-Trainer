@@ -1,8 +1,8 @@
-<h1 id="title" align="center">Usuarios</h1>
+<h1 id="title" align="center" *ngIf="usuarios.rol === 'admin'">Usuarios</h1>
 <br>
 
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
-<p-dialog [(visible)]="usuariosDialog" [style]="{ width: '450px' }" header="Usuario Nuevo" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="usuariosDialog" [style]="{ width: '450px' }" header="Usuario Nuevo" [modal]="true" styleClass="p-fluid" *ngIf="usuarios.rol === 'admin'">
     <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
@@ -35,7 +35,7 @@
 </p-dialog>
 
 <!-- TABLA DE LOS EJERCICIOS -->
-<div class="container">
+<div class="container" *ngIf="usuarios.rol === 'admin'">
     <p-table [value]="usuariosCollecion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">

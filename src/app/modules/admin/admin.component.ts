@@ -137,6 +137,7 @@ export class AdminComponent {
       } else {
         alert("No se pudo modificar los datos del usuario")
       }
+      
       /*
       Esta función lo que hace es seguir el mismo ejemplo de mostrarBorrar().
       La principal diferencia es que ahora abre una ventana modal con los campos del ejercicio actuales, para así poder editarlos.
@@ -144,6 +145,7 @@ export class AdminComponent {
     }
 
     editUsuario() {
+      console.log(this.usuarios);
       let datos: Usuario = {
         uid: this.usuarios.uid,
         nombre: this.usuarios.nombre,
