@@ -100,8 +100,8 @@ export class AdminComponent {
     */
     }
 
-    mostrarBorrar(usuarioSeleccionado: Usuario) {
-      this.usuarioSeleccionado = usuarioSeleccionado;
+    mostrarBorrar(usuariosSeleccionado: Usuario) {
+      this.usuarioSeleccionado = usuariosSeleccionado;
       if(confirm("¿Desea eliminar el usuario?") === true) {
         this.borrarUsuario()
       } else {

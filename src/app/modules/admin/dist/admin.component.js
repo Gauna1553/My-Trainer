@@ -87,8 +87,8 @@ var AdminComponent = /** @class */ (function () {
       En caso de no haberse guardado, se almacena el error y se muestra el segundo mensaje.
       */
     };
-    AdminComponent.prototype.mostrarBorrar = function (usuarioSeleccionado) {
-        this.usuarioSeleccionado = usuarioSeleccionado;
+    AdminComponent.prototype.mostrarBorrar = function (usuariosSeleccionado) {
+        this.usuarioSeleccionado = usuariosSeleccionado;
         if (confirm("¿Desea eliminar el usuario?") === true) {
             this.borrarUsuario();
         }
