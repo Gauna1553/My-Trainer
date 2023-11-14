@@ -10,30 +10,7 @@ exports.NavbarComponent = void 0;
 var core_1 = require("@angular/core");
 var NavbarComponent = /** @class */ (function () {
     function NavbarComponent() {
-        this.mostrar = false;
-        this.usuarios = {
-            uid: '',
-            nombre: '',
-            email: '',
-            contrasena: '',
-            apellido: '',
-            rol: '',
-            token: '',
-            sexo: 0,
-            altura: 0,
-            peso: 0,
-            edad: 0
-        };
     }
-    NavbarComponent.prototype.mostrarDatos = function (mostrar) {
-        if (this.usuarios.rol === 'visitante') {
-            this.mostrar = true;
-        }
-        else {
-            this.mostrar = !this.mostrar;
-        }
-    };
-    ;
     NavbarComponent.prototype.ngOnInit = function () {
         this.items = [
             {
@@ -49,14 +26,12 @@ var NavbarComponent = /** @class */ (function () {
             {
                 label: 'Rutinas',
                 icon: 'pi pi-fw pi-calendar',
-                routerLink: '/rutinas',
-                mostrar: this.mostrarDatos
+                routerLink: '/rutinas'
             },
             {
                 label: 'Perfil',
                 icon: 'pi pi-user',
-                routerLink: '/perfil',
-                mostrar: this.mostrarDatos
+                routerLink: '/perfil'
             },
         ];
     };

@@ -9,30 +9,7 @@ import { Usuario } from 'src/app/model/usuarios';
 })
 export class NavbarComponent implements OnInit {
   declare items: MenuItem[];
-  mostrar: boolean = false
 
-
-  usuarios: Usuario = {
-    uid: '',
-    nombre: '',
-    email: '',
-    contrasena: '',
-    apellido: '',
-    rol: '',
-    token: '',
-    sexo: 0,
-    altura: 0,
-    peso: 0,
-    edad: 0
-  }
-
-  mostrarDatos(mostrar : boolean) {
-    if (this.usuarios.rol === 'visitante') {
-      this.mostrar = true;
-    } else {
-      this.mostrar = !this.mostrar
-    }
-  };
 
 
   ngOnInit() {
@@ -41,7 +18,6 @@ export class NavbarComponent implements OnInit {
         label: 'Inicio',
         icon: 'pi pi-home',
         routerLink: '/inicio',
-        //mostrar: this.mostrarDatos,
       },
       {
         label: 'Ejercicios',
@@ -52,13 +28,11 @@ export class NavbarComponent implements OnInit {
         label: 'Rutinas',
         icon: 'pi pi-fw pi-calendar',
         routerLink: '/rutinas',
-        mostrar: this.mostrarDatos,
       },
       {
         label: 'Perfil',
         icon: 'pi pi-user',
         routerLink: '/perfil',
-        mostrar: this.mostrarDatos,
       },
     ];
   }
