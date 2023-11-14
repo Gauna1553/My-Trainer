@@ -64,23 +64,25 @@ export class AdminComponent {
     hideDialog() {
       this.usuariosDialog = false;
       this.usuarios.nombre = '';
+      this.usuarios.email = '';
+      this.usuarios.contrasena = '';
       this.usuarios.rol = '';
     }
 
     crearUsuario() {
       this.submitted = true;
-      if(!this.editar && this.usuarios.nombre && this.usuarios.rol) {
+      if(!this.editar && this.usuarioss.nombre && this.usuarioss.apellido && this.usuarioss.email && this.usuarioss.contrasena && this.usuarioss.rol) {
         this.loading = true;
         const resultado = this.usuariosService.crearUsuario(this.usuarioss).then((resp) => {
           this.loading = false;
-          alert("Se creo un usuario correctamente")
-        }).catch ((error) => {
+          alert("Se creo un nuevo usuario correctamente")
+        }) .catch ((error) => {
           this.loading = false;
-          alert('No se puedo crear un usuario')
+          alert("No se pudo crear el usuario de forma correcta")
         })
       }
       else {
-        if (this.usuarioss.nombre && this.usuarioss.rol) {
+        if(this.usuarioss.nombre && this.usuarioss.apellido && this.usuarioss.email && this.usuarioss.contrasena && this.usuarioss.rol) {
           this.loading = true;
           this.usuarioss.uid = this.idEditar;
           this.usuariosService.modificarUsuarios(this.idEditar, this.usuarioss).then((resul) => {
