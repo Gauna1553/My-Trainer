@@ -72,7 +72,7 @@ export class CalculadoraCALComponent {
   async guardarDatos(){
     this.servicioDatos.agregarDatos(this.datos.uid, this.datos.altura, this.datos.sexo, this.datos.edad, this.datos.peso)
     .then(res =>{
-      console.log(this.datos);
+      console.log(this.datos,res);
     })
     .catch(error =>{
       console.log('Error',error)
