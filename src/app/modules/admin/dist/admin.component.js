@@ -144,6 +144,7 @@ var AdminComponent = /** @class */ (function () {
             edad: this.usuarios.edad,
             altura: this.usuarios.altura,
             peso: this.usuarios.peso
+            //se pasan los datos del objeto Usuario para luego poder almacenar los nuevos con la finalidad de poder ser editados
         };
         this.usuariosService.modificarUsuarios(this.usuarioSeleccionado.uid, datos)
             .then(function (usuarios) {
