@@ -3,7 +3,8 @@
 </div>
 <div class="containers">
     <div class="container1">
-        <h2>Crear Rutina</h2>
+        <h2 *ngIf="!editar">Crear Rutina</h2>
+        <h2 *ngIf="editar === true">Editar Rutina</h2>
         <!-- CAMPO PARA INGRESAR EL NOMBRE DE LA RUTINA -->
         
             <label for="nombre">Nombre</label><BR>

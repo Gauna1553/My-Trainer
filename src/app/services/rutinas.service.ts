@@ -1,19 +1,14 @@
 import { Injectable } from '@angular/core';
-import { EjerciciosService } from './ejercicios.service';
 import { Rutina } from '../model/rutinas';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Subject, map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RutinasService {
-
-  public rutinaParaEditar = new Subject<Rutina>();
-  data$ = this.rutinaParaEditar.asObservable();
-
   public rutinasColeccion: AngularFirestoreCollection<Rutina>
-  constructor(private servicioEjercicios: EjerciciosService, private database: AngularFirestore) { 
+  constructor(private database: AngularFirestore) { 
     this.rutinasColeccion = database.collection('rutinas')
   }
 
@@ -55,5 +50,19 @@ export class RutinasService {
         reject(error); //Nos notifica del error
       }
     })
+  }
+
+
+  public rutinaParaEditar = new BehaviorSubject<any>(undefined);
+  //data$ = this.rutinaParaEditar.asObservable();
+  terminarSubject(){
+    //this.rutinaParaEditar.complete();
+    this.rutinaParaEditar = new BehaviorSubject<any>(undefined); 
+  }
+  obtenerRutinaParaEditar(){
+    return this.rutinaParaEditar.asObservable()
+  }
+  actualizarRutinaParaEditar(rutina: Rutina){
+    this.rutinaParaEditar.next(rutina);
   }
 }

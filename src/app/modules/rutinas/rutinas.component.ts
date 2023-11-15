@@ -23,7 +23,8 @@ export class RutinasComponent {
   }
   
   enviarRutina(rutina: Rutina){
-    this.servicioRutinas.rutinaParaEditar.next(rutina)
+    this.servicioRutinas.terminarSubject();
+    this.servicioRutinas.actualizarRutinaParaEditar(rutina);
     this.router.navigate(['/crear']);
   }
 
@@ -42,6 +43,7 @@ export class RutinasComponent {
     }
   }
   crearRutina(){
+    this.servicioRutinas.terminarSubject();
     this.router.navigate(['/crear'])
   }
 }
