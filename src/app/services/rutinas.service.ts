@@ -12,13 +12,14 @@ export class RutinasService {
     this.rutinasColeccion = database.collection('rutinas')
   }
 
-
+  // FUNCION QUE CREA LA RUTINA EN LA BD
   crearRutina(rutina: Rutina){
     return new Promise(async(resolve,reject)=>{
       try{
+        //ESTO CREA UN ID (LO CREA FIREBASE) Y SE LO ASIGNA AL ATRIBUTO idRutina
         const id = this.database.createId();
         rutina.idRutina = id;
-
+        // ESTO CREA EL DOCUMENTO DE LA RUTINA EN FIREBASE
         const resultado = await this.rutinasColeccion.doc(id).set(rutina);
 
         resolve(resultado)
@@ -36,6 +37,7 @@ export class RutinasService {
     // Esta funcion trae todas las rutinas desde firebase
   }
 
+  // FUNCION QUE EDITA LA RUTINA EN LA BD
   modificarRutina(idRutina: string, nuevaDataRutina: Rutina){
     return this.rutinasColeccion.doc(idRutina).update(nuevaDataRutina);
   }
@@ -52,9 +54,9 @@ export class RutinasService {
     })
   }
 
-
+  // ESTO HACE QUE SE CREE UN OBJETO OBSERVABLE, QUE CONTIENE LA RUTINA, DESDE EL BOTON PARA EDITAR QUE TIENEN LAS RUTINAS. CREARRUTINAS ESTA SUBSCRIPTO, 
+  // POR LO QUE RECIBE LA RUTINA DE LA QUE TOCAMOS EL BOTON Y LO PODEMOS USAR PARA EDITAR
   public rutinaParaEditar = new BehaviorSubject<any>(undefined);
-  //data$ = this.rutinaParaEditar.asObservable();
   terminarSubject(){
     //this.rutinaParaEditar.complete();
     this.rutinaParaEditar = new BehaviorSubject<any>(undefined); 
