@@ -1,4 +1,4 @@
-import { Component,DoCheck } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
@@ -12,17 +12,26 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 })
 export class CrearrutinasComponent {
 
+  rutinaParaEditar!: Rutina;
+  editar = false;
   ejerSubmitted = false
   submitted = false;
   ejerciciosDialog = false;
   selectedEjer: Ejercicio[] = [];
   ejerciciosColeccion: Ejercicio[] = [];
 
-  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router) { }
+  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router) {}
 
   ngOnInit() {
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
       this.ejerciciosColeccion = ejercicios
+    })
+
+    this.servicioRutinas.data$.subscribe(rutinaRecibida =>{
+      if (rutinaRecibida != null){ 
+        this.rutinaParaEditar = rutinaRecibida;
+        this.editar = true;      
+      }
     })
   }
   ngDoCheck(){

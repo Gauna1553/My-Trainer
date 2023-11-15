@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
 import { RutinasService } from 'src/app/services/rutinas.service';
 
@@ -13,7 +12,7 @@ export class RutinasComponent {
 
   rutinaColeccion: Rutina[] = [];
   rutinasDialog = true;
-  rutinaSeleccionada!: Rutina; 
+  rutinaSeleccionada!: Rutina;
 
   constructor(public servicioRutinas: RutinasService, private router: Router) {}
 
@@ -23,9 +22,9 @@ export class RutinasComponent {
     })
   }
   
-  editarRutina(rutina: Rutina){
-    this.rutinaSeleccionada = rutina;
-    this.router.navigate(['/crear'])
+  enviarRutina(rutina: Rutina){
+    this.servicioRutinas.rutinaParaEditar.next(rutina)
+    this.router.navigate(['/crear']);
   }
 
   borrarRutina(rutinaSeleccionada: Rutina, event: Event){
