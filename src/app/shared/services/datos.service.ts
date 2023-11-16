@@ -45,7 +45,7 @@ obtenerDatos () {
   //funcion para editar los datos ingresados por el usuario
   /*Enviamos el id del usuario seleccionado y su nueva información*/
   modificarDatos(uid: string, nuevaData: DatoUsuarios) {
-    return this.database.collection('usuarios').doc(uid).update(nuevaData);
+    return this.database.collection('datos').doc(uid).update(nuevaData);
     /*
       Esta función se encarga de llamar al objeto usuario, y modificar un valor ya existente
     */
@@ -66,9 +66,9 @@ obtenerDatos () {
 
 
   calcularIMC(edad: number, sexo: string, altura: number, peso: number): number {
-    if (sexo === 'Masculino') {
+    if (sexo === 'hombre') {
        return 66.473 + (13.752 * peso) + (5.0033 * altura) - (6.755 * edad);
-    } else if (sexo === 'Femenino') {
+    } else if (sexo === 'mujer') {
        return 65.51 + (9.563 * peso) + (1.85 * altura) - (4.676 * edad);
     } else {
       throw new Error('Sexo inválido. Debe ser "hombre" o "mujer".');
@@ -79,7 +79,7 @@ obtenerDatos () {
     imc = this.calcularIMC(edad, sexo, altura, peso);
   
     try {
-      this.database.collection('usuarios').doc(uid).update({
+      this.database.collection('datos').doc(uid).update({
         imc: imc,
         
       });
