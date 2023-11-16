@@ -63,14 +63,19 @@ export class CalculadoraCALComponent {
   }
 
   //Esta función se encarga de guardar los nuevos datos para que luego se puedan modificar
-  async guardarDatos(){
-    this.servicioDatos.agregarDatos(this.datoss.uid, this.datoss.altura, this.datoss.sexo, this.datoss.edad, this.datoss.peso)
-    .then(res =>{
-      console.log(this.datoss,res);
-    })
-    .catch(error =>{
-      console.log('Error',error)
-    })
+  guardarDatos(datoss : DatoUsuarios){
+    this.submitted = true;
+    if(!this.editar && this.datoss.altura & this.datoss.edad && this.datoss.peso && this.datoss.sexo) {
+      this.loading = true;
+      const resultado =  this.servicioDatos.agregarDatos(this.datoss).then((resp)=>{
+        this.loading = false;
+        alert ("Se cargaron los datos de manera correcta")
+      })
+      .catch ((error) => {
+        this.loading = false;
+        alert("No se pudieron cargar los datos correctamente")
+      })
+    }
   }
 
   //Editar datos -> se llama al boton para el pop up

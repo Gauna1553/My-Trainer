@@ -46,7 +46,7 @@
             <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
             <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <button pButton label="Guardar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>
+            <button pButton label="Guardar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos(datoss)" ></button>
         </div>
     </ng-template>
 </p-dialog>
@@ -124,8 +124,8 @@
                 </td>
 
                 <td>
-                    <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="borrarDatos()"></button>
-                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarDatos(datos)"></button>
+                    <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(datoss)"></button>
+                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarDatos(datoss)"></button>
                 </td>
             </tr>
             
