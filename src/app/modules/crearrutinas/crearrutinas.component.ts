@@ -1,6 +1,5 @@
 import { Component,Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { isEmpty } from 'rxjs';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
