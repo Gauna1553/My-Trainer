@@ -9,11 +9,11 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class DatosService {
-  private usuariosColeccion: AngularFirestoreCollection<DatoUsuarios>
+  private datosColeccion: AngularFirestoreCollection<DatoUsuarios>
   //dentro de los parametros de la BD
   constructor(private database: AngularFirestore) {
   //referenciamos colección de la BD
-    this.usuariosColeccion = this.database.collection<DatoUsuarios>('usuarios');
+    this.datosColeccion = this.database.collection<DatoUsuarios>('datos');
   }
 
 agregarDatos(datos: DatoUsuarios){
@@ -22,7 +22,7 @@ agregarDatos(datos: DatoUsuarios){
   return new Promise(async(resolve,reject) =>{
     try {
       const id = this.database.createId();
-      const resultado = await this.usuariosColeccion.doc(id).set(datos)
+      const resultado = await this.datosColeccion.doc(id).set(datos)
       //muestra el resultado sin problema
       resolve(resultado);
     } catch(error) {
@@ -36,7 +36,7 @@ obtenerDatos () {
   // snapshoot -> captura los cambios
   // pipe -> tuberia por donde viajan esos nuevos datos
   // map -> recorre esos datos y luego los lee
-  return  this.usuariosColeccion.snapshotChanges().pipe(map((action => action.map(a => a.payload.doc.data()))))
+  return  this.datosColeccion.snapshotChanges().pipe(map((action => action.map(a => a.payload.doc.data()))))
   /*
     Esta función se encarga de llamar a los datos que se le solicitan, y mostrarlos en pantalla
   */
@@ -54,7 +54,7 @@ obtenerDatos () {
   eliminarDatos(uid: string) {
     return new Promise ((resolve, reject) => {
       try {
-        const resp = this.usuariosColeccion.doc(uid).delete()
+        const resp = this.datosColeccion.doc(uid).delete()
         resolve (resp)
       } catch (error){
         reject (error)
