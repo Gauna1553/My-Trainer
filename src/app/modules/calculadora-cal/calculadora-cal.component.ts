@@ -37,7 +37,7 @@ export class CalculadoraCALComponent {
 
   loading = false;
 
-  datos: DatoUsuarios = {
+  datoss: DatoUsuarios = {
     sexo: '',
     altura: 0,
     peso: 0,
@@ -55,17 +55,17 @@ export class CalculadoraCALComponent {
   //Esta función se encarga de cerrar el pop up
   hideDialog() {
     this.datosDialog = false;
-    this.datos.altura = 0;
-    this.datos.peso = 0;
-    this.datos.sexo = '';
-    this.datos.edad = 0;
+    this.datoss.altura = 0;
+    this.datoss.peso = 0;
+    this.datoss.sexo = '';
+    this.datoss.edad = 0;
   }
 
   //Esta función se encarga de guardar los nuevos datos para que luego se puedan modificar
   async guardarDatos(){
-    this.servicioDatos.agregarDatos(this.datos.uid, this.datos.altura, this.datos.sexo, this.datos.edad, this.datos.peso)
+    this.servicioDatos.agregarDatos(this.datoss.uid, this.datoss.altura, this.datoss.sexo, this.datoss.edad, this.datoss.peso)
     .then(res =>{
-      console.log(this.datos,res);
+      console.log(this.datoss,res);
     })
     .catch(error =>{
       console.log('Error',error)
@@ -79,12 +79,12 @@ export class CalculadoraCALComponent {
 
   edtiDatos() {
     let datos: DatoUsuarios = {
-      uid: this.datos.uid,
-      edad: this.datos.edad,
-      altura: this.datos.altura,
-      peso: this.datos.peso,
-      sexo: this.datos.sexo,
-      imc: this.datos.imc
+      uid: this.datoss.uid,
+      edad: this.datoss.edad,
+      altura: this.datoss.altura,
+      peso: this.datoss.peso,
+      sexo: this.datoss.sexo,
+      imc: this.datoss.imc
     }
 
     this.servicioDatos.modificarDatos(this.datosSeleccionado.uid, datos)
@@ -123,7 +123,7 @@ export class CalculadoraCALComponent {
 
   async calcular() {
     try {
-        const result = this.servicioDatos.guardarIMC(this.datos.uid, this.datos.edad, this.datos.sexo, this.datos.altura, this.datos.peso, this.datos.imc);
+        const result = this.servicioDatos.guardarIMC(this.datoss.uid, this.datoss.edad, this.datoss.sexo, this.datoss.altura, this.datoss.peso, this.datoss.imc);
         console.log(result)
       
     } catch (error) {

@@ -1,41 +1,42 @@
-<h1 id="title">Mis Ejercicios</h1>
+<h1 id="title" align="center">Datos personales</h1>
+<br>
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
-<p-dialog [(visible)]="datosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [closable]="false" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="datosDialog" [style]="{ width: '450px' }" header="Datos a Calcular" [closable]="false" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
             <label for="nombre">Altura</label>
             <!-- INPUT PARA INGRESAR LA ALTURA DEL USUARIO -->
-            <input [(ngModel)]="datos.altura" pInputText name="ejerNombre" type="text" id="nombre" required>
+            <input [(ngModel)]="datoss.altura" pInputText name="ejerNombre" type="text" id="nombre" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !datos.altura">El nombre es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !datoss.altura">El nombre es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
         <div class="field">
             <label for="grupo">Peso</label>
             <!-- INPUT PARA INGRESAR EL PESO DEL USUARIO -->
-            <input [(ngModel)]="datos.peso" pInputText name="grupomuscular" type="text" id="grupo" required>
+            <input [(ngModel)]="datoss.peso" pInputText name="grupomuscular" type="text" id="grupo" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !datos.peso">El grupo es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !datoss.peso">El grupo es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
         <div class="field">
             <label for="rango">Edad</label>
             <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
-            <input [(ngModel)]="datos.edad" pInputText type="text" id="rango" name="rangorep" required>
+            <input [(ngModel)]="datoss.edad" pInputText type="text" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !datos.edad">El rango es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !datoss.edad">El rango es obligatorio.</small>
         </div>
 
         <!-- CAMPO PARA INGRESAR EL SEXO DEL USUARIO -->
         <div class="field">
             <label for="rango">Sexo</label>
             <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
-            <input [(ngModel)]="datos.sexo" pInputText type = "text" id = "sexo" name ="sexo" required>          
+            <input [(ngModel)]="datoss.sexo" pInputText type = "text" id = "sexo" name ="sexo" required>          
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !datos.sexo">El rango es obligatorio.</small>
+            <small class="p-error" *ngIf="submitted && !datoss.sexo">El rango es obligatorio.</small>
         </div>
     </ng-template>
 
@@ -64,7 +65,7 @@
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
         <ng-template pTemplate="body" let-datos let-editing="editing" let-ri="rowIndex">
-            <tr [pEditableRow]="datos">
+            <tr>
                 <!-- COLUMNA DE ALTURA DEL USUARIO -->
                 <td>
                     <p-cellEditor>
