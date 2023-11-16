@@ -60,14 +60,15 @@ export class CrearrutinasComponent {
       this.ejerSubmitted = true;
       this.rutina.ejercicios = this.selectedEjer;
       const resultado = this.servicioRutinas.crearRutina(this.rutina).then((resp) => {
-        alert('Se creo la rutina con exito')
+        alert('Se creo la rutina con exito');
+        this.router.navigate(['/rutinas']);
       }).catch((error) => {
-        alert('No se pudo crear la rutina')
+        alert('No se pudo crear la rutina');
+        this.router.navigate(['/rutinas']);
       })
     }else{
       this.ejerSubmitted = false;
     }
-    this.router.navigate(['/rutinas'])
   }
 
   editarRutina(){
@@ -76,13 +77,17 @@ export class CrearrutinasComponent {
       if(this.rutina.nombre && this.selectedEjer.length > 0){
         this.ejerSubmitted = true;
         this.rutina.idRutina = this.idEditar;
+        this.rutina.ejercicios = this.selectedEjer;
         this.servicioRutinas.modificarRutina(this.idEditar, this.rutina).then((resul)=>{
-          alert("Se actualizo correctamente")
+          alert("Se actualizo correctamente");
+          this.router.navigate(['/rutinas']);
         }).catch((error)=>{
-          alert("No se pudo actualizar")
+          alert("No se pudo actualizar");
+          this.router.navigate(['/rutinas']);
         })
+      }else{
+        this.ejerSubmitted = false;
       }
-      this.router.navigate(['/rutinas'])
   }
 
   volver(){
