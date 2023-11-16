@@ -20,6 +20,10 @@ export class CalculadoraCALComponent {
 
   database = '';
 
+  editar = false;
+
+  idEditar = '';
+
   submitted: any;
 
   datosColeccion: DatoUsuarios[] = [];
@@ -72,6 +76,13 @@ export class CalculadoraCALComponent {
   //Editar datos -> se llama al boton para el pop up
   editarDatos(datosSeleccionado:DatoUsuarios) {
     this.datosSeleccionado = datosSeleccionado;
+    if (confirm ("¿Desea modificar sus datos?") === true) {
+      this.editar = true;
+      this.idEditar = datosSeleccionado.uid;
+      this.openNew();
+    } else {
+      alert("No se pudieron modificar los datos");
+    }
   }
 
   edtiDatos() {
