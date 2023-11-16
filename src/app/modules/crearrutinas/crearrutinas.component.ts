@@ -70,17 +70,15 @@ export class CrearrutinasComponent {
   }
 
   editarRutina(){
-    if(confirm ('¿Desea editar la rutina?') === true){
       this.idEditar = this.rParaEditar.idRutina;
       this.submitted = true;
       if(this.rutina.nombre && this.selectedEjer.length > 0){
         this.ejerSubmitted = true;
         this.rutina.idRutina = this.idEditar;
         this.servicioRutinas.modificarRutina(this.idEditar, this.rutina).then((resul)=>{
-          
+          alert("se actualizo correctamente")
         })
       }
-    }
   }
 
   volver(){
