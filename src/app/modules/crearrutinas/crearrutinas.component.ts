@@ -77,7 +77,9 @@ export class CrearrutinasComponent {
         this.ejerSubmitted = true;
         this.rutina.idRutina = this.idEditar;
         this.servicioRutinas.modificarRutina(this.idEditar, this.rutina).then((resul)=>{
-          alert("se actualizo correctamente")
+          alert("Se actualizo correctamente")
+        }).catch((error)=>{
+          alert("No se pudo actualizar")
         })
       }
       this.router.navigate(['/rutinas'])
