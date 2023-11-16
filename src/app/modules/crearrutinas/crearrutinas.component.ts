@@ -13,7 +13,7 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 })
 export class CrearrutinasComponent {
 
-  a!: Rutina;
+  idEditar = '';
   rParaEditar!: Rutina;
   editar!: boolean;
   ejerSubmitted = false;
@@ -69,7 +69,19 @@ export class CrearrutinasComponent {
     }
   }
 
-
+  editarRutina(){
+    if(confirm ('¿Desea editar la rutina?') === true){
+      this.idEditar = this.rParaEditar.idRutina;
+      this.submitted = true;
+      if(this.rutina.nombre && this.selectedEjer.length > 0){
+        this.ejerSubmitted = true;
+        this.rutina.idRutina = this.idEditar;
+        this.servicioRutinas.modificarRutina(this.idEditar, this.rutina).then((resul)=>{
+          
+        })
+      }
+    }
+  }
 
   volver(){
     this.servicioRutinas.terminarSubject();
