@@ -61,14 +61,7 @@ export class CalculadoraCALComponent {
     this.datos.edad = 0;
   }
 
-  ngOnInit() {
-    this.generos = [
-      {name : 'Masculino', code: 'M'},
-      {name : 'Femenino', code: 'F'},
-      
-    ];
-  }
-  
+  //Esta función se encarga de guardar los nuevos datos para que luego se puedan modificar
   async guardarDatos(){
     this.servicioDatos.agregarDatos(this.datos.uid, this.datos.altura, this.datos.sexo, this.datos.edad, this.datos.peso)
     .then(res =>{
@@ -117,6 +110,5 @@ export class CalculadoraCALComponent {
         console.error('Error al guardar el IMC:', error);
     }
 }
- 
 
 }
