@@ -4,7 +4,7 @@
 <div class="containers">
     <div class="container1">
         <h2 *ngIf="!editar">Crear Rutina</h2>
-        <h2 *ngIf="editar === true">Editar Rutina</h2>
+        <h2 *ngIf="editar">Editar Rutina</h2>
         <!-- CAMPO PARA INGRESAR EL NOMBRE DE LA RUTINA -->
         
             <label for="nombre">Nombre</label><BR>
@@ -15,7 +15,8 @@
             <small class="p-error" *ngIf="submitted && !rutina.nombre">El nombre es obligatorio.</small>
         
         <br>
-        <button pButton class="p-button-secondary mr-2" (click)="agregarRutina()" label="Crear Rutina"></button>
+        <button pButton *ngIf="!editar" class="p-button-secondary mr-2" (click)="agregarRutina()" label="Crear Rutina"></button>
+        <button pButton *ngIf="editar" class="p-button-info mr-2" (click)="editarRutina()" label="Editar Ejercicio"></button>
     </div>
     <div class="container2">
         <h2>Ejercicios Agregados</h2>
