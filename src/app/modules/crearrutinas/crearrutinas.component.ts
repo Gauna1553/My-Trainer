@@ -67,6 +67,7 @@ export class CrearrutinasComponent {
     }else{
       this.ejerSubmitted = false;
     }
+    this.router.navigate(['/rutinas'])
   }
 
   editarRutina(){
@@ -79,6 +80,7 @@ export class CrearrutinasComponent {
           alert("se actualizo correctamente")
         })
       }
+      this.router.navigate(['/rutinas'])
   }
 
   volver(){
