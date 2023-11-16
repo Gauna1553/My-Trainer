@@ -101,6 +101,26 @@ export class CalculadoraCALComponent {
   */
   }
 
+  mostrarBorrar(datosSeleccionado: DatoUsuarios) {
+    this.datosSeleccionado = datosSeleccionado;
+    if(confirm("Desea eliminar los datos subidos") === true) {
+      this.borrarDatos()
+    } else {
+      alert ("No se pudieron borrar los datos")
+    }
+  }
+
+  borrarDatos() {
+    this.servicioDatos.eliminarDatos(this.datosSeleccionado.uid)
+    .then(respuesta => {
+      alert("Los datos se borraron de forma correcta")
+    })
+    .catch (error => {
+      alert("No se pudo borrar los datos"+ error)
+    })
+  }
+
+
   async calcular() {
     try {
         const result = this.servicioDatos.guardarIMC(this.datos.uid, this.datos.edad, this.datos.sexo, this.datos.altura, this.datos.peso, this.datos.imc);
@@ -109,6 +129,8 @@ export class CalculadoraCALComponent {
     } catch (error) {
         console.error('Error al guardar el IMC:', error);
     }
+
+    //Esta función se encarga de calcular tu indice de masa corporal para que el usuario sepa su rango
 }
 
 }

@@ -55,19 +55,33 @@ obtenerDatos () {
       Esta función se encarga de llamar al objeto usuario, y modificar un valor ya existente
     */
   }
+
+  eliminarDatos(uid: string) {
+    return new Promise ((resolve, reject) => {
+      try {
+        const resp = this.usuariosColeccion.doc(uid).delete()
+        resolve (resp)
+      } catch (error){
+        reject (error)
+      }
+    })
+  }
+
+
+
+
   calcularIMC(edad: number, sexo: string, altura: number, peso: number): number {
     if (sexo === 'Masculino') {
        return 66.473 + (13.752 * peso) + (5.0033 * altura) - (6.755 * edad);
     } else if (sexo === 'Femenino') {
        return 65.51 + (9.563 * peso) + (1.85 * altura) - (4.676 * edad);
     } else {
-       throw new Error('Sexo inválido. Debe ser "hombre" o "mujer".');
+      throw new Error('Sexo inválido. Debe ser "hombre" o "mujer".');
     }
-   
-   }
+  }
 
   guardarIMC(uid:string, edad: number, sexo: string, altura: number, peso: number, imc:number) {
-     imc = this.calcularIMC(edad, sexo, altura, peso);
+    imc = this.calcularIMC(edad, sexo, altura, peso);
   
     try {
       this.database.collection('usuarios').doc(uid).update({
