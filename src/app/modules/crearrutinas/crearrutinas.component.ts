@@ -16,7 +16,7 @@ export class CrearrutinasComponent {
   a!: Rutina;
   rParaEditar!: Rutina;
   editar!: boolean;
-  ejerSubmitted = false
+  ejerSubmitted = false;
   submitted = false;
   ejerciciosDialog = false;
   selectedEjer: Ejercicio[] = [];
@@ -26,7 +26,7 @@ export class CrearrutinasComponent {
 
   ngOnInit() {
     this.servicioRutinas.obtenerRutinaParaEditar().subscribe(rutinaRecibida =>{
-      this.rParaEditar = rutinaRecibida
+      this.rParaEditar = rutinaRecibida;
       console.log(this.rParaEditar)
       if(this.rParaEditar != undefined){
         this.editar = true;
@@ -52,11 +52,12 @@ export class CrearrutinasComponent {
   openNew() {
     this.ejerciciosDialog = true
   }
-
+  // FUNCION QUE SE EJECUTA AL TOCAR EL BOTON DE CREAR RUTINA
+  // ESTA HECHA PARA QUE SOLO SE EJECUTE CORRECTAMENTE AL COMPLETAR LOS CAMPOS
   agregarRutina() {
-    this.submitted = true
+    this.submitted = true;
     if (this.rutina.nombre && this.selectedEjer.length > 0) {
-      this.ejerSubmitted = true
+      this.ejerSubmitted = true;
       this.rutina.ejercicios = this.selectedEjer;
       const resultado = this.servicioRutinas.crearRutina(this.rutina).then((resp) => {
         alert('Se creo la rutina con exito')
@@ -67,6 +68,8 @@ export class CrearrutinasComponent {
       this.ejerSubmitted = false;
     }
   }
+
+
 
   volver(){
     this.servicioRutinas.terminarSubject();
