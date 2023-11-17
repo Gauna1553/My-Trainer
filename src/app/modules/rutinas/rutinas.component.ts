@@ -22,7 +22,8 @@ export class RutinasComponent {
     })
   }
   
-  enviarRutina(rutina: Rutina){
+  enviarRutina(rutina: Rutina, event: Event){
+    event.stopPropagation()
     this.servicioRutinas.terminarSubject();
     this.servicioRutinas.actualizarRutinaParaEditar(rutina);
     this.router.navigate(['/crear']);
