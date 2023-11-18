@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/model/usuarios';
 
 @Component({
   selector: 'app-perfil',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
+
+  constructor() {}
+
 }

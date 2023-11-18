@@ -19,6 +19,7 @@ usuarios: Usuario = {
     email: '',
     contrasena: '',
     rol: '',
+    token: '',
     edad: 0,
     altura: 0,
     peso: 0,
@@ -46,7 +47,7 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
 
     console.log(res)
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
 
   })
   .catch(error => alert("Hubo un error la registrarse: (\n"+error));
