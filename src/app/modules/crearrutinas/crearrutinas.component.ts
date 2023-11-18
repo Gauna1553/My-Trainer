@@ -94,9 +94,8 @@ export class CrearrutinasComponent {
       }
   }
 
-  //Esta funcion borra el objeto que contiene la rutina para editar (si es que lo hay) y te devuelve a la pagina de Rutinas
+  //Te devuelve a la pagina de Rutinas
   volver(){
-    this.servicioRutinas.terminarSubject();
     this.router.navigate(['/rutinas'])
   }
   //Cierra el dialog que muestra los ejercicios

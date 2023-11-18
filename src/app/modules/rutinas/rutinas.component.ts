@@ -10,6 +10,7 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 })
 export class RutinasComponent {
 
+  //Declaramos e inicializamos las propiedades que usamos en el componente
   rutinaColeccion: Rutina[] = [];
   rutinasDialog = true;
   rutinaSeleccionada!: Rutina;
@@ -17,11 +18,13 @@ export class RutinasComponent {
   constructor(public servicioRutinas: RutinasService, private router: Router) {}
 
   ngOnInit(){
+    //Obtenemos todas las rutinas desde FireBase
     this.servicioRutinas.obtenerRutina().subscribe(rutinas =>{
       this.rutinaColeccion = rutinas;
     })
   }
   
+  //Envia la rutina que queremos editar al rutinas.service y te deriva a la pagina de editar
   enviarRutina(rutina: Rutina, event: Event){
     event.stopPropagation()
     this.servicioRutinas.terminarSubject();
@@ -29,6 +32,7 @@ export class RutinasComponent {
     this.router.navigate(['/crear']);
   }
 
+  // Manda al rutinas.service la rutina que deseamos eliminar, despues de confirmar que el usuario quiere borrarla
   borrarRutina(rutinaSeleccionada: Rutina, event: Event){
     event.stopPropagation() //Esto hace que no se despliegue el fieldset
     this.rutinaSeleccionada = rutinaSeleccionada
@@ -43,6 +47,7 @@ export class RutinasComponent {
       alert('Se cancelo la eliminacion de la rutina');
     }
   }
+  // Borra el objeto que contenia a la rutina para editar y despues te deriva a la pagina de crear
   crearRutina(){
     this.servicioRutinas.terminarSubject();
     this.router.navigate(['/crear'])
