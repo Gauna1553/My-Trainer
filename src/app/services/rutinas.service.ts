@@ -55,15 +55,18 @@ export class RutinasService {
   }
 
   // ESTO HACE QUE SE CREE UN OBJETO OBSERVABLE, QUE CONTIENE LA RUTINA, DESDE EL BOTON PARA EDITAR QUE TIENEN LAS RUTINAS. CREARRUTINAS ESTA SUBSCRIPTO, 
-  // POR LO QUE RECIBE LA RUTINA DE LA QUE TOCAMOS EL BOTON Y LO PODEMOS USAR PARA EDITAR
+  // POR LO QUE RECIBE LA RUTINA DE LA QUE TOCAMOS EL BOTON Y LA PODEMOS USAR PARA EDITAR
   public rutinaParaEditar = new BehaviorSubject<any>(undefined);
+  //Borra el observable previo para despues crear uno nuevo
   terminarSubject(){
-    //this.rutinaParaEditar.complete();
+    this.rutinaParaEditar.complete();
     this.rutinaParaEditar = new BehaviorSubject<any>(undefined); 
   }
+  //Retorna el objeto como observable
   obtenerRutinaParaEditar(){
     return this.rutinaParaEditar.asObservable()
   }
+  //Ingresa la rutina al observable mediante el metodo next()
   actualizarRutinaParaEditar(rutina: Rutina){
     this.rutinaParaEditar.next(rutina);
   }
