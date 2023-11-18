@@ -12,6 +12,7 @@ import { RutinasService } from 'src/app/services/rutinas.service';
 })
 export class CrearrutinasComponent {
 
+  //Declaracion de las propiedades que usamos en este componente
   idEditar = '';
   rParaEditar!: Rutina;
   editar!: boolean;
@@ -24,6 +25,7 @@ export class CrearrutinasComponent {
   constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router) {}
 
   ngOnInit() {
+    //Esto obtiene la rutina para editar si es que la hay
     this.servicioRutinas.obtenerRutinaParaEditar().subscribe(rutinaRecibida =>{
       this.rParaEditar = rutinaRecibida;
       console.log(this.rParaEditar)
@@ -36,6 +38,7 @@ export class CrearrutinasComponent {
       this.ejerciciosColeccion = ejercicios
     })
   }
+  //Esto se fija si ya se seleccionaron ejercicios con cada cambio que haya en la pagina
   ngDoCheck(){
     if(this.selectedEjer.length > 0){
       this.ejerSubmitted = true
@@ -48,6 +51,7 @@ export class CrearrutinasComponent {
     ejercicios: []
   }
 
+  //Abre el dialog que muestra los ejercicios
   openNew() {
     this.ejerciciosDialog = true
   }
@@ -70,6 +74,7 @@ export class CrearrutinasComponent {
     }
   }
 
+  //Esta funcion envia como parametros el id de la rutina y los datos nuevos solo cuando los campos esten completos, ademas avisara cuando esten vacios
   editarRutina(){
       this.idEditar = this.rParaEditar.idRutina;
       this.submitted = true;
@@ -89,10 +94,12 @@ export class CrearrutinasComponent {
       }
   }
 
+  //Esta funcion borra el objeto que contiene la rutina para editar (si es que lo hay) y te devuelve a la pagina de Rutinas
   volver(){
     this.servicioRutinas.terminarSubject();
     this.router.navigate(['/rutinas'])
   }
+  //Cierra el dialog que muestra los ejercicios
   cerrarDialog(){
     this.ejerciciosDialog = false
   }
