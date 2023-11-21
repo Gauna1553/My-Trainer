@@ -82,6 +82,16 @@ export class CalculadoraCALComponent {
         alert("No se pudieron cargar los datos correctamente")
       })
     }
+    else {
+      if(this.datoss.altura & this.datoss.edad && this.datoss.peso && this.datoss.sexo) {
+        this.loading = true;
+        this.servicioDatos.modificarDatos(this.idEditar, this.datoss).then((resul) => {
+          this.loading = false;
+          this.editar = false;
+          this.datosDialog = false;   
+        })
+      }
+    }
   }
 
   //Editar datos -> se llama al boton para el pop up
