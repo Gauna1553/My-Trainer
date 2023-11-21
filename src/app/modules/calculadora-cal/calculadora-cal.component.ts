@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DatoUsuarios } from 'src/app/model/usuarios';
+import { Usuario } from 'src/app/model/usuarios';
 import { DatosService } from 'src/app/shared/services/datos.service';
 import { Input } from '@angular/core';
 
@@ -26,9 +26,9 @@ export class CalculadoraCALComponent {
 
   submitted: any;
 
-  datosColeccion: DatoUsuarios[] = [];
+  datosColeccion: Usuario[] = [];
 
-  datosSeleccionado!: DatoUsuarios;
+  datosSeleccionado!: Usuario;
 
   loading = false;
 
@@ -38,13 +38,19 @@ export class CalculadoraCALComponent {
     })
   }
 
-  datoss: DatoUsuarios = {
+  datoss: Usuario = {
+    uid: '',
+    nombre: '',
+    apellido: '',
+    email: '',
+    contrasena: '',
+    rol: '',
+    token: '',
     sexo: '',
+    edad: 0,
     altura: 0,
     peso: 0,
-    edad: 0,
     imc: 0,
-    uid: '',
   }
 
   //Esta función se encarga de abrir el pop up
@@ -58,12 +64,12 @@ export class CalculadoraCALComponent {
     this.datosDialog = false;
     this.datoss.altura = 0;
     this.datoss.peso = 0;
-    this.datoss.sexo = '';
+    this.datoss.sexo ='';
     this.datoss.edad = 0;
   }
 
   //Esta función se encarga de guardar los nuevos datos para que luego se puedan modificar
-  guardarDatos(datoss : DatoUsuarios){
+  guardarDatos(datoss : Usuario){
     this.submitted = true;
     if(!this.editar && this.datoss.altura & this.datoss.edad && this.datoss.peso && this.datoss.sexo) {
       this.loading = true;
@@ -79,7 +85,7 @@ export class CalculadoraCALComponent {
   }
 
   //Editar datos -> se llama al boton para el pop up
-  editarDatos(datosSeleccionado:DatoUsuarios) {
+  editarDatos(datosSeleccionado:Usuario) {
     this.datosSeleccionado = datosSeleccionado;
     if (confirm ("¿Desea modificar sus datos?") === true) {
       this.editar = true;
@@ -91,13 +97,19 @@ export class CalculadoraCALComponent {
   }
 
   edtiDatos() {
-    let datos: DatoUsuarios = {
+    let datos: Usuario = {
       uid: this.datoss.uid,
       edad: this.datoss.edad,
       altura: this.datoss.altura,
       peso: this.datoss.peso,
       sexo: this.datoss.sexo,
-      imc: this.datoss.imc
+      imc: this.datoss.imc,
+      nombre: this.datoss.nombre,
+      apellido: this.datoss.apellido,
+      email: this.datoss.email,
+      rol: this.datoss.rol,
+      token: this.datoss.token,
+      contrasena: this.datoss.contrasena
     }
 
     this.servicioDatos.modificarDatos(this.datosSeleccionado.uid, datos)
@@ -114,7 +126,7 @@ export class CalculadoraCALComponent {
   */
   }
 
-  mostrarBorrar(datosSeleccionado: DatoUsuarios) {
+  mostrarBorrar(datosSeleccionado: Usuario) {
     this.datosSeleccionado = datosSeleccionado;
     if(confirm("Desea eliminar los datos subidos") === true) {
       this.borrarDatos()

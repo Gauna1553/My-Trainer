@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DatoUsuarios } from 'src/app/model/usuarios';
+import { Usuario } from 'src/app/model/usuarios';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'
 import { map } from 'rxjs';
 
@@ -9,14 +9,14 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class DatosService {
-  private datosColeccion: AngularFirestoreCollection<DatoUsuarios>
+  private datosColeccion: AngularFirestoreCollection<Usuario>
   //dentro de los parametros de la BD
   constructor(private database: AngularFirestore) {
   //referenciamos colección de la BD
-    this.datosColeccion = this.database.collection<DatoUsuarios>('datos');
+    this.datosColeccion = this.database.collection<Usuario>('datos');
   }
 
-agregarDatos(datos: DatoUsuarios){
+agregarDatos(datos: Usuario){
   //RESOLVE: promesa resulta -> similar al then
   //REJECT: promesa rechazada -> similar al catch
   return new Promise(async(resolve,reject) =>{
@@ -44,7 +44,7 @@ obtenerDatos () {
 
   //funcion para editar los datos ingresados por el usuario
   /*Enviamos el id del usuario seleccionado y su nueva información*/
-  modificarDatos(uid: string, nuevaData: DatoUsuarios) {
+  modificarDatos(uid: string, nuevaData: Usuario) {
     return this.database.collection('datos').doc(uid).update(nuevaData);
     /*
       Esta función se encarga de llamar al objeto usuario, y modificar un valor ya existente
