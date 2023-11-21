@@ -13,7 +13,7 @@ export class DatosService {
   //dentro de los parametros de la BD
   constructor(private database: AngularFirestore) {
   //referenciamos colección de la BD
-    this.datosColeccion = this.database.collection<Usuario>('datos');
+    this.datosColeccion = this.database.collection<Usuario>('usuarios');
   }
 
 agregarDatos(datos: Usuario){

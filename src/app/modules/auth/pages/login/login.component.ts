@@ -22,10 +22,16 @@ export class LoginComponent {
   usuarios: Usuario = {
     uid: '',
     nombre: '',
+    apellido: '',
     email: '',
     contrasena: '',
     rol: '',
-    apellido: '',
+    token: '',
+    sexo: '',
+    edad: 0,
+    altura: 0,
+    peso: 0,
+    imc: 0,
     //Arreglo en donde se guardarar en los parametros del objeto Ejercicio
   }
 
