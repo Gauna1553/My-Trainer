@@ -69,7 +69,7 @@ export class CalculadoraCALComponent {
   }
 
   //Esta función se encarga de guardar los nuevos datos para que luego se puedan modificar
-  guardarDatos(datoss : Usuario){
+  guardarDatos(){
     this.submitted = true;
     if(!this.editar && this.datoss.altura & this.datoss.edad && this.datoss.peso && this.datoss.sexo) {
       this.loading = true;
@@ -85,7 +85,7 @@ export class CalculadoraCALComponent {
   }
 
   //Editar datos -> se llama al boton para el pop up
-  editarDatos(datosSeleccionado:Usuario) {
+  editarDatos(datosSeleccionado: Usuario) {
     this.datosSeleccionado = datosSeleccionado;
     if (confirm ("¿Desea modificar sus datos?") === true) {
       this.editar = true;
