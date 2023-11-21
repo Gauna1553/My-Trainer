@@ -1,6 +1,6 @@
 <h1 id="title">Mis Ejercicios</h1>
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
-<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="false" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
         <div class="field">
@@ -44,7 +44,7 @@
 
 <!-- TABLA DE LOS EJERCICIOS -->
 <div class="container">
-    <p-table [value]="ejerciciosColeccion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+    <p-table [value]="ejerciciosColeccion" dataKey="id" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
@@ -55,49 +55,17 @@
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
-        <ng-template pTemplate="body" let-ejerciciosss let-editing="editing" let-ri="rowIndex">
+        <ng-template pTemplate="body" let-ejerciciosss let-ri="rowIndex">
             <tr>
                 <!-- COLUMNA DE NOMBRES -->
-                <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.nombre"/>
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
-                            {{ ejerciciosss.nombre }} 
-                        </ng-template>
-                    </p-cellEditor>
-                </td>
-
+                <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
+                <td>{{ ejerciciosss.nombre }}</td>
                 <!-- COLUMNA DE GRUPO MUSCULAR -->
-                <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.grupomuscular" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->
-                            {{ ejerciciosss.grupomuscular }}
-                        </ng-template>
-                    </p-cellEditor>
-                </td>
-
+                <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->
+                <td>{{ ejerciciosss.grupomuscular }}</td>                            
                 <!-- COLUMNA DE RANGO DE REPETICIONES -->
-                <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
-                            <input pInputText type="text" [(ngModel)]="ejerciciosss.rangorep" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
-                            {{ ejerciciosss.rangorep }}
-                        </ng-template>
-                    </p-cellEditor>
-                </td>
+                <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
+                <td>{{ ejerciciosss.rangorep }}</td>
                 <td>
                     <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(ejerciciosss)"></button>
                     <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarEjercicio(ejerciciosss)"></button>

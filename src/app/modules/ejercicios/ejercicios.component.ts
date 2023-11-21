@@ -32,8 +32,8 @@ export class EjerciciosComponent implements OnInit {
   constructor(public servicioEjercicios: EjerciciosService) { }
 
   ngOnInit() {
-    /* llamamos función obtenerProducto y le enviamos los nuevos valores
-    del formulario producto (se guardan en la colección) */
+    /* llamamos función obtenerEjercicio y le enviamos los nuevos valores
+    del formulario ejercicios (se guardan en la colección) */
     this.servicioEjercicios.obtenerEjercicio().subscribe(ejercicios => {
       this.ejerciciosColeccion = ejercicios;
 

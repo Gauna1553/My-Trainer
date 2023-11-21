@@ -40,7 +40,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     InputTextModule,
     ButtonModule,
     TableModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
   ]
 })
 export class EjerciciosModule { }

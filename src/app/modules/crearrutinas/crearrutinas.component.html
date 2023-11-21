@@ -1,1 +1,40 @@
-<p>crearrutinas works!</p>
+<div id="volver">
+    <button pButton icon = "pi pi-chevron-left" label="Volver" class = "p-button-rounded p-button-text p-button-danger" (click)="volver()"></button>
+</div>
+<div class="containers">
+    <div class="container1">
+        <h2 *ngIf="!editar">Crear Rutina</h2>
+        <h2 *ngIf="editar">Editar Rutina</h2>
+        <!-- CAMPO PARA INGRESAR EL NOMBRE DE LA RUTINA -->
+        
+            <label for="nombre">Nombre</label><BR>
+            <!-- INPUT PARA INGRESAR EL NOMBRE DE LA RUTINA -->
+            <input pInputText [(ngModel)]="rutina.nombre" type="text" id="nombre" required>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+            <br>
+            <small class="p-error" *ngIf="submitted && !rutina.nombre">El nombre es obligatorio.</small>
+        
+        <br>
+        <button pButton *ngIf="!editar" class="p-button-secondary mr-2" (click)="agregarRutina()" label="Crear Rutina"></button>
+        <button pButton *ngIf="editar" class="p-button-secondary mr-2" (click)="editarRutina()" label="Editar Rutina"></button>
+    </div>
+    <div class="container2">
+        <h2>Ejercicios Agregados</h2>
+        <div class="card flex justify-content-center">
+            <p-listbox [options]="selectedEjer" optionLabel="nombre" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}"[disabled]="true"></p-listbox>
+        </div>
+        <small class="p-error" *ngIf="submitted && !ejerSubmitted">Agregue ejercicios</small>
+        <br>
+        <button pButton class="p-button-info mr-2" (click)="openNew()" label="Agregar Ejercicio"></button>
+    </div>
+</div>
+
+<p-dialog [(visible)]="ejerciciosDialog" [draggable]="false" [style]="{ width: '30%'}" [closable]="false" header="Seleccionar Ejercicio" [modal]="true" styleClass="p-fluid">
+    <div class="card flex justify-content-center">
+        <p-listbox [options]="ejerciciosColeccion" optionLabel="nombre" [multiple]="true" [metaKeySelection]="false" [(ngModel)]="selectedEjer" 
+        [filter]="true" [style]="{ width: '100%' }"></p-listbox>
+    </div>
+    <div id="botondialog">
+        <button pButton label="Listo" icon="pi pi-check" class="p-button-text" (click)="cerrarDialog()"></button>
+    </div>
+</p-dialog>
