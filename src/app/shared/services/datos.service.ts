@@ -16,13 +16,13 @@ export class DatosService {
     this.datosColeccion = this.database.collection<Usuario>('usuarios');
   }
 
-agregarDatos(datos: Usuario){
+agregarDatos(datos: Usuario, uid: string){
   //RESOLVE: promesa resulta -> similar al then
   //REJECT: promesa rechazada -> similar al catch
   return new Promise(async(resolve,reject) =>{
     try {
       const id = this.database.createId();
-      const resultado = await this.datosColeccion.doc(id).update(datos)
+      const resultado = await this.datosColeccion.doc(uid).update(datos)
       //muestra el resultado sin problema
       resolve(resultado);
     } catch(error) {
@@ -45,7 +45,7 @@ obtenerDatos () {
   //funcion para editar los datos ingresados por el usuario
   /*Enviamos el id del usuario seleccionado y su nueva información*/
   modificarDatos(uid: string, nuevaData: Usuario) {
-    return this.database.collection('datos').doc(uid).update(nuevaData);
+    return this.database.collection('usuarios').doc(uid).update(nuevaData);
     /*
       Esta función se encarga de llamar al objeto usuario, y modificar un valor ya existente
     */
@@ -79,7 +79,7 @@ obtenerDatos () {
     imc = this.calcularIMC(edad, sexo, altura, peso);
   
     try {
-      this.database.collection('datos').doc(uid).update({
+      this.database.collection('usuarios').doc(uid).update({
         imc: imc,
         
       });
