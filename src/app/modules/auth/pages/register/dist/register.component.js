@@ -42,59 +42,97 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.FooterComponent = void 0;
+exports.RegisterComponent = void 0;
 var core_1 = require("@angular/core");
-var FooterComponent = /** @class */ (function () {
-    function FooterComponent(servicioAuth, router) {
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent(servicioAuth, servicioFirestore, router) {
         this.servicioAuth = servicioAuth;
+        this.servicioFirestore = servicioFirestore;
         this.router = router;
+        this.hide = true; //esto es el input
+        this.usuarios = {
+            uid: '',
+            nombre: '',
+            apellido: '',
+            email: '',
+            contrasena: '',
+            rol: '',
+            token: '',
+            sexo: '',
+            edad: 0,
+            altura: 0,
+            peso: 0,
+            imc: 0
+        };
+        this.uid = '';
+        //creamos una nueva collecion para usuarios
+        this.coleccionUsuarios = [];
     }
-    FooterComponent.prototype.ngOnInit = function () {
-        this.items = [
-            {
-                label: 'Conceptos e Informacion',
-                icon: 'pi pi-fw pi-file',
-                routerLink: "/conceps"
-            },
-            {
-                label: 'Contactos',
-                icon: 'pi pi-fw pi-pencil',
-                routerLink: "/ejercicios"
-            },
-            {
-                label: 'Creadores',
-                icon: 'pi pi-fw pi-user',
-                routerLink: "/crear"
-            },
-        ];
-    };
-    //funcion par cerrar sesion
-    FooterComponent.prototype.salir = function () {
+    //tomamos nuevos registros y tomamos los resultados
+    RegisterComponent.prototype.registrarse = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var res;
+            var credenciales, res, uid;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.servicioAuth.cerrarSesion()
-                            .then(function (res) {
-                            alert("se ha deslogeado correctamente");
-                            console.log(res);
-                            _this.router.navigate(['/login']);
-                        })];
+                    case 0:
+                        credenciales = {
+                            email: this.usuarios.email,
+                            contrasena: this.usuarios.contrasena
+                        };
+                        return [4 /*yield*/, this.servicioAuth.registrarse(credenciales.email, credenciales.contrasena).then(function (res) {
+                                alert("se agrego un nuevo usuario con exito");
+                                console.log(res);
+                                _this.router.navigate(['/login']);
+                            })["catch"](function (error) { return alert("Hubo un error la registrarse: (\n" + error); })];
                     case 1:
                         res = _a.sent();
+                        return [4 /*yield*/, this.servicioAuth.getUid()];
+                    case 2:
+                        uid = _a.sent();
+                        //guarda un nuevo usuario
+                        this.usuarios.uid = uid;
+                        this.guardarUser();
                         return [2 /*return*/];
                 }
             });
         });
     };
-    FooterComponent = __decorate([
+    RegisterComponent.prototype.guardarUser = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
+                    .then(function (res) {
+                    //console.log(this.usuarios);
+                })["catch"](function (error) {
+                    console.log('Error =>', error);
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    RegisterComponent.prototype.ngOnInit = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var uid;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.servicioAuth.getUid()];
+                    case 1:
+                        uid = _a.sent();
+                        console.log(uid);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    RegisterComponent = __decorate([
         core_1.Component({
-            selector: 'app-footer',
-            templateUrl: './footer.component.html',
-            styleUrls: ['./footer.component.css']
+            selector: 'app-register',
+            templateUrl: './register.component.html',
+            styleUrls: ['./register.component.css']
         })
-    ], FooterComponent);
-    return FooterComponent;
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
-exports.FooterComponent = FooterComponent;
+exports.RegisterComponent = RegisterComponent;
+;

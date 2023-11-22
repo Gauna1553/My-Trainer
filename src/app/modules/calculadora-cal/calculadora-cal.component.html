@@ -46,7 +46,7 @@
             <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
             <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <button pButton *ngIf="!editar" label="Guardar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>
+            <!--<button pButton *ngIf="!editar" label="Guardar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>--> 
             <button pButton *ngIf="editar" label="Editar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>
         </div>
     </ng-template>
@@ -104,5 +104,5 @@
     <button pButton label="Subir Datos" class="p-button-secondary mr-2" (click)="openNew()"></button>
     <button pButton label="Calcular" class="p-button-secondary mr-2" (click)="calcular()"></button>
     <h2>Tu IMC es:</h2>
-    <span>{{imc}}</span>
+    <span>{{datoss.imc}}</span>
 </div>

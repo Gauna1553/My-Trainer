@@ -43,22 +43,13 @@ export class LoginComponent {
     apellido: '',
     email: '',
     contrasena: '',
-    apellido: '',
     rol: '',
     token: '',
-<<<<<<< HEAD
     sexo: '',
     edad: 0,
     altura: 0,
     peso: 0,
     imc: 0,
-=======
-    sexo: 0,
-    altura: 0,
-    peso: 0,
-    edad: 0
-
->>>>>>> 428ff6e6a5710745e41e3ff40ab12947cbffc08b
     //Arreglo en donde se guardarar en los parametros del objeto Ejercicio
   }
 
@@ -69,7 +60,7 @@ export class LoginComponent {
     //guarda los parametros email y constraseña en una constante
     };
 
-    const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
+    const res = await this.servicioAuth.iniciarSesion(credenciales.email!, credenciales.contrasena!)
     .then ((res) => {
       ///////Base de datos///////
       this.afAuth.authState.subscribe(usuario => {
