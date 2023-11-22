@@ -42,59 +42,68 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.FooterComponent = void 0;
+exports.UsuariosService = void 0;
 var core_1 = require("@angular/core");
-var FooterComponent = /** @class */ (function () {
-    function FooterComponent(servicioAuth, router) {
-        this.servicioAuth = servicioAuth;
-        this.router = router;
+var rxjs_1 = require("rxjs");
+var UsuariosService = /** @class */ (function () {
+    function UsuariosService(database) {
+        this.database = database;
+        this.usuariosColeccion = database.collection('usuarios');
     }
-    FooterComponent.prototype.ngOnInit = function () {
-        this.items = [
-            {
-                label: 'Conceptos e Informacion',
-                icon: 'pi pi-fw pi-file',
-                routerLink: "/conceps"
-            },
-            {
-                label: 'Contactos',
-                icon: 'pi pi-fw pi-pencil',
-                routerLink: "/ejercicios"
-            },
-            {
-                label: 'Creadores',
-                icon: 'pi pi-fw pi-user',
-                routerLink: "/crear"
-            },
-        ];
-    };
-    //funcion par cerrar sesion
-    FooterComponent.prototype.salir = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var res;
-            var _this = this;
+    UsuariosService.prototype.crearUsuario = function (usuarios) {
+        var _this = this;
+        return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+            var id, resultado, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.servicioAuth.cerrarSesion()
-                            .then(function (res) {
-                            alert("se ha deslogeado correctamente");
-                            console.log(res);
-                            _this.router.navigate(['/login']);
-                        })];
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        id = this.database.createId();
+                        usuarios.uid = id;
+                        return [4 /*yield*/, this.usuariosColeccion.doc(id).set(usuarios)];
                     case 1:
-                        res = _a.sent();
-                        return [2 /*return*/];
+                        resultado = _a.sent();
+                        resolve(resultado);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        reject(error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
+        }); });
+    };
+    UsuariosService.prototype.obtenerUsuario = function () {
+        //El snapshot se encarga de capturar los cambios
+        //El pipe seria el canal por donde pasan los datos
+        //El map se encargaria de recorrer esos datos y leerlos
+        return this.usuariosColeccion.snapshotChanges().pipe(rxjs_1.map(function (action) { return action.map(function (a) { return a.payload.doc.data(); }); }));
+        //Esta función se encarga de tomar los datos de los usuarios y mostrarlos.
+    };
+    //Modificar usuarios
+    UsuariosService.prototype.modificarUsuarios = function (uid, nuevaData) {
+        return this.database.collection('usuarios').doc(uid).update(nuevaData);
+        //Esta función de encarga de recolectar los datos ya existentes para luego modificar los que el administrador quiera
+    };
+    //Funcion para eliminar usuarios
+    UsuariosService.prototype.eliminarUsuarios = function (uid) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            try {
+                var resp = _this.usuariosColeccion.doc(uid)["delete"]();
+                resolve(resp);
+            }
+            catch (error) {
+                reject(error);
+            }
         });
     };
-    FooterComponent = __decorate([
-        core_1.Component({
-            selector: 'app-footer',
-            templateUrl: './footer.component.html',
-            styleUrls: ['./footer.component.css']
+    UsuariosService = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], FooterComponent);
-    return FooterComponent;
+    ], UsuariosService);
+    return UsuariosService;
 }());
-exports.FooterComponent = FooterComponent;
+exports.UsuariosService = UsuariosService;
