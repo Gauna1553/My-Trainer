@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Ejercicio } from 'src/app/model/ejercicios';
+import { Router } from '@angular/router';
+import { Rutina } from 'src/app/model/rutinas';
+import { RutinasService } from 'src/app/services/rutinas.service';
 
 @Component({
   selector: 'app-rutinas',
@@ -7,71 +9,47 @@ import { Ejercicio } from 'src/app/model/ejercicios';
   styleUrls: ['./rutinas.component.css']
 })
 export class RutinasComponent {
-  // DEFINICION DE LAS PROPIEDADES DONDE VOY A GUARDAR LOS EJERCICIOS
-  public rutinapecho: Ejercicio[];
-  public rutinaespalda: Ejercicio[];
-  public rutinapiernas: Ejercicio[];
 
-  constructor() {
-    // METO DENTRO DE UN ARREGLO CADA UNO DE LOS EJERCICIOS DE LA RUTINA DE PECHO
-    this.rutinapecho = [
-      {
-        idEjercicio: '',
-        nombre: 'Press de Banca',
-        grupomuscular: 'Pecho',
-        rangorep: '6-10'
-      },
-      {
-        idEjercicio: '',
+  //Declaramos e inicializamos las propiedades que usamos en el componente
+  rutinaColeccion: Rutina[] = [];
+  rutinasDialog = true;
+  rutinaSeleccionada!: Rutina;
 
-        nombre: 'Press de Banca Inclinada',
-        grupomuscular: 'Pecho',
-        rangorep: '6-10'
-      },
-      {
-        idEjercicio: '',
-        nombre: 'Pec Deck',
-        grupomuscular: 'Pecho',
-        rangorep: '8-12'
-      }
-    ];
-    // METO DENTRO DE UN ARREGLO CADA UNO DE LOS EJERCICIOS DE LA RUTINA DE ESPALDA
-    this.rutinaespalda = [
-      {
-        idEjercicio: '',
-        nombre:'Pull Over',
-        grupomuscular: "Espalda",
-        rangorep:"6-10"
-      },{
-        idEjercicio: '',
-        nombre: 'Jalon al pecho',
-        grupomuscular: 'Espalda',
-        rangorep: '8-12'
-      },{
-        idEjercicio: '',
-        nombre: 'Remo Gironda',
-        grupomuscular: 'Espalda',
-        rangorep: '6-8'
-      }
-    ];
-    // METO DENTRO DE UN ARREGLO CADA UNO DE LOS EJERCICIOS DE LA RUTINA DE PIERNAS
-    this.rutinapiernas = [
-      {
-        idEjercicio: '',
-        nombre: 'Leg Press',
-        grupomuscular: 'Piernas',
-        rangorep: '6-10'
-      },{
-        idEjercicio: '',
-        nombre: 'Sentadilla Hack',
-        grupomuscular: 'Piernas',
-        rangorep: '4-7'
-      },{
-        idEjercicio: '',
-        nombre: 'Peso muerto rumano',
-        grupomuscular: 'Piernas',
-        rangorep: '3-5'
-      }
-    ];
+  constructor(public servicioRutinas: RutinasService, private router: Router) {}
+
+  ngOnInit(){
+    //Obtenemos todas las rutinas desde FireBase
+    this.servicioRutinas.obtenerRutina().subscribe(rutinas =>{
+      this.rutinaColeccion = rutinas;
+    })
+  }
+  
+  //Envia la rutina que queremos editar al rutinas.service y te deriva a la pagina de editar
+  enviarRutina(rutina: Rutina, event: Event){
+    event.stopPropagation()
+    this.servicioRutinas.terminarSubject();
+    this.servicioRutinas.actualizarRutinaParaEditar(rutina);
+    this.router.navigate(['/crear']);
+  }
+
+  // Manda al rutinas.service la rutina que deseamos eliminar, despues de confirmar que el usuario quiere borrarla
+  borrarRutina(rutinaSeleccionada: Rutina, event: Event){
+    event.stopPropagation() //Esto hace que no se despliegue el fieldset
+    this.rutinaSeleccionada = rutinaSeleccionada
+    if(confirm('Desea eliminar la rutina') === true){ //Preguntamos si quiere borrar
+      this.servicioRutinas.eliminarRutina(this.rutinaSeleccionada.idRutina) // Captura el id de la rutina seleccionada y la pasa como parametro
+      .then(respuesta => { //En caso de que todo salga bien saltara este alert
+        alert('La rutina se elimino correctamente');
+      }).catch(error => { //En caso de que algo haya salido mal saltara este alert que muestra el error que hubo
+        alert('No se pudo eliminar la rutina: \n'+error)
+      })
+    }else{
+      alert('Se cancelo la eliminacion de la rutina');
+    }
+  }
+  // Borra el objeto que contenia a la rutina para editar y despues te deriva a la pagina de crear
+  crearRutina(){
+    this.servicioRutinas.terminarSubject();
+    this.router.navigate(['/crear'])
   }
 }

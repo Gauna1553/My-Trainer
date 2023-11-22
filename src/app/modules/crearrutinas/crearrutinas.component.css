@@ -1,0 +1,25 @@
+p-dialog{
+    height: 70%;
+}
+.container1{
+    margin-top: 5%;
+    width: 50%;
+    margin-left:10%;
+}
+.container2{
+    margin-top:5%;
+    width: 40%;
+    margin-right: 5%;
+}
+.containers{
+    display: flex;
+}
+#volver{
+    padding-left: 1%;
+    padding-top: 1%;
+}
+#botondialog{
+    padding-right: 35%;
+    padding-left: 35%;
+    padding-top: 2%;
+}

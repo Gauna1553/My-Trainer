@@ -1,16 +1,21 @@
+/* ESTO ANULA EL ESTILO DE PRIME Y LE SACA EL UNDERLINE A LOS FIELDSET */
+::ng-deep a {
+    text-decoration: none !important
+}
 div{
     margin-left: 20%;
     margin-right: 20%;
 }
-#finalcard{
-    margin-bottom: 8%;
-}
 #primeracard{
     margin-top: 2%;
+    margin-bottom: 8%;
 }
 #title{
     font-weight: 700;
     text-align: center;
     margin-top: 2%;   
     text-shadow: 2px 2px 2px rgb(208, 218, 229);
+}
+p-fieldset{
+    padding-bottom: 0.1%;
 }

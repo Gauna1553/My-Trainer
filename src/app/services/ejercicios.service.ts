@@ -50,7 +50,7 @@ export class EjerciciosService {
   //funcion para editar los ejercicios
   /*Enviamos el id del ejercicio seleccionado y su nueva información*/
   modificarEjercicio(idEjercicio: string, nuevaData: Ejercicio) {
-    return this.database.collection('ejercicios').doc(idEjercicio).update(nuevaData);
+    return this.ejerciciosColeccion.doc(idEjercicio).update(nuevaData);
     /*
       Esta función se encarga de llamar al objeto ejercicios, y modificar un valor ya existente
     */

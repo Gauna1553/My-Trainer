@@ -1,12 +1,21 @@
 <body>
     <!-- TITULO DEL COMPONENTE -->
-    <h1 id="title">Mis Rutinas</h1>
-    <!-- CONTENEDOR DE LA RUTINA DE PECHO -->
+    <div>
+        <h1 id="title">Mis Rutinas</h1>
+        <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="crearRutina()"></button>
+    </div>
+    <!-- CONTENEDOR DE LAS RUTINAS -->
     <div class="card" id="primeracard">
-        <p-fieldset legend="Pecho" [toggleable]="true"> <!-- TOGGLEABLE PERMITE QUE SE EXPANDA O CONTRAIGA -->
+        <!-- TOGGLEABLE PERMITE QUE SE EXPANDA O CONTRAIGA Y EL NGFOR ES PARA QUE LA LEGENDA SE ADAPTE A CADA RUTINA-->
+        <p-fieldset *ngFor="let rutina of rutinaColeccion" [toggleable]="true" [collapsed]="true">
+            <ng-template pTemplate="header" id="anashi">
+                <span>{{rutina.nombre}}</span>
+                <button pButton (click)="borrarRutina(rutina,$event)" icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger"></button>
+                <button pButton (click)="enviarRutina(rutina, $event)" icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info"></button>
+            </ng-template>
             <div class="card">
                 <!-- TABLA DE LA RUTINA DE PECHO -->
-                <p-table [value]="rutinapecho">
+                <p-table [value]="rutina.ejercicios">
                     <!-- HEADER DE LA TABLA -->
                     <ng-template pTemplate="header">
                         <tr>
@@ -15,61 +24,11 @@
                             <th>Rango de Repeticiones</th>
                         </tr>
                     </ng-template>
-                    <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
+                    <ng-template pTemplate="body" let-ejercicios> <!-- ESTE 'let-ejercicios' HACE QUE LOS EJERCICIOS PUEDAN MOSTRAR SUS ATRIBUTOS -->
                         <tr>
                             <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
-                            <td>{{ r.nombre }}</td>
-                            <td>{{ r.rangorep }}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </div>
-        </p-fieldset>
-    </div>
-    <!-- CONTENEDOR DE LA RUTINA DE ESPALDA -->
-    <div class="card">
-        <p-fieldset legend="Espalda" [toggleable]="true">
-            <div class="card">
-                <!-- TABLA DE RUTINA DE ESPALDA -->
-                <p-table [value]="rutinaespalda">
-                    <!-- HEADER -->
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <!-- COLUMNAS Y NOMBRES -->
-                            <th>Nombre</th>
-                            <th>Rango de Repeticiones</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
-                        <tr>
-                            <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
-                            <td>{{ r.nombre }}</td>
-                            <td>{{ r.rangorep }}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </div>
-        </p-fieldset>
-    </div>
-    <!-- CONTENEDOR DE LA RUTINA DE PIERNAS -->
-    <div class="card" id="finalcard">
-        <p-fieldset legend="Piernas" [toggleable]="true">
-            <div class="card">
-                <!-- TABLA DE RUTINAS DE PIERNA -->
-                <p-table [value]="rutinapiernas">
-                    <!-- HEADER -->
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <!-- COLUMNAS Y SUS NOMBRES -->
-                            <th>Nombre</th>
-                            <th>Rango de Repeticiones</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-r> <!-- ESTE LET-R CUMPLE LA MISMA FUNCION QUE EL *ngFor="let" -->
-                        <tr>
-                            <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
-                            <td>{{ r.nombre }}</td>
-                            <td>{{ r.rangorep }}</td>
+                            <td>{{ ejercicios.nombre }}</td>
+                            <td>{{ ejercicios.rangorep }}</td>
                         </tr>
                     </ng-template>
                 </p-table>

@@ -1,0 +1,149 @@
+<div class = "container">
+    <h1 id="title" align="center">Usuarios</h1>
+<br>
+
+<!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
+<p-dialog [(visible)]="usuariosDialog" [style]="{ width: '450px' }" header="Usuario Nuevo" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL USUARIO -->
+        <div class="field">
+            <label for="nombre">Nombre</label>
+            <!-- INPUT PARA INGRESAR EL NOMBRE DEL USUARIO -->
+            <input [(ngModel)]="usuarioss.nombre" pInputText name="ejerNombre" type="text" id="nombre" required>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+            <small class="p-error" *ngIf="submitted && !usuarioss.nombre">El nombre es obligatorio.</small>
+        </div>
+
+                <!-- CAMPO PARA INGRESAR EL APELLIDO DEL USUARIO -->
+                <div class="field">
+                    <label for="nombre">Apellido</label>
+                    <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+                    <input [(ngModel)]="usuarioss.apellido" pInputText name="ejerNombre" type="text" id="nombre" required>
+                    <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+                    <small class="p-error" *ngIf="submitted && !usuarioss.apellido">El apellido es obligatorio.</small>
+                </div>
+
+                <!-- CAMPO PARA INGRESAR EL EMIAL DEL USUARIO -->
+        <div class="field">
+            <label for="nombre">Email</label>
+            <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+            <input [(ngModel)]="usuarioss.email" pInputText name="ejerNombre" type="text" id="nombre" required>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+            <small class="p-error" *ngIf="submitted && !usuarioss.email">El email es obligatorio.</small>
+        </div>
+
+                <!-- CAMPO PARA INGRESAR LA CONTRASEÑA DEL USUARIO -->
+                <div class="field">
+                    <label for="nombre">Contraseña</label>
+                    <!-- INPUT PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+                    <!--<input [(ngModel)]="usuarioss.contrasena" pInputText name="ejerNombre" type="password" id="nombre" required>-->
+                    <p-password [(ngModel)]="usuarioss.contrasena" [toggleMask]="true"></p-password>
+                    <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+                    <small class="p-error" *ngIf="submitted && !usuarioss.contrasena">El nombre es obligatorio.</small>
+                </div>
+
+        <!-- CAMPO PARA INGRESAR EL ROL QUE TENDRA EL USUARIO -->
+        <div class="field">
+            <label for="rango">Rol de Usuario</label>
+            <!-- INPUT PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
+            <input [(ngModel)]="usuarioss.rol" pInputText type="text" id="rango" name="rangorep" required>
+            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+            <small class="p-error" *ngIf="submitted && !usuarioss.rol">El rango es obligatorio.</small>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div>
+            <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
+            <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+            <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
+            <button pButton *ngIf="!editar" label="Crear Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
+            <button pButton *ngIf="editar" label="Editar Usuario" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="crearUsuario()"></button>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<!-- TABLA DE LOS EJERCICIOS -->
+<div class="container">
+    <p-table [value]="usuariosCollecion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+        <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol de Usuario</th>
+                <th>Eliminar o editar</th>
+            </tr>
+        </ng-template>
+        <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
+        <ng-template pTemplate="body" let-usuariosss let-editing="editing" let-ri="rowIndex">
+            <tr>
+                <!-- COLUMNA DE LOS ID DE USUARIOS -->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
+                            <input pInputText type="text" [(ngModel)]="usuariosss.uid"/>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo ID que traemos desde el service -->
+                            {{ usuariosss.uid }} 
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+                <!-- COLUMNA DE NOMRBES LOS USUARIOS -->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
+                            <input pInputText type="text" [(ngModel)]="usuariosss.nombre" required />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
+                            {{ usuariosss.nombre }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+                <!-- COLUMNA DE EMAILS DE LOS USUARIOS-->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
+                            <input pInputText type="text" [(ngModel)]="usuariosss.email" required />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo email que traemos desde el service -->
+                            {{ usuariosss.email }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+                <!-- COLUMNA DE ROLES DE LOS USUARIOS -->
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
+                            <input pInputText type="text" [(ngModel)]="usuariosss.rol" required />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <!-- Utilizamos interpolacion para mostrar el atributo rol que traemos desde el service -->
+                            {{ usuariosss.rol }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(usuarioss)"></button>
+                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarUsuario(usuarioss)"></button>
+                </td>
+            </tr>
+        </ng-template>   
+    </p-table>
+
+
+    <!-- ESTE BOTON ABRE EL POPUP -->
+    <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="openNew()"></button>
+</div>
+</div>
