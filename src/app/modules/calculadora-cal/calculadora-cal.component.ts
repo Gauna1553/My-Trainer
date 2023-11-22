@@ -74,7 +74,7 @@ export class CalculadoraCALComponent {
     console.log(this.datoss);
     if(!this.editar && this.datoss.altura & this.datoss.edad && this.datoss.peso && this.datoss.sexo) {
       this.loading = true;
-      const resultado =  this.servicioDatos.agregarDatos(this.datoss, this.idEditar).then((resp)=>{
+      const resultado =  this.servicioDatos.agregarDatos(this.datoss).then((resp)=>{
         this.loading = false;
         alert ("Se cargaron los datos de manera correcta")
       })

@@ -16,13 +16,13 @@ export class DatosService {
     this.datosColeccion = this.database.collection<Usuario>('usuarios');
   }
 
-agregarDatos(datos: Usuario, uid: string){
+agregarDatos(datos: Usuario){
   //RESOLVE: promesa resulta -> similar al then
   //REJECT: promesa rechazada -> similar al catch
   return new Promise(async(resolve,reject) =>{
     try {
       const id = this.database.createId();
-      const resultado = await this.datosColeccion.doc(uid).update(datos)
+      const resultado = await this.datosColeccion.doc(id).update(datos)
       //muestra el resultado sin problema
       resolve(resultado);
     } catch(error) {
@@ -88,7 +88,6 @@ obtenerDatos () {
       error
     }
   }
-
 }
 
 
