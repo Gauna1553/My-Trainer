@@ -70,58 +70,26 @@
             <tr>
                 <!-- COLUMNA DE ALTURA DEL USUARIO -->
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
-                            <input pInputText type="text" [(ngModel)]="datos.altura"/>
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
-                            {{ datos.altura }} 
-                        </ng-template>
-                    </p-cellEditor>
+                    <!-- Utilizamos interpolacion para mostrar el atributo altura que traemos desde el service -->
+                    {{ datos.altura }}
                 </td>
 
                 <!-- COLUMNA DEL PESO DEL USUARIO -->
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
-                            <input pInputText type="number" [(ngModel)]="datos.peso" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo grupomuscular que traemos desde el service -->
-                            {{ datos.peso }}
-                        </ng-template>
-                    </p-cellEditor>
+                    <!-- Utilizamos interpolacion para mostrar el atributo peso que traemos desde el service -->
+                    {{ datos.peso }}
                 </td>
 
                 <!-- COLUMNA DE LA EDAD DEL USUARIO -->
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
-                            <input pInputText type="text" [(ngModel)]="datos.edad" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
-                            {{ datos.edad }}
-                        </ng-template>
-                    </p-cellEditor>
+                    <!-- Utilizamos interpolacion para mostrar el atributo edad que traemos desde el service -->
+                    {{ datos.edad }}
                 </td>
 
                 <!-- COLUMNA DEL GENERO DEL USUARIO -->
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
-                            <input pInputText type="text" [(ngModel)]="datos.sexo" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
-                            {{ datos.sexo }}
-                        </ng-template>
-                    </p-cellEditor>
+                    <!-- Utilizamos interpolacion para mostrar el atributo sexo que traemos desde el service -->
+                    {{ datos.sexo }}
                 </td>
 
                 <td>

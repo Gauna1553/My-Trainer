@@ -71,7 +71,6 @@ export class CalculadoraCALComponent {
   //Esta función se encarga de guardar los nuevos datos para que luego se puedan modificar
   guardarDatos(){
     this.submitted = true;
-    console.log(this.datoss);
     if(!this.editar && this.datoss.altura & this.datoss.edad && this.datoss.peso && this.datoss.sexo) {
       this.loading = true;
       const resultado =  this.servicioDatos.agregarDatos(this.datoss).then((resp)=>{
@@ -86,6 +85,7 @@ export class CalculadoraCALComponent {
     else {
       if(this.datoss.altura & this.datoss.edad && this.datoss.peso && this.datoss.sexo) {        
         this.loading = true;
+        this.datoss.uid = this.idEditar;
         this.servicioDatos.modificarDatos(this.idEditar, this.datoss).then((resul) => {
           this.loading = false;
           this.editar = false;
