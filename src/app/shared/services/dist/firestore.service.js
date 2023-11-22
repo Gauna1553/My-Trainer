@@ -63,7 +63,7 @@ var FirestoreService = /** @class */ (function () {
                         _a.trys.push([0, 2, , 3]);
                         return [4 /*yield*/, this.usuariosColletion.doc(id).update({
                                 edad: edad,
-                                sexo: sexo,
+                                sexo: '',
                                 altura: altura,
                                 peso: peso
                             })

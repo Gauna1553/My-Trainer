@@ -25,7 +25,7 @@
         <div class="field">
             <label for="rango">Edad</label>
             <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
-            <input [(ngModel)]="datoss.edad" pInputText type="text" id="rango" name="rangorep" required>
+            <input [(ngModel)]="datoss.edad" pInputText type="number" id="rango" name="rangorep" required>
             <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
             <small class="p-error" *ngIf="submitted && !datoss.edad">El rango es obligatorio.</small>
         </div>
