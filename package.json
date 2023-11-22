@@ -19,7 +19,7 @@
     "@angular/forms": "^16.2.12",
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
-    "@angular/router": "^16.0.0",
+    "@angular/router": "^16.2.12",
     "bootstrap": "^5.3.0",
     "cookies": "^0.8.0",
     "firebase": "^10.3.1",
