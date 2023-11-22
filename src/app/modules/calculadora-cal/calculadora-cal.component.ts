@@ -107,7 +107,7 @@ export class CalculadoraCALComponent {
     }
   }
 
-  edtiDatos() {
+  editDatos() {
     let datos: Usuario = {
       uid: this.datoss.uid,
       edad: this.datoss.edad,
