@@ -7,8 +7,9 @@ export interface Usuario {
     rol: string;
     token: string;
     contrasena: string;
-    sexo:number;
+    sexo:string;
     edad:number;
     altura:number;
     peso:number;
+    imc: number;
 }

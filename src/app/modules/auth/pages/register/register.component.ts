@@ -13,6 +13,20 @@ export class RegisterComponent {
   hide = true; //esto es el input
 
 usuarios: Usuario = {
+<<<<<<< HEAD
+  uid: '',
+  nombre: '',
+  apellido: '',
+  email: '',
+  contrasena: '',
+  rol: '',
+  token: '',
+  sexo: '',
+  edad: 0,
+  altura: 0,
+  peso: 0,
+  imc: 0,
+=======
     uid: '',
     nombre: '',
     apellido: '',
@@ -25,6 +39,7 @@ usuarios: Usuario = {
     peso: 0,
     sexo:0
 
+>>>>>>> 428ff6e6a5710745e41e3ff40ab12947cbffc08b
 }
 
   uid = '';

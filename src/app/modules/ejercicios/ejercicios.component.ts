@@ -126,7 +126,7 @@ export class EjerciciosComponent implements OnInit {
     */
   }
 
-  //Editar producto -> se llama al boton para el pop up
+  //Editar ejercicio -> se llama al boton para el pop up
   editarEjercicio(ejercicioSeleccionado: Ejercicio) {
     this.ejercicioSeleccionado = ejercicioSeleccionado;
     if (confirm("Desea editar el ejercicio?") === true) {
@@ -164,4 +164,9 @@ export class EjerciciosComponent implements OnInit {
   Esta funcion toma los valores asignados de la colección de ejercicios, y los modifica, excepto el valor ID.
   En caso de hacerlo bien, se muestra el primer mensaje, en caso contrario, muestra el segundo mensaje
   */
+<<<<<<< HEAD
+
 }
+=======
+}
+>>>>>>> 428ff6e6a5710745e41e3ff40ab12947cbffc08b
