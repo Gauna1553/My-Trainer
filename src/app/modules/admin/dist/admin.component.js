@@ -30,10 +30,11 @@ var AdminComponent = /** @class */ (function () {
             contrasena: '',
             rol: '',
             token: '',
-            sexo: 0,
+            sexo: '',
             edad: 0,
             altura: 0,
-            peso: 0
+            peso: 0,
+            imc: 0
         };
     }
     AdminComponent.prototype.ngOnInit = function () {
@@ -143,7 +144,8 @@ var AdminComponent = /** @class */ (function () {
             sexo: this.usuarios.sexo,
             edad: this.usuarios.edad,
             altura: this.usuarios.altura,
-            peso: this.usuarios.peso
+            peso: this.usuarios.peso,
+            imc: this.usuarios.imc
             //se pasan los datos del objeto Usuario para luego poder almacenar los nuevos con la finalidad de poder ser editados
         };
         this.usuariosService.modificarUsuarios(this.usuarioSeleccionado.uid, datos)
