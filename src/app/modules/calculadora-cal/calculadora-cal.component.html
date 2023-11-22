@@ -46,7 +46,7 @@
             <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
             <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
             <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <button pButton *ngIf="!editar" label="Guardar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>
+            <!--<button pButton *ngIf="!editar" label="Guardar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>--> 
             <button pButton *ngIf="editar" label="Editar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>
         </div>
     </ng-template>

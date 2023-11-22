@@ -22,7 +22,7 @@ agregarDatos(datos: Usuario){
   return new Promise(async(resolve,reject) =>{
     try {
       const id = this.database.createId();
-      const resultado = await this.datosColeccion.doc(id).update(datos)
+      const resultado = await this.datosColeccion.doc(id).set(datos)
       //muestra el resultado sin problema
       resolve(resultado);
     } catch(error) {

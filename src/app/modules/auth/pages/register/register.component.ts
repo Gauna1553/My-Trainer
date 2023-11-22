@@ -42,7 +42,7 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
       contrasena: this.usuarios.contrasena,
     }
 
-  const res = await this.servicioAuth.registrarse(credenciales.email,credenciales.contrasena).then(res => {
+  const res = await this.servicioAuth.registrarse(credenciales.email!,credenciales.contrasena!).then(res => {
     alert("se agrego un nuevo usuario con exito")
 
     console.log(res)

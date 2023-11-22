@@ -39,18 +39,11 @@ export class CalculadoraCALComponent {
   }
 
   datoss: Usuario = {
-    uid: '',
-    nombre: '',
-    apellido: '',
-    email: '',
-    contrasena: '',
-    rol: '',
-    token: '',
-    sexo: '',
     edad: 0,
     altura: 0,
     peso: 0,
     imc: 0,
+    sexo:''
   }
 
   //Esta función se encarga de abrir el pop up

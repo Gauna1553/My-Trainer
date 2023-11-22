@@ -60,7 +60,7 @@ export class LoginComponent {
     //guarda los parametros email y constraseña en una constante
     };
 
-    const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
+    const res = await this.servicioAuth.iniciarSesion(credenciales.email!, credenciales.contrasena!)
     .then ((res) => {
       ///////Base de datos///////
       this.afAuth.authState.subscribe(usuario => {
