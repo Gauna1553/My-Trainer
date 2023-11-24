@@ -14,33 +14,33 @@ export class HomeComponent {
   images = [
     {
 
-        imageSrc: "../../../assets/hqdefault.jpg",
-        thumbnailSrc: "../../../assets/hqdefault.jpg",
+        imageSrc: "../../../assets/messi.jpeg",
+        thumbnailSrc: "../../../assets/messi.jpeg",
         alt: "Imagen 1",
-        title: "Gordo ruso"
+        title: "MEssi"
     },
     {
-      imageSrc: "../../../assets/logo.png",
-        thumbnailSrc: "../../../assets/logo.png",
+      imageSrc: "../../../assets/sulek.jpg",
+        thumbnailSrc: "../../../assets/sulek.jpg",
         alt: "Imagen 2",
-        title: "Imagen 2"
+        title: "Sam Sulek"
 
     },
     {
-    imageSrc: "../../../assets/sobrecarga.jpg",
-        thumbnailSrc: "../../../assets/sobrecarga.jpg",
+    imageSrc: "../../../assets/diego2.jpg",
+        thumbnailSrc: "../../../assets/diego2.jpg",
         alt: "Imagen 3",
         title: "Imagen 3"
     },
     {
-      imageSrc: "../../../assets/intensidad.jpg",
-          thumbnailSrc: "../../../assets/intensidad.jpg",
+      imageSrc: "../../../assets/maradona.jpg",
+          thumbnailSrc: "../../../assets/maradona.jpg",
           alt: "Imagen 4",
           title: "Imagen 4"
       },
       {
-        imageSrc: "../../../assets/volumen.jpg",
-            thumbnailSrc: "../../../assets/volumen.jpg",
+        imageSrc: "../../../assets/momingo.jpg",
+            thumbnailSrc: "../../../assets/momingo.jpg",
             alt: "Imagen 5",
             title: "Imagen 5"
         },

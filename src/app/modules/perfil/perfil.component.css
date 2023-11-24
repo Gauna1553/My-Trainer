@@ -1,11 +1,16 @@
 i{
-    font-size:1500%;
+    font-size:900%;
 }
 #aaaa{
-    text-align: center;
+    text-align: left;
     margin-top: 2%;
+    margin-left: 3%;
 }
-button{
-    margin-top: 5%;
-    width: 15%;
+
+.data {
+    width:20%;
+    padding: 2px;
+    margin: 4%;
+    position: relative;
+    border-radius: 25px;
 }
