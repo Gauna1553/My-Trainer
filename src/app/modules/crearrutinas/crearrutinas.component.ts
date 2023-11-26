@@ -21,6 +21,7 @@ export class CrearrutinasComponent {
   ejerciciosDialog = false;
   selectedEjer: Ejercicio[] = [];
   ejerciciosColeccion: Ejercicio[] = [];
+  loading = false;
 
   constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router) {}
 
