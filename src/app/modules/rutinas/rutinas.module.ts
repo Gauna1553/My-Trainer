@@ -4,6 +4,8 @@ import { RutinasComponent } from './rutinas.component';
 import { RutinasRoutingModule } from './rutinas-routing.module';
 import { CrearrutinasModule } from '../crearrutinas/crearrutinas.module';
 
+
+//importaciones de prime
 import { FieldsetModule } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -15,6 +17,8 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     CommonModule,
     RutinasRoutingModule,
+
+    //Imporaciones de prime
     FieldsetModule,
     TableModule,
     CrearrutinasModule,

@@ -141,4 +141,27 @@ export class EjerciciosComponent implements OnInit {
       La principal diferencia es que ahora abre una ventana modal con los campos del ejercicio actuales, para así poder editarlos.
     */
   }
+
+  editEjercicio() {
+    console.log(this.ejercicios)
+    let datos: Ejercicio = {
+      nombre: this.ejercicioSeleccionado.nombre,
+      idEjercicio: this.ejercicioSeleccionado.idEjercicio,
+      grupomuscular: this.ejercicioSeleccionado.grupomuscular,
+      rangorep: this.ejercicioSeleccionado.rangorep
+    }
+
+    this.servicioEjercicios.modificarEjercicio(this.ejercicioSeleccionado.idEjercicio, datos)
+      .then(ejercicios => {
+        alert("El ejercicio se modifico con exito")
+      })
+      .catch(error => {
+        alert("no se pudo modificar el ejercicio: (\n" + error)
+      })
+  }
+
+  /*
+  Esta funcion toma los valores asignados de la colección de ejercicios, y los modifica, excepto el valor ID.
+  En caso de hacerlo bien, se muestra el primer mensaje, en caso contrario, muestra el segundo mensaje
+  */
 }
