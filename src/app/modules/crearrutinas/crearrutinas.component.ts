@@ -83,13 +83,16 @@ export class CrearrutinasComponent {
       this.idEditar = this.rParaEditar.idRutina;
       this.submitted = true;
       if(this.rutina.nombre && this.selectedEjer.length > 0){
+        this.loading = true;
         this.ejerSubmitted = true;
         this.rutina.idRutina = this.idEditar;
         this.rutina.ejercicios = this.selectedEjer;
         this.servicioRutinas.modificarRutina(this.idEditar, this.rutina).then((resul)=>{
+          this.loading = false;
           alert("Se actualizo correctamente");
           this.router.navigate(['/rutinas']);
         }).catch((error)=>{
+          this.loading = false;
           alert("No se pudo actualizar");
           this.router.navigate(['/rutinas']);
         })
