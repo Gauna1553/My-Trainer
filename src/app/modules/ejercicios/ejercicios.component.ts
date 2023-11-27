@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-ejercicios',
@@ -29,7 +30,7 @@ export class EjerciciosComponent implements OnInit {
 
   ejercicios!: Ejercicio
 
-  constructor(public servicioEjercicios: EjerciciosService) { }
+  constructor(public servicioEjercicios: EjerciciosService, public servicioAuth: AuthService) { }
 
   ngOnInit() {
     /* llamamos función obtenerEjercicio y le enviamos los nuevos valores
@@ -38,6 +39,12 @@ export class EjerciciosComponent implements OnInit {
       this.ejerciciosColeccion = ejercicios;
 
       //Es una coleccion para poder seleccionar a mas de un elemento
+    })
+    this.servicioAuth.isLoggedIn().subscribe(estalogeado => {
+      console.log(estalogeado)
+    })
+    this.servicioAuth.getUserType().subscribe(tipo => {
+      console.log(tipo)
     })
   }
 

@@ -65,8 +65,12 @@ export class AuthService{
   getUserType(){
     return this.userType.asObservable();  
   }
-  login(user: Usuario){
+  login(rol: any){
     this.loggedIn.next(true);
-    this.userType.next(user.rol)
+    this.userType.next(rol)
+  }
+  logout(){
+    this.loggedIn.next(false);
+    this.userType.next(undefined)
   }
 }

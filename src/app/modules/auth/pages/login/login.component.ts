@@ -68,15 +68,15 @@ export class LoginComponent {
           this.fireStore.collection('usuarios').doc(usuario.uid).valueChanges().subscribe((data: any)=> {
             //Aqui se obtienen las credenciales del usuario
             const rol = data.rol;
-
+            this.servicioAuth.login(rol)
             //Rediriges al usuario basado en sus credenciales
             if (rol === 'usuario') {
-              this.router.navigate(['/inicio']);
+              this.router.navigate(['/']);
             } else {
               if (rol === 'admin') {
                 this.router.navigate(['/admin']);
               } else {
-                this.router.navigate(['/visitante'])
+                this.router.navigate(['/'])
               }
             }
           })
@@ -100,6 +100,7 @@ export class LoginComponent {
   async salir(){
     const res = await this.servicioAuth.cerrarSesion()
     .then(res => {
+      this.servicioAuth.logout();
       alert ("Se ha deslogeado correctamente");
       this.router.navigate(['/login'])
     })
