@@ -20,7 +20,9 @@ p-fieldset{
     padding-bottom: 0.1%;
 }
 #button{
-    
     margin-top: 2%;
     width: 100%;
+}
+#tabla{
+    margin: -2.5%;
 }
