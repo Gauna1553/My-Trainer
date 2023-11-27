@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrearrutinasComponent } from './crearrutinas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrearrutinasRoutingModule } from './crearrutinas-routing.module.';
+
 
 //Importaciones de PrimeNG
 import { ButtonModule } from 'primeng/button';
@@ -15,6 +17,7 @@ import { ListboxModule } from 'primeng/listbox';
   ],
   imports: [
     CommonModule,
+    CrearrutinasRoutingModule,
     ButtonModule,
     DialogModule,
     InputTextModule,
