@@ -43,7 +43,9 @@
 </p-dialog>
 
 <!-- TABLA DE LOS EJERCICIOS -->
-<div class="container">
+<div class="container" id="tabla">
+    <!-- ESTE BOTON ABRE EL POPUP -->
+    <button pButton label="+ Nuevo" id="boton" class="p-button-secondary mr-2" (click)="openNew()"></button>
     <p-table [value]="ejerciciosColeccion" dataKey="id" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
@@ -73,8 +75,4 @@
             </tr>
         </ng-template>   
     </p-table>
-
-
-    <!-- ESTE BOTON ABRE EL POPUP -->
-    <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="openNew()"></button>
 </div>

@@ -19,7 +19,8 @@ div{
 p-fieldset{
     padding-bottom: 0.1%;
 }
-#botoncrear{
-    text-align: right;
-    margin-top: -3%;
+#button{
+    
+    margin-top: 2%;
+    width: 100%;
 }
