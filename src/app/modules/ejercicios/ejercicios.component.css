@@ -2,12 +2,6 @@
 #nombre, #grupo, #rango {
     margin-top: 2%;
 }
-/* ESTO HACE QUE EL BOTON DE NUEVO TENGA UN MARGEN ARRIBA Y ABAJO */
-button{
-    margin-bottom:8%;
-    margin-top: 2%;
-    width: 100%;
-}
 /* ESTILO DEL TITULO */
 #title{
     font-weight: 700;
@@ -15,4 +9,11 @@ button{
     margin-top: 2%;
     margin-bottom: 2%;   
     text-shadow: 2px 2px 2px rgb(208, 218, 229);
+}
+#tabla{
+    margin-bottom: 8%;
+    width: 80%;
+}
+#boton{
+    width: 100%;
 }
