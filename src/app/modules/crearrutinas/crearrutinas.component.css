@@ -1,6 +1,9 @@
 p-dialog{
     height: 70%;
 }
+button{
+    border-radius: 5px;
+}
 .container1{
     margin-top: 5%;
     width: 50%;
