@@ -4,9 +4,9 @@ import { HomeComponent } from './modules/home/home.component';
 
 
 const routes: Routes = [
+  {path: '', component: HomeComponent, pathMatch: 'prefix'},   //ruta de home
    //lazyloading
-  {path: '',loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},
-  {path: 'inicio', component: HomeComponent},{   //ruta de home
+  {path: '',loadChildren:()=>import('./modules/auth/auth.module').then(m =>m.AuthModule)},{
   // SE DEJAN ESTAS RUTAS VACIAS PORQUE YA SE DECLARARON EN CADA UNO DE LOS ROUTING 
   path: '', loadChildren:()=>import('./modules/perfil/perfil.module').then(m=>m.PerfilModule)},{   //ruta de perfil
   path: '', loadChildren:()=>import('./modules/rutinas/rutinas.module').then(m=>m.RutinasModule)},{   //ruta de rutinas
