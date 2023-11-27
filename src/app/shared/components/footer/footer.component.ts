@@ -40,19 +40,12 @@ export class FooterComponent implements OnInit {
 }
   //funcion par cerrar sesion
   async salir(){
-    /*const res = await this.servicioAuth.cerrarSesion()
+    const res = await this.servicioAuth.cerrarSesion()
     .then(res =>{
       alert ("se ha deslogeado correctamente");
       console.log(res);
       this.router.navigate(['/login'])
-    })*/
-    this.auth.authState.subscribe(usuario => {
-      if(usuario) {
-        this.router.navigate(['/inicio'])
-      } else {
-        this.router.navigate(['/login'])
-      }
     })
-  }
+}
 }
 

@@ -72,23 +72,20 @@ var FooterComponent = /** @class */ (function () {
     //funcion par cerrar sesion
     FooterComponent.prototype.salir = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var res;
             var _this = this;
             return __generator(this, function (_a) {
-                /*const res = await this.servicioAuth.cerrarSesion()
-                .then(res =>{
-                  alert ("se ha deslogeado correctamente");
-                  console.log(res);
-                  this.router.navigate(['/login'])
-                })*/
-                this.auth.authState.subscribe(function (usuario) {
-                    if (usuario) {
-                        _this.router.navigate(['/inicio']);
-                    }
-                    else {
-                        _this.router.navigate(['/login']);
-                    }
-                });
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.servicioAuth.cerrarSesion()
+                            .then(function (res) {
+                            alert("se ha deslogeado correctamente");
+                            console.log(res);
+                            _this.router.navigate(['/login']);
+                        })];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
