@@ -2,8 +2,7 @@
     <footer>
         <div>
         <ul class="list-inline">
-            <!--<li class="list-inline-item"><a routerLink="">Informacion</a></li>-->
-            <li class="list-inline-item"><a routerLink="">Contacto</a></li>
+            <li class="list-inline-item"><a (click)="open()">Contacto</a></li>
             <button class = "pi pi-sign-out" (click)="salir()" mat-raised-button></button>
         </ul>
         </div>
@@ -13,3 +12,12 @@
         </div>
     </footer>
 </div>
+<p-dialog header="Contacto" [(visible)]="visibilidadDialog" [draggable]="false" [modal]="true" [style]="{width: '50vw'}">
+    <p>
+        Número: (+54) 123 4567890
+        <br>
+        Correo electrónico: mytrainer@mytrainer.com
+        <br>
+        Encontranos en: Paraguay 1050, Cipolletti, Argentina.
+    </p>
+</p-dialog>

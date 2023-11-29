@@ -10,20 +10,25 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
   declare items: MenuItem[];
+  visibilidadDialog = false;
 
-  constructor(public servicioAuth: AuthService, public router: Router) {}
-  
+  constructor(public servicioAuth: AuthService, public router: Router) { }
 
-  ngOnInit() {}
-  
+
+  ngOnInit() { }
+
+  open() {
+    this.visibilidadDialog = true;
+  }
+
   //funcion par cerrar sesion
-  async salir(){
+  async salir() {
     const res = await this.servicioAuth.cerrarSesion()
-    .then(res =>{
-      this.servicioAuth.logout();
-      location.reload()
-      alert ("se ha deslogeado correctamente");
-    })
+      .then(res => {
+        this.servicioAuth.logout();
+        location.reload()
+        alert("se ha deslogeado correctamente");
+      })
   }
 }
 
