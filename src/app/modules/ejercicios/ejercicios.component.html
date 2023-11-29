@@ -45,7 +45,7 @@
 <!-- TABLA DE LOS EJERCICIOS -->
 <div class="container" id="tabla">
     <!-- ESTE BOTON ABRE EL POPUP -->
-    <button pButton label="+ Nuevo" id="boton" class="p-button-secondary mr-2" (click)="openNew()"></button>
+    <button pButton label="+ Nuevo" id="boton" class="p-button-secondary mr-2" (click)="openNew()" *ngIf="loggedIn"></button>
     <p-table [value]="ejerciciosColeccion" dataKey="id" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
@@ -53,7 +53,7 @@
                 <th>Nombre</th>
                 <th>Grupo Muscular</th>
                 <th>Rango de Repeticiones</th>
-                <th>Eliminar o editar</th>
+                <th *ngIf="loggedIn">Eliminar o editar</th>
             </tr>
         </ng-template>
         <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
@@ -68,7 +68,7 @@
                 <!-- COLUMNA DE RANGO DE REPETICIONES -->
                 <!-- Utilizamos interpolacion para mostrar el atributo rangorep que traemos desde el service -->
                 <td>{{ ejerciciosss.rangorep }}</td>
-                <td>
+                <td *ngIf="loggedIn">
                     <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(ejerciciosss)"></button>
                     <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarEjercicio(ejerciciosss)"></button>
                 </td>

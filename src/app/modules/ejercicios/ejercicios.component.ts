@@ -27,8 +27,10 @@ export class EjerciciosComponent implements OnInit {
   //Defino la visibilidad del loading
   loading = false;
 
-
   ejercicios!: Ejercicio
+
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  loggedIn = false;
 
   constructor(public servicioEjercicios: EjerciciosService, public servicioAuth: AuthService) { }
 
@@ -40,11 +42,14 @@ export class EjerciciosComponent implements OnInit {
 
       //Es una coleccion para poder seleccionar a mas de un elemento
     })
-    this.servicioAuth.isLoggedIn().subscribe(estalogeado => {
-      console.log(estalogeado)
-    })
-    this.servicioAuth.getUserType().subscribe(tipo => {
-      console.log(tipo)
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+      if (isLoggedIn) {
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
     })
   }
 
