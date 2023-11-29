@@ -1,4 +1,4 @@
-<div class = "container">
+<div class = "container" *ngIf="loggedIn">
     <h1 id="title" align="center">Usuarios</h1>
 <br>
 
@@ -63,9 +63,9 @@
     </ng-template>
 </p-dialog>
 
-<!-- TABLA DE LOS EJERCICIOS -->
-<div class="container">
-    <p-table [value]="usuariosCollecion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+<!-- TABLA DE LOS USUARIOS -->
+<div class="container" *ngIf="loggedIn">
+    <p-table [value]="usuariosCollecion" dataKey="id" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
             <tr>
@@ -81,58 +81,26 @@
             <tr>
                 <!-- COLUMNA DE LOS ID DE USUARIOS -->
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL NOMBRE -->
-                            <input pInputText type="text" [(ngModel)]="usuariosss.uid"/>
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo ID que traemos desde el service -->
-                            {{ usuariosss.uid }} 
-                        </ng-template>
-                    </p-cellEditor>
+                    <!-- Utilizamos interpolacion para mostrar el atributo ID que traemos desde el service -->
+                    {{ usuariosss.uid }} 
                 </td>
 
                 <!-- COLUMNA DE NOMRBES LOS USUARIOS -->
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
-                            <input pInputText type="text" [(ngModel)]="usuariosss.nombre" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
-                            {{ usuariosss.nombre }}
-                        </ng-template>
-                    </p-cellEditor>
+                    <!-- Utilizamos interpolacion para mostrar el atributo nombre que traemos desde el service -->
+                    {{ usuariosss.nombre }}
                 </td>
 
                 <!-- COLUMNA DE EMAILS DE LOS USUARIOS-->
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL GRUPO MUSCULAR -->
-                            <input pInputText type="text" [(ngModel)]="usuariosss.email" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo email que traemos desde el service -->
-                            {{ usuariosss.email }}
-                        </ng-template>
-                    </p-cellEditor>
+                    <!-- Utilizamos interpolacion para mostrar el atributo email que traemos desde el service -->
+                    {{ usuariosss.email }}
                 </td>
 
                 <!-- COLUMNA DE ROLES DE LOS USUARIOS -->
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <!-- INPUT QUE PERMITE EDITAR DE FORMA DINAMICA EL RANGO DE REPETICIONES -->
-                            <input pInputText type="text" [(ngModel)]="usuariosss.rol" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            <!-- Utilizamos interpolacion para mostrar el atributo rol que traemos desde el service -->
-                            {{ usuariosss.rol }}
-                        </ng-template>
-                    </p-cellEditor>
+                    <!-- Utilizamos interpolacion para mostrar el atributo rol que traemos desde el service -->
+                    {{ usuariosss.rol }}
                 </td>
                 <td>
                     <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(usuariosss)"></button>
@@ -146,4 +114,7 @@
     <!-- ESTE BOTON ABRE EL POPUP -->
     <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="openNew()"></button>
 </div>
+</div>
+<div style="margin-top: 2%;">
+    <h2 align="center">No Disponible (Inicie Sesión)</h2>
 </div>

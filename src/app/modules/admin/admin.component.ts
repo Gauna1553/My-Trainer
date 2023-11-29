@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { AuthService } from '../auth/services/auth.service';
 
 
 @Component({
@@ -28,9 +29,22 @@ export class AdminComponent {
 
   usuarios!: Usuario;
 
-  constructor(public usuariosService: UsuariosService) {}
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  loggedIn = false;
+
+  constructor(public usuariosService: UsuariosService, private servicioAuth: AuthService) {}
 
   ngOnInit() {
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+      if (isLoggedIn) {
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
+    })
+
     /*Llamamos a la función obtenerUsuario y le enviamos los nuevos valores
     del formulario producto(estos se guardaran en la colección) */
     this.usuariosService.obtenerUsuario().subscribe(usuarios => {
