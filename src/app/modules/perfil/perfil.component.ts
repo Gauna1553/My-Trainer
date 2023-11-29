@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-perfil',
@@ -8,6 +9,16 @@ import { Usuario } from 'src/app/model/usuarios';
 })
 export class PerfilComponent {
 
-  constructor() {}
+  constructor(private servicioAuth: AuthService) {}
+  loggedIn = false;
 
+  ngOnInit(){
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      if (isLoggedIn){
+        this.loggedIn = true
+      }else{
+        this.loggedIn = false;
+      }
+    })
+  }
 }

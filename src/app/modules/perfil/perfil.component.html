@@ -3,10 +3,16 @@
         <i class="pi pi-user"></i>
         <br>
     </div>
-    <div class="data">
+    <div class="data" *ngIf="loggedIn">
         <button pButton label="Calcular IMC" severity="secondary" routerLink="/calculadora"></button>
         <br>
         <br>
         <button pButton label="Conceptos" severity="secondary" routerLink="/concepinf"></button>
+    </div>
+    <div class="data" *ngIf="!loggedIn">
+        <button pButton label="Iniciar Sesión" severity="secondary" routerLink="/login"></button>
+        <br>
+        <br>
+        <button pButton label="Registrarse" severity="secondary" routerLink="/register"></button>
     </div>
 </div>
