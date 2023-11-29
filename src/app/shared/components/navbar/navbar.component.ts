@@ -49,9 +49,6 @@ export class NavbarComponent implements OnInit {
       label: 'Administrador',
       routerLink: '/admin',
       visible: this.isAdmin
-    },{
-      label: 'Login',
-      routerLink: '/login'
     }
   ];}
   
