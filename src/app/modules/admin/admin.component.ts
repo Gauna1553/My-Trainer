@@ -29,8 +29,10 @@ export class AdminComponent {
 
   usuarios!: Usuario;
 
-  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  //Aca los declaramos falso como default para que por las dudas no muestren nada
   loggedIn = false;
+  isAdmin: boolean = false;
+  stopExecution = true; //Esto evita que el ngOnInit se ejecute en bucle en caso de que el usuario sea admin
 
   constructor(public usuariosService: UsuariosService, private servicioAuth: AuthService) {}
 
@@ -42,6 +44,14 @@ export class AdminComponent {
         this.loggedIn = true;
       } else {
         this.loggedIn = false;
+      }
+    })
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice que tipo de usuario se logeo
+    this.servicioAuth.getUserType().subscribe(userType => {
+      if(userType === 'admin' && this.stopExecution){
+        this.stopExecution = false; //Al volverse falso nos bloquea el paso en el if ya que no cumple más la condición de true
+        this.isAdmin = true;
+        this.ngOnInit();
       }
     })
 
