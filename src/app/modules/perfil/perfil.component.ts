@@ -13,9 +13,11 @@ export class PerfilComponent {
   loggedIn = false;
 
   ngOnInit(){
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
     this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
       if (isLoggedIn){
-        this.loggedIn = true
+        this.loggedIn = true;
       }else{
         this.loggedIn = false;
       }
