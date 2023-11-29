@@ -4,6 +4,7 @@ import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
 import { RutinasService } from 'src/app/services/rutinas.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-crearrutinas',
@@ -22,10 +23,23 @@ export class CrearrutinasComponent {
   selectedEjer: Ejercicio[] = [];
   ejerciciosColeccion: Ejercicio[] = [];
   loading = false;
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  loggedIn = false;
 
-  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router) {}
+  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router, 
+    private servicioAuth: AuthService) {}
 
   ngOnInit() {
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+      if (isLoggedIn) {
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
+    })
+
     //Esto obtiene la rutina para editar si es que la hay
     this.servicioRutinas.obtenerRutinaParaEditar().subscribe(rutinaRecibida =>{
       this.rParaEditar = rutinaRecibida;
