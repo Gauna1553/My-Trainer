@@ -10,6 +10,7 @@ import { AuthService } from '../auth/services/auth.service';
 export class PerfilComponent {
 
   constructor(private servicioAuth: AuthService) {}
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
   loggedIn = false;
 
   ngOnInit(){
