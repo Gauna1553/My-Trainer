@@ -67,23 +67,15 @@ export class LoginComponent {
         if (usuario) {
           this.fireStore.collection('usuarios').doc(usuario.uid).valueChanges().subscribe((data: any)=> {
             //Aqui se obtienen las credenciales del usuario
-            const rol = data.rol;
-            this.servicioAuth.login(rol)
+            this.servicioAuth.login(data.rol)
             //Rediriges al usuario basado en sus credenciales
-            if (rol === 'usuario') {
-              this.router.navigate(['/']);
-            } else {
-              if (rol === 'admin') {
-                this.router.navigate(['/admin']);
-              } else {
-                this.router.navigate(['/'])
-              }
-            }
+            this.router.navigate(['/'])
           })
-        } else {
+        } /*else {
           //Usuario no logeado
-          this.router.navigate(['/login']);
-        }
+          alert('No se ha podido ingresar')
+          this.router.navigate(['/inicio']);
+        }*/
       })
     }) .catch((error) => {
       console.error(error)
@@ -96,16 +88,4 @@ export class LoginComponent {
     */
   }
 
-
-  async salir(){
-    const res = await this.servicioAuth.cerrarSesion()
-    .then(res => {
-      this.servicioAuth.logout();
-      alert ("Se ha deslogeado correctamente");
-      this.router.navigate(['/login'])
-    })
-  }
-  /*
-    Esta función se encarga de permitirle al usuario poder cerrar su sesión cuando el quiera por medio de un boton al cual se le asigna esta función
-  */
 }

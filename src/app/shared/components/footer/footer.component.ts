@@ -14,36 +14,15 @@ export class FooterComponent implements OnInit {
   constructor(public servicioAuth: AuthService, public router: Router) {}
   
 
-  ngOnInit() {
-    this.items = [
-      {
-        label: 'Conceptos e Informacion',
-        icon: 'pi pi-fw pi-file',
-        routerLink:"/conceps",
-    
-    },
-    {
-        label: 'Contactos',
-        icon: 'pi pi-fw pi-pencil',
-        routerLink:"/ejercicios"
-      
-    },
-    {
-        label: 'Creadores',
-        icon: 'pi pi-fw pi-user',
-        routerLink:"/crear"
-    },
-    
-
-  ];
-}
+  ngOnInit() {}
+  
   //funcion par cerrar sesion
   async salir(){
     const res = await this.servicioAuth.cerrarSesion()
     .then(res =>{
+      this.servicioAuth.logout();
+      location.reload()
       alert ("se ha deslogeado correctamente");
-      console.log(res);
-      this.router.navigate(['/login'])
     })
   }
 }

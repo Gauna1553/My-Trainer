@@ -10,18 +10,21 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   declare items: MenuItem[];
-  isAdmin: boolean = false
+  isAdmin: boolean = false;
+  stopExecution = true
 
   constructor(private servicioAuth: AuthService){
+    
+  }
+
+  ngOnInit() {
     this.servicioAuth.getUserType().subscribe(userType => {
-      if(userType === 'admin'){
+      if(userType === 'admin' && this.stopExecution){
+        this.stopExecution = false
         this.isAdmin = true;
         this.ngOnInit();
       }
     })
-  }
-
-  ngOnInit() {
   this.items = [
     {
       label: 'Inicio',
@@ -46,6 +49,9 @@ export class NavbarComponent implements OnInit {
       label: 'Administrador',
       routerLink: '/admin',
       visible: this.isAdmin
+    },{
+      label: 'Login',
+      routerLink: '/login'
     }
   ];}
   

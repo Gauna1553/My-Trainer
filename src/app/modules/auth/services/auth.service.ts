@@ -70,7 +70,9 @@ export class AuthService{
     this.userType.next(rol)
   }
   logout(){
-    this.loggedIn.next(false);
-    this.userType.next(undefined)
+    this.loggedIn.complete();
+    this.loggedIn = new BehaviorSubject<boolean>(false);
+    this.userType.complete();
+    this.userType = new BehaviorSubject<any>(undefined);
   }
 }
