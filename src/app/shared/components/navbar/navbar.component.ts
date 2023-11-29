@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { Usuario } from 'src/app/model/usuarios';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Component({
