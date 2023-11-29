@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
         this.loggedIn = false;
       }
     })
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice que tipo de usuario se logeo
     this.servicioAuth.getUserType().subscribe(userType => {
       if(userType === 'admin' && this.stopExecution){
         this.stopExecution = false; //Al volverse falso nos bloquea el paso en el if ya que no cumple más la condición de true
@@ -35,6 +36,7 @@ export class NavbarComponent implements OnInit {
         this.ngOnInit();
       }
     })
+  //Items de la navbar y sus propiedades
   this.items = [
     {
       label: 'Inicio',
