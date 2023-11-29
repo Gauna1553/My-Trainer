@@ -1,4 +1,4 @@
-<div id = "anashe">
+<div id = "anashe" *ngIf="!loggedIn">
     <form class="form">
         <p class="title">Registrarse</p>
         <p class="message">Crea un nuevo usuario</p>
@@ -27,5 +27,9 @@
         <button class="submit" (click)="registrarse()" routerLink="/login">Crear Cuenta</button>
         <!--routerLink="/"-->
     </form>
-    <p class="signin">Ya tienes una cuenta creada? <button routerLink="/login" class ="submit">Iniciar Sesion</button></p>
+    <p class="signin">¿Ya tienes una cuenta creada? <button routerLink="/login" class ="submit">Iniciar Sesion</button></p>
+</div>
+
+<div *ngIf="loggedIn"> 
+    <h2 align="center">No Disponible (Estás logeado)</h2>
 </div>
