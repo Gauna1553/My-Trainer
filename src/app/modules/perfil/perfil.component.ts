@@ -24,4 +24,14 @@ export class PerfilComponent {
       }
     })
   }
+
+  //funcion par cerrar sesion
+  async salir() {
+    const res = await this.servicioAuth.cerrarSesion()
+      .then(res => {
+        this.servicioAuth.logout();
+        location.reload()
+        alert("se ha deslogeado correctamente");
+      })
+  }
 }

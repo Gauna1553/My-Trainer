@@ -16,3 +16,7 @@ i{
 button{
     border-radius: 25px;
 }
+#logout{
+    padding-right: 1%;
+    padding-top: 1%;
+}
