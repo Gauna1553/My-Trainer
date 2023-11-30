@@ -1,4 +1,4 @@
-<div id="volver">
+<div id="volver" *ngIf="loggedIn">
     <button pButton icon = "pi pi-chevron-left" label="Volver" class = "p-button-rounded p-button-text p-button-danger" (click)="volver()"></button>
 </div>
 <div class="containers" *ngIf="loggedIn">
@@ -28,7 +28,7 @@
         <button pButton class="p-button-info mr-2" (click)="openNew()" label="Agregar Ejercicio"></button>
     </div>
 </div>
-<div *ngIf="!loggedIn" style="margin-top: -3%;"> 
+<div *ngIf="!loggedIn" style="margin-top: 2%;"> 
     <h2 align="center">No Disponible (Inicie Sesión)</h2>
 </div>
 
