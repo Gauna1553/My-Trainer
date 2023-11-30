@@ -84,24 +84,6 @@
                         {{ datos.peso }}
                     </td>
 
-<<<<<<< HEAD
-                <td>
-                    <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(datos)"></button>
-                    <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarDatos(datos)"></button>
-                </td>
-            </tr>
-            
-        </ng-template>   
-    </p-table>
-    <!-- ESTE BOTON ABRE EL POPUP -->
-    <button pButton label="Subir Datos" class="p-button-secondary mr-2" (click)="openNew()"></button>
-    <button pButton label="Calcular" class="p-button-secondary mr-2" (click)="calcular()"></button>
-    <div class = "datos">
-        <h2>Tu IMC es:</h2>
-        <span>{{datoss.imc}}</span>
-    </div>
-
-=======
                     <!-- COLUMNA DE LA EDAD DEL USUARIO -->
                     <td>
                         <!-- Utilizamos interpolacion para mostrar el atributo edad que traemos desde el service -->
@@ -133,5 +115,4 @@
 </div>
 <div *ngIf="!loggedIn"> 
     <h2 align="center">No Disponible (Inicie Sesión)</h2>
->>>>>>> b74fc261e456718d1f3e9a4577ee7322225e7154
 </div>
