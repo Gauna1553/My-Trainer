@@ -13,7 +13,7 @@ const routes: Routes = [
   path: '', loadChildren:()=>import('./modules/ejercicios/ejercicios.module').then(m=>m.EjerciciosModule)},{   //ruta de ejercicios
   path: '', loadChildren:()=>import('./modules/crearrutinas/crearrutinas.module').then(m=>m.CrearrutinasModule)},{   //ruta de crearrutinas
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},{
-  path: '', loadChildren:()=>import('./modules/visitante/visitante.module').then(m => m.VisitanteModule)},{ //ruta de visitante 
+  //path: '', loadChildren:()=>import('./modules/visitante/visitante.module').then(m => m.VisitanteModule)},{ //ruta de visitante 
   path: '', loadChildren:()=>import('./modules/admin/admin.module').then(m => m.AdminModule)},{ //ruta de admin
   path: '', loadChildren:()=>import('./modules/concepinf/concepinf.module').then(m=>m.ConcepinfModule)},{ //ruta de concepinf
   path: '', loadChildren:()=>import('./modules/calculadora-cal/calculadora-cal.module').then(m=>m.CalculadoraCALModule)},

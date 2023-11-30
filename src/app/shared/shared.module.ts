@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MenubarModule } from 'primeng/menubar';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -14,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     CommonModule,
     MenubarModule,
+    DialogModule
   ],
   exports:[NavbarComponent, FooterComponent]
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ejercicio } from 'src/app/model/ejercicios';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-ejercicios',
@@ -26,10 +27,12 @@ export class EjerciciosComponent implements OnInit {
   //Defino la visibilidad del loading
   loading = false;
 
-
   ejercicios!: Ejercicio
 
-  constructor(public servicioEjercicios: EjerciciosService) { }
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  loggedIn = false;
+
+  constructor(public servicioEjercicios: EjerciciosService, public servicioAuth: AuthService) { }
 
   ngOnInit() {
     /* llamamos función obtenerEjercicio y le enviamos los nuevos valores
@@ -38,6 +41,15 @@ export class EjerciciosComponent implements OnInit {
       this.ejerciciosColeccion = ejercicios;
 
       //Es una coleccion para poder seleccionar a mas de un elemento
+    })
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+      if (isLoggedIn) {
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
     })
   }
 

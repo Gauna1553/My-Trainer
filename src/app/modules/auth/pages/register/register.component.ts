@@ -78,8 +78,21 @@ constructor (public servicioAuth: AuthService, public servicioFirestore: Firesto
     */
   }
 
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  loggedIn = false;
+  
   async ngOnInit(){
     const uid = await this.servicioAuth.getUid();
     console.log(uid)
+
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+      if (isLoggedIn) {
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
+    })
   }
 };

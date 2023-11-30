@@ -1,12 +1,21 @@
+<div id="logout" *ngIf="loggedIn">
+    <button pButton icon = "pi pi-sign-out" label="Cerrar Sesión" class = "p-button-text p-button-danger p-button-outlined" (click)="salir()"></button>
+</div>
 <div class="container" id="body">
     <div id="aaaa">
         <i class="pi pi-user"></i>
         <br>
     </div>
-    <div class="data">
+    <div class="data" *ngIf="loggedIn">
         <button pButton label="Calcular IMC" severity="secondary" routerLink="/calculadora"></button>
         <br>
         <br>
         <button pButton label="Conceptos" severity="secondary" routerLink="/concepinf"></button>
+    </div>
+    <div class="data" *ngIf="!loggedIn">
+        <button pButton label="Iniciar Sesión" severity="secondary" routerLink="/login"></button>
+        <br>
+        <br>
+        <button pButton label="Registrarse" severity="secondary" routerLink="/register"></button>
     </div>
 </div>
