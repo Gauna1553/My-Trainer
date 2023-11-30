@@ -56,19 +56,23 @@ export class AuthService{
   }
 
   //FUNCIONES PARA VER SI ESTA LOGGEADO Y QUE TIPO DE USUARIO
-  public loggedIn = new BehaviorSubject<boolean>(false);
-  public userType = new BehaviorSubject<any>(undefined);
+  public loggedIn = new BehaviorSubject<boolean>(false); // Este observable almacena un booleano segun si se esta logeado o no
+  public userType = new BehaviorSubject<any>(undefined); // Este observable almacena el rol del usuario actual 
 
+  // Esta funcion devuelve el valor altual del logeo, solamente puede ser true o false
   isLoggedIn() {
     return this.loggedIn.asObservable();
   }
+  // Esta funcion devuelve el valor del rol del logeo, ya sea admin, usuario o undefined
   getUserType(){
     return this.userType.asObservable();  
   }
+  // Esta funcion envia los valores al observable cuando se logean
   login(rol: any){
-    this.loggedIn.next(true);
-    this.userType.next(rol)
+    this.loggedIn.next(true); // Convierte el loggedIn en verdadero ya que esta logeado
+    this.userType.next(rol) // Pasa el rol del usuario que se logeo
   }
+  // Esta funcion aunque no es del todo necesaria, borra los observables y crea unos nuevos para que no se acumulen
   logout(){
     this.loggedIn.complete();
     this.loggedIn = new BehaviorSubject<boolean>(false);
