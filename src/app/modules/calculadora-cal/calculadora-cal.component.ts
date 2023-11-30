@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Usuario } from 'src/app/model/usuarios';
 import { DatosService } from 'src/app/shared/services/datos.service';
 import { Input } from '@angular/core';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-calculadora-cal',
@@ -13,7 +14,10 @@ export class CalculadoraCALComponent {
 
   @Input()imc:number=0;
 
-  constructor (public servicioDatos: DatosService) {}
+  constructor (public servicioDatos: DatosService, private servicioAuth: AuthService) {}
+
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  loggedIn = false;
 
   //Defino la visibilidad del pop up
   datosDialog: boolean = false
@@ -33,6 +37,16 @@ export class CalculadoraCALComponent {
   loading = false;
 
   ngOnInit() {
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+      if (isLoggedIn){
+        this.loggedIn = true;
+      }else{
+        this.loggedIn = false;
+      }
+    })
+    
     this.servicioDatos.obtenerDatos().subscribe(datos => {
       this.datosColeccion = datos;
     })
