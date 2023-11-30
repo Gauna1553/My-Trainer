@@ -1,7 +1,7 @@
 <div id="volver">
     <button pButton icon = "pi pi-chevron-left" label="Volver" class = "p-button-rounded p-button-text p-button-danger" (click)="volver()"></button>
 </div>
-<div class="containers">
+<div class="containers" *ngIf="loggedIn">
     <div class="container1">
         <h2 *ngIf="!editar">Crear Rutina</h2>
         <h2 *ngIf="editar">Editar Rutina</h2>
@@ -15,8 +15,8 @@
             <small class="p-error" *ngIf="submitted && !rutina.nombre">El nombre es obligatorio.</small>
         
         <br>
-        <button pButton *ngIf="!editar" class="p-button-secondary mr-2" (click)="agregarRutina()" label="Crear Rutina"></button>
-        <button pButton *ngIf="editar" class="p-button-secondary mr-2" (click)="editarRutina()" label="Editar Rutina"></button>
+        <button pButton *ngIf="!editar" [loading]="loading" class="p-button-secondary mr-2" (click)="agregarRutina()" label="Crear Rutina"></button>
+        <button pButton *ngIf="editar" [loading]="loading" class="p-button-secondary mr-2" (click)="editarRutina()" label="Editar Rutina"></button>
     </div>
     <div class="container2">
         <h2>Ejercicios Agregados</h2>
@@ -27,6 +27,9 @@
         <br>
         <button pButton class="p-button-info mr-2" (click)="openNew()" label="Agregar Ejercicio"></button>
     </div>
+</div>
+<div *ngIf="!loggedIn" style="margin-top: -3%;"> 
+    <h2 align="center">No Disponible (Inicie Sesión)</h2>
 </div>
 
 <p-dialog [(visible)]="ejerciciosDialog" [draggable]="false" [style]="{ width: '30%'}" [closable]="false" header="Seleccionar Ejercicio" [modal]="true" styleClass="p-fluid">

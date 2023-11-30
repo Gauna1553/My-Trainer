@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container {
     margin-bottom: 5%;
 }
@@ -5,4 +6,17 @@
 .datos {
     margin-bottom: 6%;
     padding-bottom: 10px;
+=======
+button{
+    border-radius: 5px;
+}
+#body{
+    margin-bottom: 7%;
+}
+#title{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2%;   
+    text-shadow: 2px 2px 2px rgb(208, 218, 229);
+>>>>>>> b74fc261e456718d1f3e9a4577ee7322225e7154
 }

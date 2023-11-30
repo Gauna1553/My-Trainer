@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Rutina } from 'src/app/model/rutinas';
 import { RutinasService } from 'src/app/services/rutinas.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-rutinas',
@@ -14,10 +15,22 @@ export class RutinasComponent {
   rutinaColeccion: Rutina[] = [];
   rutinasDialog = true;
   rutinaSeleccionada!: Rutina;
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  loggedIn = false;
 
-  constructor(public servicioRutinas: RutinasService, private router: Router) {}
+  constructor(public servicioRutinas: RutinasService, private router: Router, private servicioAuth: AuthService) {}
 
   ngOnInit(){
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+      if (isLoggedIn) {
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
+    })
+
     //Obtenemos todas las rutinas desde FireBase
     this.servicioRutinas.obtenerRutina().subscribe(rutinas =>{
       this.rutinaColeccion = rutinas;

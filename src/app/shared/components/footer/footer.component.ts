@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { MenuItem } from 'primeng/api';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+=======
+>>>>>>> b74fc261e456718d1f3e9a4577ee7322225e7154
 
 @Component({
   selector: 'app-footer',
@@ -10,32 +13,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  declare items: MenuItem[];
+  visibilidadDialog = false;
 
+<<<<<<< HEAD
   constructor(public servicioAuth: AuthService, public router: Router, private auth: AngularFireAuth) {}
   
+=======
+  constructor() { }
+>>>>>>> b74fc261e456718d1f3e9a4577ee7322225e7154
 
-  ngOnInit() {
-    this.items = [
-      {
-        label: 'Conceptos e Informacion',
-        icon: 'pi pi-fw pi-file',
-        routerLink:"/conceps",
-    
-    },
-    {
-        label: 'Contactos',
-        icon: 'pi pi-fw pi-pencil',
-        routerLink:"/ejercicios"
-      
-    },
-    {
-        label: 'Creadores',
-        icon: 'pi pi-fw pi-user',
-        routerLink:"/crear"
-    },
-    
+  ngOnInit() { }
 
+<<<<<<< HEAD
   ];
 }
   //funcion par cerrar sesion
@@ -47,5 +36,10 @@ export class FooterComponent implements OnInit {
       this.router.navigate(['/login'])
     })
 }
+=======
+  open() {
+    this.visibilidadDialog = true;
+  }
+>>>>>>> b74fc261e456718d1f3e9a4577ee7322225e7154
 }
 

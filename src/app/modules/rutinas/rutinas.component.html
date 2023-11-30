@@ -1,38 +1,47 @@
-<body>
-    <!-- TITULO DEL COMPONENTE -->
-    <div>
-        <h1 id="title">Mis Rutinas</h1>
-        <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="crearRutina()"></button>
-    </div>
-    <!-- CONTENEDOR DE LAS RUTINAS -->
-    <div class="card" id="primeracard">
-        <!-- TOGGLEABLE PERMITE QUE SE EXPANDA O CONTRAIGA Y EL NGFOR ES PARA QUE LA LEGENDA SE ADAPTE A CADA RUTINA-->
-        <p-fieldset *ngFor="let rutina of rutinaColeccion" [toggleable]="true" [collapsed]="true">
-            <ng-template pTemplate="header" id="anashi">
-                <span>{{rutina.nombre}}</span>
-                <button pButton (click)="borrarRutina(rutina,$event)" icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger"></button>
-                <button pButton (click)="enviarRutina(rutina, $event)" icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info"></button>
-            </ng-template>
-            <div class="card">
-                <!-- TABLA DE LA RUTINA DE PECHO -->
-                <p-table [value]="rutina.ejercicios">
-                    <!-- HEADER DE LA TABLA -->
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <!-- COLUMNAS Y LOS NOMBRES -->
-                            <th>Nombre</th>
-                            <th>Rango de Repeticiones</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-ejercicios> <!-- ESTE 'let-ejercicios' HACE QUE LOS EJERCICIOS PUEDAN MOSTRAR SUS ATRIBUTOS -->
-                        <tr>
-                            <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
-                            <td>{{ ejercicios.nombre }}</td>
-                            <td>{{ ejercicios.rangorep }}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </div>
-        </p-fieldset>
-    </div>
+<body *ngIf="loggedIn">
+        <!-- TITULO DEL COMPONENTE -->
+        <div id="titulo">
+            <h1 id="title">Mis Rutinas</h1>
+        </div>
+        <div>
+            <button pButton label="Nueva" class="p-button-secondary mr-2" (click)="crearRutina()"
+                id="button"><i class="pi pi-calendar-plus" id="i"></i></button>
+        </div>
+        <!-- CONTENEDOR DE LAS RUTINAS -->
+        <div class="card" id="primeracard">
+            <!-- TOGGLEABLE PERMITE QUE SE EXPANDA O CONTRAIGA Y EL NGFOR ES PARA QUE LA LEGENDA SE ADAPTE A CADA RUTINA-->
+            <p-fieldset *ngFor="let rutina of rutinaColeccion" [toggleable]="true" [collapsed]="true">
+                <ng-template pTemplate="header" id="anashi">
+                    <span>{{rutina.nombre}}</span>
+                    <button pButton (click)="borrarRutina(rutina,$event)" icon="pi pi-trash"
+                        class="p-button-rounded p-button-text p-button-danger"></button>
+                    <button pButton (click)="enviarRutina(rutina, $event)" icon="pi pi-pencil"
+                        class="p-button-rounded p-button-text p-button-info"></button>
+                </ng-template>
+                <div class="card" id="tabla">
+                    <!-- TABLA DE LA RUTINA DE PECHO -->
+                    <p-table [value]="rutina.ejercicios">
+                        <!-- HEADER DE LA TABLA -->
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <!-- COLUMNAS Y LOS NOMBRES -->
+                                <th>Nombre</th>
+                                <th>Rango de Repeticiones</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-ejercicios>
+                            <!-- ESTE 'let-ejercicios' HACE QUE LOS EJERCICIOS PUEDAN MOSTRAR SUS ATRIBUTOS -->
+                            <tr>
+                                <!-- FILAS MEDIANTE INTERPOLACION, SE GENERAN A MEDIDA QUE SE AGREGAN EJERCICIOS -->
+                                <td>{{ ejercicios.nombre }}</td>
+                                <td>{{ ejercicios.rangorep }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-fieldset>
+        </div>    
 </body>
+<div style="margin-top: 2%;">
+    <h2 align="center">No Disponible (Inicie Sesión)</h2>
+</div>

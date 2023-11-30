@@ -2,15 +2,21 @@ i{
     font-size:900%;
 }
 #aaaa{
-    text-align: left;
     margin-top: 2%;
     margin-left: 3%;
 }
-
+#body{
+    text-align: center;
+    margin-bottom: 8%;
+}
 .data {
-    width:20%;
-    padding: 2px;
-    margin: 4%;
-    position: relative;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+button{
     border-radius: 25px;
+}
+#logout{
+    padding-right: 1%;
+    padding-top: 1%;
 }

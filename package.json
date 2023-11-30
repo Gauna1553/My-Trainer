@@ -26,7 +26,7 @@
     "ngx": "^2.4.0",
     "ngx-cookie-service": "^17.0.0-rc.1",
     "primeicons": "^6.0.1",
-    "primeng": "^16.0.2",
+    "primeng": "^17.0.0-beta.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "update": "^0.7.4",

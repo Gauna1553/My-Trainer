@@ -1,15 +1,20 @@
-<form class="form">
+<div *ngIf="!loggedIn">
+    <form class="form">
         <p class="title">Login</p>
         <p class="message">Iniciar Sesion</p>
-            <label>
-                <input required="" placeholder="" type="text" class="input" [(ngModel)]="usuarios.email" name="nombre">
-                <span>Ingrese su email</span>
-            </label>
         <label>
-            <input required="" placeholder="" type="password" class="input" [(ngModel)]="usuarios.contrasena" name="email">
+            <input required="" placeholder="" type="text" class="input" [(ngModel)]="usuarios.email" name="nombre">
+            <span>Ingrese su email</span>
+        </label>
+        <label>
+            <input required="" placeholder="" type="password" class="input" [(ngModel)]="usuarios.contrasena"
+                name="email">
             <span>Ingrese su contraseña</span>
         </label>
-        <button class="submit" routerLink="/inicio" (click)="iniciar()">Iniciar Sesión</button>
-        <button class="submit" routerLink="/login" (click)="salir()">Cerrar Sesión</button> 
-</form>
-<p class="signin">¿No tienes una cuenta? <button class="submit" routerLink="/register">Crea una cuenta</button></p>
+        <button class="submit" (click)="iniciar()">Iniciar Sesión</button>
+    </form>
+    <p class="signin">¿No tienes una cuenta? <button class="submit" routerLink="/register">Crea una cuenta</button></p>
+</div>
+<div *ngIf="loggedIn"> 
+    <h2 align="center">No Disponible (Ya estás logeado)</h2>
+</div>

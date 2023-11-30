@@ -1,97 +1,90 @@
-<h1 id="title" align="center">Datos personales</h1>
-<br>
-<!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
-<p-dialog [(visible)]="datosDialog" [style]="{ width: '450px' }" header="Datos a Calcular" [closable]="false" [modal]="true" styleClass="p-fluid">
-    <ng-template pTemplate="content">
-        <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
-        <div class="field">
-            <label for="nombre">Altura</label>
-            <!-- INPUT PARA INGRESAR LA ALTURA DEL USUARIO -->
-            <input [(ngModel)]="datoss.altura" pInputText name="ejerNombre" type="text" id="nombre" required>
-            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !datoss.altura">El nombre es obligatorio.</small>
-        </div>
+<div *ngIf="loggedIn" id="body">
+    <h1 id="title" align="center">Datos personales</h1>
+    <br>
+    <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
+    <p-dialog [(visible)]="datosDialog" [style]="{ width: '450px' }" header="Datos a Calcular" [closable]="false"
+        [modal]="true" styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <!-- CAMPO PARA INGRESAR EL NOMBRE DEL EJERCICIO -->
+            <div class="field">
+                <label for="nombre">Altura</label>
+                <!-- INPUT PARA INGRESAR LA ALTURA DEL USUARIO -->
+                <input [(ngModel)]="datoss.altura" pInputText name="ejerNombre" type="text" id="nombre" required>
+                <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+                <small class="p-error" *ngIf="submitted && !datoss.altura">El nombre es obligatorio.</small>
+            </div>
 
-        <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
-        <div class="field">
-            <label for="grupo">Peso</label>
-            <!-- INPUT PARA INGRESAR EL PESO DEL USUARIO -->
-            <input [(ngModel)]="datoss.peso" pInputText name="grupomuscular" type="text" id="grupo" required>
-            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !datoss.peso">El grupo es obligatorio.</small>
-        </div>
+            <!-- CAMPO PARA INGRESAR EL GRUPO MUSUCLAR DEL EJERCICIO -->
+            <div class="field">
+                <label for="grupo">Peso</label>
+                <!-- INPUT PARA INGRESAR EL PESO DEL USUARIO -->
+                <input [(ngModel)]="datoss.peso" pInputText name="grupomuscular" type="text" id="grupo" required>
+                <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+                <small class="p-error" *ngIf="submitted && !datoss.peso">El grupo es obligatorio.</small>
+            </div>
 
-        <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
-        <div class="field">
-            <label for="rango">Edad</label>
-            <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
-            <input [(ngModel)]="datoss.edad" pInputText type="number" id="rango" name="rangorep" required>
-            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !datoss.edad">El rango es obligatorio.</small>
-        </div>
+            <!-- CAMPO PARA INGRESAR EL RANGO DE REPETICIONES DEL EJERCICIO -->
+            <div class="field">
+                <label for="rango">Edad</label>
+                <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
+                <input [(ngModel)]="datoss.edad" pInputText type="number" id="rango" name="rangorep" required>
+                <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+                <small class="p-error" *ngIf="submitted && !datoss.edad">El rango es obligatorio.</small>
+            </div>
 
-        <!-- CAMPO PARA INGRESAR EL SEXO DEL USUARIO -->
-        <div class="field">
-            <label for="rango">Sexo</label>
-            <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
-            <input [(ngModel)]="datoss.sexo" pInputText type = "text" id = "sexo" name ="sexo" required>          
-            <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
-            <small class="p-error" *ngIf="submitted && !datoss.sexo">El rango es obligatorio.</small>
-        </div>
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-        <br>
-        <div>
-            <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-            <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
-            <!--<button pButton *ngIf="!editar" label="Guardar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>--> 
-            <button pButton *ngIf="editar" label="Editar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>
-        </div>
-    </ng-template>
-</p-dialog>
-
-<!-- TABLA DE LOS EJERCICIOS -->
-<div class="container">
-    <p-table [value]="datosColeccion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
-        <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Altura</th>
-                <th>Peso</th>
-                <th>Edad</th>
-                <th>Sexo</th>
-                <th>Editar o Eliminar</th>
-            </tr>
+            <!-- CAMPO PARA INGRESAR EL SEXO DEL USUARIO -->
+            <div class="field">
+                <label for="rango">Sexo</label>
+                <!-- INPUT PARA INGRESAR LA EDAD DEL USUARIO -->
+                <input [(ngModel)]="datoss.sexo" pInputText type="text" id="sexo" name="sexo" required>
+                <!-- ESTO HACE QUE APAREZCA UN CARTEL DE CAMPO OBLIGATORIO AL GUARDAR -->
+                <small class="p-error" *ngIf="submitted && !datoss.sexo">El rango es obligatorio.</small>
+            </div>
         </ng-template>
-        <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
-        <ng-template pTemplate="body" let-datos let-editing="editing" let-ri="rowIndex">
-            <tr>
-                <!-- COLUMNA DE ALTURA DEL USUARIO -->
-                <td>
-                    <!-- Utilizamos interpolacion para mostrar el atributo altura que traemos desde el service -->
-                    {{ datos.altura }}
-                </td>
 
-                <!-- COLUMNA DEL PESO DEL USUARIO -->
-                <td>
-                    <!-- Utilizamos interpolacion para mostrar el atributo peso que traemos desde el service -->
-                    {{ datos.peso }}
-                </td>
+        <ng-template pTemplate="footer">
+            <br>
+            <div>
+                <!-- BOTON PARA CANCELAR LA CARGA DE UN NUEVO EJERCICIO -->
+                <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text"
+                    (click)="hideDialog()"></button>
+                <!-- BOTON PARA GUARDAR LA CARGA DE UN NUEVO EJERCICIO -->
+                <!--<button pButton *ngIf="!editar" label="Guardar Datos" [loading]="loading" icon="pi pi-check" class="p-button-text" (click)="guardarDatos()" ></button>-->
+                <button pButton *ngIf="editar" label="Editar Datos" [loading]="loading" icon="pi pi-check"
+                    class="p-button-text" (click)="guardarDatos()"></button>
+            </div>
+        </ng-template>
+    </p-dialog>
 
-                <!-- COLUMNA DE LA EDAD DEL USUARIO -->
-                <td>
-                    <!-- Utilizamos interpolacion para mostrar el atributo edad que traemos desde el service -->
-                    {{ datos.edad }}
-                </td>
+    <!-- TABLA DE LOS EJERCICIOS -->
+    <div class="container">
+        <p-table [value]="datosColeccion" dataKey="id" editMode="row" [paginator]="true" [rows]="4">
+            <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Altura</th>
+                    <th>Peso</th>
+                    <th>Edad</th>
+                    <th>Sexo</th>
+                    <th>Editar o Eliminar</th>
+                </tr>
+            </ng-template>
+            <!-- CUERPO DE LA TABLA, SE PUEDE EDITAR -->
+            <ng-template pTemplate="body" let-datos let-editing="editing" let-ri="rowIndex">
+                <tr>
+                    <!-- COLUMNA DE ALTURA DEL USUARIO -->
+                    <td>
+                        <!-- Utilizamos interpolacion para mostrar el atributo altura que traemos desde el service -->
+                        {{ datos.altura }}
+                    </td>
 
-                <!-- COLUMNA DEL GENERO DEL USUARIO -->
-                <td>
-                    <!-- Utilizamos interpolacion para mostrar el atributo sexo que traemos desde el service -->
-                    {{ datos.sexo }}
-                </td>
+                    <!-- COLUMNA DEL PESO DEL USUARIO -->
+                    <td>
+                        <!-- Utilizamos interpolacion para mostrar el atributo peso que traemos desde el service -->
+                        {{ datos.peso }}
+                    </td>
 
+<<<<<<< HEAD
                 <td>
                     <button pButton icon = "pi pi-trash" class = "p-button-rounded p-button-text p-button-danger" (click)="mostrarBorrar(datos)"></button>
                     <button pButton icon = "pi pi-pencil" class = "p-button-rounded p-button-text p-button-info" (click)="editarDatos(datos)"></button>
@@ -108,4 +101,37 @@
         <span>{{datoss.imc}}</span>
     </div>
 
+=======
+                    <!-- COLUMNA DE LA EDAD DEL USUARIO -->
+                    <td>
+                        <!-- Utilizamos interpolacion para mostrar el atributo edad que traemos desde el service -->
+                        {{ datos.edad }}
+                    </td>
+
+                    <!-- COLUMNA DEL GENERO DEL USUARIO -->
+                    <td>
+                        <!-- Utilizamos interpolacion para mostrar el atributo sexo que traemos desde el service -->
+                        {{ datos.sexo }}
+                    </td>
+
+                    <td>
+                        <button pButton icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger"
+                            (click)="mostrarBorrar(datos)"></button>
+                        <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-info"
+                            (click)="editarDatos(datos)"></button>
+                    </td>
+                </tr>
+
+            </ng-template>
+        </p-table>
+        <!-- ESTE BOTON ABRE EL POPUP -->
+        <button pButton label="Subir Datos" class="p-button-secondary mr-2" (click)="openNew()"></button>
+        <button pButton label="Calcular" class="p-button-secondary mr-2" (click)="calcular()"></button>
+        <h2>Tu IMC es:</h2>
+        <span>{{datoss.imc}}</span>
+    </div>
+</div>
+<div *ngIf="!loggedIn"> 
+    <h2 align="center">No Disponible (Inicie Sesión)</h2>
+>>>>>>> b74fc261e456718d1f3e9a4577ee7322225e7154
 </div>

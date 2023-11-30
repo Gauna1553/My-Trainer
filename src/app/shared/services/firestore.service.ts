@@ -42,7 +42,7 @@
 
         try {
           usuario.uid = id;
-
+          usuario.rol = 'usuario'
           const resultado = await this.usuariosColletion.doc(id).set(usuario);
           //muestra el resultado sin problema
           resolve(resultado);

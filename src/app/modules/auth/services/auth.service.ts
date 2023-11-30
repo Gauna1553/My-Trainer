@@ -6,6 +6,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'
 
 //Servicio de cookies para mantener al usuario logeado el tiempo que el quiera
 import { CookieService } from 'ngx-cookie-service';
+import { BehaviorSubject } from 'rxjs';
+import { Usuario } from 'src/app/model/usuarios';
 
 
 
@@ -51,5 +53,26 @@ export class AuthService{
 
   getToken() {
     return this.cookieService.get("firebaseAuthToken");
+  }
+
+  //FUNCIONES PARA VER SI ESTA LOGGEADO Y QUE TIPO DE USUARIO
+  public loggedIn = new BehaviorSubject<boolean>(false);
+  public userType = new BehaviorSubject<any>(undefined);
+
+  isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
+  getUserType(){
+    return this.userType.asObservable();  
+  }
+  login(rol: any){
+    this.loggedIn.next(true);
+    this.userType.next(rol)
+  }
+  logout(){
+    this.loggedIn.complete();
+    this.loggedIn = new BehaviorSubject<boolean>(false);
+    this.userType.complete();
+    this.userType = new BehaviorSubject<any>(undefined);
   }
 }

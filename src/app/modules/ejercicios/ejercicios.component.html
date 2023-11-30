@@ -1,4 +1,4 @@
-<h1 id="title">Mis Ejercicios</h1>
+<h1 id="title" *ngIf="loggedIn">Mis Ejercicios</h1>
 <!-- POPUP PARA INGRESAR NUEVOS EJERCICIOS -->
 <p-dialog [(visible)]="ejerciciosDialog" [style]="{ width: '450px' }" [closable]="false" header="Ejercicio Nuevo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
@@ -43,7 +43,9 @@
 </p-dialog>
 
 <!-- TABLA DE LOS EJERCICIOS -->
-<div class="container">
+<div class="container" id="tabla" *ngIf="loggedIn">
+    <!-- ESTE BOTON ABRE EL POPUP -->
+    <button pButton label="+ Nuevo" id="boton" class="p-button-secondary mr-2" (click)="openNew()"></button>
     <p-table [value]="ejerciciosColeccion" dataKey="id" [paginator]="true" [rows]="4">
         <!-- HEADER DE LA TABLA, ESTO NO SE PUEDE EDITAR -->
         <ng-template pTemplate="header">
@@ -73,8 +75,7 @@
             </tr>
         </ng-template>   
     </p-table>
-
-
-    <!-- ESTE BOTON ABRE EL POPUP -->
-    <button pButton label="+ Nuevo" class="p-button-secondary mr-2" (click)="openNew()"></button>
+</div>
+<div style="margin-top: 2%;">
+    <h2 align="center">No Disponible (Inicie Sesión)</h2>
 </div>

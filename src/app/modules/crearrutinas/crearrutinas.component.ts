@@ -4,6 +4,7 @@ import { Ejercicio } from 'src/app/model/ejercicios';
 import { Rutina } from 'src/app/model/rutinas';
 import { EjerciciosService } from 'src/app/services/ejercicios.service';
 import { RutinasService } from 'src/app/services/rutinas.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-crearrutinas',
@@ -21,10 +22,24 @@ export class CrearrutinasComponent {
   ejerciciosDialog = false;
   selectedEjer: Ejercicio[] = [];
   ejerciciosColeccion: Ejercicio[] = [];
+  loading = false;
+  //Aca lo declaramos falso como default para que por las dudas no muestre nada
+  loggedIn = false;
 
-  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router) {}
+  constructor(public servicioRutinas: RutinasService, public servicioEjercicios: EjerciciosService, private router: Router, 
+    private servicioAuth: AuthService) {}
 
   ngOnInit() {
+    //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+    this.servicioAuth.isLoggedIn().subscribe(isLoggedIn => {
+      //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+      if (isLoggedIn) {
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
+    })
+
     //Esto obtiene la rutina para editar si es que la hay
     this.servicioRutinas.obtenerRutinaParaEditar().subscribe(rutinaRecibida =>{
       this.rParaEditar = rutinaRecibida;
@@ -60,12 +75,15 @@ export class CrearrutinasComponent {
   agregarRutina() {
     this.submitted = true;
     if (this.rutina.nombre && this.selectedEjer.length > 0) {
+      this.loading = true;
       this.ejerSubmitted = true;
       this.rutina.ejercicios = this.selectedEjer;
       const resultado = this.servicioRutinas.crearRutina(this.rutina).then((resp) => {
+        this.loading = false;
         alert('Se creo la rutina con exito');
         this.router.navigate(['/rutinas']);
       }).catch((error) => {
+        this.loading = false;
         alert('No se pudo crear la rutina');
         this.router.navigate(['/rutinas']);
       })
@@ -79,13 +97,16 @@ export class CrearrutinasComponent {
       this.idEditar = this.rParaEditar.idRutina;
       this.submitted = true;
       if(this.rutina.nombre && this.selectedEjer.length > 0){
+        this.loading = true;
         this.ejerSubmitted = true;
         this.rutina.idRutina = this.idEditar;
         this.rutina.ejercicios = this.selectedEjer;
         this.servicioRutinas.modificarRutina(this.idEditar, this.rutina).then((resul)=>{
+          this.loading = false;
           alert("Se actualizo correctamente");
           this.router.navigate(['/rutinas']);
         }).catch((error)=>{
+          this.loading = false;
           alert("No se pudo actualizar");
           this.router.navigate(['/rutinas']);
         })
