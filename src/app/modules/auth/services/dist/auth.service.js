@@ -44,10 +44,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.AuthService = void 0;
 var core_1 = require("@angular/core");
+var rxjs_1 = require("rxjs");
 var AuthService = /** @class */ (function () {
     function AuthService(auth, cookieService) {
         this.auth = auth;
         this.cookieService = cookieService;
+        //FUNCIONES PARA VER SI ESTA LOGGEADO Y QUE TIPO DE USUARIO
+        this.loggedIn = new rxjs_1.BehaviorSubject(false);
+        this.userType = new rxjs_1.BehaviorSubject(undefined);
     }
     AuthService.prototype.iniciarSesion = function (email, contrasena) {
         return __awaiter(this, void 0, void 0, function () {
@@ -98,6 +102,22 @@ var AuthService = /** @class */ (function () {
     ;
     AuthService.prototype.getToken = function () {
         return this.cookieService.get("firebaseAuthToken");
+    };
+    AuthService.prototype.isLoggedIn = function () {
+        return this.loggedIn.asObservable();
+    };
+    AuthService.prototype.getUserType = function () {
+        return this.userType.asObservable();
+    };
+    AuthService.prototype.login = function (rol) {
+        this.loggedIn.next(true);
+        this.userType.next(rol);
+    };
+    AuthService.prototype.logout = function () {
+        this.loggedIn.complete();
+        this.loggedIn = new rxjs_1.BehaviorSubject(false);
+        this.userType.complete();
+        this.userType = new rxjs_1.BehaviorSubject(undefined);
     };
     AuthService = __decorate([
         core_1.Injectable({
