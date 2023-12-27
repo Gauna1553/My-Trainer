@@ -40,7 +40,7 @@ export class EjerciciosService {
     // snapshoot -> captura los cambios
     // pipe -> tuberia por donde viajan esos nuevos datos
     // map -> recorre esos datos y luego los lee
-    return  this.ejerciciosColeccion.snapshotChanges().pipe(map((action => action.map(a => a.payload.doc.data()))))
+    return this.ejerciciosColeccion.snapshotChanges().pipe(map((action => action.map(a => a.payload.doc.data()))))
 
     /*
       Esta función se encarga de llamar a los datos que se le solicitan, y mostrarlos en pantalla

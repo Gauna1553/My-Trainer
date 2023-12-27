@@ -42,88 +42,78 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.AuthService = void 0;
+exports.EjerciciosService = void 0;
 var core_1 = require("@angular/core");
 var rxjs_1 = require("rxjs");
-var AuthService = /** @class */ (function () {
-    function AuthService(auth, cookieService) {
-        this.auth = auth;
-        this.cookieService = cookieService;
-        //FUNCIONES PARA VER SI ESTA LOGGEADO Y QUE TIPO DE USUARIO
-        this.loggedIn = new rxjs_1.BehaviorSubject(false);
-        this.userType = new rxjs_1.BehaviorSubject(undefined);
+var EjerciciosService = /** @class */ (function () {
+    function EjerciciosService(database) {
+        this.database = database;
+        this.ejerciciosColeccion = database.collection('ejecicios');
     }
-    AuthService.prototype.iniciarSesion = function (email, contrasena) {
-        return __awaiter(this, void 0, void 0, function () {
-            var result, _a, _b, _c;
-            return __generator(this, function (_d) {
-                switch (_d.label) {
-                    case 0: return [4 /*yield*/, this.auth.signInWithEmailAndPassword(email, contrasena)];
-                    case 1:
-                        result = _d.sent();
-                        if (!result.user) return [3 /*break*/, 3];
-                        _b = (_a = this.cookieService).set;
-                        _c = ['firebaseAuthToken'];
-                        return [4 /*yield*/, result.user.getIdToken()];
-                    case 2:
-                        _b.apply(_a, _c.concat([_d.sent()]));
-                        _d.label = 3;
-                    case 3: return [2 /*return*/, result];
-                }
-            });
-        });
-    };
-    AuthService.prototype.registrarse = function (email, contrasena) {
-        // retorna nuevo valor de nombre y contrasena
-        return this.auth.createUserWithEmailAndPassword(email, contrasena);
-    };
-    AuthService.prototype.cerrarSesion = function () {
-        this.cookieService["delete"]('firebaseAuthToken');
-        return this.auth.signOut();
-    };
-    AuthService.prototype.getUid = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var user, token;
+    //funcion para crear un ejercicio nuevo
+    EjerciciosService.prototype.crearEjercicio = function (ejercicio) {
+        var _this = this;
+        return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+            var id, resultado, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.auth.currentUser];
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        id = this.database.createId();
+                        ejercicio.idEjercicio = id;
+                        return [4 /*yield*/, this.ejerciciosColeccion.doc(id).set(ejercicio)];
                     case 1:
-                        user = _a.sent();
-                        if (!(user == null)) return [3 /*break*/, 2];
-                        return [2 /*return*/, null];
-                    case 2: return [4 /*yield*/, (user === null || user === void 0 ? void 0 : user.getIdToken())];
-                    case 3:
-                        token = _a.sent();
-                        return [2 /*return*/, user.uid];
+                        resultado = _a.sent();
+                        resolve(resultado);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        reject(error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
+        }); });
+        /*
+          Esta función genera una nueva promesa asincrona en la cual se le asigna un ID al objeto ejercicio.
+        */
+        //async, es decir que se ejecuta de manera desfazada a nuestra petición
+    };
+    EjerciciosService.prototype.obtenerEjercicio = function () {
+        // snapshoot -> captura los cambios
+        // pipe -> tuberia por donde viajan esos nuevos datos
+        // map -> recorre esos datos y luego los lee
+        return this.ejerciciosColeccion.snapshotChanges().pipe(rxjs_1.map((function (action) { return action.map(function (a) { return a.payload.doc.data(); }); })));
+        /*
+          Esta función se encarga de llamar a los datos que se le solicitan, y mostrarlos en pantalla
+        */
+    };
+    //funcion para editar los ejercicios
+    /*Enviamos el id del ejercicio seleccionado y su nueva información*/
+    EjerciciosService.prototype.modificarEjercicio = function (idEjercicio, nuevaData) {
+        return this.ejerciciosColeccion.doc(idEjercicio).update(nuevaData);
+        /*
+          Esta función se encarga de llamar al objeto ejercicios, y modificar un valor ya existente
+        */
+    };
+    //funcion para Eliminar Ejercicios
+    EjerciciosService.prototype.eliminarEjercicios = function (idEjercicio) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            try {
+                var resp = _this.ejerciciosColeccion.doc(idEjercicio)["delete"]();
+                resolve(resp); //nos notifica que se elimino un producto
+            }
+            catch (error) {
+                reject(error); //devuelve el error
+            }
         });
     };
-    ;
-    AuthService.prototype.getToken = function () {
-        return this.cookieService.get("firebaseAuthToken");
-    };
-    AuthService.prototype.isLoggedIn = function () {
-        return this.loggedIn.asObservable();
-    };
-    AuthService.prototype.getUserType = function () {
-        return this.userType.asObservable();
-    };
-    AuthService.prototype.login = function (rol) {
-        this.loggedIn.next(true);
-        this.userType.next(rol);
-    };
-    AuthService.prototype.logout = function () {
-        this.loggedIn.complete();
-        this.loggedIn = new rxjs_1.BehaviorSubject(false);
-        this.userType.complete();
-        this.userType = new rxjs_1.BehaviorSubject(undefined);
-    };
-    AuthService = __decorate([
+    EjerciciosService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
-    ], AuthService);
-    return AuthService;
+    ], EjerciciosService);
+    return EjerciciosService;
 }());
-exports.AuthService = AuthService;
+exports.EjerciciosService = EjerciciosService;

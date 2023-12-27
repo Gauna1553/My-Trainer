@@ -7,7 +7,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'
 //Servicio de cookies para mantener al usuario logeado el tiempo que el quiera
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
-import { Usuario } from 'src/app/model/usuarios';
 
 
 
