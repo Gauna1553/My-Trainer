@@ -9,8 +9,9 @@ exports.__esModule = true;
 exports.EjerciciosComponent = void 0;
 var core_1 = require("@angular/core");
 var EjerciciosComponent = /** @class */ (function () {
-    function EjerciciosComponent(servicioEjercicios) {
+    function EjerciciosComponent(servicioEjercicios, servicioAuth) {
         this.servicioEjercicios = servicioEjercicios;
+        this.servicioAuth = servicioAuth;
         this.database = '';
         this.submitted = false;
         // Creo un arreglo para guardar la informacion que despues se recorre para armar la tabla
@@ -21,6 +22,8 @@ var EjerciciosComponent = /** @class */ (function () {
         this.ejerciciosDialog = false;
         //Defino la visibilidad del loading
         this.loading = false;
+        //Aca lo declaramos falso como default para que por las dudas no muestre nada
+        this.loggedIn = false;
         this.ejercicioss = {
             nombre: '',
             grupomuscular: '',
@@ -35,6 +38,16 @@ var EjerciciosComponent = /** @class */ (function () {
         this.servicioEjercicios.obtenerEjercicio().subscribe(function (ejercicios) {
             _this.ejerciciosColeccion = ejercicios;
             //Es una coleccion para poder seleccionar a mas de un elemento
+        });
+        //Aca lo que hacemos es que al iniciar el componente se subscriba al observable que nos dice si el usuario esta logeado o no
+        this.servicioAuth.isLoggedIn().subscribe(function (isLoggedIn) {
+            //Aca recibimos el valor en el parametro 'isLoggedIn' y comparamos si es verdadero o falso que esta logeado
+            if (isLoggedIn) {
+                _this.loggedIn = true;
+            }
+            else {
+                _this.loggedIn = false;
+            }
         });
     };
     //Esta funcion abre el popup al hacer que su visibilidad sea verdadera
